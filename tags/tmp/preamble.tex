@@ -1,0 +1,98 @@
+\IfFileExists{stacks-project.cls}{%
+\documentclass[oneside]{stacks-project}
+}{%
+\documentclass[oneside]{amsart}
+}
+
+% The following AMS packages are automatically loaded with
+% the amsart documentclass:
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+
+% For dealing with references we use the comment environment
+\usepackage{verbatim}
+\newenvironment{reference}{\comment}{\endcomment}
+%\newenvironment{reference}{}{}
+\newenvironment{slogan}{\comment}{\endcomment}
+\newenvironment{history}{\comment}{\endcomment}
+
+% For commutative diagrams you can use
+% \usepackage{amscd}
+\usepackage[all]{xy}
+
+% We use 2cell for 2-commutative diagrams.
+\xyoption{2cell}
+\UseAllTwocells
+
+% To put source file link in headers.
+% Change "template.tex" to "this_filename.tex"
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \lhead{}
+% \chead{}
+% \rhead{Source file: \url{template.tex}}
+% \lfoot{}
+% \cfoot{\thepage}
+% \rfoot{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+% \renewcommand{\headheight}{12pt}
+
+\usepackage{multicol}
+
+% For cross-file-references
+\usepackage{xr-hyper}
+
+% Package for hypertext links:
+\usepackage{hyperref}
+
+% For any local file, say "hello.tex" you want to link to please
+% use \externaldocument[hello-]{hello}
+\externaldocument[introduction-]{introduction}
+\externaldocument[conventions-]{conventions}
+\externaldocument[fdl-]{fdl}
+\externaldocument[index-]{index}
+
+% Theorem environments.
+%
+\theoremstyle{plain}
+\newtheorem{theorem}[subsection]{\href{http://localhost:8080/tag/\TAG}{Theorem}}
+\newtheorem{proposition}[subsection]{\href{http://localhost:8080/tag/\TAG}{Proposition}}
+\newtheorem{lemma}[subsection]{\href{http://localhost:8080/tag/\TAG}{Lemma}}
+
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{\href{http://localhost:8080/tag/\TAG}{Definition}}
+\newtheorem{example}[subsection]{\href{http://localhost:8080/tag/\TAG}{Example}}
+\newtheorem{exercise}[subsection]{\href{http://localhost:8080/tag/\TAG}{Exercise}}
+\newtheorem{situation}[subsection]{\href{http://localhost:8080/tag/\TAG}{Situation}}
+
+\theoremstyle{remark}
+\newtheorem{remark}[subsection]{\href{http://localhost:8080/tag/\TAG}{Remark}}
+\newtheorem{remarks}[subsection]{\href{http://localhost:8080/tag/\TAG}{Remarks}}
+
+\numberwithin{equation}{subsection}
+
+% Macros
+%
+\def\lim{\mathop{\rm lim}\nolimits}
+\def\colim{\mathop{\rm colim}\nolimits}
+\def\Spec{\mathop{\rm Spec}}
+\def\Hom{\mathop{\rm Hom}\nolimits}
+\def\SheafHom{\mathop{\mathcal{H}\!{\it om}}\nolimits}
+\def\SheafExt{\mathop{\mathcal{E}\!{\it xt}}\nolimits}
+\def\Sch{\textit{Sch}}
+\def\Mor{\mathop{\rm Mor}\nolimits}
+\def\Ob{\mathop{\rm Ob}\nolimits}
+\def\Sh{\mathop{\textit{Sh}}\nolimits}
+\def\NL{\mathop{N\!L}\nolimits}
+\def\proetale{{pro\text{-}\acute{e}tale}}
+\def\etale{{\acute{e}tale}}
+\def\QCoh{\textit{QCoh}}
+\def\Ker{\text{Ker}}
+\def\Im{\text{Im}}
+\def\Coker{\text{Coker}}
+\def\Coim{\text{Coim}}
+\usepackage{marginnote}
+\renewcommand*{\marginfont}{\normalfont}
+\date{This is a chapter of the Stacks Project, version , compiled on Nov 01, 2016.}

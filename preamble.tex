@@ -1,0 +1,95 @@
+\IfFileExists{stacks-project.cls}{%
+\documentclass{stacks-project}
+}{%
+\documentclass{amsart}
+}
+
+% The following AMS packages are automatically loaded with
+% the amsart documentclass:
+%\usepackage{amsmath}
+%\usepackage{amssymb}
+%\usepackage{amsthm}
+
+% For dealing with references we use the comment environment
+\usepackage{verbatim}
+\newenvironment{reference}{\comment}{\endcomment}
+%\newenvironment{reference}{}{}
+\newenvironment{slogan}{\comment}{\endcomment}
+\newenvironment{history}{\comment}{\endcomment}
+
+% For commutative diagrams you can use
+% \usepackage{amscd}
+\usepackage[all]{xy}
+
+% We use 2cell for 2-commutative diagrams.
+\xyoption{2cell}
+\UseAllTwocells
+
+% To put source file link in headers.
+% Change "template.tex" to "this_filename.tex"
+% \usepackage{fancyhdr}
+% \pagestyle{fancy}
+% \lhead{}
+% \chead{}
+% \rhead{Source file: \url{template.tex}}
+% \lfoot{}
+% \cfoot{\thepage}
+% \rfoot{}
+% \renewcommand{\headrulewidth}{0pt}
+% \renewcommand{\footrulewidth}{0pt}
+% \renewcommand{\headheight}{12pt}
+
+\usepackage{multicol}
+
+% For cross-file-references
+\usepackage{xr-hyper}
+
+% Package for hypertext links:
+\usepackage{hyperref}
+
+% For any local file, say "hello.tex" you want to link to please
+% use \externaldocument[hello-]{hello}
+\externaldocument[introduction-]{introduction}
+\externaldocument[conventions-]{conventions}
+\externaldocument[fdl-]{fdl}
+\externaldocument[index-]{index}
+
+% Theorem environments.
+%
+\theoremstyle{plain}
+\newtheorem{theorem}[subsection]{Theorem}
+\newtheorem{proposition}[subsection]{Proposition}
+\newtheorem{lemma}[subsection]{Lemma}
+
+\theoremstyle{definition}
+\newtheorem{definition}[subsection]{Definition}
+\newtheorem{example}[subsection]{Example}
+\newtheorem{exercise}[subsection]{Exercise}
+\newtheorem{situation}[subsection]{Situation}
+
+\theoremstyle{remark}
+\newtheorem{remark}[subsection]{Remark}
+\newtheorem{remarks}[subsection]{Remarks}
+
+\numberwithin{equation}{subsection}
+
+% Macros
+%
+\def\lim{\mathop{\rm lim}\nolimits}
+\def\colim{\mathop{\rm colim}\nolimits}
+\def\Spec{\mathop{\rm Spec}}
+\def\Hom{\mathop{\rm Hom}\nolimits}
+\def\SheafHom{\mathop{\mathcal{H}\!{\it om}}\nolimits}
+\def\SheafExt{\mathop{\mathcal{E}\!{\it xt}}\nolimits}
+\def\Sch{\textit{Sch}}
+\def\Mor{\mathop{\rm Mor}\nolimits}
+\def\Ob{\mathop{\rm Ob}\nolimits}
+\def\Sh{\mathop{\textit{Sh}}\nolimits}
+\def\NL{\mathop{N\!L}\nolimits}
+\def\proetale{{pro\text{-}\acute{e}tale}}
+\def\etale{{\acute{e}tale}}
+\def\QCoh{\textit{QCoh}}
+\def\Ker{\text{Ker}}
+\def\Im{\text{Im}}
+\def\Coker{\text{Coker}}
+\def\Coim{\text{Coim}}

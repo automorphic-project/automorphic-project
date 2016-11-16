@@ -1,0 +1,28 @@
+# List of current tags in the automorphic project
+# Each line is of the form
+#	tag,full_label
+# where full label is the label as it occurs in book.tex
+# this means that if you see a line
+#	\label{lemma-separated}
+# in the file schemes.tex then the full_label is
+#	schemes-lemma-separated
+0000,introduction-section-phantom
+0001,introduction-section-overview
+06LB,introduction-section-attribution
+0002,conventions-section-phantom
+0003,conventions-section-comments
+0004,conventions-section-sets
+0005,conventions-section-categories
+0006,conventions-section-algebra
+02C1,fdl-section-phantom
+05BG,fdl-section-applicability-and-definitions
+05BH,fdl-section-verbatim-copying
+05BI,fdl-section-copying-in-quantity
+05BJ,fdl-section-modifications
+05BK,fdl-section-combining-documents
+05BL,fdl-section-collections-of-documents
+05BM,fdl-section-aggregation-with-independent-works
+05BN,fdl-section-translation
+05BP,fdl-section-termination
+05BQ,fdl-section-future-revisions-of-this-license
+05BR,fdl-section-addendum-how-to-use-this-license-for-your-documents
