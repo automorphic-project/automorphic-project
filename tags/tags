@@ -6,14 +6,6 @@
 #	\label{lemma-separated}
 # in the file schemes.tex then the full_label is
 #	schemes-lemma-separated
-0000,introduction-section-phantom
-0001,introduction-section-overview
-06LB,introduction-section-attribution
-0002,conventions-section-phantom
-0003,conventions-section-comments
-0004,conventions-section-sets
-0005,conventions-section-categories
-0006,conventions-section-algebra
 02C1,fdl-section-phantom
 05BG,fdl-section-applicability-and-definitions
 05BH,fdl-section-verbatim-copying

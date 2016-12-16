@@ -4,7 +4,7 @@
 
 # Master list of stems of tex files in the project.
 # This should be in order.
-LIJST = introduction conventions 
+LIJST = introduction representationtheory algebraicgroups harmonicanalysis automorphicforms periods traceformulalocal traceformulaglobal arithmetic geometric
 
 # Add index and fdl to get index and license latexed as well.
 LIJST_FDL = $(LIJST) fdl index

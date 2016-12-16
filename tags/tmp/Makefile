@@ -5,7 +5,7 @@
 # Master list of stems of tex files in the project.
 # Should be the same as in the main Makefile
 # except that it includes the bibliography
-LIJST = introduction conventions bibliography
+LIJST = introduction representationtheory algebraicgroups harmonicanalysis automorphicforms periods traceformulalocal traceformulaglobal arithmetic geometric bibliography
 
 # book is a special case
 LIJST_TAGS = $(LIJST) fdl index
