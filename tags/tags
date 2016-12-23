@@ -6,6 +6,26 @@
 #	\label{lemma-separated}
 # in the file schemes.tex then the full_label is
 #	schemes-lemma-separated
+0000,introduction-section-phantom
+0001,introduction-section-overview
+0100,representationtheory-section-phantom
+0101,representationtheory-section-overview
+0200,algebraicgroups-section-phantom
+0201,algebraicgroups-section-overview
+0300,harmonicanalysis-section-phantom
+0301,harmonicanalysis-section-overview
+0400,automorphicforms-section-phantom
+0401,automorphicforms-section-overview
+0500,periods-section-phantom
+0501,periods-section-overview
+0600,traceformulalocal-section-phantom
+0601,traceformulalocal-section-overview
+0700,traceformulaglobal-section-phantom
+0701,traceformulaglobal-section-overview
+0800,arithmetic-section-phantom
+0801,arithmetic-section-overview
+0900,geometric-section-phantom
+0901,geometric-section-overview
 02C1,fdl-section-phantom
 05BG,fdl-section-applicability-and-definitions
 05BH,fdl-section-verbatim-copying
