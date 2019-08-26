@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# This script makes some assumptions that only apply to the automorphic project.
+# This script makes some assumptions that only apply to the stacks project.
 # But if you know how to read this script then it should be fairly easy to
 # figure out what they are and adapt them to your specific case.
 
@@ -38,7 +38,7 @@ cp $STEM.toc $TMPD
 cd $TMPD
 $LATEX $STEM.tex
 
-# Move newly created files back to automorphic project directoy
+# Move newly created files back to stacks project directoy
 mv $STEM.pdf $STEM.dvi $STEM.aux $STEM.toc $STEM.out $STEM.log $SPD
 
 # Remove temporary directory

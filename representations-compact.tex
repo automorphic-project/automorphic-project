@@ -1,0 +1,229 @@
+\input{preamble}
+
+% OK, start here.
+%
+\begin{document}
+
+\title{Representations of compact groups}
+
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+
+\tableofcontents
+
+
+The (complex) representation theory of compact groups, in a nutshell:
+\begin{enumerate}
+ \item All representations are unitarizable, by averaging an inner product against Haar measure.
+ \item All unitary representations decompose into (Hilbert space, i.e., orthogonal and completed) direct sums of finite-dimensional irreducibles (the Peter--Weyl theorem), because operators of convolution by continuous measures are Hilbert--Schmidt (hence compact).
+\end{enumerate}
+
+
+In this chapter, $G$ is a compact group, and we fix throughout the probability Haar measure $dg$. Multiplication of functions by $dg$ turns them into measures which can act on the space of a representation $\pi$, and we feel free to write $\pi(f)$ for $\pi(f dg)$. 
+
+\section{Unitarity}
+\label{section-unitarity}
+
+\begin{proposition}
+\label{proposition-compact-unitarizable}
+ Let $(\pi,V)$ be a representation of $G$ on a space admitting an inner product (positive definite hermitian form). Then, it is unitarizable.
+\end{proposition}
+
+\begin{proof}
+ Take any positive definite hermitian form $\left< \, , \,\right>'$, and integrate it over the action of the group in order to make it invariant:
+ $$ \left<  v, v\right>:= \int_G \left< \pi(g) v, \pi(g) v\right>' dg.$$
+\end{proof}
+
+\section{Hilbert--Schmidt property of continuous convolution operators}
+\label{section-Hilbert-Schmidt}
+
+Given a Hilbert space $V$, its linear dual $V^*$ is identified with its complex conjugate $\bar V$. We denote by $B(V)=\text{End}(V)$ the space of bounded linear operators on $V$, and by $\hat\otimes$ the Hilbert space tensor product of two Hilbert spaces, i.e., the completion of the algebraic tensor product with respect to the Hilbert norm characterized by $\Vert v \otimes w\Vert = \Vert v\Vert\cdot \Vert w \Vert$.
+
+There is a natural embedding $\bar V\hat\otimes V \hookrightarrow B(V)$, with $\bar v_1 \otimes v_2$ mapping 
+to the operator 
+$ w\mapsto \left<  w, v_1 \right> \cdot v_2$.
+The image is the space of {\it Hilbert--Schmidt operators}, and the Hilbert norm on $\bar V\hat\otimes V$ is the Hilbert--Schmidt norm. Hilbert--Schmidt operators are {\it compact}: they map bounded sets to precompact sets. (It is an easy exercise to prove this, using the explicit expression $\Vert T\Vert_{HS}^2 = \sum_i \Vert Te_i\Vert^2$.)
+
+
+\begin{proposition}
+\label{proposition-continuousconvolution-compact}
+ Let $L$ (resp.\ $R$) denote the left (resp.\ right) regular representation of $G$ on $L^2(G)$. For every continuous measure $\mu$ on $G$ the operator $L(\mu)$ (resp.\ $R(\mu)$) is Hilbert-Schmidt and, hence, compact.
+\end{proposition}
+
+\begin{proof}
+ Let $\mu=h dg$. Then the operator $L(\mu)$ has the integral expression:
+$$ L(\mu)(f)(x) = \int_{H} K_h(x,y) f(y) dy,$$
+where the kernel is given by:
+$$ K_h(x,y) = h(xy^{-1}) dh.$$
+
+The Hilbert Schmidt norm of an integral operator $T$ with kernel $K$ on a measure space $(X,dx)$ is given by:
+$$ \Vert T\Vert_{HS}^2= \Vert K\Vert^2_{L^2(X\times X)}.$$
+In particular, $L(\mu)$ is Hilbert-Schmidt. (It was important here that the group was compact for the $L^2$-norm of $K_h$ to be finite.) 
+\end{proof}
+
+
+
+\section{Recollection of spectral theorems}
+\label{section-recollection-spectraltheorems}
+
+We recall the following spectral theorems from functional analysis. 
+
+Let $V$ be a Hilbert space. The \emph{adjoint} of a (bounded) operator $T$ on $V$ is the operator $T^*$ with $\left<  T^*v,w\right>=\left<  v,Tw\right>$. An operator $T$ is called \emph{normal} if $T^* T = T T^*$, and \emph{self-adjoint} if $T=T^*$. The \emph{spectrum} $\sigma(T)$ of an operator $T$ is the (closed) subset of all $\lambda\in \mathbb C$ such that $T-\lambda I$ is not invertible. 
+
+The idea of the spectral theorem is that the space $V$ decomposes as an ``integral'' of ``eigenspaces'' of $T$. A familiar case of an integral of eigenspaces is when $V=L^2(\mathbb R)$, in which case the theory of Fourier transform says:
+$$V= \int_{i\mathbb R} \left< e^{sx}\right> ds,$$
+with the spaces $\left< e^{sx}\right>$ being eigenspaces for all translation operators. 
+
+\begin{theorem}[Spectral theorem for normal operators]
+\label{theorem-spectraltheorem-normal}
+ If $T$ is a normal operator on a Hilbert space $V$ then there is a measure space $(X,\mathcal B,\mu)$, a measurable function $\lambda: X\to \mathbb C$ and a unitary isomorphism: $V \simeq L^2(X,\mu)$ which carries the operator $T$ to ``multiplication by $\lambda$''.
+ 
+ Moreover, for every measurable $\omega\subset \mathbb C$, let $E(\omega)$ be the projection (restriction) $L^2(X,\mu) \to L^2(\lambda^{-1}(\omega),\mu)$. Then, $E(\sigma(T))=I$, $E(\omega)\ne 0$ for every relatively open nonempty subset of $\sigma(T)$, and $E(\omega)$ commutes with the commutator of $T$ in $B(V)$.
+\end{theorem}
+
+\begin{proof}
+ See \cite[Theorem 12.23]{Rudin}. The measure space space $(X,\mu)$ in our formulation is not canonical, but can be obtained from the more canonical formulation of \emph{loc.cit}.\ by considering subspaces of $V$ of the form $\overline{\mathbb C[T]v}$, for $v\in V$. 
+\end{proof}
+
+
+
+An operator on a Hilbert space is \emph{compact} if it can be approximated in the operator norm by operators with finite-dimensional range. Equivalently, if it maps bounded sets to precompact sets (i.e.\ sets whose closure is compact). 
+
+\begin{theorem}
+\label{theorem-spectraltheorem-compact} 
+ Let $T$ be a compact self-adjoint operator on a Hilbert space $V$, then there is a sequence of eigenvectors $v_n$ with (real) eigenvalues $0\ne\lambda_n\to 0$ (or a finite number of such eigenvalues, if the space is finite-dimensional) such that 
+ $$V = \ker T \oplus \hat{\bigoplus}_n \left< v_n\right>,$$
+a Hilbert space (i.e., orthogonal and completed) direct sum. 
+\end{theorem}
+
+\begin{proof}
+ See \cite[Theorem 12.30]{Rudin}.
+\end{proof}
+
+
+In particular, all eigenspaces with nonzero eigenvalues are finite-dimensional.
+
+
+\begin{theorem}[Schur's lemma]
+\label{theorem-Schurslemma}
+ If $V, V'$ are two irreducible unitary representations of a group $G$, and $T \in \Hom^G(V,V')$, then $T$ is a scalar multiple of an isometry.
+\end{theorem}
+
+\begin{proof}
+ It is enough to show that the self-adjoint bounded operators $T^* T$ and $T T^*$ are scalars. Let $S$ be one of these operators, and apply the spectral theorem. We claim that the spectrum $\sigma(S)$ is a singleton, hence making $S$ a scalar operator. Otherwise, by Theorem \ref{theorem-spectraltheorem-normal}, for two non-empty, disjoint open subsets of $\sigma(S)$, the corresponding projections $E(\omega_1)$ and $E(\omega_2)$ are non-zero, and have orthogonal images. But these projections commute with the action of $G$, which commutes with $T$, hence $V$ cannot be irreducible.
+\end{proof}
+
+
+
+\section{Peter--Weyl theorems} \label{PeterWeyl}
+\label{section-PeterWeyl}
+
+Let $H$ be a compact group, and consider the space $V=L^2(H)$. It is a unitary representation for $G=H\times H$. 
+
+\begin{lemma}
+\label{lemma-matrixcoefficient}
+\begin{enumerate}
+  \item For any finite-dimensional irreducible representation $\pi$ of $H$, we have an embedding $M_\pi: \pi^*\otimes\pi\to C(H) \subset L^2(H)$ given by the matrix coefficient map
+  $$ \tilde v\otimes v \mapsto (h\mapsto \left< \pi(h) v, \tilde v\right>).$$
+  \item For non-isomorphic $\pi$'s, the images of these embeddings are orthogonal.
+ \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+ The matrix coefficient map is an embedding (injection), because it is clearly non-zero, and $\pi^*\otimes\pi$ is an irreducible representation of $G=H\times H$.
+ 
+ If $\pi, \sigma$ are irreducible and non-isomorphic, the orthogonal projection from the image of $M_\pi$ to the image of $M_\sigma$ is $G$-equivariant, and since $\pi^*\otimes \pi$ is not isomorphic to $\sigma^*\otimes \sigma$, it has to be zero.
+\end{proof}
+
+
+Notice that the image of the matrix coefficient map consists of \emph{(left and right) finite} vectors (since $\pi\otimes\pi^*$ is finite dimensional). Our goal is to prove:
+
+\begin{theorem}[Peter--Weyl theorem]
+\label{theorem-PeterWeyl}
+The matrix coefficient maps give rise to a canonical isomorphism
+$$L^2(H)\simeq \hat\bigoplus_\pi \pi^*\otimes \pi$$
+(Hilbert space direct sum),
+where $\pi$ runs over representatives for the isomorphism classes of irreducible, finite dimensional representations of $H$.
+\end{theorem}
+
+\begin{proof}
+ We prove the theorems in steps. 
+
+\begin{itemize}
+ \item Let $\mu_n$ be a sequence of approximations of the identity in $H$, i.e.\ positive probability measures whose mass is eventually concentrated in any neighborhood of the identity. Then for any Banach representation $(\pi,V)$ and vector $v\in V$ we have $\pi(\mu_n)v\to v$.
+ 
+ Indeed, $\mu_n\to \delta_1$ in the measure space $M(H)$, and we have seen (Proposition \ref{representationtheory-proposition-integral-Banach}) that the map $\pi: M(H)\to \text{End}(V)$ is continuous.
+
+ 
+ \item For any subrepresentation $V$ of $L^2(H)$ under the right (or left) regular action, continuous functions are dense in $V$. 
+
+Indeed, it is enough to choose a continuous approximation of the identity and convolve elements of $V$ with it; the convolution of any function with a continuous measure is continuous.
+
+\item Right-finite (or left-finite) functions are dense in any closed, invariant subspace of $L^2(H)$. 
+
+This is the most important step of the proof. Assume to the contrary that there is a non-zero closed subspace $V$ without any right finite functions. We can find a continuous, self-adjoint measure $\mu$ on $H$ such that $L(\mu)V\ne 0$. (Indeed, we can do this by approximating the identity by continuous, self-adjoint measures; here by self-adjoint we mean that the operator $L(\mu)$ is self-adjoint, which is equivalent to $h(g^{-1})=\overline{h(g)}$ if $\mu=hdg$ --- exercise!.) We know (Proposition \ref{proposition-continuousconvolution-compact}) that $L(\mu)$ is compact, hence by the Spectral Theorem \ref{theorem-spectraltheorem-compact} there is a non-zero (real) eigenvalue $\lambda$ of $L(\mu)$, and the $\lambda$-eigenspace is finite-dimensional. But the $\lambda$-eigenspace for $L(\mu)$ is stable under the right action of $H$, hence there are right-finite vectors, a contradiction.
+
+\end{itemize}
+
+Now let $\pi$ be a finite-dimensional irreducible representation of $H$; by the previous point, such representations exist. We have a tautological map $T:\text{Hom}(\pi, L^2(H)) \otimes \pi\to L^2(H)$, where $\text{Hom}$ refers here to the right regular representation. Moreover, the image of $T$ lies in the subspace $C(H)$ of continuous functions. If we endow the space $\text{Hom}(\pi, L^2(H))$ with the action induced from the left regular representation of $H$ on $L^2(H)$, the map $T$ is equivariant. Evaluation at the identity defines a morphism $\text{Hom}(\pi, L^2(H)) \to \pi^*$, whose kernel is (tautologically) trivial. We conclude that the $\pi$-isotypic component of $L^2(H)$ under the right representation (the image of $T$) is isomorphic to $\pi^*\otimes \pi$. Those subspaces, as the isomorphism class of $\pi$ varies, are mutually orthogonal by Lemma \ref{lemma-matrixcoefficient}, and they span a dense subspace, by the points above. This proves the theorem.
+\end{proof}
+
+
+\begin{theorem}
+\label{theorem-PeterWeyl-general}
+ Every Fr\'echet representation of $H$ contains a dense subspace of finite vectors. In particular, every irreducible Fr\'echet represenation is finite dimensional. Every Hilbert representation of $H$ is the Hilbert space direct sum of irreducibles.
+\end{theorem}
+
+
+\begin{proof}
+
+Choose an approximation of the identity by $L^2$-measures $f_ndh$. By Theorem \ref{theorem-PeterWeyl}, we can approximate $f_n$ in $L^2(H)$, and hence in $L^1(H)$, by left-finite functions, thus there is a sequence of left-finite measures $\mu_n$ such that $\mu_n\to \delta_1$. Then, for any vector $v\in V$ we have: $\pi(\mu_n)v\to v$. This follows from Proposition \ref{representationtheory-proposition-integral-Banach}, together with the (easy) fact that, for compact groups, every Fr\'echet representation is an $F$-representation, in the language of \ref{representationtheory-section-Frepresentations}.
+
+But, for a vector $v\in V$, $\pi(\mu_n)v$ is finite since $\mu_n$ is left-finite. This proves the first claim, and the others follow easily.
+
+\end{proof}
+
+
+
+
+\begin{proposition}
+\label{proposition-denseinclusions} 
+Assume that $H$ is a compact Lie group (or just a compact group, ignoring mentions of smooth vectors below). We have a sequence of dense inclusions of Fr\'echet spaces:
+\begin{equation}
+ L^2(H)_{\text{fin}} \subset C^\infty(H) \subset C(H)\subset L^2(H),
+\end{equation}
+where $~_{\text{fin}}$ denotes left and right finite functions.
+\end{proposition}
+
+\begin{proof}
+If $H$ is a Lie group, we can show as in the proof of Theorem \ref{theorem-PeterWeyl}, by choosing a smooth approximation of the identity, that any subrepresentation of $L^2(H)$ contains a dense subspace of smooth vectors, and that $L^2(H)_{\text{fin}}$ belongs to the space of smooth functions. 
+
+
+We then apply Theorem \ref{theorem-PeterWeyl-general} to any of these Fr\'echet spaces, viewed as a represenation of the group $H\times H$. 
+
+
+ 
+\end{proof}
+
+
+
+
+
+
+
+
+
+
+
+
+\input{chapters}
+
+
+\bibliography{my}
+\bibliographystyle{amsalpha}
+
+\end{document}

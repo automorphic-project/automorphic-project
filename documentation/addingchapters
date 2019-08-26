@@ -1,0 +1,29 @@
+[HAS TO BE UPDATED TO GERBY]
+
+For a new chapter:
+
+1) Create tex file 
+
+2) ./tex/Makefile:
+
+LIJST = [..] filename
+
+3) Same on /tex/tags/Makefile
+
+4) ./tex/chapters.tex:
+
+\item \hyperref[newchapter-section-phantom]{New Chapter}
+
+5) ./tex/preamble.tex:
+
+\externaldocument[newchapter-]{newchapter}
+
+6) ./tex/tags/tags:
+
+Create tags such as:
+
+0150,newchapter-section-phantom
+0151,newchapter-section-overview
+
+7) Add parts, accordingly, in ./index.php
+

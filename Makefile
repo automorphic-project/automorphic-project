@@ -4,7 +4,9 @@
 
 # Master list of stems of tex files in the project.
 # This should be in order.
-LIJST = introduction representationtheory algebraicgroups harmonicanalysis automorphicforms periods traceformulalocal traceformulaglobal arithmetic geometric
+LIJST = introduction representationtheory representations-compact \
+	liegroups-general liestructure reductiveforms vermamodules gKmodules \
+	asymptotics plancherel discreteseries
 
 # Add index and fdl to get index and license latexed as well.
 LIJST_FDL = $(LIJST) fdl index
@@ -217,3 +219,14 @@ install:
 	@echo "% To install the project, use the tags_install target %"
 	@echo "% Be sure to change INSTALLDIR value in the Makefile! %"
 	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+
+WEBDIR=../WEB
+.PHONY: web
+web: tmp/index.tex
+	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+	@echo "% Stuff in WEBDIR will be overwritten!!!!!!!!!        %"
+	@echo "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+	cp my.bib $(WEBDIR)/my.bib
+	cp tags/tags $(WEBDIR)/tags
+	python2 ./scripts/web_book.py "$(CURDIR)" > $(WEBDIR)/book.tex
+    

@@ -10,6 +10,8 @@
 %\usepackage{amssymb}
 %\usepackage{amsthm}
 
+
+
 % For dealing with references we use the comment environment
 \usepackage{verbatim}
 \newenvironment{reference}{\comment}{\endcomment}
@@ -51,12 +53,23 @@
 % use \externaldocument[hello-]{hello}
 \externaldocument[introduction-]{introduction}
 \externaldocument[representationtheory-]{representationtheory}
-\externaldocument[algebraicgroups-]{algebraicgroups} \externaldocument[harmonicanalysis-]{harmonicanalysis} \externaldocument[automorphicforms-]{automorphicforms}
-\externaldocument[periods-]{periods}
-\externaldocument[traceformulalocal-]{traceformulalocal}
-\externaldocument[traceformulaglobal-]{traceformulaglobal}
-\externaldocument[arithmetic-]{arithmetic}
-\externaldocument[geometric-]{geometric}
+\externaldocument[representations-compact-]{representations-compact}
+\externaldocument[liegroups-general-]{liegroups-general}
+\externaldocument[liestructure-]{liestructure} 
+\externaldocument[reductiveforms-]{reductiveforms}
+\externaldocument[vermamodules-]{vermamodules}
+\externaldocument[gKmodules-]{gKmodules}
+\externaldocument[asymptotics-]{asymptotics}
+\externaldocument[plancherel-]{plancherel}
+\externaldocument[discreteseries-]{discreteseries}
+%\externaldocument[algebraicgroups-]{algebraicgroups} 
+%\externaldocument[harmonicanalysis-]{harmonicanalysis} 
+%\externaldocument[automorphicforms-]{automorphicforms}
+%\externaldocument[periods-]{periods}
+%\externaldocument[traceformulalocal-]{traceformulalocal}
+%\externaldocument[traceformulaglobal-]{traceformulaglobal}
+%\externaldocument[arithmetic-]{arithmetic}
+%\externaldocument[geometric-]{geometric}
 \externaldocument[fdl-]{fdl}
 \externaldocument[index-]{index}
 
@@ -99,3 +112,5 @@
 \def\Im{\text{Im}}
 \def\Coker{\text{Coker}}
 \def\Coim{\text{Coim}}
+
+\def\eqref #1{(\ref{#1})}

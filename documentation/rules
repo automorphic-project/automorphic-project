@@ -56,7 +56,7 @@ separator. The first part of the short label is one of
 
 see list_of_standard_labels in scripts/functions.py. The same short label
 can be defined in different chapter files. We define the long label
-associated to a short label <sort> in the chapter <name>.tex to be
+associated to a short label <short> in the chapter <name>.tex to be
 
 	<name>-<short>
 
@@ -157,7 +157,7 @@ Obviously you can argue about this forever. Some of these rules have to do with
 readability of the latex files and some have to do with the overal setup of the
 project as well as the tags system (which is discussed elsewhere).
 
-* Every line has at most 80 characters
+* [THIS WAS A RULE OF THE STACKS PROJECT THAT HAS NOT BEEN ADOPTED BY THE AUTOMORPHIC PROJECT:] Every line has at most 80 characters
 
 * The following are on a line by themselves
 	\begin{...}

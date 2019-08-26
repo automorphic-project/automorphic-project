@@ -4,7 +4,7 @@ def get_path():
 	if not len(argv) == 2:
 		print
 		print "This script needs exactly one argument"
-		print "namely the path to the automorphic project directory"
+		print "namely the path to the stacks project directory"
 		print
 		raise Exception('Wrong arguments')
 	path = argv[1]
@@ -52,6 +52,12 @@ def is_label(env_text):
 # Check if there are references on the line
 def contains_ref(line):
 	n = line.find("\\ref{")
+	if n < 0:
+		return 0
+	return 1
+
+def contains_eqref(line):
+	n = line.find("\\eqref{")
 	if n < 0:
 		return 0
 	return 1
@@ -131,6 +137,11 @@ def get_new_tags(path, tags):
 				last_tag = next_tag(last_tag)
 				new_tags.append([last_tag, labels[n]])
 			n = n + 1
+	parts = get_parts(path)
+	for part in parts:
+		if parts[part][1] not in label_tags:
+				last_tag = next_tag(last_tag)
+				new_tags.append([last_tag, parts[part][1]])
 	return new_tags
 
 # print out the new tags as found by get_new_tags
@@ -151,11 +162,30 @@ def write_new_tags(path, new_tags):
 	tag_file.close()
 	return
 
+def get_parts(path):
+	lijst = list_text_files(path)
+	lijst.append('index')
+	lijst.append('xxx')
+	parts = {}
+	chapters = open(path + "chapters.tex", 'r')
+	n = 0
+	name = lijst[n]
+	for line in chapters:
+		if line.find(name + '-section-phantom') >= 0:
+			n = n + 1
+			name = lijst[n]
+		if line.find('\\') < 0:
+			title = line.rstrip()
+			label = 'book-part-' + "-".join(title.lower().split())
+			parts[name] = [title, label]
+	chapters.close()
+	return(parts)
+
 ########################################################################
 #
 #
 # The rest of the code is shared with the code in the file
-# functions.py in automorphic-tools
+# functions.py in stacks-tools
 #
 #
 ########################################################################
@@ -277,3 +307,53 @@ def labeled_env(env):
 		n = n + 1
 	return 0
 
+# Replace refs to refs with full labels
+def replace_refs(line, name):
+	n = 0
+	while n < len(list_of_standard_labels):
+		text = "\\ref{" + list_of_standard_labels[n] + "-"
+		repl = "\\ref{" + name + "-" + list_of_standard_labels[n] + "-"
+		line = line.replace(text, repl)
+		n = n + 1
+	return line
+
+def replace_eqrefs(line, name):
+	n = 0
+	while n < len(list_of_standard_labels):
+		text = "\\eqref{" + list_of_standard_labels[n] + "-"
+		repl = "\\eqref{" + name + "-" + list_of_standard_labels[n] + "-"
+		line = line.replace(text, repl)
+		n = n + 1
+	return line
+
+
+# Chapters unmodified
+def print_chapters(path):
+	chapters = open(path + "chapters.tex", 'r')
+	for line in chapters:
+		print line,
+	chapters.close()
+	return
+
+# Print version and date
+def print_version(path):
+	from datetime import date
+	now = date.today()
+	version = git_version(path)
+	print "Version " + version + ", compiled on " + now.strftime('%h %d, %Y.')
+
+
+# Print license blurp
+def print_license_blurp(path):
+	filename = path + 'introduction.tex'
+	introduction = open(filename, 'r')
+	inside = 0
+	for line in introduction:
+		if line.find('\\begin{verbatim}') == 0:
+			inside = 1
+		if inside == 0:
+			continue
+		print line,
+		if line.find('\\end{verbatim}') == 0:
+			inside = 0
+	introduction.close()

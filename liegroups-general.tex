@@ -1,0 +1,711 @@
+\input{preamble}
+
+% OK, start here.
+%
+\begin{document}
+
+\title{Lie groups and Lie algebras: general properties}
+
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+
+\tableofcontents
+
+
+
+In this chapter we begin studying representations of compact, and non-compact, Lie and algebraic groups. The focus will be on the representation theory of \emph{reductive algebraic groups} over $\mathbb R$, and over the $p$-adic numbers. All compact Lie groups are reductive algebraic, and most of the interesting non-compact Lie groups are such. 
+
+The study of \emph{continuous representations} of \emph{compact Lie groups} goes in parallel with the study of \emph{algebraic representations} of their \emph{complexifications}, and with \emph{finite-dimensional representations} of their \emph{Lie algebras}. We will introduce these topics a little more generally, in order to be able to use them later for \emph{non-compact Lie (algebraic) groups} and their \emph{infinite-dimensional representations}.
+
+\section{Lie groups, group schemes, algebraic groups}
+\label{section-Liegroups}
+
+\begin{definition}
+ \label{definition-Liegroup}
+A {\it Lie group} is a group in the category of differentiable manifolds. 
+\end{definition}
+
+\begin{remark}
+ \label{remark-Liegroup-analytic}
+As a corollary of the Baker--Campbell--Hausdorff formula that we will prove later, any Lie group is automatically real-analytic. See Proposition \ref{proposition-analyticity}. In many references it is defined from the outset as a group in the category of analytic manifolds.
+\end{remark}
+
+
+\begin{definition}
+\label{definition-groupscheme}
+A {\it group scheme} (over a base scheme $S$) is a group in the category of ($S$-)schemes. 
+\end{definition}
+
+ 
+If $S=\text{Spec}(k)$, where $k$ is a field in \emph{characteristic zero}, then a $k$-group scheme is automatically \emph{smooth} over $k$, see \ref{blah}. This is not the case in positive characteristic, as the following example shows:
+
+\begin{example}
+ \label{example-Frobeniuskernel}
+Consider the (smooth) additive group scheme over $k=\mathbb F_p$:
+$$\mathbb G_a = \text{Spec} k[T]$$
+with the obvious group structure. For instance, addition $\mathbb G_a\times\mathbb G_a\to \mathbb G_a$ is given by the morphism induced by: 
+$$k[T] \ni f(T)\mapsto f(T_1,T_2) \in k[T]\otimes_k k[T]=k[T_1,T_2].$$
+
+
+Now consider the ``Frobenius'' homomorphism:
+\begin{eqnarray*}
+\mathbb G_a &\to&\mathbb G_a \\
+k[T] \ni f(T^p) &\leftarrow & f(T) \in k[T]. 
+\end{eqnarray*}
+The \emph{kernel} $K$ of this homomorphism is, as a scheme, isomorphic to $k[T]/(T^p)$, with the embedding $K\to \mathbb G_a$ given by the quotient map:
+$$k[T] \to k[T]/(T^p)$$
+and the inherited addition morphism:
+$$k[T]/(T^p) \ni f(T)\mapsto f(T_1,T_2) \in k[T]/(T^p)\otimes_k k[T]/(T^p)=k[T_1,T_2]/(T_1^p,T_2^p).$$
+
+Notice that this is a $k$-group scheme with \emph{a unique closed point} (the identity), but it is \emph{not} the trivial $k$-group scheme $\text{Spec}(k)$, as it has non-trivial tangent space (=Lie algebra), i.e.\ it is not reduced (hence not smooth).
+\end{example}
+
+
+
+
+
+Other examples of group schemes that are not smooth can be obtained, e.g.\, over $\mathbb Z_p$, for instance by taking the subgroup of ${\rm GL}_2$ (defined over $\mathbb Z$) which stabilizes the quadratic form $Q(x,y)=p(x^2+y^2)$. The fiber of this over the generic point $\text{Spec} \mathbb Q$ is an orthogonal group in two variables (hence of dimension $1$), while the fiber over the special point $\text{Spec} \mathbb F_p$ is ${\rm GL}_2$ (of dimension $4$) -- in particular, this is not a smooth group scheme. 
+
+\begin{definition}
+ \label{definition-algebraic-group}
+An {\it algebraic group} over a field $k$ is a smooth group scheme over $k$. If an algebraic group is affine, it is called a {\it linear algebraic group}.
+\end{definition}
+
+
+\section{Lie algebras}
+\label{section-Liealgebras}
+
+\begin{definition}
+\label{definition-Liealgebra}
+A {\it Lie algebra} over a ring $k$ is a $k$-module\marginpar{Check bourbaki for general def; char 2?} $\mathfrak g$ with a bilinear, antisymmetric operation 
+$$[\bullet,\bullet]: \mathfrak g \wedge \mathfrak g \to \mathfrak g,$$ 
+satisfying the {\it Jacobi identity}:
+\begin{equation} 
+\label{equation-Jacobiidentity}
+[X,[Y,Z]] + [Y,[Z,X]] + [Z,[X,Y]] = 0. 
+\end{equation}
+
+A {\it morphism of Lie algebras} $T:\mathfrak g \to \mathfrak h$ over $k$ is a $k$-linear map $T$ from $\mathfrak g$ to $\mathfrak h$, which is compatible with the Lie bracket: $[T(X), T(Y)] = T([X,Y])$.
+\end{definition}
+
+There is a functor from associative algebras to Lie algebras, mapping an associative algebra $A$ to the Lie algebra $\text{Lie}(A)$, with the same underlying set and Lie bracket $[X,Y]=XY-YX$. We will often write simply $A$ for the Lie algebra $\text{Lie}(A)$.
+
+\begin{definition}
+ \label{definition-representation-Liealgebra}
+A {\it representation} of a Lie algebra $\mathfrak g$ on a vector space $V$ is a morphism of Lie algebas $\mathfrak g \to \text{End}(V)$. 
+\end{definition}
+
+\begin{definition}
+ \label{definition-adjoint-representation-Liealgebra}
+The {\it adjoint representation} of a Lie algebra $\mathfrak g$ is the homomorphism $\text{ad}:\mathfrak g\to \text{End}(\mathfrak g)$ given by $\text{ad}(X)(Y)=[X,Y]$.
+\end{definition}
+
+
+\begin{remark}
+\label{remark-Jacobiidentity}
+These notions explain the meaning of the Jacobi identity \eqref{equation-Jacobiidentity}: It simply says that the adjoint map is, indeed, a representation.
+\end{remark}
+
+\section{The universal enveloping algebra and the Poincar\'e--Birkhoff--Witt theorem}
+\label{section-enveloping}
+
+The functor $A\mapsto \text{Lie}(A)$ from associative to Lie algebras has a left adjoint.
+
+\begin{definition}
+ \label{definition-universal-enveloping-algebra}
+Given a Lie algebra $\mathfrak g$, the initial object $U(\mathfrak g)$ of the category of associative algebras $A$ with a homomorphism of Lie algebras: $\mathfrak g\to A$ is called the {\it (universal) enveloping algebra} of $\mathfrak g$. 
+
+Equivalently, the association $\mathfrak g\to U(\mathfrak g)$ is left adjoint to the natural functor from associative to Lie algebras, i.e. 
+$$\text{Hom}_{\text{Lie}} (\mathfrak g, \text{Lie}(A)) = \text{Hom}_{\text{Assoc}} (U(\mathfrak g), A)$$
+for every associative algebra $A$.
+\end{definition}
+
+In other words, $U(\mathfrak g)$, together with the homomorphism $\mathfrak g\to U(\mathfrak g)$ is defined by the universal property that any other homomorphism of Lie algebras $\mathfrak g\to A$ factors uniquely through $U(\mathfrak g)$. 
+
+\begin{proposition}
+ \label{proposition-enveloping-exists}
+The universal enveloping algebra of any Lie algebra $\mathfrak g$ exists. 
+\end{proposition}
+
+\begin{proof}
+One can construct it as the quotient of the tensor algebra of $\mathfrak g$,
+$$T\mathfrak g:= \bigoplus_{n\ge 0} \mathfrak g^{\otimes^n},$$
+by the two-sided ideal generated by all elements of the form: 
+$$X\otimes Y - Y\otimes X - [X,Y],\, \, X,Y\in \mathfrak g.$$ 
+
+(The rest of the proof is left to the reader.)
+
+\end{proof}
+
+\begin{example}
+ \label{example-derivations}
+Let $X$ be a smooth manifold, or an algebraic variety (over a field $k$). Let $\mathfrak g = {\text Der}(X)$ be the vector space of \emph{derivations}, or \emph{vector fields} on $X$: these are sections of the tangent bundle of $X$.\footnote{In algebraic geometry, derivations are defined as certain endomorphisms of the structure sheaf, and are used to define the tangent bundle.} Then, $\mathfrak g$ is a Lie algebra, and $U(\mathfrak g)$ is, by definition, the algebra of (smooth/algebraic) differential operators on $X$.
+\end{example}
+
+
+The universal enveloping algebra is ($\mathbb N$-)\emph{filtered}: We have $F^0 U(\mathfrak g)= k$, $F^1 U(\mathfrak g) = \mathfrak g \oplus k$, and $F^n U(\mathfrak g) = $ the subspace generated by $n$-fold products of elements of $F^1 U(\mathfrak g)$.
+
+\begin{definition}
+ \label{definition-graded}
+Let $A$ be an algebra with an increasing $\mathbb N$-filtration, and write $F^i$ simply for $F^i A$: $A=\sum_{n\ge 0} F^n A$, $F^i\subset F^{i+1}$, and $F^i \cdot F^j \subset F^{i+j}$. Set, by convention, $F^{-1}=0$.
+
+The {\it associated graded algebra} of $A$ is the $\mathbb N$-graded algebra $$\text{gr} A = \bigoplus_{i\ge 0} \text{gr}^i A = \bigoplus_{i\ge 0} F^i A/ F^{i-1}A.$$ 
+
+The {\it Rees algebra} of $A$ is the $\mathbb N$-graded algebra $$\mathcal A = \bigoplus_{i\ge 0} F^i A \cdot t^i \subset A\otimes k[t].$$
+
+\end{definition}
+
+\begin{lemma}
+\label{lemma-Reesalgebra}
+ In the setting of Definition \ref{definition-graded}, the Rees algebra $\mathcal A$ is a free $k[t]$-module, its fiber over any $t=a\ne 0$ (i.e., the quotient $\mathcal A/(t-a)\mathcal A$) is canonically isomorphic, through the evaluation map $t\mapsto a$, to the original filtered algebra $A$, and its fiber over $t=1$ (i.e., the quotient $\mathcal A/t\mathcal A$) is canonically isomorphic to its associated graded $\text{gr} A$.
+\end{lemma}
+
+\begin{proof}
+ The fact that it is free over $k[t]$ is obvious.
+ 
+ Away from $t=0$, that is, if we tensor with $k[t^{-1}]$, we get an isomorphism 
+ $$ \mathcal A\otimes k[t^{-1}] = A \otimes k[t^{-1}, t],$$
+ so the fiber at $t=a\ne 0$ is isomorphic to $A$ through the evaluation map.
+ 
+ On the other hand, the element $t$ is homogeneous, so the quotient $\mathcal A/(t)$ is also a graded algebra, with $i$-th graded piece equal to $F^i A \cdot t^i / t\cdot F^{i-1} A \cdot t^{i-1}= \text{gr}^i A$. 
+ 
+\end{proof}
+
+
+The structure of the universal enveloping algebra is described by the Poincar\'e--Birkhoff--Witt theorem:
+
+
+\begin{theorem}[Poincar\'e-Birkhoff-Witt]
+\label{theorem-PBW}
+Let $\mathfrak g$ be a Lie algebra over a field $k$. Then there is a canonical isomorphism 
+\begin{equation}
+ \label{equation-PBW}
+\text{gr} U(\mathfrak g) \simeq S(\mathfrak g),
+\end{equation}
+where $S(\mathfrak g)$ denotes the symmetric algebra in $\mathfrak g$.
+
+In particular, if we choose a linearly ordered vector space basis $(X_i)_{i\in I}$ (possibly with infinite indexing set $I$), then the monomials of the form $X_{i_1}^{r_1}X_{i_2}^{r_2}\cdots X_{i_k}^{r_k}$, with $i_1< i_2< \cdots< i_k$, form a vector space basis for $U(\mathfrak g)$.
+\end{theorem}
+
+\begin{proof}
+First, we construct a natural surjection:
+$$ S(\mathfrak g)\to \text{gr} U(\mathfrak g).$$
+
+The symmetric algebra $S(\mathfrak g)$ is the \emph{homogeneous quadratic algebra} $T(\mathfrak g)/(R)$, where $T\mathfrak g$ is the tensor algebra $T = \bigoplus T^i$ with $T^i(\mathfrak g) = \mathfrak g \otimes \cdots \otimes \mathfrak g$ ($i$ times), and $R$ the subspace of $T^2(\mathfrak g)$ (hence ``homogeneous quadratic'') generated by elements of the form $x\otimes y - y\otimes x$. The notation $(R)$ denotes the two-sided ideal generated by $R$.
+
+On the other hand, $U(\mathfrak g)$ is the \emph{inhomogeneous quadratic algebra} $T(\mathfrak g)/(P)$, where $P\subset T^{\le 2}(\mathfrak g)$ the subspace generated by elements of the form $x\otimes y - y\otimes x -[x,y]$. 
+
+The image of $P$ under the quotient $T^{\le 2}(\mathfrak g) \to T^2(\mathfrak g)$ is equal to $R$, and this implies that the ideal $(R)$ is in the kernel of the natural surjective map $T(\mathfrak g) = \bigoplus_i T^{\le i}(\mathfrak g)/T^{\le i-1}(\mathfrak g) \to \text{gr} U(\mathfrak g)$. 
+
+The hard part of the proof is to show that the resulting map $S(\mathfrak g) = T(\mathfrak g)/(R) \to \text{gr} U(\mathfrak g)$ is an isomorphism. We outline two proofs, both of which use the Jacobi identity in an essential way:
+
+The first proof is by constructing a representation $\rho$ of $\mathfrak g$ (equivalently: of $U(\mathfrak g)$) on the free vector space $V$ generated by the monomials $X_{i_1}^{r_1}X_{i_2}^{r_2}\cdots X_{i_k}^{r_k}$. This representation will have the property that $Y=X_{i_1}^{r_1}X_{i_2}^{r_2}\cdots X_{i_k}^{r_k}$, considered as an element of $U(\mathfrak g)$, takes $1 \in V$ to $X_{i_1}^{r_1}X_{i_2}^{r_2}\cdots X_{i_k}^{r_k}$ (a posteriori, it is just left multiplication on $U(\mathfrak g)$). In particular, the map $U(\mathfrak g)\ni Y \mapsto \rho(Y)(1)\in  V$ is injective, which proves the theorem.
+
+To define the representation, it is enough by the universal property of $U(\mathfrak g)$ to define it on $\mathfrak g$, and in fact just on the basis elements. For $Y=X_i$, let $[X_i,X_j]=\sum_k a_{ijk} X_k$ and use these coefficients to define the action of $\rho(Y)$ on $X_{i_1}^{r_1}X_{i_2}^{r_2}\cdots X_{i_k}^{r_k}\in V$ in the obvious way. It can get messy, but using the Jacobi identity one can show that this is a well-defined represenation of $\mathfrak g$.
+
+For a different and more general proof, see \cite{Braverman-Gaitsgory-PBW}. We outline the ideas: In this proof, instead of starting from $U(\mathfrak g)$, we start from the symmetric algebra $S(\mathfrak g)$, and construct the Rees algebra of $U(\mathfrak g)$ as a deformation of that. 
+
+Let $A=S(\mathfrak g)$, considered as a graded algebra. An \emph{$i$-th level graded deformation} of $A$ will be a graded $k[t]/k[t]t^{i+1}$-algebra $A_i$ (where $\text{deg}(t)=1$), which is free as a $k[t]/k[t]t^{i+1}$-module, together with an isomorhism of $A_i/tA_i \simeq A$. A \emph{graded deformation} $\mathcal A$ of $A$ will be a graded algebra over the
+polynomial ring $k[t]$, which is free as a module over this ring,
+together with an isomorphism $\mathcal A/t\mathcal A\simeq A$.
+
+Suppose we are given a first-level deformation $A_1 \to A $, and choose a splitting $A\to A_1$ as a graded $k[t]$-module, so that $A_1 = A \oplus t A$. Then, the multiplication on $A_1$ is described by a $k$-linear map $f: A\otimes A \to A$, homogeneous of degree $-1$, such that $(a+t \cdot 0)\cdot (b+t\cdot 0) = ab + t f(a,b)$. The associativity condition is rewritten in terms of $f$ as:
+\begin{equation}
+ \label{equation-Hochschild-cocycle}
+f (a, b)c − f (ab, c) + f (a, bc) − af (b, c) = 0, 
+\end{equation}
+for any $a$, $b$, $c \in A$.
+
+It turns out that this condition defines a \emph{Hochschild cocycle}. The \emph{Hochschild cohomology} of $A$ is the derived functor of $\Hom_{A\otimes A^{\text{op}}} (A,A)$, the endomorphisms of $A$ as an $A$-bimodule. It can be computed using the \emph{bar resolution} by free bimodules $B^i (A) = A^{\otimes^{i+2}}$, with the boundary map $B^i (A) \to B^{i-1}(A)$ given as the alternating sum of replacements $a\otimes b \mapsto ab$, over all identifications of $A\otimes A$ with the $(j, j+1)$-st factor of $B^i$ (where $j=0\dots i$). So, the derived functor $\text{Ext}^i_{A\otimes A^{\text{op}}} (A,A)$ can be computed in terms of the complex consisting of 
+$$ \Hom_{A\otimes A^{\text{op}}} (B^i(A),A),$$
+which is the same as 
+$$\Hom (A^{\otimes^i},A)$$
+with appropriate boundary maps. For $i=2$, this is precisely the equation \eqref{equation-Hochschild-cocycle}. One checks that the choice of splitting $A\to A_1$ changes the $2$-cocycle by a coboundary, so the first-level deformations of $A$ correspond uniquely to classes in $H^2(A)$ (second Hochschild cohomology group). In fact, since $A$ is graded, so is the Hochschild cohomology, and we get a bijection between isomorphism classes of first-level deformations, and the $-1$-graded piece $H^2_{-1}(A)$. 
+
+There is a similar description of extensions of an $i$-th level deformation to an $(i+1)$-st level deformation by $H^2_{−i−1}(A)$, \emph{provided such deformations exist}. The obstruction to the existence of such a deformation is an element of $H^3_{−i−1}(A)$.
+
+Now, it so happens that $A=S(\mathfrak g)$ is a \emph{Koszul algebra}. One of the equivalent definitions of this notion for $\mathbb N$-graded algebras is that $A_0=k$, and $A_0=A/A_{>0}$, as a graded $A$-module, has a graded projective resolution 
+$$ \dots \to P^{(2)} \to P^{(1)} \to P^{(0)} \to A/A_{>0} \to 0$$
+where $P^{(i)}$ is generated by homogeneous elements in degree $i$. This turns out to be equivalent, for a homogeneous quadratic algebra of the form $Q(V,R)$, to the statement that the bar resolution can be replaced by a resolution by the subspaces $\tilde K^i = A\otimes K^i \otimes A$, where $K^i$ is the intersection of the spaces $V^{\otimes^j} \otimes R \otimes V^{\otimes^{i-j-2}}$, $0\le j\le i-2$. Then, the following four conditions on the generator $P$ of the non-homogeneous quadratic ideal:
+\begin{enumerate}
+ \item $P\cap F^1(T(V))= 0$; hence, we can write every element of $P$ as $r+\alpha(r)+\beta(r)$, with $r\in R$, $\alpha(r)\in T^1(V)$, $\beta(r)\in T^0(V)=k$;
+ \item $\text{Im}(\alpha\otimes I - I\otimes \alpha) \subset R$; (this map is defined on $K^3=R\otimes V \cap V\otimes R$);
+ \item $\alpha\circ(\alpha\otimes I-I\otimes \alpha) = -(\beta\otimes I-I\otimes \beta)$;
+ \item $\beta\circ (\alpha\otimes I-I\otimes \alpha) = 0$
+\end{enumerate}
+(where the second, third, and fourth condition follow from the Jacobi identity, in our case) have, correspondingly, the following cohomological interpretations:
+\begin{enumerate}
+ \item this is just saying, as remarked, that we can write every element of $P$ as $r+\alpha(r)+\beta(r)$;
+ \item $d\alpha =0$; thus, $\alpha$ defines a cohomology class in $H^2(A)$, which can be checked to belong to $H^2_{-1}(A)$, thus defining a first-degree deformation of $A$;
+ \item the cocycle representing the obstruction to a second-level deformation is trivial;
+ \item the cocycle representing the obstruction to a third-level deformation is trivial.
+\end{enumerate}
+Then, it turns out that for Koszul algebras every third-level graded deformation extends uniquely to a graded deformation $\mathcal A$ over $k[t]$.  [To be amended.]
+
+
+\end{proof}
+
+The PBW theorem has several corollaries:
+
+\begin{proposition}
+\label{proposition-Ug-Noetherian}
+The universal enveloping algebra $U(\mathfrak g)$ is Noetherian.
+\end{proposition}
+
+\begin{proof}
+This follows from the Noetherian property of $\text{gr} U(\mathfrak g) = S(\mathfrak g)$ by the following standard argument: if $J_1\subset J_2 \subset \cdots $ is an increasing sequence of ideals, then so is $\text{gr} J_1\subset \text{gr} J_2 \subset \cdots$, where $\text{gr} J = \oplus_n (J\cap F_n/F_{n-1})$. Notice that the map $J\mapsto \text{gr} J$ is not injective on ideals: two different ideals of $U(\mathfrak g)$ can have the same image in its graded. However, the map \emph{is} injective on chains, i.e.\ if $J_1\subset J_2$ and their graded ideals coincide, then $J_1=J_2$. From the Noetherian property of $S(\mathfrak g)$, the sequence of graded ideals stabilizes, therefore so does the original sequence.
+\end{proof}
+
+Another corollary is the following:
+
+\begin{proposition}
+\label{proposition-induction-exact}
+ If $\mathfrak h\subset\mathfrak g$ is a Lie subalgebra then $U(\mathfrak g)$ is a free $U(\mathfrak h)$-module, and hence the \emph{induction} functor:
+$$ M\mapsto U(\mathfrak g)\otimes_{U(\mathfrak h)} M$$
+(where $M$ is an $\mathfrak h$-module) is exact. 
+\end{proposition}
+
+
+
+
+\section{The Lie algebra of a Lie or algebraic group}
+\label{section-Liealgebra-ofgroup}
+
+
+
+Given a Lie group $G$, or an algebraic group over a field $k$, its tangent space $\mathfrak g = T_1 G$ at the identity can be endowed with the structure of a Lie algebra. This works as follows: First, evaluation of a vector field at the identity defines a linear maps
+$$ {\text Der}(G) \to \mathfrak g.$$
+
+Let ${\text Der}(G)^{G\text{-left}}$ and ${\text Der}(G)^{G\text{-right}}$ denote, respectively, the subspaces of left- and right- invariant derivations. For example, a left-invariant vector field $V$ has the property that $L(g)_* V = V$ for every $g\in G$, where $L(g)$ is the left action of $g$ on $G$. Then
+\begin{lemma}
+ \label{lemma-evaluation-identity}
+ Evaluation at the identity gives bijections
+ $$ {\text Der}(G)^{G\text{-left}} \xrightarrow\sim \mathfrak g,$$ 
+ $${\text Der}(G)^{G\text{-right}} \xrightarrow\sim\mathfrak g.$$
+These bijections are mapped to each other under the inversion map $g\mapsto g^{-1}$ on $G$, which acts by $-1$ on $\mathfrak g$.
+\end{lemma}
+
+\begin{proof}
+ This is clear from the definitions.
+\end{proof}
+
+\begin{definition}
+\label{definition-Liealgebra-ofgroup}
+ The space $\mathfrak g= T_1 G$, endowed with the Lie bracket of its identification with left- invariant derivations according to Lemma \ref{lemma-evaluation-identity}, is the {\it Lie algebra of the group $G$}.
+\end{definition}
+
+Notice that the identification with right-invariant derivations would give the opposite Lie bracket. 
+
+\section{Exponential map and the Baker--Campbell--Hausdorff formula}
+\label{section-exponentialmap}
+
+Now we work differential-geometrically in the setting of a real Lie group. 
+
+\begin{definition}
+\label{definition-oneparameter-subgroup}
+ A {\it one parameter subgroup} is a homomorphism of Lie groups: $\gamma:\mathbb R\to G$. 
+\end{definition}
+
+
+\begin{lemma}
+\label{lemma-oneparameter}
+ The map $\gamma\mapsto \gamma'(0)$ is a bijection between one-parameter subgroups and elements of the Lie algebra.
+\end{lemma}
+
+\begin{proof}
+ Locally around any point $x$, any vector field is uniquely integrable (this is a basic result from ODEs), namely: if $\mathbf v$ is a vector field then there is an interval $(-\epsilon,\epsilon)$ and a curve $\gamma:(-\epsilon,\epsilon)\to G$ such that $\gamma(0)=x$ and $\gamma'(t)=\mathbf v(\gamma(t))$, and any two such curves coincide in a neighborhood of $0$. 
+
+ For a left-invariant vector field, we can use left translations by the group to show that this local existence and uniqueness statement becomes global.
+\end{proof}
+
+\begin{definition}
+\label{definition-exponential-map}
+The {\it exponential map}
+$$\mathfrak g\to G$$
+is defined by
+$$\exp(X) = \gamma_X(1),$$
+where $\gamma_X$ is the unique one-parameter subgroup with $\gamma_X'(0)=X$.
+\end{definition}
+
+
+\begin{lemma}
+\label{lemma-exponential-localdiffeomorphism}
+ The exponential map is a local diffeomorphism around $0\in \mathfrak g$. 
+\end{lemma}
+
+\begin{proof}
+ Its differential, if well defined, is the identity on $\mathfrak g=T_eG$, so we only need to show that it is a smooth map. The flow on $G\times\mathfrak g$ associated to the smooth vector field $(g,X)\mapsto (X(g),0)$ is given by: $\mathbb R\times G\times\mathfrak g\ni (t,g,X)\mapsto (g\cdot \exp(tX), X)$, and the flow of a smooth vector field is smooth. Therefore, the exponential map is smooth.
+\end{proof}
+
+
+The exponential map is not a group homomorphism, except if $G$ is abelian (but, by definition, it is a group homomorphism when restricted to any one-dimensional subspace of $\mathfrak g$). Its failure to be a homomorphism is addressed by the so-called Baker--Campbell--Hausdorff formula (which goes back to Schur).
+Before we state and prove the BCH formula, we prove an important formula that will be used in the proof, the Maurer--Cartan equation. 
+
+\begin{theorem}[Maurer--Cartan equation]
+\label{theorem-Maurer-Cartan}
+Let $\theta$ be the unique left-invariant, $\mathfrak g$-valued differential $1$-form on $G$ which at the identity ($e$) is equal to the canonical (``identity'') element of $T_e^*G\otimes \mathfrak g = \mathfrak g^* \otimes \mathfrak g = \text{End}(\mathfrak g)$.  Then its differential is given by 
+\begin{equation}
+\label{equation-Maurer-Cartan}
+ d\theta = - \frac{1}{2} [\theta,\theta].
+\end{equation}
+The convention here is that for two $\mathfrak g$-valued $1$-forms $\theta_0, \theta_1$, and two vector fields $v_0, v_1$, we have $[\theta_0,\theta_1](v_0, v_1) = [\theta_0(v_0),\theta_1(v_1)] - [\theta_0(v_1),\theta_1(v_0)]$, hence $\frac{1}{2} [\theta,\theta](v_0,v_1) = [\theta(v_0),\theta(v_1)]$.
+\end{theorem}
+
+
+\begin{proof}
+ Since $\theta$ is left-invariant, so will be its differential $d\theta$, which is a section of the exterior square of the cotangent bundle of $G$, valued in $\mathfrak g$. Thus, $d\theta$ is determined by its value at the identity, and it therefore suffices to verify the formula when $d\theta$ is applied to a pair $(v_0,v_1)$ of left-invariant vector fields (identified with elements of $\mathfrak g$). By the definition of exterior derivative,
+ $$ d\theta(v_0,v_1) = v_0 \theta(v_1) - v_1 \theta(v_0) - \theta([v_0,v_1]).$$
+ 
+ Since the $v_i$'s are left-invariant, $\theta(v_i)$ is the constant $v_i\in \mathfrak g$, and therefore $v_j \theta(v_i)=0$. Thus, $d\theta(v_0,v_1) = - \theta([v_0,v_1]) = - [\theta(v_0), \theta(v_1)]$, as claimed.
+\end{proof}
+
+
+
+\begin{theorem}[Baker--Campbell--Hausdorff formula] 
+\label{theorem-Baker-Campbell-Hausdorff}
+If $G$ is a Lie group with Lie algebra $\mathfrak g$, then for sufficiently small $X, Y\in \mathfrak g$ we have 
+\begin{equation}
+ \label{equation-BCH}
+\exp(X) \exp(Y) = \exp(X+ Y + P_2(X,Y) + P_3 (X,Y) + \dots),
+\end{equation}
+where $P_i(X,Y)$ is a \emph{Lie polynomial of order $i$}, i.e., $P_i(X, Y)$ is a linear combination of $i-1$ nested commutators in the variables $X, Y$; more precisely, 
+\begin{equation}
+\label{equation-BCHterms}
+P_i(X,Y) = \sum_n \frac{(-1)^{n-1}}{n} \sum_{\underset{r_j, s_j \ge 0, \,\, r_j+s_j>0}{r_1+s_1+ r_2+s_2+ \dots+ r_n+s_n = i}} \frac{[X^{(r_1)} Y^{(s_1)} X^{(r_2)} Y^{(s_2)} \cdots X^{(r_n)} Y^{(s_n)}]}{\sum_{j=1}^n (r_j+s_j) \cdot \prod_{j=1}^n r_j! s_j!},
+\end{equation}
+where $[X^{(a)} Y^{(b)}]$ denotes the Lie polynomial $[X, [X, \dots, [X, [Y,[Y,\dots, Y]\cdots]$, with $X$ appearing $a$ times and $Y$ appearing $b$ times (and similarly for more ``factors'').
+\end{theorem}
+
+The first few terms of the series read:
+$$P_1(X,Y)+P_2(X,Y)+P_3(X,Y) =  X+Y+ \frac{1}{2}[X,Y] + \frac{1}{12} ([X,[X,Y]]  + [Y, [Y,Y]]).$$ 
+The precise terms can be worked out inductively from the differential equation of ... \marginpar{Fill in} below. What is important (and difficult) is the existence of such a series.
+
+\begin{proof}
+ We outline two proofs, following \cite{Sternberg}, and point the reader to Sternberg's notes for details. The second proof, which is algebraic, assumes that the group is analytic (as Lie groups are often defined to be, from the outset, e.g., in Bourbaki). The first, which is analytic, proves the analyticity of Lie groups (defined in the differentiable category; see Proposition \ref{proposition-analyticity} below).
+ 
+ For the first proof, the main idea is to express the product $\exp(X)\exp(Y)$ in terms of the elements $\text{ad}(X)$, $\text{ad}(Y)$ in the concrete associative (and Lie) algebra of endomorphisms of $\mathfrak g$. 
+ 
+ We consider the former power series $\psi(1+u) = (1+u) \frac{\log(u)}{u} = 1+\frac{u}{2} - \frac{u^2}{6}+ \dots$; the BCH formula is equivalent to the statement that 
+\begin{equation}
+ \label{equation-BCH-integral}
+ \log(\exp(X)\exp(Y)) = X + \int_0^1 \psi(\exp(\text{ad}(X)) \exp(t\cdot \text{ad}(Y))) (Y) dt
+\end{equation}
+for sufficiently small elements $X, Y$. Notice, first of all, that the formal power series defining the operator $\psi(\exp(t\cdot \text{ad}(X)) \exp(\text{ad}(Y))) \in \text{End}(\mathfrak g)$ on the right hand side converges for small $X, Y$. The logarithm on the left hand side is, by definition, the inverse of the exponential map on $\mathfrak g$, defined in a small neighborhood of the origin. 
+
+This, in turn, will be proven by proving the following formula about the ``logarithmic derivative'' of any smooth curve $C(t)$ on $\mathfrak g$:
+\begin{equation}
+\label{equation-BCH-logderivative}
+ \exp(C(t))^{-1} \frac{d}{dt} \exp(C(t)) = \phi(-\text{ad} C(t)) C'(t),
+\end{equation}
+where $\phi(z)$ is the power series 
+$$\frac{e^z-1}{z} = \sum_{n\ge 0} \frac{1}{(n+1)!} z^n.$$ 
+Both sides of the last equation are valued in $\mathfrak g$, identified with the tangent space at the identity of $G$. Applying this relation to the curve $C(t) = \exp(X) \exp(tY)$, we get 
+$$ B = \phi(- \log(\exp(\text{ad} (X)) \cdot \exp(t\cdot \text{ad}(B)))) C'(t),$$
+and, using the fact that 
+$$ \psi(z) \phi(-\log(z)) = 1,$$
+we get 
+$$ C'(t) = \psi(\exp(\text{ad} (X)) \cdot \exp(t\cdot \text{ad}(B))) (B), $$
+which is equivalent to \eqref{equation-BCH-integral}. 
+
+There remains to prove the formula \eqref{equation-BCH-logderivative}, about the logarithic derivative of a smooth curve. 
+
+Setting $f(s,t) = \exp(sC(t))$, and with $\theta$ the Maurer--Cartan form, the left hand side of \eqref{equation-BCH-logderivative} is equal to $f^*\theta(\frac{\partial}{\partial t}) (1,t)$, while it is immediate to compute 
+$$ f^*\theta(\frac{\partial}{\partial s}) (s,t) = \exp(s C(t))^{-1} \frac{\partial}{\partial s} \exp( sC(t)) = C(t)$$
+(for any $s,t$). We let $\kappa(s,t) = f^*\theta(\frac{\partial}{\partial t}) (s,t)$.
+
+The differential of $f^*\theta$, applied to these vector fields, is $$ df^*\theta(\frac{\partial}{\partial s}, \frac{\partial}{\partial t}) = \frac{\partial}{\partial s} f^*\theta(\frac{\partial}{\partial t}) - \frac{\partial}{\partial t} f^*\theta (\frac{\partial}{\partial s}) = $$
+$$ = \frac{\partial}{\partial s} \kappa (s,t) - C'(t).$$
+
+Applying the Maurer--Cartan formula \eqref{equation-Maurer-Cartan} to the pullback of $\theta$, we get that this is equal to 
+$$ -[f^*\theta(\frac{\partial}{\partial s}), f^*\theta(\frac{\partial}{\partial t})] = - [C(t), \kappa(s,t)].$$
+
+Thus, fixing $t$, the $\mathfrak g$-valued function $\kappa(s)=\kappa(s,t)$ satisfies the ordinary differential equation
+$$ \kappa'(s) = - \text{ad}(C(t)) \kappa(s) + C'(t), $$
+with initial value $\kappa(0)=0$.
+
+This is now easily seen to have the unique solution
+$$ \kappa(s) = \frac{e^{-s\text{ad} (C(t))} -1}{\text{ad}(C(t))}  C'(t),$$
+where the fraction is a formal expression for the series 
+$$\sum_{n\ge 0} \frac{1}{(n+1)!} s^{n+1} z^n$$
+in the operator $-\text{ad}(C(t))$.
+
+Setting $s=1$, the proof is now complete.
+
+\marginpar{Algebraic proof to be added here.}
+
+\end{proof}
+
+
+Immediate corollaries of the BCH theorem include:
+
+\begin{proposition}
+\label{proposition-analyticity}
+Every Lie group has a unique structure of a group in the category of real analytic spaces with the property that the exponential map is an analytic isomorphism in a neighborhood of the identity. 
+\end{proposition}
+
+\begin{proof}
+Fix a sufficiently small neighborhood $U$ of zero in $\mathfrak g$, and use it to define an analytic chart in the neighborhood $g \exp(U)$ of any element $g\in G$. The Baker--Campbell--Hausdorff theorem \ref{theorem-Baker-Campbell-Hausdorff} implies that the transition maps between these charts are analytic, so we have a well-defined analytic structure. The same theorem shows that multiplication is analytic. 
+\end{proof}
+
+
+
+
+\begin{proposition}
+\label{proposition-Liesubalg}
+ Given a Lie group $G$ and a sub-Lie algebra $\mathfrak h\subset \mathfrak g$, there is a unique connected immersed Lie subgroup $H\subset G$ whose Lie algebra is $\mathfrak h$.
+\end{proposition}
+
+By an immersed Lie subgroup we mean an immersed submanifold: $H\to G$ such that $H$ is a subgroup of $G$.
+
+
+\begin{proof}
+ The left translations of $\mathfrak h$ give rise to a \emph{distribution} $D_{\mathfrak h}$, i.e.\ a subbundle of $TG$. It is known from the theory of differential equations that a distribution $D$ is (uniquely) \emph{integrable} if and only if for any two vector fields which lie in it, their commutator also lies in it. This is easily seen to be the case for $D_{\mathfrak h}$, since $\mathfrak h$ is a Lie subalgebra. By the Baker--Campbell--Hausdorff Theorem \ref{theorem-Baker-Campbell-Hausdorff}, the leaf through zero of the corresponding foliation is an immersed subgroup.
+\end{proof}
+
+
+\begin{proposition}
+\label{proposition-liftLie}
+ Let $G_1, G_2$ be Lie groups with $G_1$ connected and simply connected, then every morphism between their Lie algebras 
+ $$f':\mathfrak g_1\to\mathfrak g_2$$ 
+ lifts to a unique morphism 
+ $$f: G_1\to G_2.$$
+\end{proposition}
+
+
+\begin{proof}
+The pair $(f', I)$ defines an embedding $\mathfrak g_1\to \mathfrak g:=\mathfrak g_1\oplus \mathfrak g_2$ which, by Proposition \ref{proposition-Liesubalg}, corresponds to a unique connected immersed Lie subgroup: $H\to G_1\times G_2$ whose Lie algebra is $\mathfrak g_1$. Composing with projection to $G_1$ we get: $H\to G_1$ which is an isomorphism on tangent spaces, hence a covering map. Since $G_1$ is simply connected, $H=G_1$. 
+\end{proof}
+
+
+\begin{remark}
+ \label{remark-existsgroup}
+In a following chapter \ref{blah} we will discuss Edo's theorem, which states that every finite-dimensional Lie algebra over a field in characteristic zero has a faithful representation; hence, Proposition \ref{proposition-Liesubalg} implies that, given a finite-dimensional Lie algebra over $\mathbb R$, it is the Lie algebra of a Lie group. We may assume that this Lie group is connected and simply connected by passing to the universal cover, in which case Proposition \ref{proposition-liftLie} implies that it is uniquely determined, up to unique isomorphism, by the Lie algebra.
+\end{remark}
+
+
+
+
+
+
+\section{Open and closed subgroups of Lie groups}
+\label{section-open-closed-subgroups}
+
+For any Lie group $G$ we will be denoting by $G^0$ the connected component of the identity. It is a normal subgroup (exercise!). 
+
+\begin{lemma}
+\label{lemma-opensubgroup}
+ Any open subgroup of $G$ contains $G^0$.
+\end{lemma}
+
+\begin{proof}
+ Let $H$ be an open subgroup. Its complement is a union of (left, let's say) $H$-cosets, and since right multiplication takes open sets to open sets, those cosets are open. Hence, the complement of $H$ is open, therefore $H$ is both open and closed, and therefore it contains the connected component of the identity.
+\end{proof}
+
+It is not true that every subgroup of a Lie group is closed. For instance, any one-parameter subgroup in the torus $(\mathbb R/\mathbb Z)^2$ with non-rational slope is dense, but not closed.
+
+On the other hand, every closed subgroup is a Lie subgroup:
+
+
+
+\begin{theorem}[Cartan]
+\label{theorem-Cartan}
+ Every closed subgroup of a Lie group is a smooth manifold, hence a Lie subgroup.
+\end{theorem}
+
+
+
+\begin{proof}
+Let $H\subset G$ be a closed subgroup of a Lie group. Let $\mathfrak g$ denote the Lie algebra of $G$, i.e.\ the tangent space at the identity. We will define a subspace of $\mathfrak g$ which will be the candidate for the tangent space of the identity for $H$. Then we will show that it is indeed so.
+
+Choose a Euclidean metric on $\mathfrak g$ and let $\exp:\mathfrak g \to G$ be the exponential map. In a neighborhood of the idenity in $\mathfrak g$, it is a diffeomorphism onto a neighborhood of the identity in $G$, and let $\log$ denote its inverse in that neighborhood.
+
+Let $W\subset \mathfrak g$ be the set of all $tX$, where $t\in \mathbb R$ and $X \in \mathfrak g$ is the limit of a sequence: $\frac{h_n}{|h_n|}$ with $h_n\to 0\in \mathfrak g$ and $\exp(h_n)\in H$. We claim:
+
+\begin{enumerate}
+ \item $\exp(W)\subset H$;
+ \item $W$ is a linear subspace of $\mathfrak g$.
+\end{enumerate}
+
+For the first, if $\frac{h_n}{|h_n|} \to X$ and $|h_n|\to 0$ we can choose, for given $t\in \mathbb R$, integers $m_n\in \mathbb Z$ such that $m_n|h_n|\to t$, so $\exp(m_n\cdot h_n) \to \exp(tX)$ as $n\to \infty$. 
+
+Here we will use the following fact: for an one-dimensional subspace of $\mathfrak g$ the exponential map is a homomorphism of groups. Therefore, $\exp(m_n\cdot h_n) = \exp(h_n)^{m_n}$, therefore it belongs to $H$. Since $H$ is closed, the limit $\exp(tX)$ is also in $H$.
+
+For the second claim, if $X,Y\in W$ set $h(t)= \log(\exp(tX)\exp(tY))$. We claim that $\lim_{t\to 0} h(t)/t = X+Y$. Indeed, the differential at the identity of the multiplication map: $G\times G\to G$ is $\mathfrak g\times\mathfrak g\ni (X,Y)\mapsto X+Y$. Hence, $h(t)/|h(t)| = h(t)/t \cdot t/|h(t)| \to \frac{X+Y}{|X+Y|}$ as $t\to 0$, $t>0$, therefore $X+Y\in W$. 
+
+Having proven the two claims, and given that the exponential map is a diffeomorphism in a neighborhood of the identity, it now suffices to show that $\exp(W)$ is a neighborhood of the identity in $H$. Let $D$ be the orthogonal complement of $W$ in $\mathfrak g$ with respect to the above norm. For a sequence $h_n\in H$ with $h_n\to e$, we can eventually write $h_n = \exp(x_n+y_n)$ with $x_n\in W$ and $y_n\in D$, $(x_n,y_n)\to 0$. We claim that
+$$\lim_{n\to \infty} \frac{\log(h_n \exp(-x_n))}{|y_n|} = \lim_{n\to \infty}\frac{y_n}{|y_n|}$$
+if one of the two limits exists. 
+
+Indeed, by the Baker--Campbell--Hausdorff formula \eqref{equation-BCH}, the left hand side can be written as
+$$\lim_{n\to \infty} \frac{y_n + P_2(x_n+y_n,y_n) + P_3 (x_n+y_n,y_n) + \dots}{|y_n|},$$
+where $P_i$ is a homogeneous Lie polynomial of order $i$. When both $x_n$ and $y_n$ tend to zero, the quotient 
+$$ \frac{P_i(x_n+y_n,y_n)}{|y_n|}$$
+tends to zero, for every $i\ge 2$. This proves the claim.
+
+But then, we must have $y_n=0$ for large $n$, for otherwise a subsequence of the $\frac{y_n}{|y_n|}$'s will have a limit point $y\in D$, $|y|=1$, which should then belong to $W$, a contradiction. This completes the proof of the theorem.
+
+\end{proof}
+
+\section{Algebraic groups in characteristic zero}
+\label{section-algebraic-groups}
+
+\subsection{The functor from schemes to topological spaces}
+\label{subsection-schemes-to-top}
+
+If $k$ is a topological field (e.g., $\mathbb R$, $\mathbb C$), and $X = \Spec(A)$ is an affine $k$-scheme of finite type, the set 
+$$ X(k) = \text{Hom}(A,k)$$
+acquires a natural topology, the \emph{open compact topology} when $A$ is viewed as a discrete ring, i.e., the restricted topology under the embedding
+$$ \text{Hom}(A,k) \hookrightarrow k^A.$$
+
+There is a unique way to extend this definition to any scheme of finite type over $k$, in such a way that open embeddings of schemes give rise to open embeddings of topological spaces, and this gives rise to a functor 
+$$ \text{Top}: \text{Schemes of finite type over }k \to \text{topological spaces}.$$
+
+For these facts, we point the reader to Brian Conrad's expository article \cite{Conrad-Weil}.
+
+\subsection{Smooth schemes and manifolds}
+\label{subsection-smoothschemes-to-manifolds}
+
+A morphism $X\to S$ of algebraic schemes, locally of finite presentation, is said to be \emph{smooth of relative dimension $r$} if it is given, locally on the source $X$, by equations which satisfy contitions analogous to the differential-geometric notion of \emph{submersion}, namely: restricting to sufficiently small open neighborhoods, we have $X=\text{Spec}(B)$, $S=\text{Spec}(A)$, with $A\to B$ a map of rings which can be presented as $B=A[x_1, \dots, x_{m+r}]/(f_1, \dots, f_m)$, with the Jacobian
+$$ \det \left( \frac{\partial f_i}{\partial f_j} \right)_{i, j=1}^m $$
+being invertible in $A$. 
+
+This condition on the Jacobian can be checked locally at every point of $X$. In particular, if $S=\text{Spec}(k)$ with $k$ a field, it is a condition on the local rings $\mathcal O_x$ for every $x\in X$, and in this case it is known to be equivalent to \emph{regularity}, see \cite[\href{https://stacks.math.columbia.edu/tag/00TV}{Tag 00TV}]{stacks-project}: namely, to the condition that 
+\begin{equation}
+\label{equation-regularlocalring}
+\dim_{\text{Krull}}(\mathcal O_x) = \dim_{\mathcal O_x/\mathfrak m_x} \mathfrak m_x/\mathfrak m_x^2.
+\end{equation}
+
+
+When $k$ is a topological field that is complete with respect to an absolute value, we can upgrade the functor from schemes to topological spaces to a functor from smooth $k$-schemes to analytic $k$-manifolds; those are, by definition, topological spaces endowed with a complete $k$-analytic class of charts or, equivalently, locally ringed spaces that are locally isomorphic to open subsets of $k^n$ with their sheaf of $k$-analytic functions. We point the reader to \cite{Serre-Lie} for a more detailed discussion.
+
+
+\begin{proposition}
+\label{proposition-smooth-schemes-to-manifolds}
+If $X$ is a smooth scheme over a topological field $k$, there is a unique structure of analytic $k$-manifold on the topological space $\text{Top}(X)=X(k)$, such that for every open affine $U=\text{Spec}(B)$ with presentation $B=k[x_1, \dots, x_{m+r}]/(f_1, \dots, f_m)$, the open subset $U(k)$ is an analytic submanifold of $k^{m+r}$.
+\end{proposition}
+
+\begin{proof}
+ We may give ourselves such a presentation $U=\text{Spec}(B)$, $B=k[x_1, \dots, x_{m+r}]/(f_1, \dots, f_m)$ with the Jacobian $\det \left( \frac{\partial f_i}{\partial f_j} \right)_{i, j=1}^m$ being nonzero everywhere on $U(k)$. Then, $U(k)$ is the fiber over zero of a map $k^{m+r}\to k^m$ which is submersive at every point of that fiber, and it is standard in analytic geometry that such a fiber is an analytic submanifold of $k^{m+r}$. This is independent of the choice of (smooth) presentation.
+\end{proof}
+
+
+\subsection{Extension and restriction of scalars}
+\label{subsection-extension-restriction-of-scalars}
+
+
+
+
+\subsection{Smoothness of group schemes in characteristic zero}
+\label{subsection-smoothness-characteristiczero}
+\begin{theorem}
+\label{theorem-smoothness-characteristiczero}
+If $G$ is a group scheme of finite type over a field $k$ of characteristic zero, then $G$ is smooth over $k$. 
+\end{theorem}
+
+\begin{proof}
+A summary of the proof: By homogeneity, and the fact that every algebraic variety contains a regular point, the reduced group scheme associated to $G$ is smooth. Thus, a group is smooth iff it is reduced, which again by homogeneity reduces to the local ring at the identity. 
+
+Let $R$ be the local ring $\mathcal O[G]_{\mathfrak m_e}$ with maximal ideal $\mathfrak m=\mathfrak m_e$. We need to show that it contains no nilpotents. The comultiplication
+$$ \Delta: R\to R\times R$$
+induced by the multiplication map $G\times G\to G$ sends any $a\in \mathfrak m$ to $1\otimes a + a \otimes 1$ module $\mathfrak m \otimes \mathfrak m$. (Exercise in Hopf algebras!) For a nilpotent element $a$ with $a^n=0$ and $n$ minimal such, we will have 
+$$ 0=\Delta(a^n)=(\Delta(a))^n \equiv na^{n-1} \otimes a \mod \left( a^{n-1}\mathfrak m \otimes A + A \otimes \mathfrak m^2 \right),$$
+and since $na^{n-1} \notin a^{n-1} \mathfrak m$ (characteristic zero plus minimality of $n$!), we must have $a\in \mathfrak m^2$. 
+
+But then, $\mathfrak m_e/\mathfrak m_e^2$ coincides with the corresponding quotient for the reduction of $G$, which by regularity has dimension equal to the dimension of the ring. Thus, the local ring $\mathcal O[G]_{\mathfrak m_e}$ is regular. See \cite[\S VI.9]{Milne-AGS}. [NEEDS EXPANSION]
+\end{proof}
+
+
+
+
+
+
+\section{Compact Lie groups are algebraic}
+\label{section-compact-algebraic}
+
+[NEEDS WORK]
+
+
+
+An amazing fact is that the passage from real algebraic groups to Lie groups also works the other way in the case of compact Lie groups: they can all be realized as the points of a real algebraic group. This was proven by Weyl, and the following strengthening is due to Chevalley. We will not define the new terms here (they will come in later in the course), and we will only prove Weyl's weak version:
+
+\begin{theorem}
+ The functor $G\mapsto G(\mathbb R)$ is an equivalence between: the category of $\mathbb R$-anisotropic reductive $\mathbb R$-groups whose connected components have $\mathbb R$-points, and the category of compact Lie groups. If $G$ is such an $\mathbb R$-group then $G^0(\mathbb R)=G(\mathbb R)^0$. The $\mathbb R$-group $G$ is semisimple if and only if $G(\mathbb R)$ has finite center, and in such cases $G^0$ is simply connected in the sense of algebraic groups if and only if $G(\mathbb R)^0$ is simply connected in the sense of topology.
+\end{theorem}
+
+We will only prove the statement that every compact Lie group is algebraic. This follows from the following two propositions, which have independent interest:
+
+\begin{proposition}
+ Every compact Lie group has a faithful (i.e.\ trivial kernel), finite-dimensional representation.
+\end{proposition}
+
+\begin{proof}
+ Let $\pi_1,\pi_2,\dots$ be an enumeration of the irreducible representations of $G$. We already know from the Peter-Weyl theorem that they are finite-dimensional. For every $n$, let $G_n$ be the kernel of the map: $G\to {\rm GL}(\pi_1\oplus\dots\oplus \pi_n)$. Hence, we have a sequence of closed subgroups:
+$$ G=G_0\supset G_1\supset G_2\supset \dots.$$
+
+We claim that every such sequence terminates. Indeed, by Cartan's theorem, we know that all $G_n$ are Lie groups, therefore the dimension of $G_n$ has to stabilize after some $n$. But then the map $G_n^0\hookrightarrow G_{n+1}^0$ is eventually the identity (the image is both open\footnote{See the section on Lie algebras: ...} and closed), and by compactness each $G_n$ has a finite number of connected components, so the sequence has to terminate.
+
+On the other hand, the intersection of the $G_i$'s is (again by Peter-Weyl) the kernel of the left regular representation of $G$ on $L^2(G)$, hence trivial.
+\end{proof}
+
+The second element is of invariant-theoretic nature. For this, let $G\to {\rm GL}(V)$ be a (complex), finite-dimensional representation of $G$ and consider it as a real representation by regarding $V$ as a real vector space. (This is the baby case of ``restriction of scalars''.) Accordingly, ${\rm GL}(V)$ is considered as an algebraic group over $\mathbb R$ (by restriction of scalars). Notice that the Zariski closure\footnote{It is important here that we have restricted scalars to $\mathbb R$, because the Zariski closure depends on whether we consider ${\rm GL}(V)$ as a complex or as a real variety; for example, the Zariski closure of the circle group $S^1$ in $\mathbb C^\times$ is $S^1$ or $\mathbb C^\times$, according as $\mathbb C^\times$ is considered as a real or complex variety.} of the image of $G$ is a real algebraic subgroup. We need to show that it coincides with $G$. One thing that $G$ and its Zariski closure have in common is the set of invariants on the polynomial ring $\mathbb R[V]$. Recall that the polynomial ring $\mathbb R[V]$ is (essentially, by 
+definition) the symmetric algebra on the dual space $S^\bullet V^*$.
+
+\begin{proposition}
+Each orbit of a compact group (not necessarily a Lie group!) on the vector space $V$ of a representation is (the real points of) a real algebraic subset. The image of $G\to {\rm GL}(V)$ is (the $\mathbb R$-points of) an algebraic subgroup.
+\end{proposition}
+
+\begin{proof}
+ The second statement follows from the first because ${\rm GL}(V)\hookrightarrow \text{End}(V) = V^*\otimes V$, and the image is the orbit of the identity transformation.
+
+ For the first we consider the map: $V\to V// G:=\text{Spec} \mathbb R[V]^G$, and the induced map on $\mathbb R$-points: $V(\mathbb R)\to V// G(\mathbb R)$. Clearly, the preimage of any point is a union of $G$-orbits. We claim:
+
+\begin{quote}
+ The preimage of every $\mathbb R$-point contains at most one $G$-orbit on $V(\mathbb R)$.
+\end{quote}
+
+This will be enough to prove the claim: Since the preimage is an algebraic variety over $\mathbb R$, it means that $G$-orbits are the $\mathbb R$-points of algebraic varieties (maybe empty, because the preimage of an $\mathbb R$-point does not need to contain any $\mathbb R$-points -- for instance, consider the quotient of $\mathbb C^\times$ by the circle group).
+
+To prove the claim we must show that if $Y_1,Y_2$ are two distinct $G$-orbits on $V(\mathbb R)$, then there is a $G$-invariant polynomial which takes different values on $Y_1$ and $Y_2$ (i.e.\ the ring of invariant polynomials separates $G$-orbits). 
+
+Notice that $\mathbb R[V]$ is a locally finite representation of $G$ (this follows by its identification with $S^\bullet V^*$), and therefore by the Peter-Weyl theorems it is completely reducible. If we fix two points $y_1\in Y_1$ and $y_2\in Y_2$, then the integrals:
+$$\int_G f(y_i\cdot g) dg$$
+represent two $G$-invariant functionals $\ell_1,\ell_2$ on $\mathbb R[V]$. They obviously factor through restriction of polynomials to the compact subset $Y_1\cup Y_2$, and \emph{by the Stone-Weierstrass theorem, the restriction of polynomials is dense in the space of continuous functions} on $Y_1\cup Y_2$. Therefore, $\ell_1$ and $\ell_2$ are linearly independent, i.e.\ $\ell_2$ is non-zero on the kernel $W$ of $\ell_1$. 
+
+Hence, $\ell_2$ defines a $G$-invariant functional: $W\to \mathbb C$, and by complete reducibility this splits; in particular, \emph{there is a $G$-invariant element $f\in W$ with $\ell_2(f)\ne 0$}. That is, there is a $G$-invariant polynomial on $V$ whose integral over $Y_1$ is zero and whose integral over $Y_2$ is non-zero. But this means that its value on $Y_1$ is zero and its value on $Y_2$ is non-zero, which is what we wanted to prove.
+\end{proof}
+
+
+\begin{remarks}
+\begin{enumerate}
+ \item A similar argument works to establish the following important result: Let $G$ be a reductive algebraic group over an algebraically closed field $k$ in characteristic zero. We have not defined ``reductive'', but in characteristic zero this is equivalent to the statement that every algebraic representation of $G$ is completely reducible. Let $X$ be an affine variety on which $G$ acts. Then the closed points of $X// G:=\text{Spec} k[X]^G$ are in bijection with (Zariski) closed orbits of $G$ on $X$.
+
+Here is the proof: Let $Y_1, Y_2$ be two closed orbits and consider the $G$-stable ideal $I\subset k[X]$ of regular functions vanishing on $Y_1$. Restriction to $Y_2$ gives a map: $I\to k[Y_2]$, and the image $I'$ has to be non-zero because otherwise $Y_2$ would be in the Zariski closure of $Y_1$. But since $Y_2$ is a Zariski-closed orbit, a non-zero ideal coincides with the whole ring, therefore the image $I'$ of $I$ contains constant functions. By reductivity, there is a $G$-invariant quotient of $I'$, hence a $G$-invariant quotient of $I$. By reductivity, again, $I$ has a $G$-invariant element whose image in $I'$ is non-zero. In other words, $Y_1$ and $Y_2$ are separated by $G$-invariant regular functions.
+
+\item The last proposition is not true for non-compact groups. For instance, not only is the subgroup:
+$$\left\{\left(\begin{array}{ccc} 1 \\ x & t \\ y && t^\alpha \end{array}\right): x,y\in \mathbb R, t\in \mathbb R_+^\times \right\}$$
+of ${\rm GL}_3(\mathbb R)$ (where $\alpha$ is an irrational number) not an algebraic subgroup of ${\rm GL}_3$, but it is not isomorphic to (the $\mathbb R$-points of) \emph{any} real algebraic group.\footnote{For details, cf.\ \\ \url{http://terrytao.wordpress.com/2011/06/25/two-small-facts-about-lie-groups/}.}
+
+\end{enumerate}
+
+ \end{remarks}
+
+
+
+
+
+%%%%%%%%%%%%%%%%
+
+
+
+\input{chapters}
+
+
+\bibliography{my}
+\bibliographystyle{amsalpha}
+
+\end{document}
+
