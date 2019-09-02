@@ -45,10 +45,23 @@ being a continuous linear map $V_1\to V_2$ which commutes with the action of $G$
 
 A {\it subrepresentation} of $V$ is a {\it closed} subspace of $V$ which is stable under the action of $G$.
 
-A representation is called {\it irreducible} if it does not contain any non-zero, proper subrepresentations. 
+A representation is called {\it irreducible}, or {\it simple}, if it does not contain any non-zero, proper subrepresentations. 
 
-A representation is called (totally) {\it decomposable} if it is equal to the direct sum of irreducible subrepresentations. \footnote{For infinite-dimensional representations, other notions of decomposition, such as by {\it direct integrals}, are often more useful. They will be discussed later.} 
+A representation is called {\it semisimple} or {\it (totally) decomposable} if it is equal to the direct sum of irreducible subrepresentations. \footnote{For infinite-dimensional representations, other notions of decomposition, such as by {\it direct integrals}, are often more useful. They will be discussed later.} 
 \end{definition}
+
+\begin{example}
+ \label{example-representation}
+Given a space $X$ with a right action of a group $G$, if $F(X)$ denotes the space of $k$-valued functions on $X$, there is a natural representation of $G$ on $F(X)$, sometimes called the \emph{regular representation} of $G$ on $X$ (although the term is more standard for the action of $G$ on itself, see Definition \ref{definition-regular-representation}). It is given by 
+$$ R(g)(f)(x) = f(xg).$$
+
+If $G, X$ are endowed with topology, so that the map $X\times G\to X$ is continuous, and $X$ is locally compact and Hausdorff, the space $C(X)$ of continuous, complex-valued functions, topologized as the inductive limit over all compact $K\subset X$ of the Banach spaces $C(K)$, becomes a (topological) representation of $G$, and so does its dual $M_c(X)$ of compactly supported regular measures.
+
+If $(X,\Omega, \mu)$ is a measure space with a right action by a discrete group $G$ that preserves the $\sigma$-algebra $\Omega$ and the measure $\mu$, the spaces $L^p(X,\mu)$ become topological representations of $G$. 
+
+If $G$ is any topological group acting continuously on a locally compact Hausdorff topological space $X$ as before, and $\mu$ is a regular Borel measure preserved by the action of $G$, then $L^p(X,\mu)$ is a (continuous) representation of $G$ for $1\le p<\infty$. (Exercise!)        
+\end{example}
+
 
 
 \begin{remark}
@@ -62,11 +75,34 @@ A representation is called (totally) {\it decomposable} if it is equal to the di
 \section{Action of measures on the group}
 \label{section-measures}
 
+A basic principle in representation theory is that we should extend the action of the group to the action of a suitable algebra, because algebras have a lot more structure.
+
+
 From now on we assume that the field $k$ of coefficients of the representation is the field $\mathbb C$ of complex numbers, and that the topological group $G$ is locally compact. 
 
 Let $M(G)$ be the Banach space of finite, complex-valued measures on $G$. (``Measures'' will always mean Radon measures.) It is a Banach algebra under convolution. Convolution is, by definition, the push-forward of measures under the multiplication map $G\times G \to G$. We denote by $M_c(G)$ the subalgebra of compactly supported finite measures. If $dg$ is a left Haar measure on $G$, we will call a measure $\mu= f dg$ continuous, $L^1$, etc, if $f$ is a function with the same property.
 
-If $(\pi, V)$ is a topological representation of $G$, we would like to extend the action of $G$ to an action of the algebra $M(G)$ of measures, or a subalgebra $A$ thereof, in such a way that the action of $g\in G$ will correspond to the action of the delta measure at $g$. We assume throughout that the continuous dual $V^*$ of $V$ separates points. Then, such an extension will be characterized by the property
+
+
+If $(\pi, V)$ is a topological representation of $G$, we would like to extend the action of $G$ to an action of the algebra $M(G)$ of measures, or a subalgebra $A$ thereof, in such a way that the action of $g\in G$ will correspond to the action of the delta measure at $g$; we will keep using the notation $\pi$ for such an extension. 
+
+\begin{example}
+\label{example-groupalgebra}
+The convolution algebra of $k$-valued measures of finite support on $G$ makes sense for an arbitrary commutative ring of coefficients $k$, and is called the {\it group algebra} $k[G]$. 
+
+If $G$ is discrete, there is an (obvious) equivalence of categories between representations of $G$ on $k$-vector spaces (without topology, i.e., with the discrete topology) and $k[G]$-modules.
+\end{example}
+
+
+
+\begin{example}
+\label{example-groupalgebra-Z}
+In particular, for the group $G=\mathbb Z$, its group algebra is $k[T,T^{-1}]$, and its finitely generated representations (without topology) are classified by the structure theorem for finitely generated modules over principal ideal domains.
+\end{example}
+
+
+
+We assume throughout that the continuous dual $V^*$ of $V$ separates points. Then, the extension that we seek will be characterized by the property
 \begin{equation}
 \label{equation-action-measures}
 \left<\pi(\mu)(v), v^*\right> = \int_G \left<\pi(g)v, v^*\right> \mu(g),
@@ -75,7 +111,7 @@ for every $\mu\in A$, $v\in V$, $v^*\in V^*$.
 
 \begin{proposition}
 \label{proposition-integral-lcs}
- Assume that $V$ is a locally convex topological vector space, and such that the closure of the convex hull of any compact set is compact. Then, for every $\mu\in M_c(G)$, $v\in V$ the vector $\pi(\mu)(v)$ characterized by \eqref{equation-action-measures} is defined, and the resulting map $M_c(G)\times V \to V$ is continuous, when $M_c(G)$ is given the inductive limit topology over compact subsets of $G$. 
+ Assume that $V$ is a locally convex topological vector space, and such that the closure of the convex hull of any compact set is compact. Then, for every $\mu\in M_c(G)$, $v\in V$ the vector $\pi(\mu)(v)$ characterized by \eqref{equation-action-measures} is defined, and the resulting map $M_c(G)\times V \to V$ is continuous, when $M_c(G)$ is topologized as the inductive limit, over compact subsets $K\subset G$, of the Banach spaces $M(K)$. 
 \end{proposition}
 
 Notice that by \cite[Theorem 3.20]{Rudin}, Fr\'echet spaces satisfy the conditions of the proposition.
@@ -89,18 +125,81 @@ Notice that by \cite[Theorem 3.20]{Rudin}, Fr\'echet spaces satisfy the conditio
 
 
 
-\begin{example}
-\label{example-groupalgebra}
-For a discrete group $G$, the convolution algebra $M_c(G)$ makes sense with arbitrary ring $k$ of coefficients, and coincides the {\it group algebra} $k[G]$. 
-
-In this case, there is an (obvious) equivalence of categories between representations of $G$ on $k$-vector spaces (without topology, i.e., with the discrete topology) and $k[G]$-modules.
-\end{example}
 
 
-\begin{example}
-\label{example-groupalgebra-Z}
-In particular, for the group $G=\mathbb Z$, its group algebra is $k[T,T^{-1}]$, and its finitely generated representations (without topology) are classified by the structure theorem for finitely generated modules over principal ideal domains.
-\end{example}
+\section{Matrix coefficients} 
+\label{section-matrixcoefficients}
+
+For the moment we are working with an arbitrary topological coefficient field $k$.
+
+The dual of a topological representation is defined as follows:
+\begin{definition}
+\label{definition-dual-representation}
+Given a representation $(\pi, V)$ of a topological group on a locally convex topological vector space $V$, the dual representation $(\pi^*,V^*)$ on the dual space of continuous functionals on $V$ is defined by the property
+ $$ \left< \pi^*(g)(v^*), v\right> = \left< v^*, \pi(g^{-1}) v\right>.$$
+ 
+ Here, $V^*$ is endowed with the weak-* topology, but in many settings (e.g., when $V$ is a Banach space) it can be endowed with a stronger topology (e.g., the Banach topology for the dual of a Banach space). 
+\end{definition}
+
+\begin{remark}
+\label{remark-spaces-induality}
+ For two spaces $X$ and $Y$, not necessarily linear, which are in some sort of duality, in the sense that they come with a map 
+ $$\left< \,\, , \,\, \right> : X\times Y\to Z,$$ 
+ where $Z$ is another space, a \emph{right} action of a group $G$ on $X$ naturally induces a \emph{left} action on $Y$ (when $G$ is assumed to act trivially on the target $Z$), and vice versa:
+ $$  \left< x\cdot g, y \right> = \left< x, g\cdot y \right>.$$
+ Therefore, we need to replace $g$ by $g^{-1}$ on $X$, if we want left actions on both spaces.
+\end{remark}
+
+The remark above is exemplified in the following basic example:
+
+\begin{definition}
+ \label{definition-regular-representation}
+If $k$ is the field of coefficients, and $F(H)$ denotes the space of $k$-valued functions on a group $H$, the left ($L$) and right ($R$) {\it regular representations} of $H$ on $F(H)$ are defined by 
+$$ L \times R (h_1, h_2) (f) (x) = f(h_1^{-1} x h_2).$$
+The term applies to any $H\times H$-invariant subspace of $F(H)$, and various $H\times H$-invariant quotients thereof (e.g., $L^p(H)$). 
+\end{definition}
+
+The right and left regular representations are a special case of Example \ref{example-representation} for $X=H$ and $G=H\times H$ (with left multiplication defined as a right action, $(g,x)\mapsto g^{-1}x$).
+
+\begin{definition}
+\label{definition-matrix-coefficient}
+Given a representation $(\pi, V)$ of a topological group $G$, the {\it matrix coefficient} map is the $G\times G$-equivariant map 
+$$M_\pi: \pi^* \otimes \pi \to F(G)$$
+given by 
+$$ v^*\otimes v \mapsto \left(g \mapsto \left< v^*, \pi(g) v\right> \right).$$
+\end{definition}
+
+\begin{lemma}
+\label{lemma-matrixcoefficient-continuous}
+The image of the matrix coefficient map (Definition \ref{definition-matrix-coefficient}) lies in the space $C(G)$ of continuous functions on $G$, and the resulting map 
+$$ V^* \times V \to C(G)$$
+is continuous when $C(G)$ is endowed with the seminorms of local uniform convergence.
+\end{lemma}
+
+\begin{proof}
+ This follows immediately from the continuity of the map $G\times V\to V$.
+\end{proof}
+
+
+We return to the case $k=\mathbb C$, and $G$ a locally compact topological group. In that case, the spaces $M_c(G)$ and $C(G)$ are in duality, that is, there is a natural continuous map
+$$ M_c(G) \otimes C(G) \to \mathbb C.$$
+
+\begin{lemma}
+ \label{lemma-mc-dualto-operator}
+Given a topological representation $(\pi, V)$ of  a locally compact topological group $G$ on a space satisfying the conditions of \ref{proposition-integral-lcs} (e.g., a Fr\'echet space), we have, for every $\mu\in M_c(G)$, $v\in V$, $v^*\in V^*$,
+\begin{equation}
+ \label{equation-mc-dualto-operator}
+\left< \mu , M_\pi (v^*\otimes v)\right> = \left< v^*, \pi(\mu) v \right>,
+\end{equation}
+where the first pairing is between measures and continuous functions, while the second is between $V$ and its dual.
+\end{lemma}
+
+\begin{proof}
+ Just an unfolding of the definitions:
+$$\left< \mu , M_\pi (v^*\otimes v)\right> =  \int_G \left< v^*, \pi(g) v\right>  \mu(g) = \left< v^*, \int_G \pi(g) v \mu(g) \right> = \left< v^* , \pi(\mu) v\right>.$$
+\end{proof}
+
+
 
 
 

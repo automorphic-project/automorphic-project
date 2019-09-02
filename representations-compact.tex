@@ -23,7 +23,7 @@ The (complex) representation theory of compact groups, in a nutshell:
 \end{enumerate}
 
 
-In this chapter, $G$ is a compact group, and we fix throughout the probability Haar measure $dg$. Multiplication of functions by $dg$ turns them into measures which can act on the space of a representation $\pi$, and we feel free to write $\pi(f)$ for $\pi(f dg)$. 
+In this chapter, $G$ (or $H$) is a compact group, and we fix throughout the probability Haar measure $dg$. Multiplication of functions by $dg$ turns them into measures which can act on the space of a representation $\pi$, and we feel free to write $\pi(f)$ for $\pi(f dg)$. 
 
 \section{Unitarity}
 \label{section-unitarity}
@@ -119,18 +119,17 @@ In particular, all eigenspaces with nonzero eigenvalues are finite-dimensional.
 
 
 
-\section{Peter--Weyl theorems} \label{PeterWeyl}
+\section{Peter--Weyl theorems} 
 \label{section-PeterWeyl}
 
 Let $H$ be a compact group, and consider the space $V=L^2(H)$. It is a unitary representation for $G=H\times H$. 
 
+Let $(\pi, V)$ be a finite-dimensional representation of $H$, and consider the matrix coefficient map (see \ref{representationtheory-section-matrixcoefficients})
+$$ M_\pi: \pi^*\otimes \pi \to C(H).$$
+
 \begin{lemma}
 \label{lemma-matrixcoefficient}
-\begin{enumerate}
-  \item For any finite-dimensional irreducible representation $\pi$ of $H$, we have an embedding $M_\pi: \pi^*\otimes\pi\to C(H) \subset L^2(H)$ given by the matrix coefficient map
-  $$ \tilde v\otimes v \mapsto (h\mapsto \left< \pi(h) v, \tilde v\right>).$$
-  \item For non-isomorphic $\pi$'s, the images of these embeddings are orthogonal.
- \end{enumerate}
+For $\pi$ irreducible, the matrix coefficient map is an embedding. For $\pi, \sigma$ irreducible and non-isomorphic, the images of the matrix coefficient maps are orthogonal in $L^2(H)$.
 \end{lemma}
 
 \begin{proof}
@@ -147,8 +146,10 @@ Notice that the image of the matrix coefficient map consists of \emph{(left and 
 The matrix coefficient maps give rise to a canonical isomorphism
 $$L^2(H)\simeq \hat\bigoplus_\pi \pi^*\otimes \pi$$
 (Hilbert space direct sum),
-where $\pi$ runs over representatives for the isomorphism classes of irreducible, finite dimensional representations of $H$.
+where $\pi$ runs over representatives for the isomorphism classes of irreducible, finite dimensional unitary representations of $H$.
 \end{theorem}
+
+The word ``unitary'', here, is just to say that the representations $\pi$ come endowed with invariant inner products; according to Proposition \ref{proposition-compact-unitarizable}, every finite dimensional representation of $H$ admits such an invariant inner product, which by Schur's lemma (Theorem \ref{theorem-Schurslemma}, much easier in the finite-dimensional case) is unique up to scaling (exercise!). 
 
 \begin{proof}
  We prove the theorems in steps. 
@@ -211,10 +212,149 @@ We then apply Theorem \ref{theorem-PeterWeyl-general} to any of these Fr\'echet 
 
 
 
+\section{The Plancherel formula}
+\label{section-Plancherel}
+
+The Plancherel formula expresses a function $f\in L^2(H)$ (using probability Haar measure for the $L^2$-norms throughout) in terms of its \emph{spectral transforms}, which have to be defined as explicit projections onto the summands $\pi^*\otimes \pi$ of the Peter--Weyl theorem. Of course, $f$ decomposes as a convergent sum of its orthogonal projections to those subspaces, but these are not the most natural projections to consider in practice. Instead, the ``natural'' projection is the map
+$$ f\mapsto \pi(f dh) \in \text{End}(\pi) = \pi^*\otimes \pi$$
+(where $dh$ is the probability Haar measure). 
+
+Hence, the content of the Plancherel formula is the comparison of these ``natural'' projections with the orthogonal ones.
+
+\begin{theorem}
+ \label{theorem-Plancherel}
+For any $f\in L^2(H)$, we have 
+\begin{equation}
+ \label{equation-Plancherelformula}
+\Vert f\Vert^2 = \sum_\pi \Vert \pi(fdh) \Vert_{HS}^2 \cdot d(\pi),
+\end{equation}
+ where $\pi$ ranges over all isomorphism classes of irreducible unitary representations of $H$, $d(\pi)$ denotes the dimension of $\pi$, and $\Vert \cdot \Vert_{HS}$ denotes the Hilbert--Schmidt norm on $\text{End}(\pi)$, i.e., the Hilbert norm on $\pi^*\otimes \pi$.
+ 
+ If $f\in C(H)$, then we have 
+\begin{equation}
+ \label{equation-Plancherelformula-trace}
+f(1) = \sum_\pi \text{tr}\left( \pi(fdh) \right) \cdot d(\pi).
+\end{equation}
+\end{theorem}
+
+\begin{proof}
+ Assume that $f \in C(H)$. The right regular action $R(fdh)$ is represented by the kernel $K_f(x,y) = f(x^{-1},y)$, i.e., 
+ $$ R(fdh)\Phi(x) = \int \Phi(y) f(x^{-1}y) dy.$$
+ 
+ Calculating the trace of this operator we get, on one hand, 
+ $$ \text{tr} R(fdh) = \int_{H} K_f(x,x) dx = f(1),$$
+ and on the other, by the Peter--Weyl theorem \ref{theorem-PeterWeyl}, 
+ $$ \text{tr} R(fdh) = \sum_\pi \dim(\pi^*) \text{tr}(\pi(f)) = \sum_\pi d(\pi) \text{tr}(\pi(f)).$$
+ 
+ This proves \eqref{equation-Plancherelformula-trace}, and to prove \eqref{equation-Plancherelformula} it is enough to observe that 
+ $$ \left< f_1, f_2 \right>_{L^2(H)} = f_1^* \star f_2 (1),$$
+ where $f_1^*(g) = \overline{f_1 (g^{-1})}$, and $\star$ denotes convolution (=pushforward by the multiplication map $H\times H\to H$), and 
+ $$ \left< T_1, T_2\right>_{HS} = \text{tr} (T_1^* T_2).$$
+ (We take the linear factor to be the second one in the hermitian inner products.)
+\end{proof}
+
+\section{Example: Spherical harmonics}
+\label{section-spherical-harmonics}
+
+We finish this chapter with a classical example, the decomposition of the space $L^2(S^n)$ into irreducibles for the action of $\text{SO}(n+1)$. Here, $S^n$ is the unit sphere in Euclidean space $\mathbb R^{n+1}$, and $G=\text{SO}(n+1)$ is the special orthogonal group of length-preserving linear transformations of determinant $+1$. We follow the notes \cite{Gallier}.
+
+Here, we work with real-valued functions and real Hilbert spaces; the translation to complex-valued functions is immediate, after tensoring by $\mathbb C$. We let $G$ act on the right on $\mathbb R^{n+1}$, and by fixing a base point we have an isomorphism $S^n = \text{SO}(n)\backslash \text{SO}(n+1)$, which proves (inductively) that $\text{SO}(n)$ is compact.
+
+\begin{lemma}
+ \label{lemma-polynomials-dense-onsphere}
+Restrictions of polynomials on $\mathbb R^{n+1}$ are dense in $L^2(S^n)$. 
+\end{lemma}
+
+\begin{proof}
+ Apply the Stone--Weierstrass theorem.
+\end{proof}
+
+The restriction map $\mathbb R[\mathbb R^{n+1}] \to L^2(S^n)$ is not injective. For example, on $S^1 = \exp(i\mathbb R)$ we have $x^2 + y^2 = 1$. 
+
+One proves that it is enough to restrict to \emph{harmonic polynomials}, that is, eigenvalues for the Laplacian $\Delta$ on $\mathbb R^{n+1}$. The proof goes as follows: We define an isomorphism $P\mapsto \partial (P)$ between the algebra of polynomials and the algebra of linear differential operators with constant coefficients on $V = \mathbb R^{n+1}$, given in an orthonormal set of coordinates $(x_i)_i$ by $x_i\mapsto \frac{\partial}{\partial x_i}$. (Up to a scalar, this is simply the Fourier transform of a differential operator, when we use the inner product to identify the space $V$ with its dual $V^*$.) Then one easily sees that the pairing 
+\begin{equation}
+ \label{equation-pairing-homogeneous}
+ \left< P , Q\right> = \partial(P) \overline{Q}
+\end{equation}
+is an inner product on the space $\mathbb R[V]_k$ of homogeneous polynomials of degree $k$, or a hermitian inner product on $\mathbb C[V]_k$.
 
 
+\begin{lemma}
+ \label{lemma-Laplacian-onto}
+The Laplace operator
+$$ \Delta:\mathbb R[V]_{k+2}  \to \mathbb R[V]_k$$
+is surjective for every $k\ge -1$ (setting $\mathbb R[V]_{-1} =0$).  
+\end{lemma}
 
+\begin{proof}
+ If $Q\in \mathbb R[V]_k$ is orthogonal to the image of $\Delta$ then for every $P\in \mathbb R[V]_{k+2}$ we have
+ $$ 0 = \left < Q, \Delta P \right> = \left< \Vert x\Vert^2 Q, P\right>$$
+ (by basic properties of Fourier transform),
+ hence $\Vert x \Vert^2 Q = 0$, and therefore $Q=0$.
+\end{proof} 
+ 
+The same argument shows
+\begin{lemma}
+ \label{lemma-harmonic-rest}
+If $H_{k+2} \subset \mathbb R[V]_{k+2}$ denotes the subspace of harmonic polynomials ($\Delta P=0$), we have an orthogonal decomposition
+$$\mathbb R[V]_{k+2} = H_{k+2} \oplus \Vert x\Vert^2 R[V]_k.$$
+\end{lemma}
 
+\begin{proof}
+ Indeed, if $P \in H_{k+2}$ and $Q\in R[V]_k$, we have 
+ $$\left< \Vert x\Vert^2 Q, P\right> =\left < Q, \Delta P \right> =0,$$ 
+ which shows that the two subspaces are orthogonal. By \ref{lemma-Laplacian-onto}, their dimensions are complementary; this proves the lemma.
+\end{proof}
+
+This shows:
+\begin{proposition}
+ \label{proposition-harmonic-ontosphere}
+ We have an orthogonal decomposition
+ $$ R[V]_k = H_k \oplus \Vert x\Vert^2 H_{k-2} \oplus \Vert x\Vert^4 H_{k-4} \oplus \dots.$$
+ The restriction of every polynomial to $S^n$ is equal to the restriction of a linear combination of harmonic polynomials.
+\end{proposition}
+
+\begin{proof}
+ The first statement follows by induction from Lemma \ref{lemma-harmonic-rest}, and the second because $\Vert x\Vert =1$ on the unit sphere.
+\end{proof}
+
+Now, if $\Delta_S$ is the Laplacian on $S^n$, and $r = \Vert x\Vert$ is the radial coordinate, the Laplacian on $\mathbb R^{n+1}$ can be written
+\begin{equation}
+ \label{equation-Laplacian-decomposition}
+ \Delta = \frac{1}{r^n} \frac{\partial}{\partial r} \left(r^n \frac{\partial}{\partial r}\right) + \frac{1}{r^2} \Delta_S.
+\end{equation}
+
+Hence, 
+\begin{lemma}
+ \label{lemma-eigenvalue-sphereLaplacian}
+If $P\in H_k$, then $P|_{S^n}$ is an eigenvector of the Laplacian $\Delta_S$ with eigenvalue $-k(n+k-1)$.
+\end{lemma}
+
+\begin{proof}
+ We write $P (r,\theta) = r^k f(\theta)$, with $\theta$ the coordinate on $S^n$, and the result follows from \eqref{equation-Laplacian-decomposition}.
+\end{proof}
+
+This leads to the main result:
+\begin{theorem}
+ \label{theorem-sphericalharmonics}
+If $H_k$ denotes the space of harmonic polynomials, homogeneous of degree $k$, on $\mathbb R^{n+1}$, the restriction maps
+$$H_k \to L^2(S^n)$$
+are injective (allowing us to identify $H_k$ as a subspace of $L^2(S^n)$, and we have an orthogonal direct sum decomposition 
+$$ L^2(S^n) = \hat\bigoplus_{k=0}^\infty H_k.$$
+This is the decomposition of $L^2(S^n)$ into irreducible representations for the group $\text{SO}(n+1)$.
+\end{theorem}
+
+\begin{proof}
+ The restriciton of a homogeneous polynomial to $S^n$ determines the polynomial, therefore the maps $\mathbb R[\mathbb R]_k \to L^2(S^n)$ (and, a fortiori, their restriction to harmonic polynomials) are injective for every $k$.
+ 
+ The Laplacian $\Delta_S$ is a self-adjoint operator; therefore, its eigenspaces corresponding to distinct eigenvalues are mutually orthogonal. This applies to the spaces $H_k$, by Lemma \ref{lemma-eigenvalue-sphereLaplacian}.
+ 
+ By Lemma  \ref{lemma-polynomials-dense-onsphere}, restrictions of polynomials to $S^n$ are dense, and by Proposition \ref{proposition-harmonic-ontosphere}, those are the same as the restrictions of harmonic polynomials.
+ 
+ The group $G=\text{SO}(n+1)$ preserves the metric on $S^n$, therefore its action on $C^\infty(S^n)$ commutes with the Laplacian. In particular, eigenspaces for $\Delta_S$ are stable under $G$. 
+ 
+ [Proof of irreducibility to be added.]
+\end{proof}
 
 
 
