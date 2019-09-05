@@ -86,7 +86,7 @@ with the spaces $\left< e^{sx}\right>$ being eigenspaces for all translation ope
 \end{theorem}
 
 \begin{proof}
- See \cite[Theorem 12.23]{Rudin}. The measure space space $(X,\mu)$ in our formulation is not canonical, but can be obtained from the more canonical formulation of \emph{loc.cit}.\ by considering subspaces of $V$ of the form $\overline{\mathbb C[T]v}$, for $v\in V$. 
+ See \cite[Theorem 12.23]{Rudin}. The measure space $(X,\mu)$ in our formulation is not canonical, but can be obtained from the more canonical formulation of \emph{loc.cit}.\ by considering subspaces of $V$ of the form $\overline{\mathbb C[T]v}$, for $v\in V$. 
 \end{proof}
 
 
@@ -144,45 +144,66 @@ Notice that the image of the matrix coefficient map consists of \emph{(left and 
 \begin{theorem}[Peter--Weyl theorem]
 \label{theorem-PeterWeyl}
 The matrix coefficient maps give rise to a canonical isomorphism
-$$L^2(H)\simeq \hat\bigoplus_\pi \pi^*\otimes \pi$$
-(Hilbert space direct sum),
-where $\pi$ runs over representatives for the isomorphism classes of irreducible, finite dimensional unitary representations of $H$.
+\begin{equation}
+ \label{equation-PeterWeyl}
+ L^2(H)\simeq \hat\bigoplus_\pi \pi^*\otimes \pi
+\end{equation}
+(orthogonal, completed direct sum),
+where $\pi$ runs over representatives for the isomorphism classes of irreducible, finite dimensional representations of $H$.
+
+Moreover, the finite vectors $\bigoplus_\pi \pi^*\otimes \pi$ are dense in $C(H)$ (in the norm topology).
 \end{theorem}
 
-The word ``unitary'', here, is just to say that the representations $\pi$ come endowed with invariant inner products; according to Proposition \ref{proposition-compact-unitarizable}, every finite dimensional representation of $H$ admits such an invariant inner product, which by Schur's lemma (Theorem \ref{theorem-Schurslemma}, much easier in the finite-dimensional case) is unique up to scaling (exercise!). 
 
 \begin{proof}
- We prove the theorems in steps. 
+We start with the following assertions:  
 
 \begin{itemize}
- \item Let $\mu_n$ be a sequence of approximations of the identity in $H$, i.e.\ positive probability measures whose mass is eventually concentrated in any neighborhood of the identity. Then for any Banach representation $(\pi,V)$ and vector $v\in V$ we have $\pi(\mu_n)v\to v$.
+ \item Let $\mu_n$ be a sequence of positive probability measures on $G$, supported on a fixed compact neighborhood of the identity,  which converge to $\delta_1$ in the weak-* topology of $M_c(G)$; we will refer to such a sequence as an approximation of the identity. Then, for any Banach representation $(\pi,V)$ and vector $v\in V$ we have $\pi(\mu_n)v\to v$.
  
- Indeed, $\mu_n\to \delta_1$ in the measure space $M(H)$, and we have seen (Proposition \ref{representationtheory-proposition-integral-Banach}) that the map $\pi: M(H)\to \text{End}(V)$ is continuous.
-
+ This follows from Proposition \ref{representationtheory-proposition-integral-Banach}.
+ 
  
  \item For any subrepresentation $V$ of $L^2(H)$ under the right (or left) regular action, continuous functions are dense in $V$. 
 
-Indeed, it is enough to choose a continuous approximation of the identity and convolve elements of $V$ with it; the convolution of any function with a continuous measure is continuous.
+Indeed, it is enough to choose an approximation $(\mu_n)_n$ of the identity by continuous measures (i.e., continuous functions times a Haar measure). By the above, $L(\mu_n)(f)\to f$ for every $f\in V$, but $L(\mu_n)(f)$ is simply the convolution $\mu_n\star f$, which is continuous. Thus, continuous functions are dense. 
 
 \item Right-finite (or left-finite) functions are dense in any closed, invariant subspace of $L^2(H)$. 
 
-This is the most important step of the proof. Assume to the contrary that there is a non-zero closed subspace $V$ without any right finite functions. We can find a continuous, self-adjoint measure $\mu$ on $H$ such that $L(\mu)V\ne 0$. (Indeed, we can do this by approximating the identity by continuous, self-adjoint measures; here by self-adjoint we mean that the operator $L(\mu)$ is self-adjoint, which is equivalent to $h(g^{-1})=\overline{h(g)}$ if $\mu=hdg$ --- exercise!.) We know (Proposition \ref{proposition-continuousconvolution-compact}) that $L(\mu)$ is compact, hence by the Spectral Theorem \ref{theorem-spectraltheorem-compact} there is a non-zero (real) eigenvalue $\lambda$ of $L(\mu)$, and the $\lambda$-eigenspace is finite-dimensional. But the $\lambda$-eigenspace for $L(\mu)$ is stable under the right action of $H$, hence there are right-finite vectors, a contradiction.
+This is the most important step of the proof. Assume to the contrary that there is a non-zero closed subspace $V$ without a dense subspace of right-finite functions, which (by taking orthogonal complement of the subspace of right-finite functions) reduces to the case where $V$ does not have any right-finite vectors. We can find a continuous, self-adjoint measure $\mu$ on $H$ such that $L(\mu)V\ne 0$. Here, by self-adjoint we mean that the operator $L(\mu)$ is self-adjoint, which is equivalent to $h(g^{-1})=\overline{h(g)}$ if $\mu=hdg$ --- exercise!. The existence of such a measure follows by approximating the identity by positive, continuous self-adjoint measures $\mu_n$, and then using the fact that $\mu_n(v)\to v$ for every vector $v$.  We know (Proposition \ref{proposition-continuousconvolution-compact}) that $L(\mu)$ is compact, hence by the Spectral Theorem \ref{theorem-spectraltheorem-compact} there is a non-zero (real) eigenvalue $\lambda$ of $L(\mu)$, and the $\lambda$-eigenspace is finite-dimensional. But the $\lambda$-eigenspace for $L(\mu)$ is stable under the right action of $H$, hence there are right-finite vectors, a contradiction.
 
 \end{itemize}
 
-Now let $\pi$ be a finite-dimensional irreducible representation of $H$; by the previous point, such representations exist. We have a tautological map $T:\text{Hom}(\pi, L^2(H)) \otimes \pi\to L^2(H)$, where $\text{Hom}$ refers here to the right regular representation. Moreover, the image of $T$ lies in the subspace $C(H)$ of continuous functions. If we endow the space $\text{Hom}(\pi, L^2(H))$ with the action induced from the left regular representation of $H$ on $L^2(H)$, the map $T$ is equivariant. Evaluation at the identity defines a morphism $\text{Hom}(\pi, L^2(H)) \to \pi^*$, whose kernel is (tautologically) trivial. We conclude that the $\pi$-isotypic component of $L^2(H)$ under the right representation (the image of $T$) is isomorphic to $\pi^*\otimes \pi$. Those subspaces, as the isomorphism class of $\pi$ varies, are mutually orthogonal by Lemma \ref{lemma-matrixcoefficient}, and they span a dense subspace, by the points above. This proves the theorem.
+Now let $\pi$ be a finite-dimensional irreducible representation of $H$; by the previous point, such representations exist. We have a tautological map $T:\text{Hom}(\pi, L^2(H)) \otimes \pi\to L^2(H)$, where $\text{Hom}$ refers here to the right regular representation. Moreover, the image of $T$ lies in the subspace $C(H)$ of continuous functions. If we endow the space $\text{Hom}(\pi, L^2(H))$ with the action induced from the left regular representation of $H$ on $L^2(H)$, the map $T$ is equivariant. Evaluation at the identity defines a morphism $\text{Hom}(\pi, L^2(H)) \to \pi^*$, whose kernel is (tautologically) trivial. We conclude that the $\pi$-isotypic component of $L^2(H)$ under the right representation (the image of $T$) is isomorphic to $\pi^*\otimes \pi$. Those subspaces, as the isomorphism class of $\pi$ varies, are mutually orthogonal by Lemma \ref{lemma-matrixcoefficient}, and they span a dense subspace, by the points above. This proves the $L^2$-part of the theorem.
+
+To prove that finite vectors are dense in $C(H)$, we use the trick of approximating a continuous function $f$ by convolutions of continuous functions: Indeed, if $\mu_n$ is a continuous approximation of the identity, as before, $\mu_n \star f \to f$ in $C(H)$. 
+
+Therefore, it suffices to show that a function of the form $h\star f$, where $h$ and $f$ are continuous, can be approximated uniformly by finite functions. Notice that 
+$$h\star f(x) = \int_H h(g) f(g^{-1}x) dg = \left< h, R_x f^*\right>,$$ where $f^*(g) = \overline{f(g^{-1})}$.
+
+Let $h_n$ be a sequence of finite functions which converges to $h$ in $L^2(H)$. Then, the functions $R_x f^*$ are bounded uniformly in $x$, and therefore
+$$ h_n\star f(x) = \left< h_n, R_x f^*\right> \to \left< h, R_x f^*\right> = h_n\star f,$$
+uniformly in $x$.
+
 \end{proof}
+
+
+\begin{remark}
+ If $\pi$ is endowed with an invariant Hilbert norm, so $\pi^*= \bar\pi$, the decomposition \eqref{equation-PeterWeyl} is not an isometry. This will be the subject of the Plancherel formula, Theorem \ref{theorem-Plancherel}.
+\end{remark}
 
 
 \begin{theorem}
 \label{theorem-PeterWeyl-general}
- Every Fr\'echet representation of $H$ contains a dense subspace of finite vectors. In particular, every irreducible Fr\'echet represenation is finite dimensional. Every Hilbert representation of $H$ is the Hilbert space direct sum of irreducibles.
+ Every Fr\'echet representation $(\pi,V)$ of $H$ contains a dense subspace of finite vectors. In particular, every irreducible Fr\'echet represenation is finite dimensional. Every Hilbert representation of $H$ is the Hilbert space direct sum of irreducibles.
 \end{theorem}
 
 
 \begin{proof}
+Let $f_n dh$ be an approximation of the identity by positive, continuous probability measures. Then, given a convex neighborhood $U\subset V$ of zero, and a vector $v\in V$, we have $\pi(f_n dh)\in v+\frac{1}{2}U$, for large $n$, by Proposition \ref{representationtheory-proposition-integral-Banach}. 
 
-Choose an approximation of the identity by $L^2$-measures $f_ndh$. By Theorem \ref{theorem-PeterWeyl}, we can approximate $f_n$ in $L^2(H)$, and hence in $L^1(H)$, by left-finite functions, thus there is a sequence of left-finite measures $\mu_n$ such that $\mu_n\to \delta_1$. Then, for any vector $v\in V$ we have: $\pi(\mu_n)v\to v$. This follows from Proposition \ref{representationtheory-proposition-integral-Banach}, together with the (easy) fact that, for compact groups, every Fr\'echet representation is an $F$-representation, in the language of \ref{representationtheory-section-Frepresentations}.
+Now fix such a large $n$, and choose a sequence $h_j$ of finite functions such that $h_j\to f_n$ in $C(H)$. In particular, the measures $h_j dh$ converge strongly to $f_n dh$, and again by Proposition \ref{representationtheory-proposition-integral-Banach} we have $\pi(h_j dh)(v)\to \pi(f_n dh)(v)$, hence $\pi(h_j dh)(v)\in v+U$, for large $j$. 
+
 
 But, for a vector $v\in V$, $\pi(\mu_n)v$ is finite since $\mu_n$ is left-finite. This proves the first claim, and the others follow easily.
 

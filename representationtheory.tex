@@ -111,15 +111,48 @@ for every $\mu\in A$, $v\in V$, $v^*\in V^*$.
 
 \begin{proposition}
 \label{proposition-integral-lcs}
- Assume that $V$ is a locally convex topological vector space, and such that the closure of the convex hull of any compact set is compact. Then, for every $\mu\in M_c(G)$, $v\in V$ the vector $\pi(\mu)(v)$ characterized by \eqref{equation-action-measures} is defined, and the resulting map $M_c(G)\times V \to V$ is continuous, when $M_c(G)$ is topologized as the inductive limit, over compact subsets $K\subset G$, of the Banach spaces $M(K)$. 
+ Assume that $V$ is a locally convex topological vector space, and such that the closure of the convex hull of any compact set is compact. Then, for every $\mu\in M_c(G)$, $v\in V$ the vector $\pi(\mu)(v)$ characterized by \eqref{equation-action-measures} is defined. 
+ 
+ The resulting map $M_c(G)\times V \to V$ is continuous, when $M_c(G)$ is topologized as the inductive limit, over compact subsets $K\subset G$, of the Banach spaces $M(K)$. 
+ 
+ Moreover, the restriction of this map to any bounded subset of $M_c(G)$ is continuous with respect to the weak-* topology, that is, the inductive limit topology of the spaces $M(K)$ endowed with the weak-* topology as duals of the spaces $C(K)$.
 \end{proposition}
 
 Notice that by \cite[Theorem 3.20]{Rudin}, Fr\'echet spaces satisfy the conditions of the proposition.
 
 \begin{proof}
- The existence of an integral $\pi(\mu)(v):= \int_{G} \pi(g)(v) \mu(g)$ with the property \eqref{equation-action-measures}, for $\mu$ compactly supported, follows from \cite[Theorem 3.27]{Rudin}. 
- 
- To show continuity, it is enough to show that, for every compact $K\subset G$, the preimage of a convex open neighborhood $U$ of $0$ contains an open neighborhood of $0$ in $M_c(K)\times V$. Recall that, by definition, the map $G\times V\to V$ is continuous. Thus, given a measure $K$ and an open $U\subset V$,  there is $U'\subset V$ open such that $\pi(g)(U')\subset U$ for every $g\in K$. If $\mu$ is a positive probability measure, by {\it loc.cit.\ }the integral $\int_{G} \pi(g)(v) \mu(g)$ belongs to the closure of the convex hull of the compact set $\pi(\text{supp} \mu)(v)$. Thus, for $v\in U'$, we will have $\pi(g)(v) \in \overline{U} \subset (1+\epsilon) U$ for every $\epsilon >0$; equivalently, $\pi(g)( (1+\epsilon)^{-1} U') \subset U$. Without loss of generality, the sets  $U'$ and $U$ are invariant under multiplication by the unit disk in $\mathbb C$, and then the preimage of $U$ contains the product with $(1+\epsilon)^{-1} U'$ of the open set of measures in $K$ which can be written as convex linear combinations of measures of the form $z\cdot \mu$, $|z|<1$.
+By \cite[Theorem 3.27]{Rudin}, for a finite Borel measure $\mu$ on a compact Hausdorff space $K$, and a continuous function $f:K\to V$ to a topological vector space $V$ satisfying the conditions of the proposition, the integral $\int_K f \cdot \mu$, characterized by 
+$$ \left< \int_K f \cdot \mu, v^*\right> = \int_K \left< f , v^*\right> \cdot \mu$$ for every $v^*\in V^*$, is defined. (The argument, in brief: First, reduce to the case of positive probability measures. Then, show that the subsets of the closed convex hull of $f(K)$ cut out by a finite number of conditions of the form $\left< v, v^*\right> = \int_K \left< f , v^*\right> \cdot \mu$ are nonempty. By compactness, it follows that their intersection is nonempty.) 
+
+Here, we take $K \subset G$ to be the support of a given measure, and $f(g) = \pi(g)(v)$, and set $\pi(\mu)(v):= \int_{G} \pi(g)(v) \mu(g)$.
+
+The same result ensures that, when $\mu$ is a positive probability measure, the integral $\int_{G} \pi(g)(v) \mu(g)$ belongs to the closure of the convex hull of the compact set $\pi(\text{supp} \mu)(v)$ (to be denoted $\overline{\text{co}} \left( \pi(\text{supp} \mu)(v) \right)$.
+
+The continuity statement on (norm) bounded sets with the weak-* topology is stronger than the continuity statement in the norm topology, so it suffices to prove that. Fix a compact $K\subset G$, and let $M(K)_{\le 1}$ be the unit ball in $M(K)$. It is enough to prove that the preimage of a neighborhood $U$ of $0\in V$ contains a product $M \times U'$, where $M$ is a weak-* neighborhood of zero in $M(K)_{\le 1}$, and $U'\subset V$ is a neighborhood of zero.
+
+We may take $U$ to be closed and convex and balanced (i.e., $zU\subset U$ for $|z|\le 1$). 
+Since every $\mu \in M(K)_{\le 1}$ can be written as $\mu_1 - \mu_2 +i\mu_3-i\mu_4$, where the $\mu_i$'s are positive measures, also in $M(K)_{\le 1}$, it's enough to show that if $\mu_1$ is a positive measure, there are neighborhoods as above such that when $\mu_2 \in \mu_1+M$ and $v\in U'$, we have $\mu_1(v)-\mu_2(v)\in U$. 
+
+By continuity of the action map $G\times V\to V$, there is a finite open cover $(K_i)_{i=1}^r$ of $K$, and an open $U'\subset V$, such that, for each $i$, 
+$$ \{ v_1- v_2| v_1, v_2 \in \overline{\text{co}}(\pi(K_i)(U'))\} \subset \frac{1}{2} U.$$
+
+There is a partition of unity $1_K=\sum_i f_i$, subordinate to the cover $(K_i)_i$, where the $f_i$'s are continuous functions and $0\le f_i\le 1$. 
+Let $\mu_1, \mu_2$ be positive measures on $K$, with $\Vert \mu_i\Vert\le 1$, whose difference is contained in the weak-* neighborhood determined by the conditions
+$$ |\left< \mu_1-\mu_2, f_i \right>| <\epsilon,$$
+for given $\epsilon >0$ (to be determined). Let $m_i^j = \int_K f_i \mu_j$ for $j=1,2$.
+Then, for $v\in U'$
+$$ \pi(\mu_1)(v) - \pi(\mu_2) (v) = \sum_i \int_K f_i(g) \pi(g)(v) (\mu_1-\mu_2)(g).$$
+Since the $\mu_i$'s and the $f_i$'s are positive, the integral 
+$$ \int_K f_i(g) \pi(g)(v) \mu_j(g)$$
+lies in $m_i^j \cdot \overline{\text{co}}(\pi(K_i)(U'))$. Thus, 
+$$\int_K f_i(g) \pi(g)(v) (\mu_1-\mu_2)(g) \in \overline{\text{co}}\left(m_i^1 \pi(K_i)(U')\right) - \overline{\text{co}}\left(m_i^2 \pi(K_i)(U')\right)$$ 
+$$\subset  m_i^1 \left[\overline{\text{co}}\left(\pi(K_i)(U')\right) - \overline{\text{co}}\left(\pi(K_i)(U')\right) \right] + \epsilon \overline{\text{co}}\left(\pi(K_i)(U')\right)  \subset \frac{m_i^1}{2} \cdot U + \epsilon \overline{\text{co}}\left(\pi(K_i)(U')\right),$$
+and therefore 
+$$ \pi(\mu_1)(v) - \pi(\mu_2) (v) \in \sum_i (\frac{m_i^1}{2} \cdot U) + \sum_i \epsilon \cdot \overline{\text{co}}\left(\pi(K_i)(U')\right)$$
+$$\subset \frac{\Vert \mu_1\Vert}{2} \cdot U + \sum_i \epsilon \cdot \overline{\text{co}}\left(\pi(K_i)(U')\right) \subset \frac{1}{2} U + \sum_i \epsilon \cdot \overline{\text{co}}\left(\pi(K_i)(U')\right).$$
+Choosing $\epsilon$ small enough, we can guarantee that this belongs to $U$, and we are done. 
+
+%in the norm topology, we need to show that, if we fix a compact $K\subset G$, the preimage of a convex open neighborhood $U$ of $0$ contains an open neighborhood of $0$ in $M_c(K)\times V$. Recall that, by definition, the map $G\times V\to V$ is continuous. Thus, given a measure $K$ and an open $U\subset V$,  there is $U'\subset V$ open such that $\pi(g)(U')\subset U$ for every $g\in K$. By the aforementioned result, this implies that $\pi(g)(v) \in \overline{U} \subset (1+\epsilon) U$ for every $\epsilon >0$; equivalently, $\pi(g)( (1+\epsilon)^{-1} U') \subset U$. Without loss of generality, the sets  $U'$ and $U$ are invariant under multiplication by the unit disk in $\mathbb C$, and then the preimage of $U$ contains the product with $(1+\epsilon)^{-1} U'$ of the open set of measures in $K$ which can be written as convex linear combinations of measures of the form $z\cdot \mu$, $|z|<1$.
 \end{proof}
 
 
