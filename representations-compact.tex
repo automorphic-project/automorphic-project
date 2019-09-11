@@ -95,7 +95,7 @@ An operator on a Hilbert space is \emph{compact} if it can be approximated in th
 
 \begin{theorem}
 \label{theorem-spectraltheorem-compact} 
- Let $T$ be a compact self-adjoint operator on a Hilbert space $V$, then there is a sequence of eigenvectors $v_n$ with (real) eigenvalues $0\ne\lambda_n\to 0$ (or a finite number of such eigenvalues, if the space is finite-dimensional) such that 
+ Let $T$ be a compact self-adjoint operator on a Hilbert space $V$, then there is a sequence of eigenvectors $v_n$ with (real) eigenvalues $0\ne\lambda_n\to 0$ (or a finite number of such eigenvalues, if the operator is of finite range) such that 
  $$V = \ker T \oplus \hat{\bigoplus}_n \left< v_n\right>,$$
 a Hilbert space (i.e., orthogonal and completed) direct sum. 
 \end{theorem}
@@ -110,12 +110,17 @@ In particular, all eigenspaces with nonzero eigenvalues are finite-dimensional.
 
 \begin{theorem}[Schur's lemma]
 \label{theorem-Schurslemma}
- If $V, V'$ are two irreducible unitary representations of a group $G$, and $T \in \Hom^G(V,V')$, then $T$ is a scalar multiple of an isometry.
+ If $V$ is an irreducible unitary representation of any group $G$, and $S\in \text{End}^G(V)$, then $S$ is a scalar multiple of the identity.
+ 
+ If $V, V'$ are two irreducible unitary representations of a group $G$, and $T \in \Hom^G(V,V')$, then $T$ is a scalar multiple of an isometry. 
 \end{theorem}
 
 \begin{proof}
- It is enough to show that the self-adjoint bounded operators $T^* T$ and $T T^*$ are scalars. Let $S$ be one of these operators, and apply the spectral theorem. We claim that the spectrum $\sigma(S)$ is a singleton, hence making $S$ a scalar operator. Otherwise, by Theorem \ref{theorem-spectraltheorem-normal}, for two non-empty, disjoint open subsets of $\sigma(S)$, the corresponding projections $E(\omega_1)$ and $E(\omega_2)$ are non-zero, and have orthogonal images. But these projections commute with the action of $G$, which commutes with $T$, hence $V$ cannot be irreducible.
-\end{proof}
+ For the first claim, by unitarity, the Hilbert space adjoint $S^*$ of $S$ also commutes with $G$; hence, we may assume that $S$ is self-adjoint, by replacing it with $S+S^*$ and $i(S-S^*)$. Then, we claim that the spectrum $\sigma(S)$ is a singleton, making $S$ a scalar operator by the Spectral Theorem \ref{theorem-spectraltheorem-normal}. Otherwise, by the same theorem, for two non-empty, disjoint open subsets of $\sigma(S)$, the corresponding projections $E(\omega_1)$ and $E(\omega_2)$ are non-zero, and have orthogonal images. But these projections commute with the action of $G$, which commutes with $S$, hence $V$ cannot be irreducible.
+ 
+
+ For the second claim, it is enough to show that the self-adjoint bounded operators $T^* T$ and $T T^*$ are scalars. Again, by unitarity, the Hilbert space adjoint $T^*$ of $T$ also commutes with $G$. Let $S$ be one of these operators, and apply the first claim.
+ \end{proof}
 
 
 
@@ -150,8 +155,6 @@ The matrix coefficient maps give rise to a canonical isomorphism
 \end{equation}
 (orthogonal, completed direct sum),
 where $\pi$ runs over representatives for the isomorphism classes of irreducible, finite dimensional representations of $H$.
-
-Moreover, the finite vectors $\bigoplus_\pi \pi^*\otimes \pi$ are dense in $C(H)$ (in the norm topology).
 \end{theorem}
 
 
@@ -176,14 +179,14 @@ This is the most important step of the proof. Assume to the contrary that there 
 
 Now let $\pi$ be a finite-dimensional irreducible representation of $H$; by the previous point, such representations exist. We have a tautological map $T:\text{Hom}(\pi, L^2(H)) \otimes \pi\to L^2(H)$, where $\text{Hom}$ refers here to the right regular representation. Moreover, the image of $T$ lies in the subspace $C(H)$ of continuous functions. If we endow the space $\text{Hom}(\pi, L^2(H))$ with the action induced from the left regular representation of $H$ on $L^2(H)$, the map $T$ is equivariant. Evaluation at the identity defines a morphism $\text{Hom}(\pi, L^2(H)) \to \pi^*$, whose kernel is (tautologically) trivial. We conclude that the $\pi$-isotypic component of $L^2(H)$ under the right representation (the image of $T$) is isomorphic to $\pi^*\otimes \pi$. Those subspaces, as the isomorphism class of $\pi$ varies, are mutually orthogonal by Lemma \ref{lemma-matrixcoefficient}, and they span a dense subspace, by the points above. This proves the $L^2$-part of the theorem.
 
-To prove that finite vectors are dense in $C(H)$, we use the trick of approximating a continuous function $f$ by convolutions of continuous functions: Indeed, if $\mu_n$ is a continuous approximation of the identity, as before, $\mu_n \star f \to f$ in $C(H)$. 
+%To prove that finite vectors are dense in $C(H)$, we use the trick of approximating a continuous function $f$ by convolutions of continuous functions: Indeed, if $\mu_n$ is a continuous approximation of the identity, as before, $\mu_n \star f \to f$ in $C(H)$. 
 
-Therefore, it suffices to show that a function of the form $h\star f$, where $h$ and $f$ are continuous, can be approximated uniformly by finite functions. Notice that 
-$$h\star f(x) = \int_H h(g) f(g^{-1}x) dg = \left< h, R_x f^*\right>,$$ where $f^*(g) = \overline{f(g^{-1})}$.
+%Therefore, it suffices to show that a function of the form $h\star f$, where $h$ and $f$ are continuous, can be approximated uniformly by finite functions. Notice that 
+%$$h\star f(x) = \int_H h(g) f(g^{-1}x) dg = \left< h, R_x f^*\right>,$$ where $f^*(g) = \overline{f(g^{-1})}$.
 
-Let $h_n$ be a sequence of finite functions which converges to $h$ in $L^2(H)$. Then, the functions $R_x f^*$ are bounded uniformly in $x$, and therefore
-$$ h_n\star f(x) = \left< h_n, R_x f^*\right> \to \left< h, R_x f^*\right> = h_n\star f,$$
-uniformly in $x$.
+%Let $h_n$ be a sequence of finite functions which converges to $h$ in $L^2(H)$. Then, the functions $R_x f^*$ are bounded uniformly in $x$, and therefore
+%$$ h_n\star f(x) = \left< h_n, R_x f^*\right> \to \left< h, R_x f^*\right> = h_n\star f,$$
+%uniformly in $x$.
 
 \end{proof}
 
@@ -200,9 +203,9 @@ uniformly in $x$.
 
 
 \begin{proof}
-Let $f_n dh$ be an approximation of the identity by positive, continuous probability measures. Then, given a convex neighborhood $U\subset V$ of zero, and a vector $v\in V$, we have $\pi(f_n dh)\in v+\frac{1}{2}U$, for large $n$, by Proposition \ref{representationtheory-proposition-integral-Banach}. 
+Let $f_n dh$ be an approximation of the identity by positive, continuous probability measures. Then, given a convex neighborhood $U\subset V$ of zero, and a vector $v\in V$, we have $\pi(f_n dh)\in v+\frac{1}{2}U$, for large $n$, by Proposition \ref{representationtheory-proposition-integral-lcs}. 
 
-Now fix such a large $n$, and choose a sequence $h_j$ of finite functions such that $h_j\to f_n$ in $C(H)$. In particular, the measures $h_j dh$ converge strongly to $f_n dh$, and again by Proposition \ref{representationtheory-proposition-integral-Banach} we have $\pi(h_j dh)(v)\to \pi(f_n dh)(v)$, hence $\pi(h_j dh)(v)\in v+U$, for large $j$. 
+Now fix such a large $n$, and choose a sequence $h_j$ of finite functions such that $h_j\to f_n$ in $L^2(H)$. In particular, $h_j\to f_n$ in $L^1(H)$, and the measures $h_j dh$ converge strongly to $f_n dh$. Again by Proposition \ref{representationtheory-proposition-integral-lcs}, we have $\pi(h_j dh)(v)\to \pi(f_n dh)(v)$, hence $\pi(h_j dh)(v)\in v+U$, for large $j$. 
 
 
 But, for a vector $v\in V$, $\pi(\mu_n)v$ is finite since $\mu_n$ is left-finite. This proves the first claim, and the others follow easily.
@@ -225,10 +228,7 @@ where $~_{\text{fin}}$ denotes left and right finite functions.
 If $H$ is a Lie group, we can show as in the proof of Theorem \ref{theorem-PeterWeyl}, by choosing a smooth approximation of the identity, that any subrepresentation of $L^2(H)$ contains a dense subspace of smooth vectors, and that $L^2(H)_{\text{fin}}$ belongs to the space of smooth functions. 
 
 
-We then apply Theorem \ref{theorem-PeterWeyl-general} to any of these Fr\'echet spaces, viewed as a represenation of the group $H\times H$. 
-
-
- 
+We then apply Theorem \ref{theorem-PeterWeyl-general} to any of these Fr\'echet spaces, viewed as a representation of the group $H\times H$. 
 \end{proof}
 
 

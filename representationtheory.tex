@@ -152,7 +152,6 @@ $$ \pi(\mu_1)(v) - \pi(\mu_2) (v) \in \sum_i (\frac{m_i^1}{2} \cdot U) + \sum_i 
 $$\subset \frac{\Vert \mu_1\Vert}{2} \cdot U + \sum_i \epsilon \cdot \overline{\text{co}}\left(\pi(K_i)(U')\right) \subset \frac{1}{2} U + \sum_i \epsilon \cdot \overline{\text{co}}\left(\pi(K_i)(U')\right).$$
 Choosing $\epsilon$ small enough, we can guarantee that this belongs to $U$, and we are done. 
 
-%in the norm topology, we need to show that, if we fix a compact $K\subset G$, the preimage of a convex open neighborhood $U$ of $0$ contains an open neighborhood of $0$ in $M_c(K)\times V$. Recall that, by definition, the map $G\times V\to V$ is continuous. Thus, given a measure $K$ and an open $U\subset V$,  there is $U'\subset V$ open such that $\pi(g)(U')\subset U$ for every $g\in K$. By the aforementioned result, this implies that $\pi(g)(v) \in \overline{U} \subset (1+\epsilon) U$ for every $\epsilon >0$; equivalently, $\pi(g)( (1+\epsilon)^{-1} U') \subset U$. Without loss of generality, the sets  $U'$ and $U$ are invariant under multiplication by the unit disk in $\mathbb C$, and then the preimage of $U$ contains the product with $(1+\epsilon)^{-1} U'$ of the open set of measures in $K$ which can be written as convex linear combinations of measures of the form $z\cdot \mu$, $|z|<1$.
 \end{proof}
 
 
@@ -170,9 +169,38 @@ The dual of a topological representation is defined as follows:
 \label{definition-dual-representation}
 Given a representation $(\pi, V)$ of a topological group on a locally convex topological vector space $V$, the dual representation $(\pi^*,V^*)$ on the dual space of continuous functionals on $V$ is defined by the property
  $$ \left< \pi^*(g)(v^*), v\right> = \left< v^*, \pi(g^{-1}) v\right>.$$
- 
- Here, $V^*$ is endowed with the weak-* topology, but in many settings (e.g., when $V$ is a Banach space) it can be endowed with a stronger topology (e.g., the Banach topology for the dual of a Banach space). 
 \end{definition}
+
+Here, $V^*$ must be endowed with a suitable topology making the action continuous. For example, if $G$ is locally compact, then one can consider the topology of uniform convergence on compact sets:
+
+\begin{lemma}
+\label{lemma-topology-dual}
+ Let $(\pi, V)$ be a representation of a localy compact group $G$. Then, the dual map $G\times V^*\to V^*$ is continuous when $V^*$ is endowed with the topology of uniform convergence on compact subsets of $V$. If $V$ is a Banach space, this topology is the finest topology which coincides with the weak-* topology on every norm-bounded subset of $V^*$.
+\end{lemma}
+
+\begin{proof}
+ Given a compact $U\subset V$, and a compact $K\subset G$, the set $\pi(K)(U)$ is compact. Moreover, 
+if we fix $U$ and a neighborhood $V_1$ of zero in $V$, we can find a compact neighborhood $K$ of $1\in G$ such that $U_K\subset V_1$, where $U_K$ is the set
+ $$U_K=\{\pi(g)(v)-v| g\in K, v\in U\}\subset V.$$
+(These facts follow directly from the continuity of the action of $G$ on $V$.)
+ 
+ Fix $U$, $\epsilon>0$, and a vector $w\in V^*$, and let $V_1 = \{ v\in V| \left< w, v\right> <\epsilon\}$. Choose a compact neighborhood $K$ of $1\in G$ such that $U_K\subset V_1$. Let $W\subset V^*$ be the neighborhood of $w$, in the compact-open topology, of all vectors $w'$ with
+ $$ |\left< w-w', \pi(K)U\right>|<\epsilon.$$
+ 
+ Then, for all $g\in K$ and $w'\in W$, we have 
+ $$ | \left< \pi^*(g^{-1}) (w')-w, U\right> | \le |\left< \pi^*(g^{-1}) (w'-w), U\right> | + | \left< \pi^*(g^{-1}) (w)-w, U\right> | =$$
+ $$ = |\left< (w'-w), \pi(g) U\right> | + | \left< w, (\pi(g) - 1) U\right> | < \epsilon + \epsilon.$$
+
+This shows continuity in the compact-open topology on $V^*$.
+
+In the case of normed spaces, this topology coincides with the \emph{bounded weak-* topology}, the finest topology which coincides with the weak-* topology on every norm-bounded subset of $V^*$ \cite[\S II.5, Lemma 2]{Day}. (See also \cite[\S 2.7 and 3.4]{Megginson}.)
+\end{proof}
+
+
+
+When $V$ is a Banach space, it is not true, in general, that the action is continuous with respect to the norm topology on $V^*$ --- just consider $V^*=M(G)$ as the dual of $V=C(G)$, for a compact group $G$. However, for locally compact groups and \emph{reflexive} Banach spaces ($V^{**}=V$), this is the case, as we will see in Proposition \ref{proposition-reflexive-dual}.
+
+
 
 \begin{remark}
 \label{remark-spaces-induality}
@@ -298,6 +326,51 @@ Every Banach representation extends to a continuous homomorphism $M_{rd}(G)\to \
 \begin{proof}
  Follows immediately from Proposition \ref{proposition-integral-Banach}.
 \end{proof}
+
+Finally, a result that was mentioned earlier, which shows that the dual of a representation on a reflexive Banach space is continuous in the norm topology:
+
+\begin{proposition}
+ \label{proposition-reflexive-dual}
+Let $(\pi,V)$ be a representation of a locally compact group on a reflexive Banach space. Then the dual representation $(\pi^*, V^*)$ is continuous in the norm topology. 
+\end{proposition}
+
+\begin{proof}
+Let $W\subset V^*$ denote the subspace of elements $w$ for which the map 
+$$ G \ni g \mapsto \pi^*(g) (w)\in V^*$$
+is continuous in the norm topology for $V^*$. It will suffice to prove that $W=V^*$. Indeed, we also know (as a special case of Lemma \ref{lemma-bounded-by-radial}) that the operators $\pi(g)$, and hence their adjoints $\pi^*(g)$, are uniformly bounded for $g$ in any compact set. Thus, for every $g$ in a fixed compact neighborhood of the identity, and any $\epsilon >0$, there is a $\delta>0$ such that 
+$$ \Vert w' - w\Vert <\delta \Rightarrow \Vert \pi^*(g)(w') - \pi^*(g)(w)\Vert <\epsilon.$$
+Hence, if we can guarantee that $\Vert \pi^*(g)(w) - w\Vert$ is sufficiently small, for $w\in W$ and $g$ sufficiently close to $1$, the same holds for every $w'$ in a small neighborhood of $w$. 
+
+The set $W$ is clearly a vector subspace, in particular convex. We will also show below that it is weakly-* dense. Since $V$ is reflexive, this is the same as weakly dense. \emph{The weak and strong closures of convex sets coincide} (as a corollary of the Hahn--Banach theorem), and therefore we will conclude that $W=V$.
+
+There remains to show that $W$ is weakly-* dense. Fix a left Haar measure $dg$, and consider the map $C_c^\infty(G)\otimes V^*\to V^*$ given by 
+\begin{equation}
+\label{equation-C-to-Vstar} 
+f \otimes v^*\mapsto \pi^*(fdg)(v^*).
+\end{equation}
+If we fix $v^*$ and a compact $K\subset G$, this becomes a continuous map
+$$ C(K)\to V^*$$
+with respect to the norm topology on $V^*$; indeed, we have
+$$ \Vert \pi^*(fdg)(v^*) \Vert = \sup_{\Vert v\Vert = 1} |\left< v, \pi^*(fdg)(v^*)\right> | = $$
+$$ = \sup_{\Vert v\Vert = 1} |\left< \pi(f^*dg) (v), (v^*)\right> | \ll_K \Vert f\Vert \cdot \Vert v^*\Vert,$$
+by an application of Proposition \ref{proposition-integral-Banach}, where we have set $f^*(g) = f(g^{-1})$, and the symbol $\ll_K a$ means $< c\cdot a$, for a constant $c$ depending on $K$. But the map \eqref{equation-C-to-Vstar}, for a fixed $v^*$, is equivariant with respect to the left regular action of $G$ on $C_c(G)$, which is continuous. Therefore, the image of this map belongs to $W$.
+
+
+Moreover, $v^*$ is in the weak-* closure of this map: it is enough to consider a sequence of positive continuous functions $f_n$ with $\int f_n dg=1$ and $f_n$ converging weakly to the delta measure at the identity, and apply Proposition \ref{proposition-integral-lcs} to the representation $\pi$ to deduce that $\pi^*(f_ndg)(v^*)\to v^*$ in the weak-* topology. Thus, we have shown that $W$ is weakly-* dense, completing the proof.
+
+
+ 
+ 
+ 
+\end{proof}
+
+
+\begin{remark}
+ The result holds without the assumption on local compactness of $G$, see \cite[Corollary 6.9]{Megrelishvili}.
+\end{remark}
+
+
+
 
 \section{Unitary representations}
 \label{section-unitary-representations}
