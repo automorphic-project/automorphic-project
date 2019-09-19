@@ -25,6 +25,7 @@ The (complex) representation theory of compact groups, in a nutshell:
 
 In this chapter, $G$ (or $H$) is a compact group, and we fix throughout the probability Haar measure $dg$. Multiplication of functions by $dg$ turns them into measures which can act on the space of a representation $\pi$, and we feel free to write $\pi(f)$ for $\pi(f dg)$. 
 
+
 \section{Unitarity}
 \label{section-unitarity}
 
@@ -45,24 +46,30 @@ Given a Hilbert space $V$, its linear dual $V^*$ is identified with its complex 
 
 There is a natural embedding $\bar V\hat\otimes V \hookrightarrow B(V)$, with $\bar v_1 \otimes v_2$ mapping 
 to the operator 
-$ w\mapsto \left<  w, v_1 \right> \cdot v_2$.
-The image is the space of {\it Hilbert--Schmidt operators}, and the Hilbert norm on $\bar V\hat\otimes V$ is the Hilbert--Schmidt norm. Hilbert--Schmidt operators are {\it compact}: they map bounded sets to precompact sets. (It is an easy exercise to prove this, using the explicit expression $\Vert T\Vert_{HS}^2 = \sum_i \Vert Te_i\Vert^2$.)
+$ w\mapsto \left<v_1, w\right> \cdot v_2$.
+(Let us take inner products to be complex-linear in the second variable.) The image is the space of {\it Hilbert--Schmidt operators}, and the Hilbert norm on $\bar V\hat\otimes V$ is called the Hilbert--Schmidt norm of an operator. Explicitly:
+$$\Vert T\Vert_{HS}^2 = \sum_i \Vert Te_i\Vert^2,$$
+where $e_i$ runs over an orthonormal basis of $V$. 
+
+Hilbert--Schmidt operators are {\it compact}: they map bounded sets to precompact sets. 
 
 
 \begin{proposition}
 \label{proposition-continuousconvolution-compact}
- Let $L$ (resp.\ $R$) denote the left (resp.\ right) regular representation of $G$ on $L^2(G)$. For every continuous measure $\mu$ on $G$ the operator $L(\mu)$ (resp.\ $R(\mu)$) is Hilbert-Schmidt and, hence, compact.
+ Let $L$ (resp.\ $R$) denote the left (resp.\ right) regular representation of $G$ on $L^2(G)$. For every continuous measure $\mu$ on $G$ the operator $L(\mu)$ (resp.\ $R(\mu)$) is Hilbert--Schmidt and, hence, compact.
 \end{proposition}
+
+Recall that we call a measure ``continuous'' if it is the product of a continuous function by Haar measure, see Section \ref{representationtheory-section-measures}.
 
 \begin{proof}
  Let $\mu=h dg$. Then the operator $L(\mu)$ has the integral expression:
 $$ L(\mu)(f)(x) = \int_{H} K_h(x,y) f(y) dy,$$
 where the kernel is given by:
-$$ K_h(x,y) = h(xy^{-1}) dh.$$
+$$ K_h(x,y) = h(xy^{-1}).$$
 
-The Hilbert Schmidt norm of an integral operator $T$ with kernel $K$ on a measure space $(X,dx)$ is given by:
+The Hilbert--Schmidt norm of an integral operator $T$ with kernel $K$ on a measure space $(X,dx)$ is given by:
 $$ \Vert T\Vert_{HS}^2= \Vert K\Vert^2_{L^2(X\times X)}.$$
-In particular, $L(\mu)$ is Hilbert-Schmidt. (It was important here that the group was compact for the $L^2$-norm of $K_h$ to be finite.) 
+In particular, $L(\mu)$ is Hilbert--Schmidt. (It was important here that the group was compact for the $L^2$-norm of $K_h$ to be finite.) 
 \end{proof}
 
 
@@ -90,10 +97,9 @@ with the spaces $\left< e^{sx}\right>$ being eigenspaces for all translation ope
 \end{proof}
 
 
+An operator on a Banach space is \emph{compact} if it maps bounded sets to precompact sets (i.e.\ sets whose closure is compact). Compact operators form a closed Banach subalgebra $K(V)$ of the algebra of bounded operators $B(V)$, and for a large class of Banach spaces, that includes Hilbert spaces, $K(V)$ is the closure of the set $V^*\otimes V$ of operators with finite-dimensional range, i.e., compact operators are those that can be approximated in the operator norm by operators with finite-dimensional range. 
 
-An operator on a Hilbert space is \emph{compact} if it can be approximated in the operator norm by operators with finite-dimensional range. Equivalently, if it maps bounded sets to precompact sets (i.e.\ sets whose closure is compact). 
-
-\begin{theorem}
+\begin{theorem}[Spectral theorem for compact self-adjoint operators]
 \label{theorem-spectraltheorem-compact} 
  Let $T$ be a compact self-adjoint operator on a Hilbert space $V$, then there is a sequence of eigenvectors $v_n$ with (real) eigenvalues $0\ne\lambda_n\to 0$ (or a finite number of such eigenvalues, if the operator is of finite range) such that 
  $$V = \ker T \oplus \hat{\bigoplus}_n \left< v_n\right>,$$
@@ -134,13 +140,13 @@ $$ M_\pi: \pi^*\otimes \pi \to C(H).$$
 
 \begin{lemma}
 \label{lemma-matrixcoefficient}
-For $\pi$ irreducible, the matrix coefficient map is an embedding. For $\pi, \sigma$ irreducible and non-isomorphic, the images of the matrix coefficient maps are orthogonal in $L^2(H)$.
+For $\pi$ irreducible, the matrix coefficient map is an embedding. For $\pi, \sigma$ irreducible and non-isomorphic, the images of their matrix coefficient maps are orthogonal in $L^2(H)$.
 \end{lemma}
 
 \begin{proof}
  The matrix coefficient map is an embedding (injection), because it is clearly non-zero, and $\pi^*\otimes\pi$ is an irreducible representation of $G=H\times H$.
  
- If $\pi, \sigma$ are irreducible and non-isomorphic, the orthogonal projection from the image of $M_\pi$ to the image of $M_\sigma$ is $G$-equivariant, and since $\pi^*\otimes \pi$ is not isomorphic to $\sigma^*\otimes \sigma$, it has to be zero.
+ If $\pi, \sigma$ are irreducible and non-isomorphic, the orthogonal projection from the image of $M_\pi$ to the image of $M_\sigma$ is $G$-equivariant, and since $\pi^*\otimes \pi$ is not isomorphic to $\sigma^*\otimes \sigma$ (already as an $1\times H$-representation), it has to be zero.
 \end{proof}
 
 
@@ -151,7 +157,7 @@ Notice that the image of the matrix coefficient map consists of \emph{(left and 
 The matrix coefficient maps give rise to a canonical isomorphism
 \begin{equation}
  \label{equation-PeterWeyl}
- L^2(H)\simeq \hat\bigoplus_\pi \pi^*\otimes \pi
+ L^2(H)\simeq \hat\bigoplus \pi^*\otimes \pi
 \end{equation}
 (orthogonal, completed direct sum),
 where $\pi$ runs over representatives for the isomorphism classes of irreducible, finite dimensional representations of $H$.
@@ -173,11 +179,11 @@ Indeed, it is enough to choose an approximation $(\mu_n)_n$ of the identity by c
 
 \item Right-finite (or left-finite) functions are dense in any closed, invariant subspace of $L^2(H)$. 
 
-This is the most important step of the proof. Assume to the contrary that there is a non-zero closed subspace $V$ without a dense subspace of right-finite functions, which (by taking orthogonal complement of the subspace of right-finite functions) reduces to the case where $V$ does not have any right-finite vectors. We can find a continuous, self-adjoint measure $\mu$ on $H$ such that $L(\mu)V\ne 0$. Here, by self-adjoint we mean that the operator $L(\mu)$ is self-adjoint, which is equivalent to $h(g^{-1})=\overline{h(g)}$ if $\mu=hdg$ --- exercise!. The existence of such a measure follows by approximating the identity by positive, continuous self-adjoint measures $\mu_n$, and then using the fact that $\mu_n(v)\to v$ for every vector $v$.  We know (Proposition \ref{proposition-continuousconvolution-compact}) that $L(\mu)$ is compact, hence by the Spectral Theorem \ref{theorem-spectraltheorem-compact} there is a non-zero (real) eigenvalue $\lambda$ of $L(\mu)$, and the $\lambda$-eigenspace is finite-dimensional. But the $\lambda$-eigenspace for $L(\mu)$ is stable under the right action of $H$, hence there are right-finite vectors, a contradiction.
+This is the most important step of the proof. Assume to the contrary that there is a non-zero closed subspace $V$ without a dense subspace of right-finite functions, which (by taking orthogonal complement of the subspace of right-finite functions) reduces to the case where $V$ does not have any right-finite vectors. We can find a continuous, self-adjoint measure $\mu$ on $H$ such that $L(\mu)V\ne 0$. Here, by self-adjoint we mean that the operator $L(\mu)$ is self-adjoint, which is equivalent to $h(g^{-1})=\overline{h(g)}$ if $\mu=hdg$ --- exercise! The existence of such a measure follows by approximating the identity by positive, continuous self-adjoint measures $\mu_n$, and then using the fact that $\mu_n(v)\to v$ for every vector $v$.  We know (Proposition \ref{proposition-continuousconvolution-compact}) that $L(\mu)$ is compact, hence by the Spectral Theorem \ref{theorem-spectraltheorem-compact} there is a non-zero (real) eigenvalue $\lambda$ of $L(\mu)$, and the $\lambda$-eigenspace is finite-dimensional. But the $\lambda$-eigenspace for $L(\mu)$ is stable under the right action of $H$, hence there are right-finite vectors, a contradiction.
 
 \end{itemize}
 
-Now let $\pi$ be a finite-dimensional irreducible representation of $H$; by the previous point, such representations exist. We have a tautological map $T:\text{Hom}(\pi, L^2(H)) \otimes \pi\to L^2(H)$, where $\text{Hom}$ refers here to the right regular representation. Moreover, the image of $T$ lies in the subspace $C(H)$ of continuous functions. If we endow the space $\text{Hom}(\pi, L^2(H))$ with the action induced from the left regular representation of $H$ on $L^2(H)$, the map $T$ is equivariant. Evaluation at the identity defines a morphism $\text{Hom}(\pi, L^2(H)) \to \pi^*$, whose kernel is (tautologically) trivial. We conclude that the $\pi$-isotypic component of $L^2(H)$ under the right representation (the image of $T$) is isomorphic to $\pi^*\otimes \pi$. Those subspaces, as the isomorphism class of $\pi$ varies, are mutually orthogonal by Lemma \ref{lemma-matrixcoefficient}, and they span a dense subspace, by the points above. This proves the $L^2$-part of the theorem.
+Now let $\pi$ be a finite-dimensional irreducible representation of $H$; by the previous point, such representations exist. We have a tautological map $T:\text{Hom}^H(\pi, L^2(H)) \otimes \pi\to L^2(H)$, where we only consider the right regular representation. Moreover, the image of $T$ lies in the subspace $C(H)$ of continuous functions. If we endow the space $\text{Hom}^H(\pi, L^2(H))$ with the action induced from the left regular representation of $H$ on $L^2(H)$, the map $T$ is equivariant. Evaluation at the identity defines a morphism $\text{Hom}(\pi, L^2(H)) \to \pi^*$, whose kernel is (tautologically) trivial. We conclude that the $\pi$-isotypic component of $L^2(H)$ under the right representation (the image of $T$) is isomorphic to $\pi^*\otimes \pi$. Those subspaces, as the isomorphism class of $\pi$ varies, are mutually orthogonal by Lemma \ref{lemma-matrixcoefficient}, and they span a dense subspace, by the points above. This proves the $L^2$-part of the theorem.
 
 %To prove that finite vectors are dense in $C(H)$, we use the trick of approximating a continuous function $f$ by convolutions of continuous functions: Indeed, if $\mu_n$ is a continuous approximation of the identity, as before, $\mu_n \star f \to f$ in $C(H)$. 
 
@@ -192,6 +198,7 @@ Now let $\pi$ be a finite-dimensional irreducible representation of $H$; by the 
 
 
 \begin{remark}
+\label{remark-peterweyl-not-isometry}
  If $\pi$ is endowed with an invariant Hilbert norm, so $\pi^*= \bar\pi$, the decomposition \eqref{equation-PeterWeyl} is not an isometry. This will be the subject of the Plancherel formula, Theorem \ref{theorem-Plancherel}.
 \end{remark}
 
@@ -251,28 +258,52 @@ For any $f\in L^2(H)$, we have
 \end{equation}
  where $\pi$ ranges over all isomorphism classes of irreducible unitary representations of $H$, $d(\pi)$ denotes the dimension of $\pi$, and $\Vert \cdot \Vert_{HS}$ denotes the Hilbert--Schmidt norm on $\text{End}(\pi)$, i.e., the Hilbert norm on $\pi^*\otimes \pi$.
  
- If $f\in C(H)$, then we have 
+ If $f\in C(H)$ can be written as the convolution of two functions in $L^2(H)$ (or a linear combination thereof), then we have 
 \begin{equation}
  \label{equation-Plancherelformula-trace}
-f(1) = \sum_\pi \text{tr}\left( \pi(fdh) \right) \cdot d(\pi).
+f(1) = \sum_\pi \text{tr}\left( \pi(fdh) \right) \cdot d(\pi),
 \end{equation}
+with the right hand side being absolutely convergent.
 \end{theorem}
 
 \begin{proof}
- Assume that $f \in C(H)$. The right regular action $R(fdh)$ is represented by the kernel $K_f(x,y) = f(x^{-1},y)$, i.e., 
+ Assume that $f \in L^2(H)$. The right regular action $R(fdh)$ is represented by the kernel $K_f(x,y) = f(x^{-1},y)$, i.e., 
  $$ R(fdh)\Phi(x) = \int \Phi(y) f(x^{-1}y) dy.$$
  
- Calculating the trace of this operator we get, on one hand, 
- $$ \text{tr} R(fdh) = \int_{H} K_f(x,x) dx = f(1),$$
+ Calculating the Hilbert--Schmidt norm of this operator we get, on one hand, 
+ $$ \Vert R(fdh)\Vert^2_{HS} = \Vert K_f \Vert_{L^2(H\times H)}^2 = \Vert f \Vert^2,$$
  and on the other, by the Peter--Weyl theorem \ref{theorem-PeterWeyl}, 
- $$ \text{tr} R(fdh) = \sum_\pi \dim(\pi^*) \text{tr}(\pi(f)) = \sum_\pi d(\pi) \text{tr}(\pi(f)).$$
+ $$ \Vert R(fdh)\Vert^2_{HS} = \sum_\pi \dim(\pi^*) \Vert \pi(fdh)\Vert^2_{HS} = \sum_\pi d(\pi) \Vert \pi(fdh)\Vert^2_{HS}.$$
+ This proves \eqref{equation-Plancherelformula}.
  
- This proves \eqref{equation-Plancherelformula-trace}, and to prove \eqref{equation-Plancherelformula} it is enough to observe that 
- $$ \left< f_1, f_2 \right>_{L^2(H)} = f_1^* \star f_2 (1),$$
- where $f_1^*(g) = \overline{f_1 (g^{-1})}$, and $\star$ denotes convolution (=pushforward by the multiplication map $H\times H\to H$), and 
- $$ \left< T_1, T_2\right>_{HS} = \text{tr} (T_1^* T_2).$$
- (We take the linear factor to be the second one in the hermitian inner products.)
+ Now let $f$ be the convolution of two $L^2$-functions: $f=f_1\star f_2$.  
+ Then, $f(1) = \left< f_1^*, f_2\right>,$
+ where $f_1^*(g) = \overline{f_1 (g^{-1})}$, and $\star$ denotes convolution (=pushforward by the multiplication map $H\times H\to H$).  (We take the linear factor to be the second one in the hermitian inner products.)
+ 
+ By the Plancherel formula just proven, we have (with all sums absolutely convergent)
+ $$\left< f_1^*, f_2\right> = \sum_\pi d(\pi) \left< \pi(f_1^*dh ), \pi(f_2 dh) \right>_{HS} = $$
+ $$ = \sum_\pi d(\pi) \text{tr}\left( \pi(f_1 dh ) \circ \pi(f_2 dh)\right) = \sum_\pi d(\pi) \text{tr}\left( \pi(f dh ) \right),$$
+ where we have used the fact that, for two Hilbert--Schmidt operators $T_1, T_2$, we have $\text{tr}(T_1 \circ T_2) = \left< T_1^*, T_2\right>_{HS}$.  
 \end{proof}
+
+\begin{remark}
+ \label{remark-traceclass}
+If $f = f_1 \star f_2$, so $R(f) = R(f_1)\circ R(f_2)$, the operator $R(f)$, being the composition of two Hilbert--Schmidt operators, is a \emph{trace class operator}, and its trace can be computed in any orthogonormal basis of the Hilbert space. 
+
+Hilbert--Schmidt and trace class operators form ideals in the algebra $B(V)$ of bounded operators on a Hilbert space $V$, let us denote them by $B(V)_2$ and $B(V)_1$, respectively. We have inclusions
+$$ B(V)_1\subset B(V)_2 \subset K(V) \subset B(V),$$
+where $K(V)$ is the subspace of compact operators. The first two inclusions are dense, and the last one is closed. The space of trace class operators admits a norm, under which
+$$ K(V)^* = B(V)_1,$$
+$$ B(V)_1^* = B(V).$$
+The first equality, restricted to the dense subspace of Hilbert--Schmidt operators in $K(V)$, can be taken as the definition of trace class operators, i.e., an operator $T$ is trace class if
+$$ \sup_{S\in B(V)_2, \Vert S\Vert\le 1} |\left< T, S\right>_{HS}| \le \infty,$$
+where $\Vert S\Vert$ is the \emph{operator norm}, not the Hilbert--Schmidt norm of $S$, which ensures that the Hilbert--Schmidt pairing extends to a pairing between $B(V)_1$ and the space of compact operators. It can be shown that trace class operators are precisely the compositions of two Hilbert--Schmidt operators.
+
+In practice, there are many situations where a continuous function can be shown to be a convolution of two functions. For example, it is a corollary of the \emph{Dixmier--Malliavin theorem} that if $G$ is a compact Lie group then every smooth function of $G$ is a convolution of two smooth functions, hence the pointwise Plancherel formula applies to smooth functions.
+
+On the other hand, pointwise convergence for general continuous functions fails, even for the example of Fourier series when $H=S^1$!
+\end{remark}
+
 
 \section{Example: Spherical harmonics}
 \label{section-spherical-harmonics}
