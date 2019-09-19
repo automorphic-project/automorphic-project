@@ -19,13 +19,146 @@
 
 We need at least one reference \cite{reference} in each chapter.
 
+In this chapter, all Lie algebras are taken to be \emph{finite-dimensional} over a field $k$.
+
 \subsection{Definitions}
 
-\subsection{Engel's theorem}
+\begin{definition}
+ \label{definition-ideal}
+An {\it ideal} of a Lie algebra $\mathfrak g$ is an $\text{ad}(\mathfrak g)$-stable subspace (automatically a Lie subalgebra) of $\mathfrak g$.
+
+The {\it quotient} of a Lie algebra $\mathfrak g$ by an ideal $\mathfrak h$ is the vector space $\mathfrak g/\mathfrak h$, equipped with the Lie algebra structure descending from $\mathfrak g$.
+\end{definition}
+
+
+
+\begin{definition}
+ \label{definition-nilpotent-solvable}
+The {\it lower central series} of a Lie algebra $\mathfrak g$ is the descending sequence of ideals defined by
+$$ C^0\mathfrak g = \mathfrak g,$$
+$$ C^{i+1}\mathfrak g = [\mathfrak g, C^i\mathfrak g].$$
+ 
+ 
+A Lie algebra is called {\it nilpotent} if its lower central series terminates, i.e., if $C^n\mathfrak g=0$ for some $n$.
+
+
+The {\it derived series} of a Lie algebra $\mathfrak g$ is the descending sequence of Lie subalgebras
+$$ D^0\mathfrak g = \mathfrak g,$$
+$$ D^{i+1}\mathfrak g = [D^i\mathfrak g, D^i\mathfrak g].$$
+
+A Lie algebra is called {\it solvable} if its derived series terminates, i.e., if $D^n\mathfrak g=0$ for some $n$.
+\end{definition}
+
+\begin{example}
+ \label{example-nilpotent-solvable}
+The Lie algebra of strictly upper triangular $n\times n$ matrices (i.e., with zeroes on the diagonal) is nilpotent. The Lie algebra of upper triangular $n\times n$ matrices is solvable.
+\end{example}
+
+\begin{lemma}
+ \label{lemma-nilpotent-center}
+ The center of a (non-trivial) nilpotent Lie algebra is always non-trivial.
+\end{lemma}
+\begin{proof}
+ The last non-trivial element of its lower central series belongs to the center.
+\end{proof}
+
+
+
+
+\begin{lemma}
+ \label{lemma-solvable-operations}
+A Lie algebra $\mathfrak g$ is nilpotent if and only if there exists a finite decreasing filtration by ideals 
+$$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \dots \supset \mathfrak g_n=0$$
+such that $[\mathfrak g, \mathfrak g^i]\subset [\mathfrak g^{i+1}]$.
+ 
+ 
+ Subalgebras, quotient algebras, and extensions of solvable Lie algebras by solvable Lie algebras are solvable.
+  
+   A Lie algebra $\mathfrak g$ is solvable if and only if there exists a finite decreasing filtration by subalgebras
+   $$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \supset \dots \supset \mathfrak g^n =0$$
+   such that $\mathfrak g^{i+1}$ is an ideal in $\mathfrak g^i$, and the quotient algebra $\mathfrak g^i/\mathfrak g^{i+1}$ is abelian.
+\end{lemma}
+
+\begin{proof}
+ Left to the reader.
+\end{proof}
+
+
+
+\begin{definition}
+ \label{definition-radical}
+The {\it radical} of a Lie algebra is its largest solvable ideal.
+
+The {\it nilradical}, or {\it nilpotent radical}, of a Lie algebra is its largest nilpotent ideal.
+\end{definition}
+
+The definition of the radical makes sense in view of Lemma \ref{lemma-solvable-operations}: If $\mathfrak a, \mathfrak b$ are solvable ideals, then $\mathfrak a + \mathfrak b$ is an ideal, and it is isomorphic as a Lie algebra to $(\mathfrak a \oplus \mathfrak b)/(\mathfrak a\cap \mathfrak b)$, which is solvable by Lemma \ref{lemma-solvable-operations}.
+
+The definition of nilradical is provisional, because we don't know yet that there exists a maximal nilpotent ideal. This will be a corollary of Engel's theorem, see Proposition \ref{proposition-nilradical-exists}.
+
+Note that the definition of nilradical given here does not coincide with Bourbaki's, who wants to avoid calling an abelian Lie algebra its own nilradical, but is quite standard in other references.
+
+\begin{example}
+ \label{example-radical}
+ In $\mathfrak{gl}_{2n}$, let $\mathfrak g$ be the subalgebra of matrices whose lower left $n\times n$-block is zero. The radical of $\mathfrak g$ consists of matrices of the form
+ $$ \begin{pmatrix}
+     aI & * \\ 0 & bI
+    \end{pmatrix}$$
+ while its nilpotent radical consists of matrices of the form 
+ $$ \begin{pmatrix}
+     0 & 0 \\ *& 0
+    \end{pmatrix}$$
+ (all blocks $n\times n$).  
+
+\end{example}
+
+
+
+\begin{theorem}
+ \label{theorem-Engel}
+If $V$ is a nonzero finite-dimensional vector space, and $\mathfrak g\subset \mathfrak{gl}(V)$ is a Lie subalgebra consisting of nilpotent operators, then there is a nonzero $v\in V$ with $Xv = 0$ for all $X\in \mathfrak g$.
+ 
+A finite-dimensional Lie algebra $\mathfrak g$ is nilpotent if and only if $\text{ad}(X)$ is a nilpotent operator, for every $X\in \mathfrak g$. 
+\end{theorem}
+
+\begin{proof}
+ 
+We proceed by induction on the dimension of $\mathfrak g$, the case of dimension $1$ being trivial.
+ 
+In higher dimension, take any non-trivial proper subalgebra $\mathfrak h \subset \mathfrak g$. Since $\mathfrak h$ is $\text{ad}(\mathfrak h)$-stable, we get an action of $\mathfrak h$ on the vector space $\mathfrak g/\mathfrak h$, i.e., a morphism of Lie algebras
+ $$ \mathfrak h \to \mathfrak{gl}(\mathfrak g/\mathfrak h).$$
+ 
+Let $\bar{\mathfrak h}$ denote its image. Since $\text{ad}(X)$ is nilpotent for every $X\in \mathfrak h$, the same will hold for $\bar{\mathfrak h}$. By the induction hypothesis, $\bar{\mathfrak h}$ is nilpotent, and therefore has non-trivial center.
+ 
+Vice versa, we need to prove that if each $\text{ad}(X)$ is nilpotent, then there is an $n$ such that 
+$$ \text{ad}(X_1) \circ \dots \circ \text{ad}(X_n) = 0$$
+for all $n$-tuples of elements in $\mathfrak g$. 
+ 
+
+
+For the second statement, take $V=\mathfrak g$. If $\text{ad}(X)$ is nilpotent for every $X \in \mathfrak g$, the first statement implies that the center $Z(\mathfrak g)$ is non-trivial. Replacing $\mathfrak g$ by $\mathfrak g/Z(\mathfrak g)$, we get a sequence of ideals 
+$$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \dots \supset \mathfrak g_n=0$$
+such that $[\mathfrak g, \mathfrak g^i]\subset [\mathfrak g^{i+1}]$. By Lemma \ref{lemma-solvable-operations}, $\mathfrak g$ is nilpotent. The other direction is immediate from the definitions: If $\mathfrak g$ is nilpotent, then there is an $n$ such that $\text{ad}(X)^n = 0$ for every $X\in \mathfrak g$.
+ 
+\end{proof}
+
 
 \subsection{Lie's theorem}
 
+\begin{theorem}
+ If $V$ is a finite-dimensional vector space over an algebraically closed field $k$ in characteristic zero, any solvable subalgebra of $\mathfrak{gl}(V)$ has a nonzero eigenvector.
+\end{theorem}
+
+\begin{proof}
+ 
+\end{proof}
+
+
+
 \subsection{Jordan decomposition}
+
+
+
 
 \section{Borel and Cartan subalgebras}
 
