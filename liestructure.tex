@@ -15,13 +15,14 @@
 \tableofcontents
 
 
-\section{Nilpotent and semisimple Lie algebras}
+\section{Nilpotency, solvability, semisimplicity}
+\label{section-nilpotent-solvable}
 
-We need at least one reference \cite{reference} in each chapter.
 
 In this chapter, all Lie algebras are taken to be \emph{finite-dimensional} over a field $k$.
 
 \subsection{Definitions}
+\label{subsection-definitions-nilpotent-solvable}
 
 \begin{definition}
  \label{definition-ideal}
@@ -33,7 +34,7 @@ The {\it quotient} of a Lie algebra $\mathfrak g$ by an ideal $\mathfrak h$ is t
 
 
 \begin{definition}
- \label{definition-nilpotent-solvable}
+ \label{definition-nilpotent-solvable-semisimple}
 The {\it lower central series} of a Lie algebra $\mathfrak g$ is the descending sequence of ideals defined by
 $$ C^0\mathfrak g = \mathfrak g,$$
 $$ C^{i+1}\mathfrak g = [\mathfrak g, C^i\mathfrak g].$$
@@ -47,6 +48,8 @@ $$ D^0\mathfrak g = \mathfrak g,$$
 $$ D^{i+1}\mathfrak g = [D^i\mathfrak g, D^i\mathfrak g].$$
 
 A Lie algebra is called {\it solvable} if its derived series terminates, i.e., if $D^n\mathfrak g=0$ for some $n$.
+
+A Lie algebra is {\it semisimple} if it does not have any nonzero solvable ideals.
 \end{definition}
 
 \begin{example}
@@ -56,10 +59,10 @@ The Lie algebra of strictly upper triangular $n\times n$ matrices (i.e., with ze
 
 \begin{lemma}
  \label{lemma-nilpotent-center}
- The center of a (non-trivial) nilpotent Lie algebra is always non-trivial.
+ The center of a (nontrivial) nilpotent Lie algebra is always nontrivial.
 \end{lemma}
 \begin{proof}
- The last non-trivial element of its lower central series belongs to the center.
+ The last nontrivial element of its lower central series belongs to the center.
 \end{proof}
 
 
@@ -68,7 +71,7 @@ The Lie algebra of strictly upper triangular $n\times n$ matrices (i.e., with ze
 \begin{lemma}
  \label{lemma-solvable-operations}
 A Lie algebra $\mathfrak g$ is nilpotent if and only if there exists a finite decreasing filtration by ideals 
-$$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \dots \supset \mathfrak g_n=0$$
+$$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \dots \supset \mathfrak g^n=0$$
 such that $[\mathfrak g, \mathfrak g^i]\subset [\mathfrak g^{i+1}]$.
  
  
@@ -94,6 +97,14 @@ The {\it nilradical}, or {\it nilpotent radical}, of a Lie algebra is its larges
 
 The definition of the radical makes sense in view of Lemma \ref{lemma-solvable-operations}: If $\mathfrak a, \mathfrak b$ are solvable ideals, then $\mathfrak a + \mathfrak b$ is an ideal, and it is isomorphic as a Lie algebra to $(\mathfrak a \oplus \mathfrak b)/(\mathfrak a\cap \mathfrak b)$, which is solvable by Lemma \ref{lemma-solvable-operations}.
 
+Thus, any Lie algebra $\mathfrak g$ admits a canonical filtration
+\begin{equation}
+ \label{equation-filtration-solvable-semisimple}
+0 \to R(\mathfrak g) \to \mathfrak g \to \mathfrak g_{ss} \to 0,
+\end{equation}
+where $R(\mathfrak g)$ is the radical of $\mathfrak g$, and $\mathfrak g_{ss}$ is semisimple. Indeed, the preimage of any solvable ideal in $\mathfrak g_{ss}$ is a solvable ideal in $\mathfrak g$, and therefore has to equal $R(\mathfrak g)$.
+
+
 The definition of nilradical is provisional, because we don't know yet that there exists a maximal nilpotent ideal. This will be a corollary of Engel's theorem, see Proposition \ref{proposition-nilradical-exists}.
 
 Note that the definition of nilradical given here does not coincide with Bourbaki's, who wants to avoid calling an abelian Lie algebra its own nilradical, but is quite standard in other references.
@@ -112,9 +123,10 @@ Note that the definition of nilradical given here does not coincide with Bourbak
 
 \end{example}
 
+\subsection{Engel's theorem}
+\label{subsection-Engel-theorem}
 
-
-\begin{theorem}
+\begin{theorem}[Engel's theorem]
  \label{theorem-Engel}
 If $V$ is a nonzero finite-dimensional vector space, and $\mathfrak g\subset \mathfrak{gl}(V)$ is a Lie subalgebra consisting of nilpotent operators, then there is a nonzero $v\in V$ with $Xv = 0$ for all $X\in \mathfrak g$.
  
@@ -125,45 +137,230 @@ A finite-dimensional Lie algebra $\mathfrak g$ is nilpotent if and only if $\tex
  
 We proceed by induction on the dimension of $\mathfrak g$, the case of dimension $1$ being trivial.
  
-In higher dimension, take any non-trivial proper subalgebra $\mathfrak h \subset \mathfrak g$. Since $\mathfrak h$ is $\text{ad}(\mathfrak h)$-stable, we get an action of $\mathfrak h$ on the vector space $\mathfrak g/\mathfrak h$, i.e., a morphism of Lie algebras
+In higher dimension, let us consider, besides the given representation $V$, the adjoint representation of $\mathfrak g$ on itself, as well. We claim that $\text{ad}(X) \in \text{End}(\mathfrak g)$ is a nilpotent operator, for every $X$. Indeed, $\text{ad}(X)$ is the restriction to $\mathfrak g$ of the operator on $\text{End}(V)$: 
+$$ \text{ad}(X) = L_X - R_X,$$
+where $L_X(Y) = XY$ and $R_X(Y) = YX \in \text{End}(V)$. Left and right multiplication commute, and there is, by assumption, an $n$ such that $X^n=0$, so by the binomial formula:
+$$\text{ad}(X)^{2n} = (L_X - R_X)^{2n} = \sum_{k=0}^{2n} \binom{2n}{k} L_X^k R_X^{2n-k} = 0.$$
+
+Now, take any nontrivial proper subalgebra $\mathfrak h \subset \mathfrak g$. Since $\mathfrak h$ is $\text{ad}(\mathfrak h)$-stable, we get an action of $\mathfrak h$ on the vector space $\mathfrak g/\mathfrak h$, i.e., a morphism of Lie algebras
  $$ \mathfrak h \to \mathfrak{gl}(\mathfrak g/\mathfrak h).$$
  
-Let $\bar{\mathfrak h}$ denote its image. Since $\text{ad}(X)$ is nilpotent for every $X\in \mathfrak h$, the same will hold for $\bar{\mathfrak h}$. By the induction hypothesis, $\bar{\mathfrak h}$ is nilpotent, and therefore has non-trivial center.
- 
-Vice versa, we need to prove that if each $\text{ad}(X)$ is nilpotent, then there is an $n$ such that 
-$$ \text{ad}(X_1) \circ \dots \circ \text{ad}(X_n) = 0$$
-for all $n$-tuples of elements in $\mathfrak g$. 
+Let $\bar{\mathfrak h}$ denote its image. Since $\text{ad}(X)$ is nilpotent for every $X\in \mathfrak h$, the same will hold for $\bar{\mathfrak h}$. By the induction hypothesis, there is a nontrivial subspace of $\mathfrak g/\mathfrak h$ which is killed by $\text{ad}(h)$ or, equivalently, \emph{the normalizer of $\mathfrak h$ in $\mathfrak g$ is strictly larger than $\mathfrak h$}. By successively replacing $\mathfrak h$ by its normalizer, we arrive at a proper Lie subalgebra $\mathfrak h$ whose normalizer is $\mathfrak g$, i.e., $\mathfrak h$ is an ideal in $\mathfrak g$.
+
+By the induction hypothesis, the kernel $V_0$ of $\mathfrak h$ acting on $V$ is nontrivial. But this kernel is acted by the quotient Lie algebra $\mathfrak g/\mathfrak h$, and by the induction hypothesis again, it contains a nonzero vector killed by $\mathfrak g$. 
+
  
 
 
-For the second statement, take $V=\mathfrak g$. If $\text{ad}(X)$ is nilpotent for every $X \in \mathfrak g$, the first statement implies that the center $Z(\mathfrak g)$ is non-trivial. Replacing $\mathfrak g$ by $\mathfrak g/Z(\mathfrak g)$, we get a sequence of ideals 
-$$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \dots \supset \mathfrak g_n=0$$
+For the second statement, take $V=\mathfrak g$. If $\text{ad}(X)$ is nilpotent for every $X \in \mathfrak g$, the first statement implies that the center $Z(\mathfrak g)$ is nontrivial. Replacing $\mathfrak g$ by $\mathfrak g/Z(\mathfrak g)$, we get a sequence of ideals 
+$$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \dots \supset \mathfrak g^n=0$$
 such that $[\mathfrak g, \mathfrak g^i]\subset [\mathfrak g^{i+1}]$. By Lemma \ref{lemma-solvable-operations}, $\mathfrak g$ is nilpotent. The other direction is immediate from the definitions: If $\mathfrak g$ is nilpotent, then there is an $n$ such that $\text{ad}(X)^n = 0$ for every $X\in \mathfrak g$.
  
 \end{proof}
 
+As a corollary:
 
-\subsection{Lie's theorem}
+\begin{proposition}
+ \label{proposition-nilradical-exists}
+If $\mathfrak a$ and $\mathfrak b$ are nilpotent ideals in a Lie algebra, then $\mathfrak a+\mathfrak b$ is also a nilpotent ideal. 
 
-\begin{theorem}
- If $V$ is a finite-dimensional vector space over an algebraically closed field $k$ in characteristic zero, any solvable subalgebra of $\mathfrak{gl}(V)$ has a nonzero eigenvector.
-\end{theorem}
+The nilradical of a Lie algebra exists, i.e., there is a maximal nilpotent ideal.
+\end{proposition}
 
 \begin{proof}
+ The second statement clearly follows from the first. For the first, observe that if $X\in \mathfrak a$ and $\text{ad}(X)^n|_{\mathfrak a} = 0$ for some $n$, then $\text{ad}(X)^n|_{\mathfrak a}$.
  
+ or $X\in\mathfrak b$, 
 \end{proof}
 
 
 
-\subsection{Jordan decomposition}
+\subsection{Lie's theorem}
+\label{subsection-Lie-theorem}
+
+\begin{theorem}
+\label{theorem-Lie}
+ If $V$ is a finite-dimensional vector space over an algebraically closed field $k$ in characteristic zero, any solvable Lie subalgebra $\mathfrak g$ of $\mathfrak{gl}(V)$ has a nonzero eigenvector, and hence a full flag
+ $$ 0=V_0 \subset V_1 \subset \dots \subset V_n=V,$$
+ where $V_i$ has dimension $i$ and is stable under $\mathfrak g$.
+\end{theorem}
+
+\begin{proof}
+ As in the proof of Engel's theorem \ref{theorem-Engel}, we argue by induction on the dimension of $\mathfrak g$, with the case $\dim \mathfrak g=0$ being trivial. Let, now, $\mathfrak h\subset \mathfrak g$ be an ideal of codimension one (which exists because $\mathfrak g$ is solvable; by induction, $\mathfrak h$ has a non-trivial eigenspace $V_\lambda$ for some linear functional $\lambda: \mathfrak h \to k$. Clearly, $\lambda$ factors through the abelianization 
+ $ \mathfrak h^{\text{ab}} = \mathfrak h/[\mathfrak h,\mathfrak h]$.
+ 
+ Now, we claim that $V_\lambda$ is $\mathfrak g$-stable, i.e., if $x\in \mathfrak g$ and $y\in \mathfrak h$ then $yx v = \lambda(y) xv$ for all $v\in V_\lambda$. We have $yx v = xy v -[x,y]v = \lambda(y) xv - [x,y]v$, so we need to prove that $[x,y]v=0$. Consider the flag $0=W_0\subset W_1\subset \dots$ where $W_i$ is spanned by $v, xv, \dots, x^i v$. It is easy to see that $y$ stabilizes this flag, and acts on $W_i/W_{i-1}$ by $\lambda(y)$. Therefore, if $W\subset V$ denotes the maximal subspace of this flag, and $\dim W=n$, the trace of $y$ acting on $W$ is $n\lambda(y)$. This holds for every element of $\mathfrak h$, hence also for the element $[x,y]$. Since this is a commutator of two operators, we get
+ $$ 0 = \text{tr}([x,y]) = n \lambda([x,y]),$$
+ and since we are in characteristic zero, $\lambda([x,y]) = 0$. 
+ 
+ Thus, $V_\lambda$ is $\mathfrak g$-stable, and because the field is algebraically closed, we can find an eigenvector of $x \in \mathfrak g - \mathfrak h$ on $V_\lambda$, proving the existence of an eigenvector.
+ 
+ The existence of the flag now follows by induction, starting with $V_0=0$ and considering the representation of $\mathfrak g$ on the quotient spaces $V/V_i$.
+\end{proof}
 
 
+\begin{remark}
+ \label{remark-Lie-positive-characteristic}
+The assumption on the characteristic is really necessary; for example, the Lie algebra $\mathfrak{sl}_2$ is solvable in characteristic $2$, but its standard representation does not have an eigenspace.
+\end{remark}
+
+
+
+
+
+\subsection{Jordan decomposition of endomorphisms}
+\label{subsection-Jordan-endomorphisms}
+
+In this subsection, we prove that every endomorphism $x$ of a finite-dimensional vector space $V$ has a unique decomposition $x=x_s+x_n$, where $x_s$ is semisimple, $x_n$ is nilpotent, and $x_s, x_n$ commute. We will later \ref{reference} see that such a decomposition also exists, and is unique, for \emph{semisimple} Lie algebras, when the ``semisimple'' and ``nilpotent'' parts of an element are defined in terms of the adjoint representation.
+
+\begin{proposition}
+\label{proposition-Jordan-endomorphisms}
+ Let $V$ be a finite-dimensional vector space over $k$, and $x\in \text{End}(V)$. If $k$ is algebraically closed, there is a unique pair of commuting elements $(x_s, x_n)$ with $x_s$ semisimple, $x_n$ nilpotent, and $x=x_s+x_n$. Moreover, $x_s$ and $x_n$ belong to the subalgebra of operators generated by $x$.
+ 
+ For general $k$, the elements $x_s$ and $x_n$ are defined over a purely inseparable algebraic extension of $k$. 
+\end{proposition}
+
+\begin{proof}
+ First of all, the statement over an algebraically closed field implies the general statement: The uniqueness of $x_s, x_n$ implies that they are fixed under the Galois group of an algebraic closure of $k$, hence defined over a purely inseparable subextension.
+ 
+ Hence, we may assume that $k$ is algebraically closed, so $V$ decomposes as a direct sum of generalized eigenspaces $V_{\lambda_i}$ for $x$. If such a decomposition exists, since the elements $x_s, x_n$ commute with each other, hence with $x$, they must preserve the generalized eigenspaces $V_{\lambda_i}$. Thus, it is enough to prove existence and uniqueness when $V$ itself is a generalized eigenspace, with eigenvalue $\lambda$. But then, we can take $x_s=\lambda I$, and $x_n = x - \lambda_I$. For any other choice $x=x_s'+x_n'$, the nilpotent element $x_n=x-\lambda I$ would have a Jordan decomposition $(x_s'-\lambda_I) + x_n'$, and since commuting nilpotent or semisimple elements have nilpotent, resp.\ semisimple sum, we would get an equality between the semisimple element $x_s'-\lambda I$ and the nilpotent element $x_n-x_n'$, which means that both are zero.
+ 
+ The element $\lambda I$ is (trivially) in the subalgebra generated by any operator, hence both $x_s, x_n$ are in the subalgebra generated by $x$, when $V$ is a generalized eigenspace. In the general case, if the characteristic polynomial of $x$ is $\prod_i (T-\lambda_i)^{m_i}$, by the Chinese remainder theorem there are is a polynomial $p\in k[T]$ with $p\equiv \lambda_i \mod (T-\lambda_i)^{m_i}$, and then $p(x)=x_s$. 
+\end{proof}
+
+The following tiny improvement of the proposition above will be useful in what follows:
+
+\begin{lemma}
+\label{lemma-Jordan-extension}
+In the setting of \ref{proposition-Jordan-endomorphisms}, $x_s$ can be written as a polynomial of $x$ with zero constant coefficient. For any field automorphism $\phi$ of $k$, if $\phi(x_s)$ denotes the semisimple element which acts on the $\lambda$-eigenspace of $x_s$ by $\phi(\lambda)$, then $\phi(x_s)$ can also be written as such a polynomial of $x$. Finally, for any pair of subspaces $W_1\subset W_2\subset V$ with $xW_2\subset W_1$, we also have $yW_2\subset W_1$, where $y$ is any of $x_s, x_n, \phi(x_s)$.
+\end{lemma}
+
+\begin{proof}
+ In the proof of Proposition \ref{proposition-Jordan-endomorphisms}, we could have taken the polynomial $p$ to satisfy the additional congruence $p = 0 \mod T$, if $0$ is not among the eigenvalues. (If it is, this condition is among the ones imposed.) This proves the first claim.
+ 
+ For the second, we can similarly find a polynomial $q$ with $q\equiv \phi(\lambda_i) \mod (T-\lambda_i)^{m_i}$ and zero constant coefficient. 
+ 
+ For the last claim, if $xW_2\subset W_1$ then the same is true when $x$ is replaced by $p(x)$, for every polynomial with zero constant coefficient.
+\end{proof}
+
+
+The Jordan decomposition is preserved under tensor operations on the category of representations. (This will be generalized later, \ref{reference}, for arbitrary morphisms of semisimple Lie algebras.)
+
+Notice that for two representations $V, W$ of a Lie algebra $\mathfrak g$, the tensor product $V\otimes W$ is a representation under 
+$$ x \cdot (v\otimes w) = (xv)\otimes w + v\otimes (xw).$$
+The dual representation on $V^*$ is defined so that the defining pairing
+$$ V\otimes V^*\to k$$ 
+is invariant, i.e., 
+\begin{equation}
+ \label{equation-dual-representation-Liealgebra}
+\left< xv, v^*\right> + \left < v, xv^*\right> =0.
+\end{equation}
+
+\begin{lemma}
+\label{lemma-Jordan-tensors}
+Let $V$ be a finite-dimensional vector space, and $W = V^{\otimes^a}\otimes (V^*)^{\otimes^b}$, for some $a, b$. For $x\in \text{End}(V)$, denote by $x'$ the corresponding endomorphism of $W$.
+
+If $x=x_s + x_n$ is the Jordan decomposition of $x$, then $(x_s)'+(x_n)'$ is the Jordan decomposition of $x'$. 
+\end{lemma}
+
+
+\begin{proof}
+ It is clear that $x'=(x_s)'+(x_n)'$, with $(x_s)'$ and $(x_n)'$ commuting. It is also clear that $(x_s)'$ is semisimple. To see that $(x_n)'$ is nilpotent, it is enough to show that, if $y\in \text{End}(V_1)$, $z\in \text{End}(V_2)$ are nilpotent endomorphisms of two vector spaces, then the endomorphm $v_1\otimes v_2\mapsto (yv_1) \otimes v_2 + v_1 \otimes (zv_2)$ of $V_1\otimes V_2$ is nilpotent, which is clear by raising it to a sufficiently high power.
+\end{proof}
+
+
+
+
+
+\subsection{Cartan's criterion and the Killing form}
+\label{subsection-Cartan-criterion}
+
+\begin{theorem}[Cartan's criterion]
+\label{theorem-Cartans-criterion}
+ Let $\mathfrak g\subset \text{End}(V)$ be a Lie subalgebra, where $V$ is a finite-dimensional vector space over a field $k$ in characteristic zero. The Lie algebra $\mathfrak g$ is solvable if and only if $\text{tr}(xy)=0$ for all $x\in \mathfrak g$, $y\in [\mathfrak g, \mathfrak g]$.
+ \end{theorem}
+
+\begin{proof}
+We may assume that the field is algebraically closed, and then by Lie's theorem \ref{theorem-Lie}, if $\mathfrak g$ is solvable stabilizes a flag $V_0\subset V_1\subset \dots \subset V_n=V$ with $\dim V_i=i$. Then, every $y\in [\mathfrak g,\mathfrak g]$ maps $V_i \to V_{i-1}$, hence so does any product $xy$ with $x\in \mathfrak g$, so $\text{tr}(xy)=0$.
+
+Vice versa, assume that $\text{tr}(xy)=0$ for all $x\in \mathfrak g$, $y\in [\mathfrak g, \mathfrak g]$. To prove that $\mathfrak g$ is solvable, it is enough to prove that $[\mathfrak g,\mathfrak g]$ is nilpotent. By Engel's theorem \ref{theorem-Engel}, this is equivalent to showing that any $y\in [\mathfrak g,\mathfrak g]$ is nilpotent. 
+
+The rest of the proof is written under the assumption that $k=\mathbb C$, so that complex conjugate of a semisimple endomorphism makes sense, as in Lemma \ref{lemma-Jordan-extension}. For a general field in characteristic zero, complex conjugation should be replaced by other field automorphisms. 
+
+Use the Jordan decomposition $y=y_s + y_n$, and observe that $y_s=0$ iff $\text{tr}(y\cdot \overline{y_s})=0$, since the generalized eigenvalues of $y \cdot \overline{y_s}$ are the absolute values of the squares of those of $y_s$. Now, the element $\overline{y_s}$ does not necessarily belong to $\mathfrak g$, so we argue as follows: writing $y$ as a linear combination of commutators in $\mathfrak g$:
+$$ y = \sum_i [x_i, z_i],$$
+we easily see that 
+$$ \text{tr} (y \cdot \overline{y_s}) = \sum_i \text{tr} z_i [\overline{y_s}, x_i],$$
+and it is enough to show that, even though $\overline{y_s}$ may not be in $\mathfrak g$, the operator $\text{ad}(\overline{y_s})$ maps $\mathfrak g\to [\mathfrak g,\mathfrak g]$. By Lemma \ref{lemma-Jordan-tensors}, and using the fact that for the Lie algebra $\mathfrak{gl}(V)$, the adjoint representation coincides with $V\otimes V^*$, we have $\text{ad}(\overline{y_s}) = \overline{(\text{ad}(x))_s}$. Since $\text{ad}(x)$ maps $\mathfrak g$ into $[\mathfrak g,\mathfrak g]$, by Lemma \ref{lemma-Jordan-extension} the same is true for $\overline{(\text{ad}(x))_s}$.
+
+
+
+
+\end{proof}
+
+\begin{definition}
+\label{definition-Killing-form}
+The {\it Killing form} on a Lie algebra $\mathfrak g$ is the symmetric bilinear form 
+$$B:S^2 \mathfrak g\to k$$
+given by 
+$$ B(x,y) = \text{tr}(\text{ad}(x)\text{ad}(y)).$$
+\end{definition}
+
+\begin{lemma}
+\label{lemma-Killing-invariant}
+The Killing form is invariant under the adjoint representation, i.e., for all $x, y, z\in \mathfrak g$,
+$$ B(\text{ad}(x)(y), z) + B(y, \text{ad}(x)(z)) = 0.$$
+\end{lemma}
+
+\begin{proof}
+ Easy consequence of the Jacobi identity.
+\end{proof}
+
+
+\begin{theorem}
+ \label{theorem-Killing-semisimplicity}
+If the Killing form of a Lie algebra is nondegenerate, the Lie algebra is semisimple. The converse holds in characteristic zero.
+\end{theorem}
+
+\begin{proof}
+ If $\mathfrak g$ has a non-trivial solvable ideal, then it has a non-trivial abelian ideal $\mathfrak a$, and then the adjoint action of any $x\in \mathfrak a$ maps $\mathfrak g\to\mathfrak a$ and $\mathfrak a\to 0$. Moreover, any $y\in \mathfrak g$ preserves $a$, so 
+ $\text{tr}(x) \text{tr}(y)$ maps $\mathfrak g\to\mathfrak a$ and $\mathfrak a\to 0$, and therefore has trace zero. Thus, $x$ is in the radical of the Killing form.
+ 
+ Vice versa, in characteristic zero, if $\mathfrak h\subset \mathfrak g$ is the radical of the Killing form $B_{\mathfrak g}$, it is easy to see from its invariance that $\mathfrak h$ is an ideal of $\mathfrak g$. For every ideal $\mathfrak h\subset \mathfrak g$ the Killing form $B_{\mathfrak g}$ of $\mathfrak g$, restricted to $\mathfrak h$, coincides with the Killing form $B_{\mathfrak h}$ of $\mathfrak h$: indeed, $\text{ad}(x)$ maps $\mathfrak g\to \mathfrak h$ for $x\in \mathfrak h$, so the quotient space $\mathfrak g/\mathfrak h$ does not contribute to the trace of any product of such endomorphisms. Hence, by Cartan's criterion, Theorem \ref{theorem-Cartans-criterion}, $\mathfrak h$ is solvable, which implies that $\mathfrak g$ is not semisimple.
+\end{proof}
+
+\begin{remark}
+ \label{remark-Killing-positivechar}
+ The converse fails in positive characteristic, e.g., the Lie algebra $\mathfrak{sl}_p$ is semisimple if $p\ne 2$ is the characteristic of the field, but its Killing form vanishes.
+\end{remark}
+
+
+
+\section{Semisimple Lie algebras}
+\label{section-semisimple}
+
+\subsection{The Casimir element} 
+\label{subsection-Casimir}
+
+
+\subsection{Complete reducibility of representations}
+\label{subsection-complete-reducibility}
+
+\section{Semisimplicity (complete reducibility)}
+
+
+
+
+\subsection{Preservation of the Jordan decomposition}
+\label{subsection-preservation-Jordan}
+
+\subsection{Representations of $\mathfrak{sl}_2(\mathbb C)$.}
+\label{subsection-representations-sl2}
 
 
 \section{Borel and Cartan subalgebras}
+\label{section-Borel-Cartan}
 
-
-\section{Representations of $\mathfrak{sl}_2(\mathbb C)$.}
 
 
 
