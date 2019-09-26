@@ -50,7 +50,7 @@ $$ D^{i+1}\mathfrak g = [D^i\mathfrak g, D^i\mathfrak g].$$
 
 A Lie algebra is called {\it solvable} if its derived series terminates, i.e., if $D^n\mathfrak g=0$ for some $n$.
 
-A Lie algebra is {\it semisimple} if it does not have any nonzero solvable ideals.
+A Lie algebra is {\it semisimple} if it does not have any nonzero solvable ideals, and {\it simple} if it is non-abelian, and has no nonzero proper ideals.
 \end{definition}
 
 \begin{example}
@@ -74,13 +74,14 @@ The Lie algebra of strictly upper triangular $n\times n$ matrices (i.e., with ze
 A Lie algebra $\mathfrak g$ is nilpotent if and only if there exists a finite decreasing filtration by ideals 
 $$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \dots \supset \mathfrak g^n=0$$
 such that $[\mathfrak g, \mathfrak g^i]\subset [\mathfrak g^{i+1}]$.
+
+The sum of two nilpotent ideals in a Lie algebra $\mathfrak g$ is also a nilpotent ideal.
  
- 
- Subalgebras, quotient algebras, and extensions of solvable Lie algebras by solvable Lie algebras are solvable.
+Subalgebras, quotient algebras, and extensions of solvable Lie algebras by solvable Lie algebras are solvable.
   
-   A Lie algebra $\mathfrak g$ is solvable if and only if there exists a finite decreasing filtration by subalgebras
-   $$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \supset \dots \supset \mathfrak g^n =0$$
-   such that $\mathfrak g^{i+1}$ is an ideal in $\mathfrak g^i$, and the quotient algebra $\mathfrak g^i/\mathfrak g^{i+1}$ is abelian.
+A Lie algebra $\mathfrak g$ is solvable if and only if there exists a finite decreasing filtration by subalgebras
+$$ \mathfrak g = \mathfrak g^0 \supset \mathfrak g^1 \supset \dots \supset \mathfrak g^n =0$$
+such that $\mathfrak g^{i+1}$ is an ideal in $\mathfrak g^i$, and the quotient algebra $\mathfrak g^i/\mathfrak g^{i+1}$ is abelian.
 \end{lemma}
 
 \begin{proof}
@@ -96,7 +97,7 @@ The {\it radical} of a Lie algebra is its largest solvable ideal.
 The {\it nilradical}, or {\it nilpotent radical}, of a Lie algebra is its largest nilpotent ideal.
 \end{definition}
 
-The definition of the radical makes sense in view of Lemma \ref{lemma-solvable-operations}: If $\mathfrak a, \mathfrak b$ are solvable ideals, then $\mathfrak a + \mathfrak b$ is an ideal, and it is isomorphic as a Lie algebra to $(\mathfrak a \oplus \mathfrak b)/(\mathfrak a\cap \mathfrak b)$, which is solvable by Lemma \ref{lemma-solvable-operations}.
+The definition of the nilradical and radical makes sense in view of Lemma \ref{lemma-solvable-operations}: For the nilradical, the lemma ensures that the sum of all nilpotent ideals is a nilpotent ideal. For the radical, if $\mathfrak a, \mathfrak b$ are solvable ideals, then $\mathfrak a + \mathfrak b$ is an ideal, and it is isomorphic as a Lie algebra to $(\mathfrak a \oplus \mathfrak b)/(\mathfrak a\cap \mathfrak b)$, which is solvable by Lemma \ref{lemma-solvable-operations}.
 
 Thus, any Lie algebra $\mathfrak g$ admits a canonical filtration
 \begin{equation}
@@ -105,8 +106,6 @@ Thus, any Lie algebra $\mathfrak g$ admits a canonical filtration
 \end{equation}
 where $R(\mathfrak g)$ is the radical of $\mathfrak g$, and $\mathfrak g_{ss}$ is semisimple. Indeed, the preimage of any solvable ideal in $\mathfrak g_{ss}$ is a solvable ideal in $\mathfrak g$, and therefore has to equal $R(\mathfrak g)$.
 
-
-The definition of nilradical is provisional, because we don't know yet that there exists a maximal nilpotent ideal. This will be a corollary of Engel's theorem, see Proposition \ref{proposition-nilradical-exists}.
 
 Note that the definition of nilradical given here does not coincide with Bourbaki's, who wants to avoid calling an abelian Lie algebra its own nilradical, but is quite standard in other references.
 
@@ -118,7 +117,7 @@ Note that the definition of nilradical given here does not coincide with Bourbak
     \end{pmatrix}$$
  while its nilpotent radical consists of matrices of the form 
  $$ \begin{pmatrix}
-     0 & 0 \\ *& 0
+     0 & * \\ 0 & 0
     \end{pmatrix}$$
  (all blocks $n\times n$).  
 
@@ -159,20 +158,6 @@ such that $[\mathfrak g, \mathfrak g^i]\subset [\mathfrak g^{i+1}]$. By Lemma \r
  
 \end{proof}
 
-As a corollary:
-
-\begin{proposition}
- \label{proposition-nilradical-exists}
-If $\mathfrak a$ and $\mathfrak b$ are nilpotent ideals in a Lie algebra, then $\mathfrak a+\mathfrak b$ is also a nilpotent ideal. 
-
-The nilradical of a Lie algebra exists, i.e., there is a maximal nilpotent ideal.
-\end{proposition}
-
-\begin{proof}
- The second statement clearly follows from the first. For the first, observe that if $X\in \mathfrak a$ and $\text{ad}(X)^n|_{\mathfrak a} = 0$ for some $n$, then $\text{ad}(X)^n|_{\mathfrak a}$.
- 
- or $X\in\mathfrak b$, 
-\end{proof}
 
 
 
@@ -205,14 +190,84 @@ The nilradical of a Lie algebra exists, i.e., there is a maximal nilpotent ideal
 The assumption on the characteristic is really necessary; for example, the Lie algebra $\mathfrak{sl}_2$ is solvable in characteristic $2$, but its standard representation does not have an eigenspace.
 \end{remark}
 
+\subsection{Cartan subalgebras}
+\label{subsection-CSA}
 
+\begin{definition}
+ \label{definition-CSA}
+A {\it Cartan subalgebra} of a Lie algebra is a nilpotent, self-normalizing subalgebra. 
+\end{definition}
+
+
+We will construct Cartan subalgebras as nilspaces (generalized eigenspaces of zero under the adjoint representation) of \emph{s-regular} elements. Then we will show that they are all conjugate to each other.
+
+\begin{definition}
+\label{definition-s-regular}
+ An s-regular element $X\in\mathfrak g$ is an element with minimal possible $0$-generalized eigenspace under $\text{ad}$.
+\end{definition}
+
+This terminology is not standard: in many books on Lie algebras, the word ``regular'' is used for ``s-regular''. However, the standard use of ``regular'' nowadays is to refer to elements with minimal \emph{zero eigenspace} (i.e., centralizer), instead of generalized eigenspace. This includes non-semisimple elements, while s-regular, as we shall see, in the case of semisimple Lie algebras in characteristic zero is equivalent to \emph{regular semisimple}.
+
+
+
+\begin{lemma}
+\label{lemma-sregular-exist}
+$s$-regular elements form a nonempty Zariski open subset of $\mathfrak g$. 
+\end{lemma}
+
+\begin{proof}
+The dimension of the zero generalized eigenspace is the highest power of $t$ which divides the characteristic polynomial of $\text{ad}(X)$, and therefore having a minimal such dimension is a Zariski open condition.
+\end{proof}
+
+
+\begin{proposition}
+\label{proposition-CSA-centralizer}
+ The nilspace of a s-regular element is a Cartan subalgebra.
+\end{proposition}
+
+\begin{proof}
+ Let $X$ be the s-regular element and $\mathfrak h$ its centralizer. We will prove that $\mathfrak h$ is nilpotent; equivalently, by Engel's theorem, that the restriction of $\text{ad}(Y)$ to $\mathfrak h$, for any $Y\in\mathfrak h$, is nilpotent. Let $U\subset\mathfrak h$ be the subset of elements which fail to satisfy this; it is a Zariski open subset (again by considerations of the characteristic polynomial). Let $V\subset\mathfrak h$ be the subset of elements which act invertibly on $\mathfrak g/\mathfrak h$. It is again a Zariski open subset, and non-empty since $X\in V$. If $U\ne\emptyset$ then $U\cap V\ne\emptyset$, i.e.\ there exists an element $Y\in\mathfrak h$ such that the dimension of the zero generalized eigenspace for $Y$ is less than the dimension of $\mathfrak h$, a contradiction by the s-regularity of $X$. Thus, $\mathfrak h$ is nilpotent.
+
+ If $Z$ normalizes $\mathfrak h$ then $[Z,X]\in\mathfrak h$ which implies that $Z$ is in the nilspace of $X$, i.e.\ in $\mathfrak h$.
+\end{proof}
+
+Hence, every Lie algebra has Cartan subalgebras. We will eventually prove that any two Cartan subalgebras are conjugate (over the algebraic closure) by the group of inner automorphisms of $\mathfrak g$ and, in particular, equal to nilspaces of s-regular elements.
+
+
+
+\subsection{Derivations and semidirect products}
+\label{subsection-derivations-semidirect}
+
+\begin{definition}
+\label{definition-derivation-Liealgebra}
+ A \emph{derivation} of a Lie algebra $\mathfrak g$ is a linear map $D:\mathfrak g\to\mathfrak g$ satisfying $D([X,Y])=[X,D(Y)]+[D(X),Y]$.
+\end{definition}
+
+Let 
+$$0 \to  \mathfrak a \to \mathfrak g \to \mathfrak h \to 0$$ be a split short exact sequence of Lie algebras, i.e., $\mathfrak h$ embeds in $\mathfrak g$ as a Lie subalgebra. Then, $\mathfrak h$ acts on $\mathfrak a$ by derivations, i.e., through a morphism $\mathfrak h\to \text{Der}(\mathfrak a)$. Vice versa, given such a morphism, it defines a split extension of $\mathfrak h$ by $\mathfrak a$ in Lie algebras. This is the {\it semidirect product} of $\mathfrak a$ and $\mathfrak h$.
+
+
+
+\begin{remarks}
+\label{remarks-derivations}
+ \begin{enumerate}
+  \item This is a very natural extension of the definition of derivation for an associative algebra, since such a derivation induces a derivation as above on the associated Lie algebra. Vice versa, a derivation of a Lie algebra induces a derivation of its universal enveloping algebra.
+  \item Derivations form a Lie subalgebra of $\text{End}(\mathfrak g)$.
+  \item The adjoint representation $\text{ad}:\mathfrak g\to \text{End}(\mathfrak g)$ has image in $\text{Der}(\mathfrak g)$. 
+ \end{enumerate}
+\end{remarks}
+
+\begin{definition}
+ \label{definition-inner-derivation}
+ The derivations in the image of the adjoint map $\text{ad}: \mathfrak g\to \text{Der}(\mathfrak g)$ are called {\it inner derivations}.
+\end{definition}
 
 
 
 \subsection{Jordan decomposition of endomorphisms}
 \label{subsection-Jordan-endomorphisms}
 
-In this subsection, we prove that every endomorphism $x$ of a finite-dimensional vector space $V$ has a unique decomposition $x=x_s+x_n$, where $x_s$ is semisimple, $x_n$ is nilpotent, and $x_s, x_n$ commute. We will later \ref{reference} see that such a decomposition also exists, and is unique, for \emph{semisimple} Lie algebras, when the ``semisimple'' and ``nilpotent'' parts of an element are defined in terms of the adjoint representation.
+In this subsection, we prove that every endomorphism $x$ of a finite-dimensional vector space $V$ has a unique decomposition $x=x_s+x_n$, where $x_s$ is semisimple, $x_n$ is nilpotent, and $x_s, x_n$ commute. We will see later (\ref{subsection-derivations-Jordan}) that such a decomposition also exists, and is unique, for \emph{semisimple} Lie algebras, at least in characteristic zero, when the ``semisimple'' and ``nilpotent'' parts of an element are defined in terms of the adjoint representation.
 
 \begin{proposition}
 \label{proposition-Jordan-endomorphisms}
@@ -273,7 +328,7 @@ If $x=x_s + x_n$ is the Jordan decomposition of $x$, then $(x_s)'+(x_n)'$ is the
 
 
 
-\subsection{Cartan's criterion and the Killing form}
+\subsection{Cartan's criterion for solvability}
 \label{subsection-Cartan-criterion}
 
 \begin{theorem}[Cartan's criterion]
@@ -337,56 +392,260 @@ If the Killing form of a Lie algebra is nondegenerate, the Lie algebra is semisi
 
 
 
+
+
 \section{Semisimple Lie algebras}
 \label{section-semisimple}
+
+For this section, Lie algebras are finite-dimensional and usually in characteristic zero, except for some counterexamples that we give in positive characteristic.
+
+\begin{proposition}
+\label{proposition-sum-of-simple}
+ Every finite-dimensional, semisimple Lie algebra $\mathfrak g$ in characteristic zero is a direct sum of simple Lie algebras in a unique way:
+ $$\mathfrak g = \bigoplus_i \mathfrak g_i.$$
+ Its derived Lie algebra $[\mathfrak g, \mathfrak g]$ is equal to $\mathfrak g$, and its ideals are precisely the subsums of the simple summands $\mathfrak g_i$.
+\end{proposition}
+
+\begin{proof}
+ Let $B$ be the Killing form. Since it is invariant and non-degenerate (by Theorem \ref{theorem-Killing-semisimplicity}, the orthogonal complement of any ideal $\mathfrak h\subset \mathfrak g$ is also an ideal, and $\mathfrak g = \mathfrak h \oplus \mathfrak h^\perp$. By induction on dimension, $\mathfrak g$ is a direct sum of simple Lie algebras.
+  
+ On every simple summand $\mathfrak h$, $[\mathfrak h, \mathfrak h]$ is an ideal, and since $\mathfrak h$ is simple, we must have $[\mathfrak h, \mathfrak h]=\mathfrak h$, hence the same is true for (the direct sum of simple summands) $\mathfrak g$.
+ 
+ Fixing a direct sum decomposition $\mathfrak g = \bigoplus_i \mathfrak g_i$, the image of the projection of any ideal $I$ to the summand $\mathfrak g_i$ is an ideal, hence the projection is onto or zero. If it is onto, we have $[\mathfrak g_i, I] = \mathfrak g_i$ by what was just proven, therefore $\mathfrak g_i\subset I$. This shows that ideals are precisely the direct summands $\mathfrak g_i$, which implies the uniqueness of the decomposition. 
+\end{proof}
+
+\begin{remark}
+ \label{remark-notsimplesum-positivechar}
+Over a field $k$ in positive characteristic $p$, this theorem does not need to hold. For example (see \cite[\S 2.4]{Rumynin}), there is a nonsplit extension 
+$$ 0 \to \mathfrak h = \mathfrak{sl}_2(k[z]/z^p) \to \mathfrak g \to k \to 0$$
+where, for a vector space identification $\mathfrak g = \mathfrak h \oplus k$, the summand $k$ acts by a certain derivation:
+$$ [(X,x), (Y,y)] = ([X,Y] - x \partial Y + y\partial X),$$
+where, for $X = \begin{pmatrix} f(z) & g(z) \\ h(z) & -f(z)\end{pmatrix}$, we have $\partial X = \begin{pmatrix} f'(z) & g'(z) \\ h'(z) & -f'(z)\end{pmatrix}$. (This is the \emph{semidirect product} of $\mathfrak h$ and $k\cdot \partial$, see \ref{subsection-derivations-semidirect}.) 
+
+The derived Lie algebra $[\mathfrak g, \mathfrak g]$ is equal to $\mathfrak h$, and there is a unique minimal ideal, equal to $\mathfrak{sl}_2(k)$.
+\end{remark}
+
+
+
 
 \subsection{The Casimir element} 
 \label{subsection-Casimir}
 
+The universal enveloping algebra $U(\mathfrak g)$ typically has a large center, even if $\mathfrak g$ does not (e.g., is semisimple). This is a very important reason for invoking the enveloping algebra. The structure of the center, over an algebraically closed field in characteristic zero, is described by the \emph{Harish--Chandra isomorphism}, to be discussed later. For now, we focus on producing some elements in the center. 
 
-\subsection{Complete reducibility of representations}
+Let $(\pi, V)$ be a finite-dimensional representation of a Lie algebra $\mathfrak g$, and assume that the trace pairing 
+$$ (X, Y)_\pi = \text{tr}(\pi(X)\pi(Y))$$
+is nondegenerate. (In particular, the representation is faithful.)
+
+It is immediate to see that the trace pairing is symmetric and invariant, hence defines a $\mathfrak g$-equivariant isomorphism 
+$$ T^2\mathfrak g = \mathfrak g \otimes \mathfrak g \simeq \mathfrak g^*\otimes \mathfrak g.$$
+
+
+
+\begin{proposition}
+\label{proposition-Casimir}
+If  $(\pi, V)$ is a finite-dimensional representation of $\mathfrak g$ with a nondegenerate trace pairing, used to identify $T^2\mathfrak g$ with $\text{End}(\mathfrak g)$, the element $C_\pi \in U(\mathfrak g)$ which is the image of the identity operator $I\in \text{End}(\mathfrak g)$ under the quotient $T\mathfrak g \to U(\mathfrak g)$ lies in the center of $U(\mathfrak g)$.
+
+If $(\pi, V)$ is irreducible and $k$ is algebraically closed, $C_\pi$ acts by a scalar on $V$; that scalar is equal to $\text{dim}(\mathfrak g)/\text{dim}(V)$, if the denominator is prime to the characteristic of $k$.
+\end{proposition}
+
+Explicitly, if $(X_i)_i$ is a basis for $\mathfrak g$, and $(Y_i)_i$ is the dual basis with respect to the trace pairing of $\pi$, we have 
+$$C_\pi=\sum_i X_i Y_i.$$
+Its definition, which does not make use of the basis, makes it clear that this element is independent of the basis.
+
+
+\begin{proof}
+Because of the invariance of the trace form, the adjoint representation of $\mathfrak g$ on the second graded piece $T^2\mathfrak g$ of the tensor algebra coincides with the representation of $\mathfrak g$ on $\mathfrak g^*\otimes \mathfrak g = \text{End}(\mathfrak g)$. Since the element $I\in \text{End}(\mathfrak g)$ is invariant, i.e., $\text{ad}(X)(I) = 0$ for every $X \in \mathfrak g$, we have $\text{ad}(X)(C_\pi) = 0$ for every $X \in \mathfrak g$, hence $C_\pi$ is in the center of $U(\mathfrak g)$.
+
+If $(\pi,V)$ is irreducible, since $C_\pi$ is central, any eigenspace of $C_\pi$ is fixed under $\mathfrak g$; thus, if the representation is irreducible and $k$ is algebraically closed, $C_\pi$ must act by a scalar. If the characteristic of $k$ does not divide $\text{dim}(V)$, that scalar can be computed as $\text{tr}(\pi(C_\pi))/\text{dim}(V)$, and using a dual basis $(X_i)_i$, $(Y_i)_i$, we have
+$$ \text{tr}(\pi(C_\pi)) = \sum_i \text{tr}(\pi(X_i)\pi(Y_i)) = \text{dim}(\mathfrak g).$$
+
+(Notice that the representation is automatically faithful, since the trace form is nondegenerate.)
+\end{proof}
+
+The following is a useful observation:
+
+\begin{lemma}
+\label{lemma-tracepairing-nondegenerate}
+ Let $\pi:\mathfrak g \to \mathfrak{gl}(V)$ be a faithful, finite-dimensional representation of a semisimple Lie algebra in characteristic zero. The trace pairing  $(\, , \, )_\pi$ is nondegenerate, and different simple summands of $\mathfrak g$ (Proposition \ref{proposition-sum-of-simple}) are orthogonal with respect to it.
+\end{lemma}
+
+
+\begin{proof}
+ By Cartan's criterion \ref{theorem-Cartans-criterion}, the trace pairing is nonzero on each simple summand of $\mathfrak g$; since the radical of an invariant symmetric form is an ideal, it is nondegenerate on each simple summand. The form is invariant, hence the orthogonal complement of each simple summand is $\mathfrak g$-stable, and by induction it decomposes into the direct sum of simple ideals in $\mathfrak g$ (which is unique, by Proposition \ref{proposition-sum-of-simple}).
+\end{proof}
+
+
+
+
+\begin{definition}
+ \label{definition-Casimir}
+Let $\mathfrak g$ be a semisimple Lie algebra in characteristic zero, and use the Killing form, which is nondegenerate by Theorem \ref{theorem-Killing-semisimplicity}, to identify $T^2\mathfrak g = \mathfrak g^*\otimes \mathfrak g = \text{End}(\mathfrak g)$. The element $C$ in the center of $U(\mathfrak g)$ (by Proposition \ref{proposition-Casimir} applied to the adjoint representation), which is the image of the identity operator 
+$ I \in \text{End}(\mathfrak g) = T^2 \mathfrak g$ in $U(\mathfrak g)$,
+is called the {\it Casimir element} of $U(\mathfrak g)$.
+\end{definition}
+
+For example, when $\mathfrak g = \mathfrak{sl}_2$ with generators $(h,e,f)$ and bracket $[h,e]=2e$, $[h,f]=-2f$, $[e,f]=h$, the Casimir element is 
+$$ C = \frac{1}{8} h^2 + \frac{1}{4} ef + \frac{1}{4} fe = \frac{1}{8} h^2 - \frac{1}{4} h + \frac{1}{2} ef = \frac{1}{8} h^2 + \frac{1}{4} h + \frac{1}{2} fe.$$
+
+
+
+\subsection{Lie algebra cohomology and complete reducibility}
 \label{subsection-complete-reducibility}
 
-\section{Semisimplicity (complete reducibility)}
+We will examine the question of whether a short exact sequence of $\mathfrak g$-representations 
+\begin{equation}
+\label{equation-extension-representations}
+0\to A\to B\to C\to 0 
+\end{equation}
+admits a splitting: $B\simeq A\oplus C$. 
+
+The answer is given in terms of Lie algebra cohomology, which describes isomorphism classes of extensions $B$ as in \eqref{equation-extension-representations} in terms of a cohomology group.
+
+Notice that any exact sequence of $k$-vector spaces splits (as vector spaces). That is, there is an element of $\Hom_k(C,B)$ which lifts the identity element in $\Hom_k(C,C)$. We would like to know that there is a $\mathfrak g$-invariant such element. Thus, it suffices to show that if we apply the functor of ``$\mathfrak g$-invariants'' to the exact sequence:
+$$0\to \Hom_k(C,A)\to \Hom_k(C,B) \to \Hom_k(C,C) \to 0,$$
+it remains exact. (Notice that, in the context of Lie algebras, $\mathfrak g$-invariants---equivalently, the trivial representation of $\mathfrak g$---simply means that $\mathfrak g$ acts by zero.)
+
+This is a problem is cohomology. The functor of $\mathfrak g$-invariants is left-exact, and it admits right derived functors $H^n(\mathfrak g, \bullet)$ which, in particular, turn any short exact sequence of $\mathfrak g$-modules $0\to U\to V\to W\to 0$ (think of the above $\Hom$ spaces here) to a long exact sequence:
+$$0\to U^{\mathfrak g}\to V^{\mathfrak g}\to W^{\mathfrak g}\to H^1(\mathfrak g, U)\to H^1(\mathfrak g, V)\to H^1(\mathfrak g, W)\to \dots.$$
+
+The groups $H^n(\mathfrak g, V)$ can also be thought of as $\text{Ext}^n_{\mathfrak g}(k, V)$, which are the derived functors of $\text{Hom}_{\mathfrak g}(\bullet , \bullet)$ in either argument. The group $\text{Ext}^1(C,A)$, in particular, describes isomorphism classes of extensions \eqref{equation-extension-representations}. 
+
+
+%The right derived functor $H^1$ can be explicitly described, it turns out, as follows:
+%$$H^1(\mathfrak g, V) = Z^1(\mathfrak g, V)/C^1(\mathfrak g, V),$$
+%where the cocycles $Z^1(\mathfrak g, V)$ are maps $f:\mathfrak g\to V$ satisfying:
+%$$ f([X,Y]) = Xf(Y)-Yf(X),$$
+%and the coboundaries are those of the form: $f(X)=Xv$ (for some $v\in V$).
+
+%We will prove that, if $\mathfrak g$ is semisimple and $k$ is of characteristic zero, $H^1(\mathfrak g,V)=0$ for any finite-dimensional $\mathfrak g$-module. 
+
+
+\begin{theorem}
+\label{theorem-complete-reducibility}
+ If $\mathfrak g$ is a semisimple Lie algebra in characteristic zero, for any finite-dimensional $\mathfrak g$-module $V$ we have $H^1(\mathfrak g,V)=0$.
+ 
+ Every finite-dimensional representation of $\mathfrak g$ is semisimple.
+\end{theorem}
+
+The statement on semisimplicity (complete reducibility) is due to Weyl, and referred to Weyl's theorem.
+
+\begin{proof}
+ First, we reduce to simple $\mathfrak g$-modules by induction. Suppose that we have a short exact sequence:
+$$0\to U\to V\to W\to 0,$$
+and that the first cohomology groups of $U$ and $W$ are trivial, then the long exact sequence shows that $H^1(\mathfrak g, V)=0$, as well.
+
+Now assume that $V$ is irreducible. By the interpretation of $H^1(\mathfrak g, V)$ in terms of isomorphism classes of extensions 
+$$ 0 \to V \to W \to k\to 0,$$
+it is enough to show that any such extension splits (as $\mathfrak g$-modules).
+
+We will work separately on the cases where $V$ is the trivial representation, and $V$ is nontrivial.
+
+If $V\ne k$, then we first reduce to the case where $\mathfrak g$ acts faithfully on $V$: Let $\mathfrak h$ be the kernel of the map $\mathfrak g\to \mathfrak{gl}(V)$ (it is an ideal of $\mathfrak g$). We claim that $\mathfrak h$ also acts trivially on $W$. Indeed, $\mathfrak g$ maps $W\to V$, and $\mathfrak h$ maps $V\to 0$, so $[\mathfrak h,\mathfrak h]$ acts trivially on $W$. But $\mathfrak g$ is semisimple in characteristic zero, and by Proposition \ref{proposition-sum-of-simple}, it is a sum of simple Lie algebras, hence $\mathfrak h$ is a subsum of those, hence semisimple. Again by the same proposition, $[\mathfrak h,\mathfrak h] = \mathfrak h$. So, the representation $W$ factors through $\mathfrak g/\mathfrak h$, and we may replace $\mathfrak g$ by that to assume that $\mathfrak g$ acts faithfully.
+
+Consider, then, the trace pairing $(X,Y)_\pi\mapsto \text{tr}(\pi(X)\pi(Y))$, where $\pi$ is the representation of $\mathfrak g$ on $V$. By Lemma \ref{lemma-tracepairing-nondegenerate}, it is nondegenerate, hence the central element $C_\pi$ of Proposition \ref{proposition-Casimir} is defined. By the same proposition, $C_\pi$ acts on $V$ by a nonzero scalar; on the other hand, it acts on $k$ by zero. Thus, the short exact sequence can be split $W=V\oplus k$, according to the eigenspaces of $C_\pi$. 
+
+If $V=k$, that means that the image of $\mathfrak g$ in $\text{End}(W)$ consists of nilpotent operators, hence is a nilpotent Lie algebra by Engel's theorem \ref{theorem-Engel}. Being a direct sum of simple Lie algebras by Proposition \ref{proposition-sum-of-simple}, $\mathfrak g$ has no nontrivial nilpotent quotients, hence $W$ is the trivial representation. This completes the proof that $H^1(\mathfrak g, V)=0$ for any finite-dimensional representation $V$. 
+
+Finally, for a short exact sequence of $\mathfrak g$-modules $0\to A \to B\to C \to 0$, applying the vanishing of cohomology to the modules $\Hom_k(C, \bullet)$, we get a short exact sequence
+$$ 0\to \Hom_{\mathfrak g}(C,A)\to \Hom_{\mathfrak g}(C,B) \to \Hom_{\mathfrak g}(C,C) \to 0,$$
+hence the identity element in $\Hom_{\mathfrak g}(C,C)$ can be lifted to a $\mathfrak g$-morphism $C\to B$. This proves complete reducibility.
+\end{proof}
+
+
+\begin{remarks}
+ \label{remarks-complete-reducibility}
+ \begin{enumerate}
+  \item Complete reducibility fails for infinite-dimensional representations; in fact, in our study of the category $O$, we will construct the finite-dimensional representations as quotients of infinite-dimensional, non-semisimple representations.
+  \item Complete reducibility fails in positive characteristic $p$. For example, the Lie algebra $\mathfrak g=\mathfrak{sl}_2$ is semisimple if $p\ne 2$, but the $p$-th symmetric power of its standard representation is not semisimple. Indeed, the space of polynomials of degree $p$ in two variables $(x,y)$ contains the invariant subspace generated by $x^p$ and $y^p$ (with trivial action of $\mathfrak g$), but the $\mathfrak g$-span of any other nonzero vector $v=\sum_{i=0}^p a_i x^{p-i} y^i$ meets that subspace, because if $m$ is the maximal $i$ with $i\ne p$ such that $a_i\ne 0$, and $e= x \frac{\partial}{\partial y} \in \mathfrak g$, we have $e^m v = m! a_m x^m$. 
+ \end{enumerate}
+
+\end{remarks}
+
+
+\subsection{Derivations and the Jordan decomposition}
+\label{subsection-derivations-Jordan}
 
 
 
+\begin{proposition}
+\label{proposition-derivations-inner}
+ Every derivation of a \emph{semisimple} Lie algebra is \emph{inner} (Definition \ref{definition-inner-derivation}).
+\end{proposition}
 
-\subsection{Preservation of the Jordan decomposition}
-\label{subsection-preservation-Jordan}
+\begin{proof}
+ The formula $[D,\text{ad}(X)]=\text{ad}(DX)$ shows that the image of $\text{ad}$ is an ideal in $\text{Der}(\mathfrak g)$. Since the image is a semisimple Lie algebra, there is a complementary ideal $I$ (namely, its orthogonal complement under the Killing form on $\text{Der}(\mathfrak g)$). But if $D\in I$, and $I$ is an ideal, the same formula shows that $\text{ad}(DX)\in I\cap \text{ad}(\mathfrak g)=0$, which since $\text{ad}$ is injective means that $DX=0$, i.e.\ $D=0$.
+\end{proof}
 
-\subsection{Representations of $\mathfrak{sl}_2(\mathbb C)$.}
+
+\begin{proposition}
+\label{proposition-Jordan-derivations}
+ If $D\in \text{Der}(\mathfrak g)\subset \text{End}(\mathfrak g)$ then $D_s,D_n\in\text{Der}(\mathfrak g)$.
+\end{proposition}
+
+\begin{proof}
+ If $X$ is in the generalized $\lambda$-eigenspace and $Y$ is in the generalized $\mu$-eigenspace for $D$, then it can be shown by induction that:
+$$ (D-(\lambda+\mu))^n([X,Y]) = \sum_{r=0}^n \binom{n}{r} [(D-\lambda)^r(X),(D-\mu)^{n-r}(Y)],$$
+hence $[X,Y]$ is in the generalized $\mu+\lambda$-eigenspace. This shows that $D_s$ is a derivation, and then $D_n=D-D_s$ is a derivation.
+\end{proof}
+
+
+\begin{definition}
+\label{definition-nilpotent-semisimple-element}
+Let $\mathfrak g$ be a Lie algebra. An element $X\in \mathfrak g$ is called \emph{semisimple} if $\text{ad}(X)$ is a semisimple operator, and \emph{nilpotent} if $\text{ad}(X)$ is nilpotent.
+\end{definition}
+
+\begin{theorem}[Jordan--Chevalley decomposition]
+\label{theorem-Jordan-Chevalley}
+Let $\mathfrak g$ be a semisimple Lie algebra in characteristic zero. Every $X\in \mathfrak g$ admits a unique decomposition $X=X_s + X_n$, with $X_s$ semisimple, $X_n$ nilpotent, and $[X_s,X_n]=0$.
+
+Moreover, for any finite-dimensional representation $\rho:\mathfrak g \to \mathfrak{gl}(V)$, and any $X\in \mathfrak g$, we have
+$\rho(X_s) = \rho(X)_s$, $\rho(X_n)=\rho(X)_n$, where $\rho(X)=\rho(X)_s+\rho(X)_n$ is the Jordan decomposition of $\rho(X)$.
+
+Finally, for any morphism $\pi: \mathfrak g_1 \to \mathfrak g_2$ of semisimple Lie algebras in characteristic zero, and any $X\in \mathfrak g_1$, we have $\pi(X_s) = \pi(X)_s$, $\pi(X_n)=\pi(X)_n$.
+\end{theorem}
+
+
+\begin{proof}
+By the Propositions \ref{proposition-Jordan-derivations}, $\text{ad}(X)_s$ and $\text{ad}(X)_n$ are derivations in $\text{End}(\mathfrak g)$. By Proposition \ref{proposition-derivations-inner}, they belong to the image of $\text{ad}$. Since the adjoint representation is faithful, this proves the existence and uniqueness of $X_s$ and $X_n$. 
+
+By complete reducibility of $\text{End}(V)$ under the adjoint $\mathfrak g$-action, we have:
+$$\text{End}(V)= \rho(\mathfrak g)\oplus\mathfrak m,$$
+where $\mathfrak m$ is an $\text{ad}(\rho(\mathfrak g))$-invariant subspace. (Notice that in Proposition \ref{proposition-derivations-inner} we were able to obtain a similar decomposition in $\text{Der}(\mathfrak g)$ by using the Killing form, so we did not need to know reducibility.)
+
+Since $\rho(X)_s,\rho(X)_n$ are polynomials in $\rho(X)$, their adjoint action preserves both $\rho(\mathfrak g)$ and $\mathfrak m$. Let $\rho(X)_n = \rho(a) + b$ with $a\in \mathfrak g,b\in \mathfrak m$. Then $[\rho(\mathfrak g),b]=0$, which means that $b\in \text{End}(V)$ is a $\mathfrak g$-endomorphism. If $V=\oplus V_i$ is a decomposition into irreducibles, $b$ acts by a scalar on each one of them, by Schur's lemma. On the other hand, we know that $\rho(X)_n$ is nilpotent, $\rho(a)$ and $b$ commute, and $\text{tr}_{V_i}(\rho(a)) =0$ because $a$ (like every element of $\mathfrak g$) is a sum of commutators. Therefore, $\text{tr}_{V_i}(b)=0$, hence $b$ acts by zero on all $V_i$, i.e.\ $b=0$. 
+
+Now, $\rho(X)_n=\rho(a)$ acts nilpotently on $V$, hence it acts nilpotently on $\text{End}(V)$ under the adjoint representation. By the decomposition $\text{End}(V)=\mathfrak g\oplus \mathfrak m$ it follows that it acts nilpotently on $\mathfrak g$. By the uniqueness of the Jordan decomposition we can now infer that $\rho(X)_n= \rho(X_n)$. 
+
+Finally, for any morphism $\pi: \mathfrak g_1 \to \mathfrak g_2$, setting $\rho=\text{ad}\circ\pi$ and applying the previous statement, we obtain the last statement.
+\end{proof}
+
+
+
+\section{Root systems and the structure of semisimple Lie algebras}
+\label{section-root-decomposition}
+
+
+\subsection{Representations of $\mathfrak{sl}_2$.}
 \label{subsection-representations-sl2}
+
 
 
 \section{Borel and Cartan subalgebras}
 \label{section-Borel-Cartan}
 
 
-
-
-%************************************************************************
-
-\section{Structure of general (finite dimensional) Lie algebras}
-
-
-%***************************************************************************
-
-\section{Structure of semisimple Lie algebras}
-
-
-
-\section{Root decomposition, semisimple case}
-
-
-
-
-
-
 \section{The Harish-Chandra isomorphism}
-
+\label{section-HC-isomorphism}
 
 \section{Jacobson--Morosov}
+\label{section-Jacobson-Morosov}
+
+\section{Ado's theorem}
+\label{section-Ado}
+
+
+
 
 %***************************************************************************
 

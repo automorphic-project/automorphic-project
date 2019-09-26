@@ -110,19 +110,23 @@ The {\it adjoint representation} of a Lie algebra $\mathfrak g$ is the homomorph
 These notions explain the meaning of the Jacobi identity \eqref{equation-Jacobiidentity}: It simply says that the adjoint map is, indeed, a representation.
 \end{remark}
 
+\begin{example}
+\label{example-derivations}
+ Let $A$ be an associative algebra, and consider the submodule $\text{Der}(A)\subset \text{End}(A)$ of \emph{derivations}, i.e., endomorphisms $D$ satisfying the Leibniz rule $D(fg)=f Dg + D(f) g$. It is a Lie subalgebra of $\text{End}(A)$.
+\end{example}
 
 
-
+For a manifold or algebraic variety $M$, we will be denoting by $\text{Der}(M)$ the derivations on $M$, i.e., sections of the tangent bundle of $M$.
 
 Given a Lie group $G$, or an algebraic group over a field $k$, its tangent space $\mathfrak g = T_1 G$ at the identity can be endowed with the structure of a Lie algebra. This works as follows: First, evaluation of a vector field at the identity defines a linear maps
-$$ {\text Der}(G) \to \mathfrak g.$$
+$$ \text{Der}(G) \to \mathfrak g.$$
 
-Let ${\text Der}(G)^{G\text{-left}}$ and ${\text Der}(G)^{G\text{-right}}$ denote, respectively, the subspaces of left- and right- invariant derivations. For example, a left-invariant vector field $V$ has the property that $L(g)_* V = V$ for every $g\in G$, where $L(g)$ is the left action of $g$ on $G$. Then
+Let $\text{Der}(G)^{G\text{-left}}$ and $\text{Der}(G)^{G\text{-right}}$ denote, respectively, the subspaces of left- and right- invariant derivations. For example, a left-invariant vector field $V$ has the property that $L(g)_* V = V$ for every $g\in G$, where $L(g)$ is the left action of $g$ on $G$. Then
 \begin{lemma}
  \label{lemma-evaluation-identity}
  Evaluation at the identity gives bijections
- $$ {\text Der}(G)^{G\text{-left}} \xrightarrow\sim \mathfrak g,$$ 
- $${\text Der}(G)^{G\text{-right}} \xrightarrow\sim\mathfrak g.$$
+ $$ \text{Der}(G)^{G\text{-left}} \xrightarrow\sim \mathfrak g,$$ 
+ $$\text{Der}(G)^{G\text{-right}} \xrightarrow\sim\mathfrak g.$$
 These bijections are mapped to each other under the inversion map $g\mapsto g^{-1}$ on $G$, which acts by $-1$ on $\mathfrak g$.
 \end{lemma}
 
@@ -542,7 +546,7 @@ The pair $(f', I)$ defines an embedding $\mathfrak g_1\to \mathfrak g:=\mathfrak
 
 \begin{remark}
  \label{remark-existsgroup}
-In a following chapter, \ref{liestructure}, we will discuss Edo's theorem, which states that every finite-dimensional Lie algebra over a field in characteristic zero has a faithful representation; hence, Proposition \ref{proposition-Liesubalg} implies that, given a finite-dimensional Lie algebra over $\mathbb R$, it is the Lie algebra of a Lie group. We may assume that this Lie group is connected and simply connected by passing to the universal cover, in which case Proposition \ref{proposition-liftLie} implies that it is uniquely determined, up to unique isomorphism, by the Lie algebra.
+In a following chapter, \ref{liestructure-section-Ado}, we will discuss Ado's theorem, which states that every finite-dimensional Lie algebra over a field in characteristic zero has a faithful representation; hence, Proposition \ref{proposition-Liesubalg} implies that, given a finite-dimensional Lie algebra over $\mathbb R$, it is the Lie algebra of a Lie group. We may assume that this Lie group is connected and simply connected by passing to the universal cover, in which case Proposition \ref{proposition-liftLie} implies that it is uniquely determined, up to unique isomorphism, by the Lie algebra.
 \end{remark}
 
 
@@ -731,7 +735,7 @@ An amazing fact is that the passage from real algebraic groups to Lie groups als
  Let $\pi_1,\pi_2,\dots$ be an enumeration of the irreducible representations of $G$. We already know from the Peter-Weyl theorem that they are finite-dimensional. For every $n$, let $G_n$ be the kernel of the map: $G\to {\rm GL}(\pi_1\oplus\dots\oplus \pi_n)$. Hence, we have a sequence of closed subgroups:
 $$ G=G_0\supset G_1\supset G_2\supset \dots.$$
 
-We claim that every such sequence terminates. Indeed, by Cartan's theorem, we know that all $G_n$ are Lie groups, therefore the dimension of $G_n$ has to stabilize after some $n$. But then the map $G_n^0\hookrightarrow G_{n+1}^0$ is eventually the identity (the image is both open\footnote{See the section on Lie algebras: ...} and closed), and by compactness each $G_n$ has a finite number of connected components, so the sequence has to terminate.
+We claim that every such sequence terminates. Indeed, by Cartan's theorem, we know that all $G_n$ are Lie groups, therefore the dimension of $G_n$ has to stabilize after some $n$. But then, the induced map of Lie algebras $\mathfrak g_{n+1}\hookrightarrow \mathfrak g_n$ will be an isomorphism, which means that the identity components $G_n^0$, $G_{n+1}^0$ are eventually equal, and since connected components in Lie groups are both open and closed, by compactness each $G_n$ has a finite number of connected components, so the sequence has to terminate.
 
 On the other hand, the intersection of the $G_i$'s is (again by Peter-Weyl) the kernel of the left regular representation of $G$ on $L^2(G)$, hence trivial.
 \end{proof}
