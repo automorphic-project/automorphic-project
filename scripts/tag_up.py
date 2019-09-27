@@ -4,7 +4,7 @@ from sys import argv
 if not len(argv) == 3:
 	print
 	print "This script needs exactly two arguments"
-	print "namely the path to the stacks project"
+	print "namely the path to the project"
 	print "and the stem of the tex file"
 	print
 	raise Exception('Wrong arguments')
@@ -17,7 +17,7 @@ name = argv[2]
 
 def replace_newtheorem(line):
 	if line.find("\\newtheorem{") == 0:
-		line = line.replace("]{", "]{\\href{https://stacks.math.columbia.edu/tag/\\TAG}{",1)
+		line = line.replace("]{", "]{\\href{http://10.160.192.129/tag/\\TAG}{",1)
 		line = line.rstrip()
 		return line + "}\n"
 	if line.find("\\documentclass") == 0:
@@ -41,7 +41,7 @@ if name == "preamble":
 	print "\\usepackage{marginnote}"
 	print "\\renewcommand*{\\marginfont}{\\normalfont}"
 
-	print "\\date{This is a chapter of the Stacks Project, version " + version + ", compiled on " + now.strftime('%h %d, %Y.}')
+	print "\\date{This is a chapter of the Automorphic Project, version " + version + ", compiled on " + now.strftime('%h %d, %Y.}')
 
 	tex_file.close()
 

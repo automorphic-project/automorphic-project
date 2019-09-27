@@ -4,7 +4,7 @@
 %
 \begin{document}
 
-\title{Structure theory of Lie algebras}
+\title{Structure of finite-dimensional Lie algebras}
 
 
 \maketitle
@@ -44,7 +44,7 @@ $$ C^{i+1}\mathfrak g = [\mathfrak g, C^i\mathfrak g].$$
 A Lie algebra is called {\it nilpotent} if its lower central series terminates, i.e., if $C^n\mathfrak g=0$ for some $n$.
 
 
-The {\it derived series} of a Lie algebra $\mathfrak g$ is the descending sequence of Lie subalgebras
+The {\it derived series} of a Lie algebra $\mathfrak g$ is the descending sequence of ideals
 $$ D^0\mathfrak g = \mathfrak g,$$
 $$ D^{i+1}\mathfrak g = [D^i\mathfrak g, D^i\mathfrak g].$$
 
@@ -172,7 +172,7 @@ such that $[\mathfrak g, \mathfrak g^i]\subset [\mathfrak g^{i+1}]$. By Lemma \r
 \end{theorem}
 
 \begin{proof}
- As in the proof of Engel's theorem \ref{theorem-Engel}, we argue by induction on the dimension of $\mathfrak g$, with the case $\dim \mathfrak g=0$ being trivial. Let, now, $\mathfrak h\subset \mathfrak g$ be an ideal of codimension one (which exists because $\mathfrak g$ is solvable; by induction, $\mathfrak h$ has a non-trivial eigenspace $V_\lambda$ for some linear functional $\lambda: \mathfrak h \to k$. Clearly, $\lambda$ factors through the abelianization 
+ As in the proof of Engel's theorem \ref{theorem-Engel}, we argue by induction on the dimension of $\mathfrak g$, with the case $\dim \mathfrak g=0$ being trivial. Let, now, $\mathfrak h\subset \mathfrak g$ be an ideal of codimension one (which exists because $\mathfrak g$ is solvable); by induction, $\mathfrak h$ has a non-trivial eigenspace $V_\lambda$ for some linear functional $\lambda: \mathfrak h \to k$. Clearly, $\lambda$ factors through the abelianization 
  $ \mathfrak h^{\text{ab}} = \mathfrak h/[\mathfrak h,\mathfrak h]$.
  
  Now, we claim that $V_\lambda$ is $\mathfrak g$-stable, i.e., if $x\in \mathfrak g$ and $y\in \mathfrak h$ then $yx v = \lambda(y) xv$ for all $v\in V_\lambda$. We have $yx v = xy v -[x,y]v = \lambda(y) xv - [x,y]v$, so we need to prove that $[x,y]v=0$. Consider the flag $0=W_0\subset W_1\subset \dots$ where $W_i$ is spanned by $v, xv, \dots, x^i v$. It is easy to see that $y$ stabilizes this flag, and acts on $W_i/W_{i-1}$ by $\lambda(y)$. Therefore, if $W\subset V$ denotes the maximal subspace of this flag, and $\dim W=n$, the trace of $y$ acting on $W$ is $n\lambda(y)$. This holds for every element of $\mathfrak h$, hence also for the element $[x,y]$. Since this is a commutator of two operators, we get
@@ -206,7 +206,7 @@ We will construct Cartan subalgebras as nilspaces (generalized eigenspaces of ze
  An s-regular element $X\in\mathfrak g$ is an element with minimal possible $0$-generalized eigenspace under $\text{ad}$.
 \end{definition}
 
-This terminology is not standard: in many books on Lie algebras, the word ``regular'' is used for ``s-regular''. However, the standard use of ``regular'' nowadays is to refer to elements with minimal \emph{zero eigenspace} (i.e., centralizer), instead of generalized eigenspace. This includes non-semisimple elements, while s-regular, as we shall see, in the case of semisimple Lie algebras in characteristic zero is equivalent to \emph{regular semisimple}.
+This terminology is not standard: in many books on Lie algebras, the word ``regular'' is used for ``s-regular''. However, the standard use of ``regular'' nowadays, in the case of semisimple Lie algebras, is to refer to elements with minimal \emph{zero eigenspace} (i.e., centralizer), instead of generalized eigenspace. This includes non-semisimple elements, while s-regular, in the case of semisimple Lie algebras in characteristic zero, is equivalent to \emph{regular semisimple}, see Proposition \ref{proposition-CSA-semisimple}.
 
 
 
@@ -222,13 +222,13 @@ The dimension of the zero generalized eigenspace is the highest power of $t$ whi
 
 \begin{proposition}
 \label{proposition-CSA-centralizer}
- The nilspace of a s-regular element is a Cartan subalgebra.
+ The generalized nilspace (under the adjoint representation) of a s-regular element is a Cartan subalgebra.
 \end{proposition}
 
 \begin{proof}
- Let $X$ be the s-regular element and $\mathfrak h$ its centralizer. We will prove that $\mathfrak h$ is nilpotent; equivalently, by Engel's theorem, that the restriction of $\text{ad}(Y)$ to $\mathfrak h$, for any $Y\in\mathfrak h$, is nilpotent. Let $U\subset\mathfrak h$ be the subset of elements which fail to satisfy this; it is a Zariski open subset (again by considerations of the characteristic polynomial). Let $V\subset\mathfrak h$ be the subset of elements which act invertibly on $\mathfrak g/\mathfrak h$. It is again a Zariski open subset, and non-empty since $X\in V$. If $U\ne\emptyset$ then $U\cap V\ne\emptyset$, i.e.\ there exists an element $Y\in\mathfrak h$ such that the dimension of the zero generalized eigenspace for $Y$ is less than the dimension of $\mathfrak h$, a contradiction by the s-regularity of $X$. Thus, $\mathfrak h$ is nilpotent.
+ Let $X$ be the s-regular element and $\mathfrak h$ its generalized nilspace. We will prove that $\mathfrak h$ is nilpotent; equivalently, by Engel's theorem, that the restriction of $\text{ad}(Y)$ to $\mathfrak h$, for any $Y\in\mathfrak h$, is nilpotent. Let $U\subset\mathfrak h$ be the subset of elements which fail to satisfy this; it is a Zariski open subset (again by considerations of the characteristic polynomial). Let $V\subset\mathfrak h$ be the subset of elements which act invertibly on $\mathfrak g/\mathfrak h$. It is again a Zariski open subset, and non-empty since $X\in V$. If $U\ne\emptyset$ then $U\cap V\ne\emptyset$, i.e.\ there exists an element $Y\in\mathfrak h$ such that the dimension of the zero generalized eigenspace for $Y$ is less than the dimension of $\mathfrak h$, a contradiction by the s-regularity of $X$. Thus, $\mathfrak h$ is nilpotent.
 
- If $Z$ normalizes $\mathfrak h$ then $[Z,X]\in\mathfrak h$ which implies that $Z$ is in the nilspace of $X$, i.e.\ in $\mathfrak h$.
+ If $Z$ normalizes $\mathfrak h$ then $[Z,X]\in\mathfrak h$ which implies that $Z$ is in the generalized nilspace of $X$, i.e.\ in $\mathfrak h$.
 \end{proof}
 
 Hence, every Lie algebra has Cartan subalgebras. We will eventually prove that any two Cartan subalgebras are conjugate (over the algebraic closure) by the group of inner automorphisms of $\mathfrak g$ and, in particular, equal to nilspaces of s-regular elements.
@@ -347,7 +347,7 @@ Use the Jordan decomposition $y=y_s + y_n$, and observe that $y_s=0$ iff $\text{
 $$ y = \sum_i [x_i, z_i],$$
 we easily see that 
 $$ \text{tr} (y \cdot \overline{y_s}) = \sum_i \text{tr} z_i [\overline{y_s}, x_i],$$
-and it is enough to show that, even though $\overline{y_s}$ may not be in $\mathfrak g$, the operator $\text{ad}(\overline{y_s})$ maps $\mathfrak g\to [\mathfrak g,\mathfrak g]$. By Lemma \ref{lemma-Jordan-tensors}, and using the fact that for the Lie algebra $\mathfrak{gl}(V)$, the adjoint representation coincides with $V\otimes V^*$, we have $\text{ad}(\overline{y_s}) = \overline{(\text{ad}(x))_s}$. Since $\text{ad}(x)$ maps $\mathfrak g$ into $[\mathfrak g,\mathfrak g]$, by Lemma \ref{lemma-Jordan-extension} the same is true for $\overline{(\text{ad}(x))_s}$.
+and it is enough to show that, even though $\overline{y_s}$ may not be in $\mathfrak g$, the operator $\text{ad}(\overline{y_s})$ maps $\mathfrak g\to [\mathfrak g,\mathfrak g]$. By Lemma \ref{lemma-Jordan-tensors}, and using the fact that for the Lie algebra $\mathfrak{gl}(V)$, the adjoint representation coincides with $V\otimes V^*$, we have $\text{ad}(\overline{y_s}) = \overline{(\text{ad}(y))_s}$. Since $\text{ad}(y)$ maps $\mathfrak g$ into $[\mathfrak g,\mathfrak g]$, by Lemma \ref{lemma-Jordan-extension} the same is true for $\overline{(\text{ad}(y))_s}$.
 
 
 
@@ -397,7 +397,7 @@ If the Killing form of a Lie algebra is nondegenerate, the Lie algebra is semisi
 \section{Semisimple Lie algebras}
 \label{section-semisimple}
 
-For this section, Lie algebras are finite-dimensional and usually in characteristic zero, except for some counterexamples that we give in positive characteristic.
+In this section, all Lie algebras and vector spaces are finite-dimensional, unless otherwise noted. We will mostly be working in characteristic zero, except for some counterexamples that we give in positive characteristic.
 
 \begin{proposition}
 \label{proposition-sum-of-simple}
@@ -422,7 +422,7 @@ where, for a vector space identification $\mathfrak g = \mathfrak h \oplus k$, t
 $$ [(X,x), (Y,y)] = ([X,Y] - x \partial Y + y\partial X),$$
 where, for $X = \begin{pmatrix} f(z) & g(z) \\ h(z) & -f(z)\end{pmatrix}$, we have $\partial X = \begin{pmatrix} f'(z) & g'(z) \\ h'(z) & -f'(z)\end{pmatrix}$. (This is the \emph{semidirect product} of $\mathfrak h$ and $k\cdot \partial$, see \ref{subsection-derivations-semidirect}.) 
 
-The derived Lie algebra $[\mathfrak g, \mathfrak g]$ is equal to $\mathfrak h$, and there is a unique minimal ideal, equal to $\mathfrak{sl}_2(k)$.
+The derived Lie algebra $[\mathfrak g, \mathfrak g]$ is equal to $\mathfrak h$, which is also the unique minimal ideal.
 \end{remark}
 
 
@@ -570,12 +570,18 @@ hence the identity element in $\Hom_{\mathfrak g}(C,C)$ can be lifted to a $\mat
 
 \begin{proposition}
 \label{proposition-derivations-inner}
- Every derivation of a \emph{semisimple} Lie algebra is \emph{inner} (Definition \ref{definition-inner-derivation}).
+ Every derivation of a semisimple Lie algebra in characteristic zero is inner (Definition \ref{definition-inner-derivation}).
 \end{proposition}
 
 \begin{proof}
  The formula $[D,\text{ad}(X)]=\text{ad}(DX)$ shows that the image of $\text{ad}$ is an ideal in $\text{Der}(\mathfrak g)$. Since the image is a semisimple Lie algebra, there is a complementary ideal $I$ (namely, its orthogonal complement under the Killing form on $\text{Der}(\mathfrak g)$). But if $D\in I$, and $I$ is an ideal, the same formula shows that $\text{ad}(DX)\in I\cap \text{ad}(\mathfrak g)=0$, which since $\text{ad}$ is injective means that $DX=0$, i.e.\ $D=0$.
 \end{proof}
+
+\begin{remark}
+ \label{remark-failure-inner}
+ We already saw in Remark \ref{remark-notsimplesum-positivechar} that Proposition \ref{proposition-derivations-inner} fails in positive characteristic.
+\end{remark}
+
 
 
 \begin{proposition}
@@ -584,6 +590,7 @@ hence the identity element in $\Hom_{\mathfrak g}(C,C)$ can be lifted to a $\mat
 \end{proposition}
 
 \begin{proof}
+We may assume that the field is algebraically closed. 
  If $X$ is in the generalized $\lambda$-eigenspace and $Y$ is in the generalized $\mu$-eigenspace for $D$, then it can be shown by induction that:
 $$ (D-(\lambda+\mu))^n([X,Y]) = \sum_{r=0}^n \binom{n}{r} [(D-\lambda)^r(X),(D-\mu)^{n-r}(Y)],$$
 hence $[X,Y]$ is in the generalized $\mu+\lambda$-eigenspace. This shows that $D_s$ is a derivation, and then $D_n=D-D_s$ is a derivation.
@@ -613,7 +620,7 @@ By complete reducibility of $\text{End}(V)$ under the adjoint $\mathfrak g$-acti
 $$\text{End}(V)= \rho(\mathfrak g)\oplus\mathfrak m,$$
 where $\mathfrak m$ is an $\text{ad}(\rho(\mathfrak g))$-invariant subspace. (Notice that in Proposition \ref{proposition-derivations-inner} we were able to obtain a similar decomposition in $\text{Der}(\mathfrak g)$ by using the Killing form, so we did not need to know reducibility.)
 
-Since $\rho(X)_s,\rho(X)_n$ are polynomials in $\rho(X)$, their adjoint action preserves both $\rho(\mathfrak g)$ and $\mathfrak m$. Let $\rho(X)_n = \rho(a) + b$ with $a\in \mathfrak g,b\in \mathfrak m$. Then $[\rho(\mathfrak g),b]=0$, which means that $b\in \text{End}(V)$ is a $\mathfrak g$-endomorphism. If $V=\oplus V_i$ is a decomposition into irreducibles, $b$ acts by a scalar on each one of them, by Schur's lemma. On the other hand, we know that $\rho(X)_n$ is nilpotent, $\rho(a)$ and $b$ commute, and $\text{tr}_{V_i}(\rho(a)) =0$ because $a$ (like every element of $\mathfrak g$) is a sum of commutators. Therefore, $\text{tr}_{V_i}(b)=0$, hence $b$ acts by zero on all $V_i$, i.e.\ $b=0$. 
+Since $\rho(X)_s,\rho(X)_n$ are polynomials in $\rho(X)$, their adjoint action preserves both $\rho(\mathfrak g)$ and $\mathfrak m$. Let $\rho(X)_n = \rho(a) + b$ with $a\in \mathfrak g,b\in \mathfrak m$. Since $[\rho(\mathfrak g),b]=0$,  $b\in \text{End}(V)$ is a $\mathfrak g$-endomorphism. If $V=\oplus V_i$ is a decomposition into irreducibles, $b$ acts by a scalar on each one of them, by Schur's lemma. On the other hand, we know that $\rho(X)_n$ is nilpotent, $\rho(a)$ and $b$ commute, and $\text{tr}_{V_i}(\rho(a)) =0$ because $a$ (like every element of $\mathfrak g$) is a sum of commutators. Therefore, $\text{tr}_{V_i}(b)=0$, hence $b$ acts by zero on all $V_i$, i.e.\ $b=0$. 
 
 Now, $\rho(X)_n=\rho(a)$ acts nilpotently on $V$, hence it acts nilpotently on $\text{End}(V)$ under the adjoint representation. By the decomposition $\text{End}(V)=\mathfrak g\oplus \mathfrak m$ it follows that it acts nilpotently on $\mathfrak g$. By the uniqueness of the Jordan decomposition we can now infer that $\rho(X)_n= \rho(X_n)$. 
 
@@ -625,13 +632,141 @@ Finally, for any morphism $\pi: \mathfrak g_1 \to \mathfrak g_2$, setting $\rho=
 \section{Root systems and the structure of semisimple Lie algebras}
 \label{section-root-decomposition}
 
+In this section, the underlying field is of characteristic zero.
 
 \subsection{Representations of $\mathfrak{sl}_2$.}
 \label{subsection-representations-sl2}
 
+The Lie algebra of $\mathfrak{sl}_2$ is generated over the underlying field by three elements $H, E, F$ with bracket relations:
+$$[H,E]=2E,$$
+$$[H,F]=-2F,$$
+$$[E,F] = H.$$
+
+Let $\Delta = 8 C = 4FE + (H+2) H$ in the center of $U(\mathfrak g)$. (It turns out---see the Harish-Chandra isomorphism in later section--- that $Z(U\mathfrak g)$ is a polynomial ring generated by this element.)
+
+Given a representation $V$ of $\mathfrak{sl}_2$ (recall that all spaces are assumed finite-dimensional in this chapter), and $\lambda\in k$, let $V_\lambda$ denote the $\lambda$-eigenspace of $H$. We don't know yet that $H$ acts semisimply, so a priori $V$ is not the direct sum of the $V_\lambda$'s. 
+
+\begin{lemma}
+\label{lemma-shift-eigenspaces}
+ $E\cdot V_\lambda\subset V_{\lambda+2}$; $F\cdot V_\lambda\subset V_{\lambda-2}$.
+
+There is a non-zero vector $v\in V$ which is an eigenvector for $H$ and such that $Ev=0$. 
+\end{lemma}
+
+\begin{proof}
+The first statement is clear from the bracket relations. From the finite-dimensionality of $V$, there must be a nonzero $H$-eigenvector annihilated by $E$.
+\end{proof}
+
+\begin{definition}
+\label{definition-highest-weight}
+A {\it highest weight vector of an $\mathfrak{sl}_2$-module} is a nonzero vector annihilated by $E$. A {\it lowest weight vector of an $\mathfrak{sl}_2$-module} is a nonzero vector annihilated by $F$. 
+\end{definition}
 
 
-\section{Borel and Cartan subalgebras}
+
+\begin{proposition}
+\label{proposition-sl2-irreducibles}
+ Fix a heighest weight vector $v\in V_\lambda$, and let $V'$ be the span of $\{F^iv\}_{i\in\mathbb N}$. Then $V'$ is $\mathfrak{sl}_2$-stable, irreducible, and $\Delta$ acts by $\lambda(\lambda + 2)$. The highest weight $\lambda$ is a non-negative integer, and $V'$ is the sum of one-dimensional weight spaces $V'_{\mu}$ for $\mu = \lambda, \lambda-2,\lambda-4, \dots, -\lambda$.
+
+\end{proposition}
+
+\begin{proof}
+ It is clearly stable under $F$ and $H$. We easily compute:
+$$ EF^nv_\lambda = n(\lambda-(n-1))F^{n-1}v_\lambda.$$
+Hence, the space is $E$-stable. 
+
+Moreover, since it is finite-dimensional, we must have $n(\lambda-(n-1))=0$ for some $n\ge 1$, hence $\lambda$ is a non-negative integer. In that case, $n=\lambda+1$, and $F^n v_\lambda$ must be zero (because it is a highest weight vector of weight $-\lambda-2$ and, by the same argument, it cannot generate a finite-dimensional representation). On the other hand, for $n<\lambda+1$ $EF^nv_\lambda\ne 0$, hence $F^nv_\lambda\ne 0$. The statement about the weight spaces of $V'$ follows.
+
+We have: $\Delta v = 4FEv+(H+2)Hv = 0+ \lambda(\lambda+2)v$. Since $\Delta$ commutes with the action of $\mathfrak{sl}_2$ and is generated by $v$, all elements of $V'$ have the same $\Delta$-eigenvalue.
+
+On the other hand, $V'$ has at most one eigenvector for each $H$-eigenvalue. If $V'$ was reducible, there would be some highest weight vector with eigenvalue $\ne $
+\end{proof}
+
+
+
+
+\begin{theorem}
+\label{theorem-reps-sl2}
+For every nonnegative integer $n$ there is a unique, up to isomorphism, irreducible finite-dimensional representation $V_n$ of $\mathfrak{sl}_2$ of heighest weight $n$ (in characteristic zero). It has dimension $n+1$, and eigenvalue $n(n+2)$ under the operator $\Delta$.
+
+All finite-dimensional representations of $\mathfrak{sl}_2$ are $H$-semisimple, and direct sums of the modules $V_n$.
+\end{theorem}
+
+
+\begin{proof}
+If $V$ denotes the standard, $2$-dimensional representation, then it is easy to see that $S^n V$ has a unique highest weight vector with weight $n+1$, hence is irreducible. Uniqueness follows from the explicit description of the action of $E, F$ and $H$ above, and the rest follow from complete reducibility (Theorem \ref{theorem-complete-reducibility}) and Proposition \ref{proposition-sl2-irreducibles}.
+\end{proof}
+
+This existence statement will require a lot more work in the general case.
+
+\subsection{Cartan subalgebras of semisimple Lie algebras}
+\label{subsection-CSA-semisimple}
+
+\begin{proposition}
+\label{proposition-CSA-semisimple}
+ Assume that $\mathfrak g$ is a semisimple  Lie algebra in characteristic zero, and let $\mathfrak h$ be the generalized nilspace of an s-regular element (hence\footnote{Eventually, since they are conjugate, all Cartan subalgebras are of this form}, by Proposition \ref{proposition-CSA-centralizer}, a Cartan subalgebra). Then:
+\begin{enumerate}
+ \item $\mathfrak h$ is a maximal abelian subalgebra.
+ \item The centralizer of $\mathfrak h$ is $\mathfrak h$.
+ \item Every element of $\mathfrak h$ is semisimple. Every s-regular element of $\mathfrak g$ is semisimple.
+ \item \label{Killingrestriction} The restriction of the Killing form (or any non-degenerate invariant form) of $\mathfrak g$ to $\mathfrak h$ is non-degenerate.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+If we prove \eqref{Killingrestriction}, the rest of the statements will follow; let us see how: 
+
+Cartan's criterion says that a Lie subalgebra $\mathfrak a$ of $\text{End}(V)$ is solvable if and only if $\text{tr}(XY)=0$ for every $X\in \mathfrak a, Y\in [\mathfrak a,\mathfrak a]$. Applying this to $\text{ad}(\mathfrak h)\subset \text{End}(\mathfrak g)$ (which is nilpotent, hence solvable), we get that $B(X,Y)=0$ for all $X\in \mathfrak h, Y\in[\mathfrak h,\mathfrak h]$ (where $B$ is the Killing form for $\mathfrak g$). Therefore, the radical of the restriction of $B$ to $\mathfrak h$ contains the commutator, which means that $[\mathfrak h,\mathfrak h]=0$. Thus, $\mathfrak h$ is abelian.
+
+The centralizer is contained in the normalizer, which is $\mathfrak h$, but since $\mathfrak h$ is abelian it coincides with it. Thus, $\mathfrak h$ is maximal abelian.
+
+Finally, let $X\in\mathfrak h$ and let $X=X_s+X_n$ be its Jordan decomposition. Since $X_s, X_n$ commute with the centralizer of $X$, which contains $\mathfrak h$, it follows that $X_s, X_n$ are in the centralizer of $\mathfrak h$, which is $\mathfrak h$. Thus, if $Y\in\mathfrak h$, $\text{ad}(Y)\text{ad}(X_n)$ is nilpotent, which implies that $\text{ad}(X_n)$ is orthogonal to $\mathfrak h$ under the Killing form. By non-degeneracy of the Killing form on $\mathfrak h$, $X_n=0$. Every s-regular element of $\mathfrak g$ is contained in its generalized nilspace $\mathfrak h$, hence is semisimple.
+
+We come to the proof of \eqref{Killingrestriction}: if $X$ is an $s$-regular element such that $\mathfrak h$ is the generalized nilspace of $X$, let $\mathfrak g = \bigoplus_\lambda \mathfrak g_\lambda$ be a decomposition of $\mathfrak g$ into generalized $\text{ad}(X)$-eigenspaces. As we saw in the proof of Proposition \ref{proposition-Jordan-derivations}, $[\mathfrak g_\lambda,\mathfrak g_\mu]\subset \mathfrak g_{\lambda+\mu}$, which implies that $\mathfrak g_\lambda \perp \mathfrak g_\mu$ (under the Killing form), unless $\lambda+\mu=0$. Therefore, the decomposition:
+$$ \mathfrak g = \mathfrak g_0 \oplus \bigoplus (\mathfrak g_{\lambda}\oplus \mathfrak g_{-\lambda})$$
+is orthogonal, and since $B$ is nondegenerate, it has to be non-degenerate on each of the summands, in particular on $\mathfrak h=\mathfrak g_0$.
+\end{proof}
+
+
+By Proposition \ref{proposition-CSA-semisimple}, the restriction of the adjoint representation to a Cartan subalgebra $\mathfrak h$ reads:
+\begin{equation}
+ \label{equation-root-decomposition}\mathfrak g = \mathfrak h \oplus \bigoplus_{\alpha \in \Phi\subset \mathfrak h^* - \{0\}} \mathfrak g_\alpha,
+\end{equation}
+where the $\mathfrak g_\alpha$'s are eigenspaces with eigencharacter $\alpha$.
+
+
+\begin{definition}
+ \label{definition-roots}
+The set $\Phi$ of nonzero elements $\alpha \in \mathfrak h^*$ such that $\mathfrak g_\alpha\ne 0$ in the decomposition \eqref{equation-root-decomposition} is called the set of {\it roots} of $\mathfrak g$.
+\end{definition}
+
+
+\subsection{Root systems}
+\label{subsection-root-systems}
+
+
+Now I collect quickly the basic facts about the root decomposition, which are well-known and easy to follow in the literature. Only hints about the proofs are given.
+
+\begin{itemize}
+ \item $[\mathfrak g_\alpha,\mathfrak g_\beta]\subset\mathfrak g_{\alpha+\beta}$.
+ \item $\Phi$ spans $\mathfrak h^*$.
+ \item If $\alpha\in\Phi$, let $\mathfrak h_\alpha \in \mathfrak h$ be the image of $\alpha$ under the isomorphism: $\mathfrak h^*\to\mathfrak h$ defined by a non-degenerate invariant form $(\,,\,)$ on $\mathfrak g$. Then, for all $H\in \mathfrak h$, $X\in \mathfrak g_\alpha, Y\in\mathfrak g_{-\alpha}$ we have: $(H,[X,Y]) = ([H,X],Y) = \alpha(H) (X,Y) = (H, (X,Y) h_\alpha)$, and therefore: $[X,Y] = (X,Y) h_\alpha$. Notice that the pairing $(\,,\,)$ between $\mathfrak g_\alpha$ and $\mathfrak g_{-\alpha}$ is nonzero because otherwise it would be degenerate on $\mathfrak g$. 
+
+It follows that $\mathfrak h_\alpha:= [\mathfrak g_\alpha,\mathfrak g_{-\alpha}]$ is one-dimensional, spanned by the element $h_\alpha$. We let $H_\alpha$ (or $\check\alpha$) denote its unique multiple with $\alpha(H_\alpha)=2$ (the \emph{coroot} associated to $\alpha$).
+
+ \item The sum $\mathfrak h_\alpha+ \mathfrak g_\alpha + \mathfrak g_{-\alpha}$ is a subalgebra isomorphic to $\mathfrak{sl}_2$. To prove this, one first shows that it includes an $\mathfrak{sl}_2$-triple $(H,E,F)$. An element of $\mathfrak g_{-\alpha}$ orthogonal to $E$ would be a highest weight vector of weight $-2$, which is absurd. Therefore, $\mathfrak g_{-\alpha}$ is one-dimensional, and so is $\mathfrak g_\alpha$.
+
+ \item If $\alpha, c\alpha\in \Phi$ then $c = \pm 1$.
+
+ \item For $\alpha\in \Phi$, the reflection $\mathfrak h^*\ni \gamma \mapsto \gamma - \left<\gamma,H_\alpha\right> \alpha$ fixes $\Phi$.
+
+Indeed, this follows from viewing $\mathfrak g$ as an $\mathfrak{sl}_2$-module: a nonzero element $Y$ of $\mathfrak g_\gamma$ has weight $\left<\gamma,H_\alpha\right>$, and by properties of $\mathfrak{sl}_2$-modules the element $F^pY$ is nonzero. But that lives in $\mathfrak g_{\gamma - \left<\gamma,H_\alpha\right> \alpha}$.
+\end{itemize}
+
+
+
+
+\section{Conjugacy of Borel and Cartan subalgebras}
 \label{section-Borel-Cartan}
 
 

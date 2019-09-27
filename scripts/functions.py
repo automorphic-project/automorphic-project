@@ -4,7 +4,7 @@ def get_path():
 	if not len(argv) == 2:
 		print
 		print "This script needs exactly one argument"
-		print "namely the path to the stacks project directory"
+		print "namely the path to the project directory"
 		print
 		raise Exception('Wrong arguments')
 	path = argv[1]
