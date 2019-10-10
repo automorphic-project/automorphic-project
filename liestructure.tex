@@ -195,11 +195,10 @@ The assumption on the characteristic is really necessary; for example, the Lie a
 
 \begin{definition}
  \label{definition-CSA}
-A {\it Cartan subalgebra} of a Lie algebra is a nilpotent, self-normalizing subalgebra. 
+A {\it Cartan subalgebra} of a Lie algebra is a nilpotent, self-normalizing subalgebra. The {\it rank} of a Lie algebra is the dimension of a Cartan subalgebra.
 \end{definition}
 
-
-We will construct Cartan subalgebras as nilspaces (generalized eigenspaces of zero under the adjoint representation) of \emph{s-regular} elements. Then we will show that they are all conjugate to each other.
+We will construct Cartan subalgebras as nilspaces (generalized eigenspaces of zero under the adjoint representation) of \emph{s-regular} elements. Then we will show that they are all conjugate to each other; in particular, the rank is uniquely defined.
 
 \begin{definition}
 \label{definition-s-regular}
@@ -709,7 +708,7 @@ This existence statement will require a lot more work in the general case.
  \item $\mathfrak h$ is a maximal abelian subalgebra.
  \item The centralizer of $\mathfrak h$ is $\mathfrak h$.
  \item Every element of $\mathfrak h$ is semisimple. Every s-regular element of $\mathfrak g$ is semisimple.
- \item \label{Killingrestriction} The restriction of the Killing form (or any non-degenerate invariant form) of $\mathfrak g$ to $\mathfrak h$ is non-degenerate.
+ \item \label{Killingrestriction} The restriction of the Killing form (or any non-degenerate invariant symmetric bilinear form) of $\mathfrak g$ to $\mathfrak h$ is non-degenerate.
 \end{enumerate}
 \end{proposition}
 
@@ -728,11 +727,19 @@ is orthogonal, and since $B$ is nondegenerate, it has to be non-degenerate on ea
 \end{proof}
 
 
+
+
+\subsection{The root system of a semisimple Lie algebra}
+\label{subsection-root-systems}
+
+Let $\mathfrak g$ be a semisimple Lie algebra over an algebraically closed field $k$ in characteristic zero. Fix $\mathfrak h\subset \mathfrak g$ a Cartan subalgebra. All constructions that follow depend, a priori, on $\mathfrak h$. In Section \ref{section-Borel-Cartan} we will see that all Cartan subalgebras are conjugate, and this will establish independence of the root system of $\mathfrak g$ from the choice of $\mathfrak h$. Recall that, by Proposition \ref{proposition-CSA-semisimple}, $\mathfrak h$ is abelian. It
+
+
 By Proposition \ref{proposition-CSA-semisimple}, the restriction of the adjoint representation to a Cartan subalgebra $\mathfrak h$ reads:
 \begin{equation}
- \label{equation-root-decomposition}\mathfrak g = \mathfrak h \oplus \bigoplus_{\alpha \in \Phi\subset \mathfrak h^* - \{0\}} \mathfrak g_\alpha,
+ \label{equation-root-decomposition}\mathfrak g = \mathfrak h \oplus \bigoplus_{\alpha}  \mathfrak g_\alpha,
 \end{equation}
-where the $\mathfrak g_\alpha$'s are eigenspaces with eigencharacter $\alpha$.
+where the $\mathfrak g_\alpha$'s are eigenspaces with \emph{nonzero} eigencharacter $\alpha \in \mathfrak h^*$.
 
 
 \begin{definition}
@@ -740,38 +747,113 @@ where the $\mathfrak g_\alpha$'s are eigenspaces with eigencharacter $\alpha$.
 The set $\Phi$ of nonzero elements $\alpha \in \mathfrak h^*$ such that $\mathfrak g_\alpha\ne 0$ in the decomposition \eqref{equation-root-decomposition} is called the set of {\it roots} of $\mathfrak g$.
 \end{definition}
 
-
-\subsection{Root systems}
-\label{subsection-root-systems}
-
-
-Now I collect quickly the basic facts about the root decomposition, which are well-known and easy to follow in the literature. Only hints about the proofs are given.
-
-\begin{itemize}
- \item $[\mathfrak g_\alpha,\mathfrak g_\beta]\subset\mathfrak g_{\alpha+\beta}$.
+\begin{theorem}
+ \label{theorem-root-system}
+The following hold for the set of roots $\Phi$ of a semisimple Lie algebra $\mathfrak g$: 
+\begin{enumerate}
  \item $\Phi$ spans $\mathfrak h^*$.
- \item If $\alpha\in\Phi$, let $\mathfrak h_\alpha \in \mathfrak h$ be the image of $\alpha$ under the isomorphism: $\mathfrak h^*\to\mathfrak h$ defined by a non-degenerate invariant form $(\,,\,)$ on $\mathfrak g$. Then, for all $H\in \mathfrak h$, $X\in \mathfrak g_\alpha, Y\in\mathfrak g_{-\alpha}$ we have: $(H,[X,Y]) = ([H,X],Y) = \alpha(H) (X,Y) = (H, (X,Y) h_\alpha)$, and therefore: $[X,Y] = (X,Y) h_\alpha$. Notice that the pairing $(\,,\,)$ between $\mathfrak g_\alpha$ and $\mathfrak g_{-\alpha}$ is nonzero because otherwise it would be degenerate on $\mathfrak g$. 
+ \item If $\alpha\in \Phi$, then $-\alpha\in \Phi$.
+ \item If $\alpha\in\Phi$, let $\mathfrak t_\alpha \in \mathfrak h$ be the image of $\alpha$ under the isomorphism: $\mathfrak h^*\to\mathfrak h$ defined by a non-degenerate invariant symmetric form $(\,,\,)$ on $\mathfrak g$. Then, for all $X\in \mathfrak g_\alpha, Y\in\mathfrak g_{-\alpha}$ we have: $[X,Y] = (X,Y) h_\alpha$. 
+ \item $(t_\alpha,t_\alpha)\ne 0$.
+ \item The sum $\mathfrak h_\alpha+ \mathfrak g_\alpha + \mathfrak g_{-\alpha}$ is a subalgebra isomorphic to $\mathfrak{sl}_2$; denote it by $\mathfrak{sl}_{2,\alpha}$.
+ \item  If $\alpha, c\alpha\in \Phi$ then $c = \pm 1$.
+ \item Take $(\,,\,)$ to be the Killing form, and use it to identify $\mathfrak h = \mathfrak h^*$. Let $E$ be the real vector space spanned by the roots. Then, the Killing form is positive definite on $E$, and for any $\alpha\in \Phi$ the orthogonal reflection $w_\alpha$ on $\mathfrak h^*$ across the hyperplane perpendicular to $\alpha$ fixes $\Phi$.
+\end{enumerate}
+\end{theorem}
 
-It follows that $\mathfrak h_\alpha:= [\mathfrak g_\alpha,\mathfrak g_{-\alpha}]$ is one-dimensional, spanned by the element $h_\alpha$. We let $H_\alpha$ (or $\check\alpha$) denote its unique multiple with $\alpha(H_\alpha)=2$ (the \emph{coroot} associated to $\alpha$).
+\begin{remark}
+ \label{remark-indep-of-form}
+For the last statement of Theorem \ref{theorem-root-system}, we could have used any positive definite invariant inner product; indeed, on the simple summands of $\mathfrak g$ (see Proposition \ref{proposition-sum-of-simple}) any two of them are equal up to a scalar, and the different summands are orthogonal, so the reflections do not depend on the choice of invariant inner product. 
+\end{remark}
 
- \item The sum $\mathfrak h_\alpha+ \mathfrak g_\alpha + \mathfrak g_{-\alpha}$ is a subalgebra isomorphic to $\mathfrak{sl}_2$. To prove this, one first shows that it includes an $\mathfrak{sl}_2$-triple $(H,E,F)$. An element of $\mathfrak g_{-\alpha}$ orthogonal to $E$ would be a highest weight vector of weight $-2$, which is absurd. Therefore, $\mathfrak g_{-\alpha}$ is one-dimensional, and so is $\mathfrak g_\alpha$.
 
- \item If $\alpha, c\alpha\in \Phi$ then $c = \pm 1$.
+\begin{proof}
 
- \item For $\alpha\in \Phi$, the reflection $\mathfrak h^*\ni \gamma \mapsto \gamma - \left<\gamma,H_\alpha\right> \alpha$ fixes $\Phi$.
+\begin{enumerate}
+ \item Any $x\in \mathfrak h$ in the kernel of $\Phi$ is central in $\mathfrak g$, hence zero since $\mathfrak g$ is semisimple.
+ \item Choose a non-degenerate invariant symmetric form $(\,,\,)$. For $\alpha$, $\beta$ in $\Phi$ (or zero),  $x \in \mathfrak g_\alpha$, $y\in \mathfrak g_\beta$ and any $z\in \mathfrak h$, by invariance we have 
+ $$ \alpha(z) (x,y) = ([z,x],y) = - (x, [z,y]) = -\beta(z) (x,y).$$
+ Thus, $(x,y)=0$ unless $\alpha+\beta=0$. Since the form is nondegenerate, for every $x$ there must be a $y$ with $(x,y)\ne 0$, thus if $\alpha\in\Phi$, so is $-\alpha$. 
+ \item Notice first that $[\mathfrak g_\alpha,\mathfrak g_\beta]\subset \mathfrak g_{\alpha+\beta}$, so $[x,y]$ must belong to $\mathfrak h$. For all $z\in \mathfrak h$, $x\in \mathfrak g_\alpha, y\in\mathfrak g_{-\alpha}$ we have: $(z,[x,y]) = ([z,x],y) = \alpha(z) (x,y) = (z, (x,y) t_\alpha)$. Since the form is nondegenerate on $\mathfrak h$, by Proposition \ref{proposition-CSA-semisimple}, we deduce that $[x,y] = (x,y) t_\alpha$. 
+ \item Notice that the pairing $(\,,\,)$ between $\mathfrak g_\alpha$ and $\mathfrak g_{-\alpha}$ is nonzero because otherwise it would be degenerate on $\mathfrak g$. It follows that $\mathfrak h_\alpha:= [\mathfrak g_\alpha,\mathfrak g_{-\alpha}]$ is one-dimensional, spanned by the element $t_\alpha$. If $(t_\alpha, t_\alpha)=0$ then $(t_\alpha, [x,y])=0$ (for $x,y$ as before), which implies that $[t_\alpha, x]=[t_\alpha,y]=0$, and the elements $x, y, t_\alpha$ span a solvable Lie algebra. Thus, its image under the adjoint representation stabilizes a full flag, and since $t_\alpha$ is in its commutator, $\text{ad}(t_\alpha)$ is nilpotent. But by Proposition \ref{proposition-CSA-semisimple}, $\text{ad}(t_\alpha)$ is also semisimple, so it has to be zero, which means that $t_\alpha$ is a central element in $\mathfrak g$, a contradiction.
+ \item Start by choosing elements $x=e \in \mathfrak g_\alpha$, $y=f\in\mathfrak g_{-\alpha}$ with $(e,f) = \frac{2}{(t_\alpha,t_\alpha)}$, and set  $h_\alpha = \frac{2}{(t_\alpha,t_\alpha)} t_\alpha$. Then, $(h,e,f)$ is an $\mathfrak{sl}_2$-triple, and we denote its span by $\mathfrak{sl}_{2,\alpha}$. The subspace
+ $$ \mathfrak m = \mathfrak h_\alpha \oplus \bigoplus_{n\in \mathbb Z, n \ne 0} \mathfrak g_{n\alpha}$$ decomposes, as an $\mathfrak{sl}_{2,\alpha}$-module, into finite-dimensional irreducible representations with even weights. Since the zero weight space is one-dimensional, this implies (from the classification of irreducible, finite-dimensional representations of $\mathfrak{sl}_2$) that it is irreducible. It contains the adjoint representation of $\mathfrak{sl}_2$, therefore $\mathfrak m = \mathfrak{sl}_{2,\alpha}$. 
+ \item The previous point proves that there are no integral multiples of $\alpha$ in $\Phi$, other than $\pm \alpha$. Similarly, again by the classification of irreducible, finite-dimensional representations of $\mathfrak{sl}_2$, the only other multiples are half-integral, and if one of them appears, then $\frac{\alpha}{2}$ must appear. But, repeating this argument with $\frac{\alpha}{2}$ in place of $\alpha$, we get that $2\frac{\alpha}{2}$ cannot appear, a contradiction. Hence, $\frac{\alpha}{2}\ne \Phi$.
+ \item If we had taken $(\,,\,)$ to be the Killing form, then $(t_\lambda,t_\lambda) = \text{tr}((\text{ad}(t_\lambda))^2) = \sum_{\alpha\in\Phi} \alpha(t_\lambda)^2 >0$. The spaces $\mathfrak h_\alpha$ span $\mathfrak h$, hence the Killing form is positive definite.
+ 
+ Fix now a positive definite form, and for any $\beta\in \Phi$ consider the subspace
+ $$\mathfrak n = \mathfrak g_{\beta + \mathbb Z \alpha}.$$
+ It is a $\mathfrak{sl}_{2,\alpha}$-stable subspace with weights of the same parity, and each weight space is one-dimensional, therefore it is an irreducible representation of $\mathfrak{sl}_{2,\alpha}$, and must include a range of weights differing by $2$; therefore, 
+ $$\Phi \cap (\beta + \mathbb Z \alpha) = \left\{\beta+ n\alpha\right\}_{n=-r}^q$$
+ for some nonnegative integers $r, q$. This has $r+q+1$ weights, therefore the lowest weight must be $-(r+q)$, the heighest weight must be $(r+q)$, and $\left< \beta, h_\alpha\right> = r-q$. The orthogonal reflection of $\beta$ is, therefore, 
+ $$ w_\alpha(\beta) = \beta - 2\frac{(\beta,\alpha)}{(\alpha,\alpha)} \alpha = \beta - \left< \beta, h_\alpha\right> \alpha = \beta - (r-q)\alpha \in \Phi.$$
+\end{enumerate}
+\end{proof}
 
-Indeed, this follows from viewing $\mathfrak g$ as an $\mathfrak{sl}_2$-module: a nonzero element $Y$ of $\mathfrak g_\gamma$ has weight $\left<\gamma,H_\alpha\right>$, and by properties of $\mathfrak{sl}_2$-modules the element $F^pY$ is nonzero. But that lives in $\mathfrak g_{\gamma - \left<\gamma,H_\alpha\right> \alpha}$.
+\begin{remark}
+ \label{remark-indep-innerprod}
+Any two invariant symmetric forms are multiples of each other on every simple summand of $\mathfrak g$, and different simple summands are orthogonal, so the reflection $w_\alpha$ does not depend on the choice of inner product. 
+\end{remark}
+
+\begin{definition}
+ \label{definition-root-system}
+A (crystallographic) {\it root system} is a triple $(E,\Phi, W)$, where 
+\begin{itemize} \item $E$ be a finite-dimensional real vector space;
+ \item $\Phi$ is a finite subset of $E$ not containing zero;
+ \item $W \subset \text{GL}(E)$ is a (necessarily finite) group of automorphisms preserving $\Phi$,
 \end{itemize}
+and there exists an inner product on $E$ such that 
+\begin{enumerate}
+ \item $W$ is generated by the reflections $w_\alpha$ perpendicular to the elements $\alpha \in \Phi$;
+ \item for all $\beta\in \Phi$, $w_\alpha \beta\in \beta + \mathbb Z \alpha$. 
+\end{enumerate}
+The group $W$ is called the {\it Weyl group} of the root system.
 
+The root system is said to be {\it reduced} if $\Phi\cap \mathbb R\alpha = \{\pm \alpha\}$. 
+\end{definition}
+
+\begin{remark}
+ \label{remark-definition-rootsystem}
+In most references, the inner product on $E$ is part of the data of a root system. However, it is better not to fix an inner product unless needed.
+\end{remark}
+
+\begin{definition}
+ \label{definition-rootsystem-ofLiealgebra}
+The {\it root system of a semisimple Lie algebra} $\mathfrak g$, with respect to a Cartan subalgebra $\mathfrak h$, is the triple $(E,\Phi,W)$, where $\Phi\subset \mathfrak h^*$, $E$ is the $\mathbb R$-span of $\Phi$, and $W$ is the group generated by the reflections $w_\alpha$, $\alpha\in \Phi$.
+\end{definition}
+
+
+\begin{definition}
+ \label{definition-coroots}
+Given a Cartan algebra $\mathfrak h\subset \mathfrak g$, the element $h_\alpha\in\mathfrak h$ of any $\mathfrak{sl}_2$-triple $(h_\alpha, e, f)$ with $e\in\mathfrak g_\alpha$, $f\in\mathfrak g_{-\alpha}$ is called the {\it coroot} associated to the root $\alpha$, and denoted by $\check\alpha$. 
+\end{definition}
+
+Notice that $\mathfrak h_\alpha$ does not depend on the choice of $e$ and $f$. We will denote the set of coroots by $\check\Phi$. The simple reflection $w_\alpha$ on $\mathfrak h^*$ associated to the root $\alpha$ (see Theorem \ref{theorem-root-system} and Remark \ref{remark-indep-innerprod}) can be written:
+\begin{equation}
+ \label{equation-reflection-coroot}
+ w_\alpha(x) = x - \left< x, \check\alpha\right> \alpha.
+\end{equation}
+
+\begin{lemma}
+ \label{lemma-dualrootsystem}
+If $(E,\Phi, W)$ is a root system, then $(E^*,\check\Phi, W)$ is also a root system, where $W$ acts on $E^*$ by the dual representation to $E$.
+\end{lemma}
+
+\begin{proof}
+ Obvious.
+\end{proof}
+
+
+\begin{definition}
+ \label{definition-dual-rootsystem}
+If $(E,\Phi, W)$ is a root system, the {\it dual root system} is the triple $(E^*,\check\Phi, W)$ of Lemma \ref{lemma-dualrootsystem}.
+\end{definition}
 
 
 
 \section{Conjugacy of Borel and Cartan subalgebras}
 \label{section-Borel-Cartan}
 
-
-\section{The Harish-Chandra isomorphism}
-\label{section-HC-isomorphism}
 
 \section{Jacobson--Morosov}
 \label{section-Jacobson-Morosov}
