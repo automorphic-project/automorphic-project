@@ -167,6 +167,7 @@ Recall that the \emph{Grothendieck group} of an abelian category $\mathcal C$ is
 Let $\mathfrak g = \mathfrak{sl}_2$. We identify $\mathfrak h^* \simeq \mathbb C$, by applying the positive root $\check\alpha$. Under this, the half-sum of positive roots $\rho = \frac{\alpha}{2}$ corresponds to $1$.
 
 \begin{lemma}
+\label{lemma-Verma-sl2}
 For $\mathfrak g = \mathfrak{sl}_2$, $M_{\lambda-\rho}$ is irreducible, unless $\lambda \in \mathbb Z_{>0}$, in which case there is an exact sequence:
 $$ 0 \to M_{-\lambda-\rho}\to M_{\lambda-\rho} \to L_{\lambda-\rho} \to 0.$$
 \end{lemma}
@@ -185,7 +186,7 @@ We return to the case of a general semisimple $\mathfrak g$. Then:
 \end{proposition}
 
 \begin{proof}
- As in the previous lemma, we calculate that there is a highest weight vector with weight $w_\alpha\lambda$, hence there is a non-trivial map: $M_{w_\alpha\lambda-\rho}\to M_{\lambda-\rho}$. Since $M_{w_\alpha\lambda-\rho}, M_{\lambda-\rho} \simeq U(\mathfrak n^-)$ as $U(\mathfrak n^-)$-modules, and $U(\mathfrak n^-)$ does not have zero divisors, such a map has to be injective.
+ As in Lemma \ref{lemma-Verma-sl2}, we calculate that there is a highest weight vector with weight $w_\alpha\lambda$, hence there is a non-trivial map: $M_{w_\alpha\lambda-\rho}\to M_{\lambda-\rho}$. Since $M_{w_\alpha\lambda-\rho}, M_{\lambda-\rho} \simeq U(\mathfrak n^-)$ as $U(\mathfrak n^-)$-modules, and $U(\mathfrak n^-)$ does not have zero divisors, such a map has to be injective.
 
  With notation $(H_\alpha,E_\alpha,F_\alpha)$ for the $\mathfrak{sl}_2$-triple corresponding to $\alpha$, we need to show that the quotient is $F_\alpha$-locally finite. (Finiteness under the other two is automatic for the category $\mathcal O$.) If $V'$ is the set of $F_\alpha$-finite vectors, then $V'\ni v_{\lambda-\rho}$; we claim that $V'$ is $\mathfrak g$-stable. Indeed, we have a homomorphism of $F_\alpha$-modules: $\mathfrak g\otimes V'\to V$, where $F_\alpha$ acts on $\mathfrak g$ via the adjoint representation. But $\mathfrak g$ is $F_\alpha$-finite and $V'$ is $F_\alpha$-locally finite, hence their tensor product is locally finite, therefore $\mathfrak gV'\subset V'$. Together with $v_{\lambda-\rho}\in V'$, this implies that $V'=V$.
  
@@ -278,6 +279,7 @@ There is a second part to Chevalley's theorem, which asserts that the algebra of
 \end{proof}
 
 \begin{example}
+\label{example-invariants-sl2}
  For $\mathfrak g= \mathfrak{sl}_n$, the coefficients of the characteristic polynomial of an element $X$:
  $$ \chi_X(t) = t^n + \text{tr}(-X; \wedge^2 \mathbb C^n) t^{n-2} + \dots + \text{tr}(-X; \wedge^{n-1} \mathbb C^n) t + \det(-X)$$
  generate the ring $\mathbb C[\mathfrak g]^{\mathfrak g}$ freely.
@@ -432,6 +434,7 @@ Thus, applying the functor of $\mathfrak g$-invariants on the right-most arrows 
 We return to the study of the category $\mathcal O$. 
 
 \begin{lemma}
+\label{lemma-locally-finite}
 For every object $V$ in $\mathcal O$, the action of $Z(\mathfrak g)$ on $V$ is locally finite.
 \end{lemma}
 
