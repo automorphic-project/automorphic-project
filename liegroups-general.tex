@@ -41,7 +41,7 @@ A {\it group scheme} (over a base scheme $S$) is a group in the category of ($S$
 \end{definition}
 
  
-If $S=\text{Spec}(k)$, where $k$ is a field in \emph{characteristic zero}, then a $k$-group scheme is automatically \emph{smooth} over $k$, see \ref{blah}. This is not the case in positive characteristic, as the following example shows:
+If $S=\text{Spec}(k)$, where $k$ is a field in \emph{characteristic zero}, then a $k$-group scheme is automatically \emph{smooth} over $k$, see Theorem \ref{theorem-smoothness-characteristiczero}. This is not the case in positive characteristic, as the following example shows:
 
 \begin{example}
  \label{example-Frobeniuskernel}
@@ -75,8 +75,22 @@ Other examples of group schemes that are not smooth can be obtained, e.g.\, over
 An {\it algebraic group} over a field $k$ is a smooth group scheme over $k$. If an algebraic group is affine, it is called a {\it linear algebraic group}.
 \end{definition}
 
+The following is a very basic theorem about quotients:
 
-\section{Lie algebras; the Lie algebra of a Lie group}
+\begin{theorem}
+ \label{theorem-quotients}
+Let $G$ be a Lie or linear algebraic group over a field $k$, and $H$ a closed subgroup. In the first case, the quotient $G/H$ exists as a smooth manifold. In the second case, there is a linear representation $G\to \text{GL}(V)$ such that $H$ is the stabilizer of a line, and the quotient $G/H$ is isomorphic to a locally closed subset of $\mathbf P(V)$, hence quasiprojective.
+\end{theorem}
+
+\begin{proof}
+ Omitted, together with the definitions of quotients. Notice that the quotient in the case of algebraic groups is taken in the fpqc topology; i.e., the maps $G(R)/H(R)\to (G/R)(R)$ are not surjective for any $k$-algebra $R$, but they are surjective over some faithfully flat, quasi-compact cover. 
+\end{proof}
+
+
+
+
+
+\section{Lie algebras; the Lie algebra of a Lie or algebraic group}
 \label{section-Liealgebras}
 
 \begin{definition}
@@ -143,6 +157,25 @@ Derivations satisfy the Jacobi identity (think of them, locally, as a subalgebra
 
 Notice that the identification with right-invariant derivations would give the opposite Lie bracket. 
 
+Definition \ref{definition-Liealgebra-ofgroup} makes sense for an algebraic group over a field $k$, as well, producing a Lie algebra over $k$. In positive characteristic, this Lie algebra has extra structure:
+
+\begin{definition}
+ \label{definition-restricted-Lie-algebra}
+Let $k$ be a field of characteristic $p>0$. A {\it restricted Lie algebra} over $k$ is a Lie algebra $\mathfrak g$ together with an operation $X\mapsto X^{[p]}$ such that:
+\begin{enumerate}
+ \item $\text{ad}(X^{[p]}) = \text{ad}(X)^p$;
+ \item $(tX)^{[p]} = t^p X^{[p]}$ (for $t\in k$, $X\in \mathfrak g$);
+ \item $(X+Y)^{[p]} = X^{[p]} + Y^{[p]} +\sum_{i=1}^{p-1} i^{-1} s_i(X,Y)$, where $s_i(X,Y)$ is the coefficient of $t^i$ in $\text{ad}(tX+Y)^{p-1}(X)$; in particular, if $[X,Y]=0$, $(X+Y)^{[p]} = X^{[p]}+Y^{[p]}$. 
+\end{enumerate}
+\end{definition}
+
+\begin{example}
+ \label{example-restricted-Lie-algebra}
+If $A$ is an associative algebra over $k$, then $\text{Lie}(A)$ is a restricted Lie algebra, with $A^{[p]}= A^p$. In particular, if $G$ is an algebraic group over $k$, the $p$-th power of a left-invariant vector field, viewed as a differential operator, is also a left-invariant vector field, and endows the Lie algebra $\mathfrak g$ with the structure of a restricted Lie algebra.
+\end{example}
+
+
+
 
 \section{The universal enveloping algebra and the Poincar\'e--Birkhoff--Witt theorem}
 \label{section-enveloping}
@@ -176,7 +209,7 @@ $$X\otimes Y - Y\otimes X - [X,Y],\, \, X,Y\in \mathfrak g.$$
 \end{proof}
 
 \begin{example}
- \label{example-derivations}
+ \label{example-derivations-manifold}
 Let $X$ be a smooth manifold, or an algebraic variety (over a field $k$). Let $\mathfrak g = {\text Der}(X)$ be the vector space of \emph{derivations}, or \emph{vector fields} on $X$: these are sections of the tangent bundle of $X$.\footnote{In algebraic geometry, derivations are defined as certain endomorphisms of the structure sheaf, and are used to define the tangent bundle.} Then, $\mathfrak g$ is a Lie algebra, and $U(\mathfrak g)$ is, by definition, the algebra of (smooth/algebraic) differential operators on $X$.
 \end{example}
 
@@ -361,7 +394,7 @@ $$ M\mapsto U(\mathfrak g)\otimes_{U(\mathfrak h)} M$$
 \section{Exponential map and the Baker--Campbell--Hausdorff formula}
 \label{section-exponentialmap}
 
-Now we work differential-geometrically in the setting of a real Lie group. 
+Now we work differential-geometrically in the setting of a real Lie group, following \cite{Sternberg}. 
 
 \begin{definition}
 \label{definition-oneparameter-subgroup}
@@ -696,6 +729,7 @@ Assume that $S'\to S$ is finite and locally free, and $X'$ is affine or, more ge
 
 \subsection{Smoothness of group schemes in characteristic zero}
 \label{subsection-smoothness-characteristiczero}
+
 \begin{theorem}
 \label{theorem-smoothness-characteristiczero}
 If $G$ is a group scheme of finite type over a field $k$ of characteristic zero, then $G$ is smooth over $k$. 
@@ -723,7 +757,7 @@ But then, $\mathfrak m_e/\mathfrak m_e^2$ coincides with the corresponding quoti
 
 
 
-An amazing fact is that the passage from real algebraic groups to Lie groups also works the other way in the case of compact Lie groups: they can all be realized as the points of a real algebraic group, as was proven by Weyl. We will later see a strengthening of this theorem, due to Chevalley (Theorem \ref{reductiveforms-theorem-functor-compactgroups}). 
+An amazing fact is that the passage from real algebraic groups to Lie groups also works the other way in the case of compact Lie groups: they can all be realized as the points of a real algebraic group, as was proven by Weyl. 
 
 
 \begin{proposition}
@@ -732,12 +766,12 @@ An amazing fact is that the passage from real algebraic groups to Lie groups als
 \end{proposition}
 
 \begin{proof}
- Let $\pi_1,\pi_2,\dots$ be an enumeration of the irreducible representations of $G$. We already know from the Peter-Weyl theorem that they are finite-dimensional. For every $n$, let $G_n$ be the kernel of the map: $G\to {\rm GL}(\pi_1\oplus\dots\oplus \pi_n)$. Hence, we have a sequence of closed subgroups:
+ Let $\pi_1,\pi_2,\dots$ be an enumeration of the irreducible representations of $G$. We already know from the Peter--Weyl theorem that they are finite-dimensional. For every $n$, let $G_n$ be the kernel of the map: $G\to {\rm GL}(\pi_1\oplus\dots\oplus \pi_n)$. Hence, we have a sequence of closed subgroups:
 $$ G=G_0\supset G_1\supset G_2\supset \dots.$$
 
-We claim that every such sequence terminates. Indeed, by Cartan's theorem, we know that all $G_n$ are Lie groups, therefore the dimension of $G_n$ has to stabilize after some $n$. But then, the induced map of Lie algebras $\mathfrak g_{n+1}\hookrightarrow \mathfrak g_n$ will be an isomorphism, which means that the identity components $G_n^0$, $G_{n+1}^0$ are eventually equal, and since connected components in Lie groups are both open and closed, by compactness each $G_n$ has a finite number of connected components, so the sequence has to terminate.
+We claim that every such sequence terminates. Indeed, by Cartan's theorem \ref{theorem-Cartan}, we know that all $G_n$ are Lie groups, therefore the dimension of $G_n$ has to stabilize after some $n$. But then, the induced map of Lie algebras $\mathfrak g_{n+1}\hookrightarrow \mathfrak g_n$ will be an isomorphism, which means that the identity components $G_n^0$, $G_{n+1}^0$ are eventually equal, and since connected components in Lie groups are both open and closed, by compactness each $G_n$ has a finite number of connected components, so the sequence has to terminate.
 
-On the other hand, the intersection of the $G_i$'s is (again by Peter-Weyl) the kernel of the left regular representation of $G$ on $L^2(G)$, hence trivial.
+On the other hand, the intersection of the $G_i$'s is (again by Peter--Weyl) the kernel of the left regular representation of $G$ on $L^2(G)$, hence trivial.
 \end{proof}
 
 The second element is of invariant-theoretic nature. For this, let $G\to {\rm GL}(V)$ be a (complex), finite-dimensional representation of $G$ and consider it as a real representation by regarding $V$ as a real vector space. (This is the baby case of ``restriction of scalars''.) Accordingly, ${\rm GL}(V)$ is considered as an algebraic group over $\mathbb R$ (by restriction of scalars). Notice that the Zariski closure\footnote{It is important here that we have restricted scalars to $\mathbb R$, because the Zariski closure depends on whether we consider ${\rm GL}(V)$ as a complex or as a real variety; for example, the Zariski closure of the circle group $S^1$ in $\mathbb C^\times$ is $S^1$ or $\mathbb C^\times$, according as $\mathbb C^\times$ is considered as a real or complex variety.} of the image of $G$ is a real algebraic subgroup. We need to show that it coincides with $G$. One thing that $G$ and its Zariski closure have in common is the set of invariants on the polynomial ring $\mathbb R[V]$. Recall that the polynomial ring $\mathbb R[V]$ is (essentially, by 
@@ -746,8 +780,6 @@ definition) the symmetric algebra on the dual space $S^\bullet V^*$.
 \begin{proposition}
 \label{proposition-compact-orbit-algebraic}
 For each orbit $X$ of a compact group $G$ on the space $V$ of a finite-dimensional real representation, there is a canonical real algebraic subset $Y$, defined as the fiber over the image of $X$ under the map $V\to V// G:=\text{Spec} \mathbb R[V]^G$, such that $X=Y(\mathbb R)$.
-
-The image of $G\to {\rm GL}(V)$ is equal to the $\mathbb R$-points of a canonical algebraic subgroup.
 \end{proposition}
 
 The compact group in the proposition is not required to be a Lie group. 
@@ -763,13 +795,11 @@ This will be enough to prove the first claim: Since the preimage is an algebraic
 
 To prove the claim we must show that if $Y_1,Y_2$ are two distinct $G$-orbits on $V(\mathbb R)$, then there is a $G$-invariant polynomial which takes different values on $Y_1$ and $Y_2$ (i.e.\ the ring of invariant polynomials separates $G$-orbits). 
 
-Notice that $\mathbb R[V]$ is a locally finite representation of $G$ (this follows by its identification with $S^\bullet V^*$), and therefore by the Peter-Weyl theorems it is completely reducible. If we fix two points $y_1\in Y_1$ and $y_2\in Y_2$, then the integrals:
+Notice that $\mathbb R[V]$ is a locally finite representation of $G$ (this follows by its identification with $S^\bullet V^*$), and therefore by the Peter--Weyl theorems it is completely reducible. If we fix two points $y_1\in Y_1$ and $y_2\in Y_2$, then the integrals:
 $$\int_G f(y_i\cdot g) dg$$
-represent two $G$-invariant functionals $\ell_1,\ell_2$ on $\mathbb R[V]$. They obviously factor through restriction of polynomials to the compact subset $Y_1\cup Y_2$, and \emph{by the Stone-Weierstrass theorem, the restriction of polynomials is dense in the space of continuous functions} on $Y_1\cup Y_2$. Therefore, $\ell_1$ and $\ell_2$ are linearly independent, i.e.\ $\ell_2$ is non-zero on the kernel $W$ of $\ell_1$. 
+represent two $G$-invariant functionals $\ell_1,\ell_2$ on the space of continuous functions on $V$. They obviously factor through restriction to the compact subset $Y_1\cup Y_2$, and by the Stone--Weierstrass theorem the restriction of polynomials is dense in the space of continuous functions on $Y_1\cup Y_2$. Therefore, $\ell_1$ and $\ell_2$, when restricted to $\mathbb R[V]$, are linearly independent, i.e.\ $\ell_2$ is non-zero on the kernel $W$ of $\ell_1$. 
 
 Hence, $\ell_2$ defines a $G$-invariant functional: $W\to \mathbb C$, and by complete reducibility this splits; in particular, \emph{there is a $G$-invariant element $f\in W$ with $\ell_2(f)\ne 0$}. That is, there is a $G$-invariant polynomial on $V$ whose integral over $Y_1$ is zero and whose integral over $Y_2$ is non-zero. But this means that its value on $Y_1$ is zero and its value on $Y_2$ is non-zero, which is what we wanted to prove.
-
-For the second claim, replacing the space $V$ with $\text{End}(V)=V^*\otimes V$, and using the embedding $\text{GL}_V\hookrightarrow \text{End}(V)$, there is a canonical real algebraic subvariety $Y\subset V^*\otimes V$ such that $G = Y(\mathbb R)$. ``Canonical'' easily implies that $Y$ is a subgroup of $\text{GL}_V$.
 \end{proof}
 
 
@@ -787,23 +817,41 @@ of ${\rm GL}_3(\mathbb R)$ (where $\alpha$ is an irrational number) not an algeb
 
 \end{enumerate}
 
-We have proven Weyl's theorem:
+\end{remarks}
+
+Given, now, a compact group $G$, denote by $\mathbb R[G]$ the space of $\mathbb R$-valued functions which are \emph{finite} under left (or, equivalently, right) translation by $G$. 
+
+\begin{proposition}
+\label{proposition-Hopfalgebra}
+ $\mathbb R[G]$ is a finitely generated, commutative Hopf algebra.
+\end{proposition}
+
+Recall that a Hopf algebra is an algebra $A$ which also has structures which correspond to the axioms of a group (if $A$ were an algebra of functions on the group): a \emph{comultiplication} $A\to A\otimes A$, a \emph{counit} $A\to \mathbb R$, and an \emph{antipode} $A\to A$ satisfying certain natural axioms. 
+
+\begin{proof}
+The structure of a commutative algebra follows once we observe that left-finiteness is preserved under tensor products, and the multiplication map $C(G)\otimes C(G) \to C(G)$ is left-equivariant, hence preserves finiteness. 
+
+The structure of a commutative Hopf algebra is obvious for the space $C(G)$ of continuous functions; moreover, since left- and right-finiteness are equivalent, the comultiplication $C(G)\to C(G \times G)$, which sends $f$ to the function $f(g_1,g_2)=f(g_1g_2)$, preserves finiteness, and the finite vectors of $C(G\times G)$ are $\mathbb R[G]\otimes \mathbb R[G]$.
+
+There remains to argue about finite generation. Let $G\to \text{GL}(V)$ be a faithful representation. By the Stone--Weierstrass theorem, the restriction of polynomial functions on $\text{GL}(V)$ (viewed here as a real algebraic variety, that is, as $\text{Res}_{\mathbb C/\mathbb R} \text{GL}_V$) is dense in $C(G)$. On the other hand, it is a $G\times G$-invariant subspace of $\mathbb R[G]$. The (real!) representation $\mathbb R[G]$ being semisimple, with its irreducible components being orthogonal in the (real-valued) $L^2(G)$ the only way that the restriction of polynomials on $\text{GL}(V)$ be dense is that it is equal to $\mathbb R[G]$. Hence, $\mathbb R[G]$ is of finite type.
+\end{proof}
+
+Let, now $\mathbf G=\text{Spec} \mathbb R[G]$. Evaluation at the points of $G$ gives rise to a natural map $G\to \mathbf G(\mathbb R) = \Hom (\mathbb R[G], \mathbb R)$. 
+We have arrived at Weyl's theorem:
 
 \begin{theorem}
 \label{theorem-Weyl}
- For every compact group $K$ there is a linear algebraic group $G$ over $\mathbb R$ such that $K = G(\mathbb R)$.
+ For every compact group $G$, setting $\mathbf G=\text{Spec} \mathbb R[G]$, the natural map  $G\to \mathbf G(\mathbb R)$ is an isomorphism of Lie groups. Every continuous, finite-dimensional (complex) representation $G\to \text{GL}(V)$ factors through an algebraic representation $\mathbf G_{\mathbb C} \to \text{GL}(V)$.
 \end{theorem}
 
 \begin{proof}
- By Proposition \ref{proposition-compact-faithfulrep}, we can find a faithful representation
- $$ K\hookrightarrow \text{GL}_V (\mathbb C),$$
- where $V$ is a complex vector space, and by Proposition \ref{proposition-compact-orbit-algebraic} 
- there is a real algebraic subgroup $G\subset \text{Res}_{\mathbb C/\mathbb R} \text{GL}_V$ such that $K=G(\mathbb R)$.
+We start with the second claim: Polynomial functions on $\text{Res}_{\mathbb C/\mathbb R} \text{GL}_V$ restrict to finite function on $G$, which gives rise to a morphism $\mathbf G \to \text{Res}_{\mathbb C/\mathbb R} \text{GL}_V$. By the universal property of Weil restriction, this is the same as a morphism $\mathbf G_{\mathbb C}\to \text{GL}_V$.
+
+For the first claim, choose a faithful, finite-dimensional representation $G\to \text{GL}(V)$. Replacing the space $V$ of Proposition \ref{proposition-compact-orbit-algebraic} with $\text{End}(V)=V^*\otimes V$, and using the embedding $\text{GL}_V\hookrightarrow \text{End}(V)$, there is a canonical real algebraic subvariety $Y\subset V^*\otimes V$, namely, the fiber of the image of $G$ under the map $V^*\otimes V\to (V^*\otimes V)//G$, such that $G = Y(\mathbb R)$. On the other hand, the map to $V^*\otimes V$ factors through $\mathbf G$, which clearly has to belong to $Y$, therefore at the level of points $G=\mathbf G(\mathbb R)$. The map $G\to \mathbf G(\mathbb R)$ is also a homomorphism of Lie groups, so it is an isomorphism. 
 \end{proof}
 
+We will later see a strengthening of this theorem, due to Chevalley (Theorem \ref{reductiveforms-theorem-functor-compactgroups}). 
 
-
- \end{remarks}
 
 
 
