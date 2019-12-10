@@ -1048,15 +1048,15 @@ A linear algebraic group $G$ over an field $k$ is called \emph{diagonalizable} i
 
 \begin{theorem}
 \label{theorem-diagonalizable-equivalence}
-Any character of a diagonalizable group $G$ over the algebraic closure $\bar k$ is defined over the separable closure $k^s$. If $\Gamma$ denotes the Galois group of $k^s$ over $k$, the contravariant functor that assigns to any group its $\bar k$-character group gives rise to a contravariant equivalence of categories:
+Any character of a diagonalizable group $G$ over the algebraic closure $\bar k$ is defined over a finite separable extension of $k$. If $\Gamma$ denotes the Galois group of the separable closure $k^s$ over $k$, the contravariant functor that assigns to any group its $\bar k$-character group gives rise to a contravariant equivalence of categories:
 $$\{\mbox{diagonalizable $k$-groups}\} \leftrightarrow $$
-$$\{\mbox{finitely generated abelian groups without $p$-torsion, with a $\Gamma$-action}\},$$
+$$\{\mbox{finitely generated abelian groups without $p$-torsion, with a continuous $\Gamma$-action}\},$$
 where $p$ is the characteristic exponent of $k$.
 Under this equivalence, tori correspond to torsion-free abelian groups.
 \end{theorem}
 
 \begin{proof}
- Choose any embedding $G\subset \text{GL}(V)$, for a finite-dimensional vector space $V$. For the first statement, it is enough to show that $G$ can be diagonalized over $k^s$. By functoriality of the Jordan decomposition, the image of $G$ consists of semisimple elements. Therefore, the minimal polynomial of every $g\in G(k)$ has distinct roots, which are therefore defined over $k^s$. Therefore, $G$ can be diagonalized over $k^s$.
+ Choose any embedding $G\subset \text{GL}(V)$, for a finite-dimensional vector space $V$. For the first statement, it is enough to show that $G$ can be diagonalized over (a finite subextension of) $k^s$. By functoriality of the Jordan decomposition, the image of $G$ consists of semisimple elements. Therefore, the minimal polynomial of every $g\in G(k)$ has distinct roots, which are therefore defined over a finite separable extension. Therefore, $G$ can be diagonalized over a finite separable extension.
  
  The rest of the statements are left to the reader.
 \end{proof}

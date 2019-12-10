@@ -16,11 +16,11 @@
 
 
 
-\section{Classification of reductive groups over an algebraically closed field}
+\section{Classification of reductive groups over a separably closed field}
 \label{section-classification-reductive}
 
 
-For this section we assume $k$ to be algebraically closed. [For now, this section is missing a lot of results, as one needs to establish the analogs of results that we proved for semisimple Lie algebras in characteristic zero, for reductive groups.]
+For this section we assume $k$ to be separably closed (unless otherwise noted). [For now, this section is missing a lot of results, as one needs to establish the analogs of results that we proved for semisimple Lie algebras in characteristic zero, for reductive groups.]
 
 We saw in Theorem \ref{liestructure-theorem-diagonalizable-equivalence} a simple combinatorial description for diagonalizable groups, and we would like to have a similar description for more general reductive groups. This is not possible in the sense of getting an equivalence of categories\footnote{There is a good reason for it: To get an equivalence of categories one must consider the category of all $G$-representations, cf.\ Tannaka-Krein duality. For diagonalizable groups this category is described easily in terms of combinatorial data, this is no longer the case for other groups.}, but at least we can fully describe the isomorphism classes this way.
 
@@ -45,7 +45,7 @@ A {\it based root datum} is a root datum as above, together with a choice of pos
 \end{definition}
 
 \begin{remarks}
-\label{remarks-root-datum}
+
  \begin{enumerate}
   \item The last axiom is equivalent to: the endomorphisms $w_\alpha$ preserve $\Phi$ and generate a finite group (the Weyl group $W$).
   \item The condition $\left< \alpha,\check\alpha\right>=2$ characterizes the bijection $\Phi\leftrightarrow \check\Phi$, so it need not be part of the data.
@@ -105,14 +105,21 @@ We let $Red$ be the category whose objects are reductive groups $G$ over $k$, an
 We let $RD$ be the category whose objects are root data $(X,\Phi, \check X,\check\Phi)$ and whose morphisms are central isogenies. We let $RD^+$ be the category whose objects are root data, together with a choice $\Phi^+\subset \Phi$ of positive roots.
 \end{definition}
 
+\begin{definition}
+ If $G$ is a connected reductive group over a field $k$ which is not necessarily separably closed, it is said to be {quasisplit} if there exists a Borel subgroup over $k$, and {\it split} if there exists a maximal torus which is split over $k$ (hence also a Borel subgroup). 
+\end{definition}
 
-\begin{theorem}[Classification over the algebraic closure]
+
+
+\begin{theorem}[Classification over the separable closure]
 \label{theorem-classification-reductive}
- Assume $k$ algebraically closed. Given a connected reductive group $G$ and a maximal torus $T$, the quadruple $\Psi(G,T)=(X^*(T), \Phi, X_*(T), \check\Phi)$, where $\Phi,\check\Phi$ denote, respectively, the sets of roots and coroots of $T$ in $G$, is a root datum.
+ Assume $k$ separably closed. Given a connected reductive group $G$ and a maximal torus $T$, the quadruple $\Psi(G,T)=(X^*(T), \Phi, X_*(T), \check\Phi)$, where $\Phi,\check\Phi$ denote, respectively, the sets of roots and coroots of $T$ in $G$, is a root datum.
  
  The assignment $(G,T)\mapsto \Psi(G,T)$ is a functor $Red \to RD^{\text{op}}$, in the notation of Definition \ref{definition-reductive-categories}.
  
  This functor is a bijection on isomorphism classes of objects, and every morphism $\Psi(G,T)\to \Psi(G',T')$ in $RD$ lifts to a morphism (i.e., central isogeny) $(G',T')\to (G,T)$, uniquely up to precomposing with conjugation by elements of $T'$, or post-composing with conjugation by elements of $T$.
+ 
+ More generally, the same statement holds if $k$ is not separably closed, but we consider the full subcategory of such pairs $(G,T)$ where $T$ (and, hence, $G$) is split over $k$.
 \end{theorem}
 
 \begin{proof}
@@ -128,6 +135,8 @@ If, in the context of Theorem \ref{theorem-classification-reductive}, we choose 
  \label{definition-pinning}
 A {\it pinning} of a triple $(G, B, T)$ consisting of a connected reductive group $G$, a Borel subgroup,  and a maximal torus $T$ is a choice of isomorphisms $p_\alpha:\mathfrak g_\alpha \simeq \mathbf G_a$, for every simple root $\alpha\in \Delta$.
 
+Given a pair $(G,B)$ of a connected reductive group and a Borel subgroup, whose unipotent radical we will denote by $N$, an {\it algebraic Whittaker datum} is a homomorphism $\ell:N\to \mathbf G_a$ whose differential is nontrivial on every simple root subspace $\mathfrak g_\alpha$. (In particular, its differential induces a pinning; vice versa, given a pinning as above, there is a unique such $\ell$ with $d\ell|_{\mathfrak g_\alpha} = p_\alpha$.)
+
 We let $Red_{\text{PIN}}$ denote the category whose objects are pinned reductive groups, and whose morphisms are central isogenies preserving the Borel, the torus, and the pinning.
 \end{definition}
 
@@ -142,7 +151,7 @@ The assignment $(G, B, T, P) \to \Psi^+(G,B,T)$, where $\Psi^+(G,B,T)$ denotes t
  Omitted. See, again, \cite{Springer-Corvallis}. 
 \end{proof}
 
-Finally, a version of the classification for morphisms $G'\to G$, without any choices: Recall that to any reductive group $G$, we have associated its (universal) Cartan $\mathbb A^G$, endowed with sets of roots and positive roots $\Phi^+\subset \Phi\subset X^*(\mathbb A^G)$. (Recall that in this section we are assuming the field to be algebraically closed.) We will denote by $\Psi^+(\mathbb A^G)$ this based root system.
+Finally, a version of the classification for morphisms $G'\to G$, without any choices: Recall that to any reductive group $G$, we have associated its (universal) Cartan $\mathbb A^G$, endowed with sets of roots and positive roots $\Phi^+\subset \Phi\subset X^*(\mathbb A^G)$. (Recall that in this section we are assuming the field to be separably closed.) We will denote by $\Psi^+(\mathbb A^G)$ this based root system.
 
 \begin{lemma}
  \label{lemma-Cartan-functorial}
@@ -226,6 +235,233 @@ In positive characteristic, the \'etale fundamental group is always infinite, fo
 
 
 
+
+\subsection{Automorphisms} 
+
+Given an automorphism $f:X\to X$ of an affine variety $X$ over a field $k$, its defining homomorphism $f^*:k[X]\to k[X]$ restricts to an automorphism $V\to V$ on a generating, finite-dimensional subspace $V$ of $k[X]$. Therefore, the automorphism group $\text{Aut}(X)$ has a natural structure as the ind-algebraic group
+$$ \underset{\underset{V}\to}\lim \text{Aut}(X,V),$$
+where $V$ runs over all finite-dimensional, generating subspaces of $k[X]$, and $\text{Aut}(X,V)\subset \text{GL}(V)$ is the subgroup of those automorphisms of $V$ (as a vector space) which induce an automorphism of $X$ (as an algebraic variety).
+
+\begin{definition}
+ \label{definition-automorphism-group}
+The {\it group of inner automorphisms}, $\text{Inn}(G)$, is the image of the natural morphism $G\to \text{Aut}(G)$ given by the conjugation action of $G$ on itself. It is also called the {\it adjoint group} of $G$, and denoted by $G_{\text{ad}}$. 
+
+The quotient $\text{Aut}(G)/\text{Inn}(G)$ is the group of {\it outer automorphisms} of $G$.
+\end{definition}
+
+The kernel of the map $G\to \text{Aut}(G)$ is the center of $G$, so the group $G_{\text{ad}}=\text{Inn}(G)$ is the quotient of $G$ by its center.
+
+For reductive groups the automorphism group is of finite type. This follows from the fact that, by the classification of reductive groups in terms of root data, the outer automorphism group is the group of automorphisms of based root data.
+
+\begin{proposition}
+ \label{proposition-automorphism-sequence}
+The functor from reductive groups to based root data of Theorem \ref{theorem-classification-with-universal-Cartan} gives rise to a short exact sequence of algebraic groups:
+\begin{equation}
+ \label{equation-Inn-Aut-Out}
+0\to \text{Inn}(G)\to \text{Aut}(G)\to \text{Aut}\Psi^+(\mathbb A^G) \to 0.
+\end{equation}
+In particular, $\text{Out}(G)=\text{Aut}\Psi^+(\mathbb A^G) $. 
+
+Moreover, any pinning on $G$ (Definition \ref{definition-pinning}) gives rise to a splitting $\text{Out}(G)\to \text{Aut}(G)$, characterized by the fact that its image consists of the automorphisms preserving the pinning.
+\end{proposition}
+
+\begin{proof}
+ Applying the functor of Theorem \ref{theorem-classification-with-universal-Cartan} to automorphisms of $G$, we get a homomorphism
+ $\text{Aut}(G) \to \text{Aut}\Psi^+(\mathbb A^G)$. By Theorem \ref{theorem-classification-with-universal-Cartan}, this homomorphism is surjective, and its kernel is precisely the group of inner automorphisms. 
+ 
+ The existence of a unique splitting that fixes a given pinning follows from Theorem \ref{theorem-classification-with-pinning}.
+\end{proof}
+
+
+
+\section{Forms and Galois descent}
+\label{section-forms-Galois-descent}
+
+\begin{definition}
+ \label{definition-forms}
+Let $G$ be a linear algebraic group over a field $k$ or over an extension $L/k$. A {\it form} of $G$ over $k$ is a linear algebraic group $G'$ over $k$, such that $G_L\simeq G'_L$.
+\end{definition}
+
+
+The goal of this section is to explain how isomorphism classes of forms of $G$ are described by the Galois cohomology set $H^1(\Gamma, \text{Aut}(G_{k^s}))$, where $\Gamma = \text{Gal}(k^s/k)$, the Galois group of the separable closure of $k$. There is nothing special about classification of linear algebraic groups here --- the same arguments apply to any category of objects that satisfy \emph{effective descent}. We introduce these notions in some generality, but not the full generality of faithfully flat descent (see \cite[Tag 0238]{stacks-project}).
+
+Let $Aff_k$ be the category of affine schemes over the field $k$. A \emph{k-groupoid} is a category with a functor $\mathcal F\to Aff_k$ satisfying two axioms, which can be summarized as ``base change exists'', and ``fiber categories are groupoids''. To formulate them, denote by $\mathcal F_U$ the full subcategory living over an object $U\in Aff_k$. The axioms are:
+\begin{enumerate}
+ \item Given $U\in Aff_k$, $u\in \mathcal F_U$, and $f:V\to U$ a morphism, there exists a morphism $\tilde f:v\to u$ in $\mathcal F$ lying over $f$.
+ \item For any pair of morphisms $\tilde f: u\to z$, $\tilde g: v\to z$ in $\mathcal F$, lying over $f:U\to Z$ and $g:V\to Z$ in $Aff_k$, and any $h: U\to V$ with $f = g\circ h$, there exists a unique lift $\tilde h: u\to v$ with $\tilde f = \tilde g \circ \tilde h$.
+\end{enumerate}
+
+If $v$ is as in the first axiom, we will feel free to write $v=u_V$, i.e., as a base change of $u$. Notice that, for every other choice $v'$, the second axiom provides a canonical isomorphism $v'\to v$, corresponding to the identity map on $V$. For $f: V\to U$ and $u\in \mathcal F_U$, one has a unique morphism $u_V\to u'_V$ over any morphism $\phi: u\to u'$; we will be denoting that by $f^*\phi$. For a composition $W\to V\to U$, we will feel free to identify $(u_V)_W$ with $u_W$ --- see \cite[Tag 02XN]{stacks-project} for a clarification of these issues. 
+
+Now consider a Grothendieck topology on $Aff_k$, turning it into a site. For notational simplicity, we will represent every cover as a single morphism $U\to X$, instead of a family of morphisms. The groupoid $\mathcal F \to Aff_k$ is called a \emph{prestack} (of groupoids) if, for any $U\in Aff_k$, and any $x,y \in \mathcal F_U$, the presheaf $V\mapsto \text{Mor}(x_V,y_V)$ is a sheaf on the site $Aff_U$, and it is called a \emph{stack} (of groupoids) if \emph{descent data are effective}. 
+
+These are two conditions that need to be formulated for arbitrary covers, but we just explain their meaning for the case of covers corresponding to finite Galois extensions $L/k$ with Galois group $\Gamma$; the generalization to arbitrary $U$ and arbitrary covers is straightforward, see \cite[Tag 0268]{stacks-project}. 
+
+Denote $U=\text{Spec}(L) \to X=\text{Spec}(k)$, and notice that there is a canonical isomorphism $U\times_X U \simeq \Gamma\times  U$, equivariant with respect to the action of $\Gamma$ on the first copy, taking $U\times \{1\}$ to the diagonal. A \emph{descent datum} for $L/k$ consists of an object $u\in \mathcal F_U$, together with (iso)morphisms $\phi_\gamma: \gamma u \to u$ (over the \emph{identity} of $U$), where $\gamma u$ is the base change of $u$ via the map $\gamma^{-1}: U\to U$, and the $\phi_\gamma$'s are required to satisfy the cocycle condition $\phi_{\gamma_1 \gamma_2} = \phi_{\gamma_1} \circ \gamma_1^* \phi_{\gamma_2}$. Equivalently, a descent datum is an isomorphism $\phi: u_1 \to u_2$, where $u_i$ is the pullback via the $i$-th projection $U\times_X U\to U$, and the isomorphism is required to satisfy the natural cocycle condition with respect to the triple product $U\times_X U\times_X U$.
+
+Let $\mathcal F_{L/k}$ denote the category of descent data $(u, \phi)$. (The morphisms in this category are the obvious ones, morphisms of the $u$'s commuting with the $\phi$'s.) There is a canonical functor 
+\begin{equation}
+\label{equation-descent} 
+\mathcal F_k \to \mathcal F_{L/k} 
+\end{equation}
+taking an object $x\in \mathcal F_k = \mathcal F_X$ to its base change $x_L$, together with the descent data induced from the Galois automorphisms of $U=\text{Spec}(L)$ over $k$. (Notice that a morphism $\gamma u \to u$ over the identity in $U$ is equivalent to a morphism $u\to u$ over the map $\gamma: U\to U$.)
+
+Then, $\mathcal F_k$ satisfies \emph{effective descent} (together with the prestack condition) with respect to the Galois cover $L\to k$, if the functor \eqref{equation-descent} \emph{is an equivalence}. Here are two basic examples where it happens:
+
+\begin{example}
+ \label{example-descent-vectorspaces}
+The category $\mathcal F_k$ of vector spaces over $k$ satisfies effective descent with respect to any separable extension $L/k$. (It can be extended to a $k$-stack $\mathcal F$ by considering vector bundles over an arbitrary basis.)
+\end{example}
+
+\begin{example}
+\label{example-descent-algebras}
+The category $\mathcal F_k$ of algebras over $k$ satisfies effective descent with respect to $L/k$. Indeed, let $B$ be an $L$-algebra. The descent datum amounts to an isomorphism $\phi: B\otimes L \simeq L \otimes B$ (tensor products over $k$), and the cocycle condition states that the triangle consisting of $B\otimes L \otimes L$, $L\otimes B\otimes L$ and $L\otimes L\otimes B$, applying $\phi$ to get isomorphisms between them, commutes. We then take our algebra $A$ over $k$ to consist of those sections of $B$ whose pullbacks to $L\otimes B \overset{\phi}\simeq B\otimes L$ (geometrically, in the notation above: whose pullbacks to $U\times_X U$ under both projections) coincide, i.e., $A=\text{ker}(B\to L\otimes B)$, where the map is given by $b\mapsto 1\otimes b - \phi(b\otimes 1)$. One checks that $A$ is a $k$-algebra, and $B \simeq A \otimes L$ compatibly with descent data, see \cite[Tag 0244]{stacks-project}.
+\end{example}
+
+\begin{example}
+ \label{example-descent-quasiprojective}
+Galois descent is also satisfied for any quasi-projective scheme, see \cite[\S 6.2, Example B]{Neron}.
+\end{example}
+
+Example \ref{example-descent-algebras} is the basic one for our purposes. It immediately extends to groupoids of affine varieties with extra structure given by ``closed'' conditions, such as algebraic groups. 
+
+
+Finally, descent data can be parametrized by torsors for the automorphism group:
+
+\begin{proposition}
+ \label{proposition-descent-torsors}
+Given $(u, \phi) \in \mathcal F(L/k)$, let $A=\text{Aut}_{\mathcal F_L}(x)$, considered as a $\Gamma$-module (possibly non-abelian) with action ${\gamma a}:= \phi_\gamma\circ a \circ \phi_\gamma^{-1}$. Then, we have a natural equivalence of of categories
+$$ \mathcal F(L/k)/u \xrightarrow\sim A-\text{Tors}^\Gamma,$$
+where $\mathcal F(L/k)/u $ denotes the category of descent data $(u', \phi')$ with $u'\simeq u$, and $A-\text{Tors}^\Gamma$ denotes the category of (set-theoretic) right $A$-torsors $T$ with a compatible left $\Gamma$-action, i.e., ${^\gamma(t\cdot a)} = {^\gamma t} \cdot {^\gamma a}$ for all $\gamma\in\Gamma, a\in A$, and $t\in T$.
+
+The functors are: 
+\begin{itemize}
+ \item $(u',\phi')\to \text{Isom}(u, u')$, and
+ \item $T \to (u'= T\times^A u, \phi')$, where $\phi' = \{\phi'_\gamma\}$ is obtained by acting diagonally on $T$ (via the given Galois action) and on $u$ (via $\phi$).  
+\end{itemize}
+
+\end{proposition}
+
+\begin{proof}
+Left to the reader. 
+\end{proof}
+
+
+
+If $\Gamma$ is a finite group, and $A$ is a (possibly non-abelian) group with a $\Gamma$-action, then isomorphism classes of $A$-torsors with a $\Gamma$-action are naturally parametrized by the \emph{1st cohomology set} $H^1(\Gamma, A)$, which is the pointed set of $A$-orbits on the set of $1$-cocycles $Z^1(\Gamma, A) = \{c:\Gamma\to A| c(\gamma_1 \gamma_2) = c(\gamma_1) \cdot {^{\gamma_1}c(\gamma_2)}\}$, where $A$ acts by twisted conjugation $(a\cdot c)(\gamma) = a c(\gamma) {^\gamma a}^{-1}$. The parametrization takes a cocycle $c$ to the $A$-torsor $T$ which can be identified with $A$ as a right-$A$-set, but with Galois action twisted by $c$, i.e., if we let $a'$ be the element of $T$ corresponding to an element $a$ of $A$, then ${^\gamma a'} = c(\gamma) \cdot {^\gamma a} $. 
+
+
+Thus, we obtain:
+
+\begin{proposition}
+ \label{proposition-descent-cohomology}
+The equivalence of \ref{proposition-descent-torsors} induces an isomorphism of pointed sets:
+$$ (\mathcal F(L/k)/u)/\tilde{ }\xrightarrow\sim H^1(\Gamma, A),$$
+where the left-hand side denotes isomorphism classes of descent data for $u$ over $L/k$, with the chosen descent datum as the base point.
+\end{proposition}
+
+\begin{proof}
+ One just needs to check that isomorphism classes of $\Gamma$-equivariant $A$-torsors are indeed parametrized by $H^1(\Gamma, A)$. Left to the reader.
+\end{proof}
+
+
+
+\begin{remark}
+ \label{remark-torsors-base-point}
+Notice that, although Proposition \ref{proposition-descent-torsors} classifies a family of descent data depending only on the isomorphism class of $u$, the classification, and the Galois structure on the automorphism group $A$, depend on the chosen descent structure on $u$. This choice makes the isomorphism classes of descent data into a pointed set, which corresponds to the distinguished point (the class of the trivial torsor) in $H^1(\Gamma, A)$.
+\end{remark}
+
+
+
+
+\section{Forms of reductive groups}
+
+
+\begin{lemma}
+ \label{lemma-reductive-isomorphic-separable}
+If $G, G'$ are two reductive groups over a field $k$ that are isomorphic over the algebraic closure $\bar k$, they are isomorphic over a finite separable extension $L\subset k^s$.
+\end{lemma}
+
+\begin{proof}
+ This is a corollary of the existence of maximal $\bar k$-tori over $k$, Theorem \ref{liestructure-theorem-maximal-tori-exist}, the fact that those split over a finite separable extension, Theorem \ref{liestructure-theorem-diagonalizable-equivalence}, and the classification of split reductive groups in terms of root data, Theorem \ref{theorem-classification-with-universal-Cartan}.
+\end{proof}
+
+By ``continuous descent data'' over the separable closure $k^s$, in a $k$-groupoid $\mathcal F$ as above, we will mean pairs $(u,\phi)$ consisting of $u\in \mathcal F_{k^s}$ and isomorphisms $\phi_\gamma: \gamma u \to u$ for $\gamma\in\Gamma = \text{Gal}(k^s/k)$, such that \emph{these descent data are induced from descent data over a finite Galois extension $L/k$}, in the obvious way (i.e., $u$ is the base change of some object $u'\in \mathcal F_L$, and $\phi$ is obtained by extending scalars from some descent datum $\phi'$ over $L$).
+
+
+\begin{proposition}
+\label{proposition-forms-by-descent}
+ The category of reductive groups over $k$ is equivalent to the category of continuous descent data $(G, \phi)$, where $G$ is a reductive group over the separable closure $k^s$, and $\phi$ is an isomorphism $G\times_k k^s\simeq k^s\times_k G$. 
+ 
+ Given a reductive group $G$ over $k$, the set of isomorphism classes of forms $G'$ of $G$ over $k$ is in natural bijection with the Galois cohomology set $H^1_{\text{cont}}(\Gamma, \text{Aut}(G_{k^s}))$, defined as the set of $G(k^s)$-orbits of \emph{continuous} $1$-cocycles $\Gamma\to \text{Aut}(G_{k^s})$ (i.e., factoring through a finite extension). 
+\end{proposition}
+
+\begin{proof}
+ The first statement follows from Lemma \ref{lemma-reductive-isomorphic-separable}, and effectiveness of descent for linear algebraic groups (an easy corollary of Example \ref{example-descent-algebras}). The second follows from Proposition \ref{proposition-descent-cohomology}. 
+\end{proof}
+
+Thus, we are led to study the cohomology of the automorphism group of $G$ (over the separable closure). From now on, for every linear algebraic group over $k$, we will be writing simply $H^1(\Gamma, G)$ for the continuous cohomology set $H^1_{\text{cont}}(\Gamma, G(k^s))$. 
+
+\begin{proposition}
+ \label{proposition-inner-outer-cohomology}
+Given a reductive group $G$ over a field $k$, there is an exact sequence
+\begin{equation}
+\label{equation-inner-outer-cohomology}
+ H^1(\Gamma, \text{Inn}(G)) \to H^1(\Gamma, \text{Aut}(G)) \to H^1(\Gamma, \text{Out}(G)) \to 0.
+\end{equation}
+Moreover, if we assume that $G$ is split over $k$, and we fix a pinning $(G, B, T, \{p_\alpha\}_{\alpha\in\Delta})$ \emph{over $k$} (Definition \ref{definition-pinning}), the resulting splitting $\text{Out}(G)\to \text{Aut}(G)$ of Proposition \ref{proposition-automorphism-sequence} induces a splitting
+$$  H^1(\Gamma, \text{Out}(G)) \to H^1(\Gamma, \text{Aut}(G))$$
+whose image corresponds to the quasisplit forms of $G$. 
+
+Moreover, the cohomology groups of \eqref{equation-inner-outer-cohomology}, together with this splitting, classify isomorphism classes in the following sequence of categories:
+$$ \{\mbox{$G_{\text{ad}}$-torsors over $k$}\} \to \{\mbox{forms of $G$ over $k$}\} \leftarrow \{\mbox{quasisplit forms of $G$ over $k$}\},$$
+compatibly with the inclusion functor on the right, and the functor that assigns to a right $G$-torsor $T$ the $G$-automorphism group $\text{Aut}^G(T)$.
+\end{proposition}
+
+
+\begin{proof}
+ The sequence \eqref{equation-inner-outer-cohomology} follows immediately by applying the long exact sequence of cohomology to the short exact sequence of \eqref{equation-Inn-Aut-Out}. To prove surjectivity of the map to $H^1(\Gamma, \text{Out}(G))$, it is enough to assume that $G$ is split, since the choice of a different form only affects the base point. (Such a form always exists by Theorem \ref{theorem-classification-reductive}.) Then, the splitting $\text{Out}(G)\to \text{Aut}(G)$ of Proposition \ref{proposition-automorphism-sequence} gives rise to a splitting of the corresponding cohomology groups, and in particular proves surjectivity. Finally, the identification of cohomology groups with isomorphism classes of objects in the stated categories follows from effective descent and Proposition \ref{proposition-descent-cohomology}. In all cases, the stated groups are the groups of isomorphisms of a given object in the stated category (for example, $G_{\text{ad}}=\text{Inn}(G)$ is the automorphism group of a $G_{\text{ad}}$-torsor), except for the category of quasisplit forms of $G$ over $k$, which has more automorphisms than the outer automorphisms of $G$, and therefore requires some explanation. 
+ 
+ By Proposition \ref{proposition-automorphism-sequence}, $\text{Out}(G)$ can be identified with automorphisms of the based root datum $\Psi^+(\mathbb A^G)$. By Theorem \ref{theorem-classification-with-pinning}, this can be identified with the automorphism group of a pinned quadruple $(G, B, T, p)$ (over $k^s$) or, equivalently, a quadruple $(G, B, T, \ell)$, where $\ell$ is an algebraic Whittaker datum for $B$ (Definition \ref{definition-pinning}). Such quadruples make sense over $k$, as well (and its Galois extensions), thus, by Galois descent, the set $ H^1(\Gamma, \text{Out}(G)) $ classifies isomorphism classes of such quadruples over $k$. But the forgetful map $(G, B, T, \ell)\to (G,B)$ is a bijection on isomorphism classes, because every pair $(G,B)$ admits a maximal torus $T\subset B$ and a Whittaker datum $\ell$, and any two such are conjugate by an element of $B_{\text{ad}}\subset G_{\text{ad}}$. [More details to be added.]
+ 
+ 
+\end{proof}
+
+
+\begin{definition}
+ \label{definition-pure-inner-form}
+A {\it pure inner form} of an algebraic group $G$ over $k$ is a $G$-torsor $T$; the term is often used to refer to the $G$-automorphism group of $T$, but with the understanding that a $G$-torsor has been fixed. An {\it inner form} of $G$ is a pure inner form $R$ for the adjoint group $G_{\text{ad}} = \text{Inn}(G)$; the term is often used to refer to the form $R\times^{\text{Inn}(G)} G$, but with the understanding that a $G_{\text{ad}}$-torsor has been fixed.
+\end{definition}
+
+
+
+
+\section{The $L$-group}
+
+
+\section{The real case: Cartan involutions and structure theory}
+
+
+\begin{theorem}
+\label{theorem-functor-compactgroups}
+ The functor $G\mapsto G(\mathbb R)$ is an equivalence between: the category of $\mathbb R$-anisotropic reductive $\mathbb R$-groups whose connected components have $\mathbb R$-points, and the category of compact Lie groups. If $G$ is such an $\mathbb R$-group then $G^0(\mathbb R)=G(\mathbb R)^0$. The $\mathbb R$-group $G$ is semisimple if and only if $G(\mathbb R)$ has finite center, and in such cases $G^0$ is simply connected in the sense of algebraic groups if and only if $G(\mathbb R)^0$ is simply connected in the sense of topology.
+\end{theorem}
+
+
+
+
+\section{The real case: Equivalent descriptions of the spaces of Langlands parameters}
+
+
+\section{The non-Archimedean case: Structure theory}
+
+
+
+
+
+
+
+
 \input{chapters}
 
 
@@ -233,6 +469,8 @@ In positive characteristic, the \'etale fundamental group is always infinite, fo
 \bibliographystyle{amsalpha}
 
 \end{document}
+
+
 
 
 
