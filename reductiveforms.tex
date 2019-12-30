@@ -128,6 +128,9 @@ We let $RD$ be the category whose objects are root data $(X,\Phi, \check X,\chec
  Omitted. See \cite{Springer-Corvallis} for more details and references.
 \end{proof}
 
+
+
+
 We will now see two variants of this theorem: One, where we choose more data in order to rigidify the functor, and another, where we make no choices (i.e., we do not choose tori).
 
 
@@ -258,7 +261,7 @@ For reductive groups the automorphism group is of finite type. This follows from
 
 \begin{proposition}
  \label{proposition-automorphism-sequence}
-The functor from reductive groups to based root data of Theorem \ref{theorem-classification-with-universal-Cartan} gives rise to a short exact sequence of algebraic groups:
+The functor from reductive groups to based root data of Theorem \ref{theorem-classification-with-universal-Cartan} gives rise to a short exact sequence of (ind-)algebraic groups:
 \begin{equation}
  \label{equation-Inn-Aut-Out}
 0\to \text{Inn}(G)\to \text{Aut}(G)\to \text{Aut}\Psi^+(\mathbb A^G) \to 0.
@@ -440,9 +443,101 @@ A {\it pure inner form} of an algebraic group $G$ over $k$ is a $G$-torsor $T$; 
 
 
 \section{The $L$-group}
+\label{section-L-group}
+
+\section{The real case: compact Lie groups and Lie algebras}
+\label{section-real-compact}
+
+The main reference for this section is \cite[Ch.\ IX \S 1]{Bourbaki-Lie}.
+
+\begin{definition}
+ \label{definition-Inng}
+Let $\mathfrak g$ be a finite-dimensional real or complex Lie algebra. The {\it group of inner automorphisms} $\text{Inn}(\mathfrak g)$ is the connected immersed subgroup of $\text{GL}(\mathfrak g)$ (see \ref{liegroups-general-proposition-Liesubalg}) whose Lie algebra is $\text{ad}(\mathfrak g)$.
+\end{definition}
+
+For compact or semisimple Lie groups, this coincides with the group $\mathcal E(\mathfrak g)$ of Definition \ref{liestructure-definition-Eg}, but we will not prove that.
 
 
-\section{The real case: Cartan involutions and structure theory}
+
+\begin{proposition}
+ \label{proposition-compact-Lie}
+Let $\mathfrak g$ be a (finite-dimensional) real Lie algebra. The following conditions are equivalent:
+\begin{enumerate}
+ \item $\mathfrak g$ is isomorphic to the Lie algebra of a compact Lie group.
+ \item The group $\text{Inn}(\mathfrak g)$ is compact.
+ \item $\mathfrak g$ has a positive definite, invariant symmetric bilinear form.
+ \item The adjoint representation of $\mathfrak g$ is semisimple, and for every $x\in \mathfrak g$, $\text{ad}(x)$ is semisimple with purely imaginary eigenvalues.
+ \item $\mathfrak g$ is a direct sum of its center and its maximal semisimple ideal, and the Killing form is negative semi-definite. 
+\end{enumerate}
+
+If, moreover, $\mathfrak g = \text{Lie}(G)$ for some connected Lie group $G$, the above are equivalent to any of the following:
+\begin{enumerate}\setcounter{enumi}{5}
+ \item The group $\text{Ad}(G)\subset \text{GL}(\mathfrak g)$ is compact.
+ \item There is a Riemannian metric on $G$ invariant under left and right translations.
+\end{enumerate}
+
+Finally, in that case the exponential map $\mathfrak g \to G$ is surjective.
+\end{proposition}
+
+\begin{proof}
+ $(1) \Rightarrow (2)$: If $\mathfrak g = \text{Lie}(G)$ with $G$ compact and connected, then $\text{Inn}(\mathfrak g) = G/Z$, where $Z$ is the center, hence is compact. 
+ 
+ $(2) \Rightarrow (3)$: Choose any positive definite symmetric bilinear form on $\mathfrak g$, and average over the compact group $\text{Inn}(G)$ to obtain an invariant one.
+ 
+ $(3) \Rightarrow (4)$: The orthogonal complement, with respect to a definite invariant form, of an invariant subspace is invariant, which proves semisimplicity. The operators $\text{ad}(x)$ are then anti-self-adjoint, which implies that they are diagonalizable with purely imaginary eigenvalues.
+ 
+ $(4) \Rightarrow (5)$: If the adjoint representation is semisimple, $\mathfrak g$ is the direct sum of its center and its simple ideals. If $B$ denotes the Killing form, then $B(x,x) = \text{tr}(\text{ad}(x)^2)$, and since the eigenvalues are all imaginary, this is $\le 0$. 
+ 
+ $(5) \Rightarrow (1)$: The center of the Lie algebra is isomorphic to the Lie algebra of a compact real torus, so we are reduced to the case that $\mathfrak g$ is semisimple, with negative Killing form. Then, $\text{Inn}(\mathfrak g)$ is a closed [reference] subgroup of $\text{GL}(\mathfrak g)$, and since it preserves the negative definite form $B$, it belongs to the compact orthogonal subgroup $O(B)$, thus is compact (with Lie algebra $\mathfrak g$). 
+ 
+ If $\mathfrak g = \text{Lie}(G)$, with $G$ connected, then $\text{Ad}(G)=\text{Inn}(\mathfrak g)$, as one can confirm by comparing Lie algebras. The last claim follows from the rest by constructing an $\text{Ad}(G)$-invariant positive definite form on $\mathfrak g$ (by the same averaging argument as above), and translating it by the left (or right) $G$-action. Vice versa, any invariant Riemannian metric, restricted to the tangent space at the identity, is such a form.
+ 
+ Finally, one can check [Exercise!] that, for a left- and right-invariant Riemannian metric, the group-theoretic exponential map coincides with the Riemannian exponential map, hence $G$ is geodesically complete, and any two points can be joined by a length-minimizing geodesic (the \emph{Hopf--Rinow theorem}). 
+\end{proof}
+
+\begin{definition}
+ \label{definition-compact-Lie}
+A real Lie algebra $\mathfrak g$ satisfying the equivalent conditions of Proposition \ref{proposition-compact-Lie} is called a {\it compact Lie algebra}. 
+\end{definition}
+
+\begin{theorem}
+ \label{theorem-compact-Lie}
+The Lie algebra of a connected Lie group $G$ is compact if and only if $G$ is the surjective image of a morphism $V\times T\times K\to G$ with finite kernel, where $V$ is a vector space, $T$ is a compact real torus, and $K$ is a compact semisimple Lie group. 
+\end{theorem}
+
+\begin{proof}
+ The direction $\Leftarrow$ follows from Proposition \ref{proposition-compact-Lie}.
+
+ As seen in Proposition \ref{proposition-compact-Lie}, a compact Lie algebra is the direct sum of its center and a semisimple compact Lie algebra, and the connected component of the center has to be equal to a group of the form $V\times T$ as above, therefore we are reduced to the case when $\mathfrak g$ is compact and semisimple.
+ 
+ In that case, the center $Z$ is discrete, and $G/Z=\text{Ad}(G)$ is compact by Proposition \ref{proposition-compact-Lie}, hence it suffices to prove that the group $G_{\text{ad}}=G/Z$ cannot be the image of a central isogeny with infinite kernel from a connected Lie group. Let $H\to G_{\text{ad}}$ be a central isogeny of finite degree. By Theorem \ref{liegroups-general-theorem-Weyl}, $H$ and $G_{ad}$ coincide with the real points of algebraic groups over $\mathbb R$, and the morphism between them is algebraic. Thus, we can apply the analysis of central isogenies of Theorem \ref{theorem-classification-reductive}, and deduce that, since $\mathfrak g$ is semisimple, the degree of any central isogeny is bounded by the index of the coroot lattice in the cocharacter lattice. Thus, $G$ is compact.
+\end{proof}
+
+\begin{proposition}
+ \label{proposition-unique-split-compact-form}
+Any semisimple Lie algebra $\mathfrak g$ over $\mathbb C$ has a unique split real form up to ($\text{Inn}(\mathfrak g)$-)conjugacy, and a unique compact form up to conjugacy. 
+\end{proposition}
+
+\begin{proof}
+ Let $\mathfrak h \subset \mathfrak g$ be a Cartan subalgebra, and let $\mathfrak h_0$ be the real subspace spanned by the images of $\mathbb R$ under the cocharacters $\check\Phi\ni \check\alpha: \mathbf{G}_a\to \mathfrak h$. The Chevalley construction (omitted) shows that it extends to a real form $\mathfrak g_0$ of $\mathfrak g$, such that, for every root $\alpha$, $\mathfrak g_{\alpha,0}:= \mathfrak g_0 \cap \mathfrak g_\alpha$ is a real form of the root space $\mathfrak g_\alpha$. Those real forms, for $\alpha$ in a basis $\Delta$ of the root system, determine the form, and in turn are determined by a pinning (Definition \ref{definition-pinning}) relative to $\Delta$. All such pinnings are conjugate under the image of $\text{exp}(\mathfrak h)$ in $\text{Inn}(\mathfrak g)$, hence by the conjugacy of Cartan subalgebras we conclude that all split forms are conjugate. 
+
+ Starting now with such a split form, and a pinning $\mathfrak g_\alpha\simeq\mathbf G_a$ for $\alpha\in\Delta$, let $X_\alpha \in \mathfrak g_\alpha$ be the element corresponding to $1\in\mathbf G_a$, and let $X_{-\alpha}\in \mathfrak g_{-\alpha}$ be the element forming an $\mathfrak{sl}_2$-triple $(h_\alpha, X_\alpha, X_{-\alpha})$, with $h_\alpha\in\mathfrak h$ the coroot. We can similarly choose elements $X_\alpha\in\mathfrak g_\alpha$ for all roots, such that $[X_\alpha, X_\beta] = N_{\alpha, \beta} X_{\alpha+\beta}$ whenever $\alpha+\beta$ is also a root, with constants $N_{\alpha,\beta}$ satisfying $N_{\alpha,\beta} = N_{\beta,\alpha}$. (This is part of the Chevalley construction, see \cite[Ch.\ VIII \S 2]{Bourbaki-Lie}.) Then, we define another real form of $\mathfrak g$ by 
+ $$ \mathfrak g_c = i \mathfrak h_0 \oplus \bigoplus_{\{\pm \alpha\}\in \Phi/\{\pm 1\}} \left( \mathbb R(X_\alpha+X_{-\alpha}) \oplus  i \mathbb R(X_\alpha - X_{-\alpha})\right ).$$
+ 
+ One checks that this is a compact form, \cite[Ch.\ IX \S 3.2]{Bourbaki-Lie}.  Obviously, this depends only on the pinning, not on the choices of $X_\alpha$ for $\alpha$ not simple, and is generated by the summands corresponding to simple roots $\alpha$. 
+
+  
+ For any other compact form $\mathfrak g_c'$, we will show that it is of this form; by the conjugacy of pinnings, we will then conclude that $\mathfrak g_c'$ is $G$-conjugate to $\mathfrak g_c$. 
+ 
+ To lighten notation we may already use the conjugacy of Cartan subalgebras and assume that $\mathfrak g_c'$ contains a form $\mathfrak h_c'$ of $\mathfrak h$. By one of the equivalent conditions of Proposition \ref{proposition-compact-Lie}, the eigenvalues for the adjoint action of $\mathfrak h_c'$ on $\mathfrak g$ have to be purely imaginary, so we must have $\mathfrak h_c' = i \mathfrak h_0$. Consider the semilinear automorphism $\tau:\mathfrak g\to\mathfrak g$ corresponding to complex conjugation with respect to $\mathfrak g_c'$. It acts by $-1$ on $\mathfrak h_0$, hence interchanges the spaces $\mathfrak g_\alpha$ and $\mathfrak g_{-\alpha}$. If, for a simple $\alpha\in \Delta$ and $X_\alpha$, $X_{-\alpha}$ as above, we have $\tau (X_\alpha) = c X_{-\alpha}$, then we claim that $c>0$. 
+ 
+ Indeed, if $B$ is the Killing form, $0 > B(X_\alpha, X_{-\alpha}) = c^{-1} B(X_\alpha, \tau(X_{-\alpha}))$, and the quadratic form $X\mapsto B(X,\tau(X))$ is negative definite on $\text{Res}_{\mathbb C/\mathbb R} \mathfrak g$, since $B$ is a $\mathbb C$-linear quadratic form on $\mathfrak g$ that is negative on the fixed space $\mathfrak g_c'$ of the involution $\tau$. 
+ 
+ If we set $X_\alpha' = c^{-\frac{1}{2}} X_\alpha$, $X_{-\alpha}' = c^{\frac{1}{2}} X_\alpha'$, we obtain another $\mathfrak{sl}_2$-triple $(h_\alpha, X_\alpha', X_{-\alpha}')$ with $\tau(X_\alpha) = X_{-\alpha}$.  Then, the form $\mathfrak g_c'$ is generated by the elements $X_\alpha'+X_{-\alpha}'$ and $i(X_\alpha' -X_{-\alpha}')$ with $\alpha\in \Delta$, hence is of the stated form. 
+\end{proof}
+
+
+We deduce that any complex, connected semisimple group has a unique compact form up to conjugacy, and, in fact, arrive at the following strengthening of Theorem \ref{liegroups-general-theorem-Weyl}, whose formulation is taken from class notes of Brian Conrad:
 
 
 \begin{theorem}
@@ -451,16 +546,187 @@ A {\it pure inner form} of an algebraic group $G$ over $k$ is a $G$-torsor $T$; 
 \end{theorem}
 
 
+\begin{proof}
 
-
-\section{The real case: Equivalent descriptions of the spaces of Langlands parameters}
-
-
-\section{The non-Archimedean case: Structure theory}
-
+ [To be added]
+\end{proof}
 
 
 
+\section{Classification of real forms in terms of Cartan involutions}
+\label{section-real-Cartan}
+
+Let $G$ be a connected, complex reductive group. Proposition \ref{proposition-unique-split-compact-form} implies that it has a unique, up to conjugacy, split real form. [Details omitted for now --- need to explain lift from Lie algebra to group.] Fixing that form, by Proposition \ref{proposition-inner-outer-cohomology} we obtain a bijection between isomorphism classes of real forms of $G$, and $H^1(\Gamma, \text{Aut}(G))$, where $\Gamma \simeq \mathbb Z/2$. Equivalently, forms correspond bijectively to sections
+$$ \mathbb Z/2 \to \text{Aut}(G) \rtimes \mathbb Z/2$$
+up to $\text{Aut}(G)$-conjugacy. 
+
+Here, we will discuss a more classical (and useful) description of real forms, in terms of actual homomorphisms 
+$$ \mathbb Z/2 \to \text{Aut}(G)$$
+up to $\text{Aut}(G)$-conjugacy. This gives rise to an extremely important correspondence between real forms of $G$ and \emph{symmetric spaces}, that is, spaces of the form $G/G^\theta$, where $\theta$ is an involution (automorphism of order two) of $G$. 
+
+
+
+
+\begin{definition}
+ \label{definition-Cartan-decomposition-involution} 
+If $\mathfrak g_0$ is a semisimple Lie algebra over $\mathbb R$, with complexification $\mathfrak g$ and associated antiholomorphic involution $\sigma$, a {\it Cartan involution} for $\mathfrak g_0$ is a holomorphic involution $\theta$, which commutes with $\sigma$, such that $\mathfrak g^{\theta\sigma}$ is a compact form of $\mathfrak g$ (Definition \ref{definition-compact-Lie}). 
+ 
+Given such a Cartan involution, the associated {\it Cartan decomposition} is the pair $(\mathfrak k,\mathfrak p)$ of complementary vector subspaces of $\mathfrak g_0$, where $\mathfrak k = \mathfrak g_0^\theta$ (in particular, $\mathfrak k$ is a compact Lie subalgebra) and $\mathfrak p = \mathfrak g_0^{-\theta}$. Since the pair $(\mathfrak k,\mathfrak p)$ obviously determines the involution $\theta$, we will say that $(\mathfrak k,\mathfrak p)$ is a Cartan decomposition, without reference to $\theta$. 
+ 
+A {\it Cartan decomposition} for a real Lie group $G$ is a pair $(K,\mathfrak p)$, where $K\subset G$ is a compact subgroup, and $\mathfrak p\subset\mathfrak g$ is an $\text{Ad}(K)$-stable subspace such that the map $K\times \mathfrak p \ni (k,X)\mapsto k\exp(X)$ is a diffeomorphism.
+
+Given such a Cartan decomposition, the map $\theta(k \exp(X)) = k \exp(-X)$ (where $k\in K$, $X\in\mathfrak p$) is an involution of $G$, called the {\it Cartan involution}. Since $\theta$ determines $K = G^\theta$ and $\mathfrak p = \mathfrak g_0^{-\theta}$ uniquely, we will refer to such a $\theta$ as a Cartan involution, without reference to $(K,\mathfrak p)$.
+\end{definition}
+
+
+\begin{example}
+ \label{example-Cartan-decomposition-GL}
+Let $G=\text{GL}_n$, $K = O(n)$, the compact orthogonal group of the standard inner product on $\mathbb R^n$, $\mathfrak k = \text{Lie}(K)$ and $\mathfrak p=$ the subspace of symmetric matrices in $\mathfrak g_0 = \text{Lie}(G) = \mathfrak{gl}(n, \mathbb R)$. 
+
+Then, the pair $(\mathfrak k, \mathfrak p)$ is a Cartan decomposition of $\mathfrak g_0$, and the pair $(K,\mathfrak p)$ is a Cartan decomposition of $G$. Indeed, the quotient space $G/K$ can be identified with the space of positive definite quadratic forms on $\mathbb R^n$, each represented by a symmetric matrix $A$ with positive eigenvalues, and each such matrix $A$ has a unique square root $B$ of the same type, which in turn is the exponential of a unique symmetric matrix $X$, so $A = B^2 = \exp(X)^2 = \exp(X) \exp(X)^t$, uniquely. 
+
+
+The Cartan involution on $G$ is $g\mapsto g^{-t}$, on $\mathfrak g$ it is $X\mapsto - X^t$, and the associated compact form of $\mathfrak g = \mathfrak{gl}(n, \mathbb C)$ is the Lie algebra of the unitary group for the standard inner product on $\mathbb C^n$.
+\end{example}
+
+
+
+\begin{proposition}
+ \label{proposition-Cartan-decomposition}
+If $G$ is a connected semisimple Lie group (i.e., with semisimple Lie algebra) with Lie algebra $\mathfrak g_0$, $(\mathfrak k,\mathfrak p)$ is a Cartan decomposition of $\mathfrak g_0$, and $K = \exp(\mathfrak k)$. If $G$ has finite center, then $K$ is a compact subgroup, and $(K, \mathfrak p)$ is a Cartan decomposition of $G$.
+\end{proposition}
+
+\begin{proof}
+ The proof reduces to the analogous statement for $G=\text{GL}_n(\mathbb R)$, $K=O(n)$, as follows: 
+ 
+ First of all, let $K'$ be the immersed Lie subgroup of $G$ with Lie algebra $\mathfrak k$, see Proposition \ref{liegroups-general-proposition-Liesubalg}. Since $\mathfrak k$ is compact, by Proposition \ref{proposition-compact-Lie}, the exponential map $\mathfrak k \to K'$ is surjective, hence $K'=K$. 
+ 
+Let $\theta$ be the associated Cartan involution, let $B$ be the Killing form, and consider the quadratic form $q:X\mapsto B(X,\theta X)$, which is negative definite on $\mathfrak g_0$. One easily checks that, with respect to this form, $\text{ad}(X)$ is
+\begin{itemize}
+ \item symmetric, if $X\in \mathfrak p$;
+ \item skew-symmetric, if $X\in \mathfrak k$. 
+\end{itemize}
+
+Thus, $\text{Ad}_{\mathfrak g}(K)\subset O(q)\subset \text{GL}(\mathfrak g)$, and by Example \ref{example-Cartan-decomposition-GL} the map $\text{Ad}_{\mathfrak g}(K) \times \mathfrak p \ni (g, X) \mapsto g \exp(\text{ad}(X)) \in \text{GL}(\mathfrak g)$ is a closed embedding. (Notice that $\text{ad}$ has no kernel, by semisimplicity.) Its image is both open and closed in $\text{Ad}(G)$, and by connectedness it is equal to $\text{Ad}(G)$. Therefore, the map $K\times \mathfrak p \to G$ is an open and closed embedding, and again by connectedness it is an isomorphism. Note that $K$ is compact, because by assumption the kernel of $K\to \text{Ad}_{\mathfrak g}(K)$ is finite.
+
+\end{proof}
+
+
+
+We will eventually see that any reductive Lie group admits a Cartan decomposition, but for now we restrict our attention to complex groups (considered, by restriction of scalars, as real Lie groups). 
+
+\begin{proposition}
+ \label{proposition-Cartan-decomposition-complex}
+Let $G$ be a complex, connected semisimple algebraic group, and $\mathfrak k\subset \mathfrak g$ a compact form of $\mathfrak g$, which exists, by Proposition \ref{proposition-unique-split-compact-form}, uniquely up to conjugacy. Let $\mathfrak p = i \mathfrak k \subset \mathfrak g$, and set $K = \exp(\mathfrak k)$. Then, $(K, \mathfrak p)$ is a Cartan decomposition of $G(\mathbb C)$ (viewed as a real Lie group), in the sense of Definition \ref{definition-Cartan-decomposition-involution}. Moreover, the normalizer of $K$ is $K\exp(i \mathcal Z(\mathfrak k))$, where $\mathcal Z(\mathfrak k)$ denotes the center of $\mathfrak k$. 
+\end{proposition}
+
+
+\begin{proof}
+ Indeed, one immediately checks that, since the Killing form $B_{\mathfrak g}$ is negative definite on the real form $\mathfrak k$ of $\mathfrak g$, the Killing form $B_{\mathfrak g \otimes_{\mathbb R} \mathbb C}$ is negative definite on the real form $\mathfrak k \oplus i \mathfrak p$ of $\mathfrak g \otimes_{\mathbb R} \mathbb C$, hence this is a compact form. The first claim now follows from Proposition \ref{proposition-Cartan-decomposition}, taking into account that complex semisimple groups have finite fundamental groups, and therefore finite center (see the argument in the proof of Theorem \ref{theorem-compact-Lie}).
+ 
+ For the normalizer $\mathcal N_G(K)$ of $K$, it suffices to show that $\mathcal N_G(K) \cap \exp(\mathfrak p) = \exp(i \mathfrak Z(\mathfrak k))$. If $X\in \mathfrak p$ is such that $\exp(X)$ normalizes $K$, then $[X,\mathfrak k]\subset \mathfrak k$, but on the other hand $[\mathfrak p, \mathfrak k]\subset \mathfrak p$, so $[X,\mathfrak k]=0$, i.e., $X \in \mathfrak p^{\mathfrak k} = (i\mathfrak k )^{\mathfrak k} = i \mathcal Z(\mathfrak k)$. 
+\end{proof}
+
+
+
+Now we have the following, see also \cite{Adams-Taibi}:
+
+\begin{proposition}
+ \label{proposition-holomorphic-antiholomorphic}
+Let $G$ be a connected complex semisimple algebraic group. Then:
+
+\begin{enumerate}
+ \item Any holomorphic, resp.\ antiholomorphic, involution of $G(\mathbb C)$ is algebraic, i.e., induced by an algebraic involution of $G$, resp.\ a conjugate-linear involution of $\text{Res}_{\mathbb C/\mathbb R} G$.
+ 
+ For the rest of the statements, write $G$ for $G(\mathbb C)$.
+
+ \item If $G$ is abelian, it admits a unique compact antiholomorphic involution $\tau$ (i.e., such that $G^\tau$ is compact). It commutes with all holomorphic or antiholomorphic involutions of $G$.
+
+ \item For any antiholomorphic involution $\sigma$ of $G$ there exists a holomorphic involution $\theta$, commuting with $\theta$, such that $G^{\theta\sigma}$ is compact, and vice versa: for every such $\sigma$ there exists such a $\theta$. 
+
+Moreover, $\theta$ is unique up to $(G^\sigma)^0$-conjugacy, and $\sigma$ is unique up to $(G^\theta)^0$-conjugacy. 
+\end{enumerate}
+\end{proposition}
+
+
+\begin{proof}
+
+For the first statement, see \cite[Lemma 3.1]{Adams-Taibi}.
+
+If $G$ is abelian, it is a torus, and it is easy to see that the only compact antiholomorphic involution $\tau$ is the one which, on $\mathfrak g$, acts by $-1$ on the real subspace $E$ generated by the differentials of cocharacters, and by $+1$ on $iE$. Any other holomorphic or antiholomorphic involution has to preserve the cocharacter lattice, hence the eigenspaces $E$ and $iE$ for $\tau$, hence commutes with $\tau$. 
+
+Any involution of $G$ induces involutions on its derived group $G_{\text{der}}$ and its center $\mathcal Z(G)$, and since $G = \mathcal Z(G) G_{\text{der}}$, the rest of the statements are now reduced to $G_{\text{der}}$. Thus, we may assume that $G$ is semisimple.
+
+By Proposition \ref{proposition-unique-split-compact-form}, the set $M$ of compact forms of $\mathfrak g$ is a homogeneous space under $G$, and if we fix a compact form $G_c$, it can be identified with the quotient $G/G_c \exp(i \mathcal Z(\mathfrak g_c))$. The tangent space at the point $x=G_c$ can be identified with the quotient $\mathfrak p_{\text{ad}} = \mathfrak p/i \mathcal Z(\mathfrak g_c)$ of $\mathfrak p = i \mathfrak g_c$, and the Cartan decomposition, Proposition \ref{proposition-Cartan-decomposition}, shows that there is a well-defined exponential map 
+$$\exp_x: \mathfrak p_{\text{ad}}  = T_x M \to M,$$
+descending from the exponential map on $\mathfrak p$, which is an isomorphism. 
+
+Given $\sigma$, it induces an automorphism of order $2$ of $M$, and our goal is to find a fixed point. Start with any point $x = G_c$, then $\sigma$ induces an isomorphism $\sigma_*$ between $T_x M$ and $T_{\sigma(x)} M$. We claim:
+
+\begin{quote}
+ $\sigma$ commutes with the exponential map, i.e., $\exp_{\sigma(x)} (\sigma_* X) = \sigma(\exp_x(X))$, for every $X \in T_x M$. 
+\end{quote}
+
+Indeed, since $\sigma$ is antiholomorphic, it maps $\mathfrak p = i \mathfrak g_c$ to $i\sigma(\mathfrak g_c)$, which is the space analogous to $\mathfrak p$ for $\sigma(x)$.
+
+Now, let $X\in T_x M$ be the unique element with $\sigma(x) = \text{exp}_x(X)$, choose a preimage $\tilde X$ of $X$ in $\mathfrak p$, and set $g = \exp(\tilde X)$ (the exponential in the group, here). Hence, $\sigma(x) = g x$, and translation by $g$ identifies the tangent space of $x$ with that of $\sigma(x)$, by a map which we will denote by $g_*$ (and its inverse by $g^*$). 
+
+We claim that $g^*\sigma_*(X) = -X$. Indeed, $x = \sigma(\sigma(x)) =\sigma (\exp_x (X)) = \exp_{\sigma(x)} (\sigma_* X)$ by the claim above, and on the other hand $x = g^{-1}(\sigma(x)) = \exp(-\tilde X) (\sigma (x)) = \exp_{\sigma(x)} (g_*(-X))$, and by the fact that the map $\exp_{\sigma(x)}$ is an isomorphism, we deduce that $\sigma_* X = g_*(-X)$, or equivalently $g^*\sigma_* X = -X$.
+
+Hence, the point $\exp_x (\frac{X}{2}) = \exp(\frac{\tilde X}{2}) x$ is fixed under $\sigma$, because 
+$$\sigma (\exp_x (\frac{X}{2})) = \exp_{\sigma(x)} (\sigma_* \frac{X}{2}) = \exp_{\sigma(x)} (- g_* \frac{X}{2})=$$
+$$= \exp(-\frac{\tilde X}{2}) \sigma (x) = \exp(-\frac{\tilde X}{2}) \exp(\tilde X) x = \exp(\frac{\tilde X}{2}) x.$$ 
+
+The proof for $\theta$ in place of $\sigma$ is identical. 
+
+
+Now we show that all points of $M^\sigma$ lie in the same $(G^\sigma)^0$-orbit. Given two such points $x, x'$, we can write $x' = \exp_x(X)$, for a unique element $X\in T_x M$. It is enough to show that $X \in (T_x M)^\sigma$, because then (by semisimplicity) it can be lifted to $\tilde X \in \mathfrak p^\sigma$, and then $\exp(\tilde X)$ will belong to $(G^\sigma)^0$. Again, by the $\sigma$-equivariance of the exponential map, we get that $\exp_x(X) = x' = \sigma(x') = \sigma(\exp_x(X)) = \exp_x (\sigma_* X)$, and by the fact that $\exp_x$ is an isomorphism we deduce that $\sigma_*X = X$.
+
+The proof or $\theta$ is, again, identical.
+
+\end{proof}
+
+This leads to the following two theorems which are the main results of this subsection:
+
+\begin{theorem}
+ \label{theorem-Cartan-involution-exists}
+(The group of $\mathbb R$-points of) any connected reductive algebraic group $G$ over $\mathbb R$ admits a Cartan decomposition $(K,\mathfrak p)$, see Definition \ref{definition-Cartan-decomposition-involution}. The group $K$ is a maximal compact subgroup of $G=G(\mathbb R)$, and all maximal compact subgroups (and all Cartan decompositions) are $G(\mathbb R)^0$-conjugate. 
+\end{theorem}
+
+\begin{proof}
+ If $\sigma$ denotes the antiholomorphic involution of $G(\mathbb C)$ which fixes $G(\mathbb R)$, by  Proposition \ref{proposition-holomorphic-antiholomorphic} there exists a commuting holomorphic involution $\theta$ such that $\sigma\theta$ is compact, unique up to $G(\mathbb R)^0$-conjugacy. The restriction of $\theta$ to $G(\mathbb R)$ induces a Cartan decomposition $(K, \mathfrak p)$ with $K = G(\mathbb R)^\theta$ and $\mathfrak p = \text{Lie}(G(\mathfrak R))^{-\theta}$. The group $K$ is maximal compact, because if $K'\sup K$ were compact, and $g \in K'$ did not belong to $K$, then by the Cartan decomposition $g = k\exp(X)$ for some $X\ne 0$ in $\mathfrak p$, but then $\exp(X)$ belongs to $K'$, but the powers of $\exp(X)$ have no accumulation point, a contradiction.
+\end{proof}
+
+\begin{remark}
+ \label{remark-no-Cartan}
+Not every semisimple connected Lie group (i.e., with semisimple Lie algebra) admits a Cartan decomposition. For example, by the Cartan decomposition, $K=S^1$ is a deformation retract of $G=\text{SL}_2(\mathbb R)$, hence $\pi_1(\text{SL}_2) \simeq \mathbb Z$, and its fundamental cover $\widetilde{\text{SL}_2}$ is a semisimple Lie group with infinite center, no nontrivial compact subgroups (because the preimage of $K$ is isomorphic to $\mathbb R$), and since the exponential map is not bijective, it does not admit a Cartan decomposition. 
+\end{remark}
+
+
+
+\begin{theorem}
+\label{theorem-holomorphic-antiholomorphic}
+Let $G$ be a connected complex reductive group. Let $Ant$ denote the space of antiholomorphic involutions on $G$, and $Hol$ the space of holomorphic involutions. There is a canonical bijection 
+$$Ant/G \leftrightarrow Hol/G$$
+induced by the distinguished $G$-orbit on $Ant \times Hol$ of those pairs $(\sigma,\theta)$ such that $\sigma$ commutes with $\theta$, and $\mathfrak g^{\sigma\theta}$ is compact.
+
+If $\Gamma =\text{Gal}(\mathbb C/\mathbb R)$, and we fix a compact real form (an antiholomorphic involution) $\tau$ on $G$, this bijection gives rise to bijections of pointed sets
+$$H^1(\Gamma, \text{Aut}(G)) \xrightarrow\sim H^1(\mathbb Z/2, \text{Aut}(G)),$$
+where $\mathbb Z/2$ acts trivially on $\text{Aut}(G)$, i.e., \\ $H^1(\mathbb Z/2, \text{Aut}(G)) = \Hom(\mathbb Z/2, \text{Aut}(G))/\text{Aut}(G)-\text{conj}$, as well as
+$$Z^1(\Gamma, \text{Aut}(G))/\text{Inn}(G) \xrightarrow\sim \Hom(\mathbb Z/2, \text{Aut}(G))/\text{Inn}(G),$$
+where $Z^1$ denotes the set of $1$-cocycles.
+\end{theorem}
+
+\begin{proof}
+ Indeed, Proposition \ref{proposition-holomorphic-antiholomorphic} states that the set of those pairs $(\sigma,\theta)$ such that $\sigma$ commutes with $\theta$, and $\mathfrak g^{\sigma\theta}$ is compact, forms a unique $G$-orbit which surjects onto both $Ant$ and $Hol$. 
+ 
+ If $\tau$ is the antiholomorphic involution corresponding to a compact form, used to define the Galois action on $\text{Aut}(G)$ by pre- and post-composition, for any $\kappa \in Z^1(\Gamma, \text{Aut}(G))$, identified with the image in $\text{Aut}(G)$ of complex conjugation, the composition $\sigma = \tau\kappa$ is also an antiholomorphic involution. This identifies $Z^1(\Gamma, \text{Aut}(G)) \simeq Ant$, equivariantly under $\text{Aut}(G)$, while $\Hom(\mathbb Z/2, \text{Aut}(G)) = Hol$. The rest of the assertions now follow by descending the distinguished $G$-orbit (which is also an $\text{Aut}(G)$-orbit) on $Ant \times Hol$. Note that $\tau \in Ant$ corresponds to the trivial involution in $Hol$, hence these bijections are indeed pointed.
+\end{proof}
+
+\begin{remark}
+\label{remark-inner-classes}
+Two $1$-cocycles of $\Gamma$ into $\text{Aut}(G)$ are conjugate by $\text{Inn}(G)$ if and only if they correspond to the same inner class, see \ref{definition-pure-inner-form}. Thus, the quotient $Z^1(\Gamma, \text{Aut}(G))/\text{Inn}(G)$ is the union of all isomorphism classes of inner forms of all outer forms of $G$. 
+\end{remark}
 
 
 
@@ -472,8 +738,5 @@ A {\it pure inner form} of an algebraic group $G$ over $k$ is a $G$-torsor $T$; 
 \bibliographystyle{amsalpha}
 
 \end{document}
-
-
-
 
 

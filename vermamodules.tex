@@ -237,9 +237,7 @@ The restriction map under $\mathfrak h \hookrightarrow \mathfrak g$ gives rise t
 \end{theorem}
 
 \begin{proof}
-For injectivity, we need to use conjugacy of Cartan subalgebras: If $G$ is the group of inner automorphisms of $\mathfrak g$, we have $\mathbb C[\mathfrak g]^{\mathfrak g}  = \mathbb C[\mathfrak g]^G$ and $\text{Ad}(G)(\mathfrak h)$ is dense in $\mathfrak g$, so the restriction map of $G$-invariant functions to $\mathfrak h$ is injective.
-
-[REFERENCES WILL BE ADDED HERE WHEN THE PART ON CONJUGACY OF CARTAN SUBALGEBRAS IS WRITTEN]
+For injectivity, we need to use conjugacy of Cartan subalgebras, Theorem \ref{liestructure-theorem-conjugacy-Borel-Cartan}: If $G$ is the group $\mathcal E(\mathfrak g)$ of inner automorphisms of Definition \ref{liestructure-definition-Eg}, we have $\mathbb C[\mathfrak g]^{\mathfrak g}  = \mathbb C[\mathfrak g]^G$ and $\text{Ad}(G)(\mathfrak h)$ is dense in $\mathfrak g$, so the restriction map of $G$-invariant functions to $\mathfrak h$ is injective.
 
 For $W$-invariance, it is enough to show that the image is invariant under the reflection $w_\alpha$ corresponding to any simple root $\alpha$. This simple root defines an embedding $\mathfrak m:=\mathfrak{sl}_2 \oplus \mathfrak \alpha^{\perp}\hookrightarrow \mathfrak g$, where $\alpha^\perp \subset \mathfrak h$ is the orthogonal complement of $\alpha$ in $\mathfrak h$. The Lie algebra $\mathfrak m$ contains $\mathfrak h$, and we have restriction maps 
 $$\mathbb C[\mathfrak g]^{\mathfrak g} \to \mathbb C[\mathfrak m]^{\mathfrak m} \to \mathbb C[\mathfrak h].$$
@@ -518,6 +516,234 @@ On the other hand, again by Proposition \ref{proposition-finite-dimensional}, th
 \end{proof}
 
 
+
+\section{Example: Irreducible representations of $\mathfrak{sl}_n$. Schur--Weyl duality.}
+\label{section-Schur-Weyl}
+
+Schur--Weyl duality refers to a correspondence between representations of symmetric groups and general linear groups (or their Lie algebras), which is realized inside the tensor powers $V^{\otimes^d}$ of a vector space. It is based on the following theorem from linear algebra:
+
+\begin{theorem}
+\label{theorem-double-centralizer}
+If $V$ is a finite-dimensional complex vector space, $A\subset \text{End}_B(V)$ is a semisimple subalgebra of operators, and $B = \text{End}_A(V)$ is its commutant, then 
+\begin{enumerate}
+ \item $B$ is semisimple.
+ \item $A=\text{End}_B(V)$.
+ \item There is a bijection $M_i\leftrightarrow N_i$ between isomorphism classes of simple $A$-modules and isomorphism classes of simple $B$-modules, and an isomorphism of $A\otimes B$-modules 
+ $$V = \bigoplus_i M_i\otimes N_i.$$
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+The proof uses the Artin--Wedderburn theorem which, in the case of the complex numbers, says that a finite-dimensional complex semisimple algebra is the direct sum of the endomorphism algebras of its simple modules. 
+
+Let $M_i$ range over all isomorphism classes of simple $A$-modules. Since $V$ is $A$-semisimple, 
+ \begin{equation}
+  \label{equation-double-centralizer}
+  V = \bigoplus_i M_i\otimes \text{Hom}_A(M_i, V).
+ \end{equation}
+ Set $N_i=\text{Hom}_A(M_i, V)$. Since the $M_i$'s are non-isomorphic, we have, by Schur's lemma, 
+ $$ B=\text{End}_A(V) = \bigoplus_i \text{End}(N_i).$$
+ The unique isomorphism class of simple $\text{End}(N_i)$-modules is $N_i$, hence $B$ is semisimple, with its simple modules being precisely the $N_i$'s, which are non-isomorphic. Applying now the same reasoning to \eqref{equation-double-centralizer}, we see that 
+ $$ \text{End}_B(V) = \bigoplus_i \text{End}(M_i).$$
+ But $A$ being semisimple means that it is isomorphic to $\bigoplus_i \text{End}(M_i)$, thus $\text{End}_B(V)=A$ and the map $M_i\mapsto N_i$ is a bijection of isomorphism classes of simple modules.
+\end{proof}
+
+
+Now we apply this to $S_d$ and $\mathfrak{gl}(V)$:
+
+
+\begin{theorem}[Schur--Weyl duality]
+\label{theorem-Schur-Weyl-centralizer}
+ Consider the space $V^{\otimes^d}$ under the commuting actions of $S_d$ and $\mathfrak{gl}(V)$, i.e., as a representation of the algebra $A\otimes B$, where $A=\mathbb C[S_d]$ and $B=U(\mathfrak{gl}(V))$. Then, the images $\bar A$, $\bar B$ of $A$ and $B$ in $\text{End}(V^{\otimes^d})$ are each others' commutants, that is, 
+ $$\bar A=\text{End}_B(V^{\otimes^d}),\mbox{ and }$$
+ $$\bar B=\text{End}_A(V^{\otimes^d}).$$
+ 
+ We have a decomposition 
+\begin{equation}
+ \label{equation-Schur-Weyl}
+ V^{\otimes^d} = \bigoplus_{\tau} \tau \otimes \theta(\tau),
+\end{equation}
+ where $\tau$ ranges all isomorphism classes of irreducible representations of $S_d$, and the $\theta(\tau):= \text{Hom}_{S_d} (\tau, V^{\otimes^d})$ are either zero, or distinct irreducible representations of $\mathfrak{gl}(V)$.
+\end{theorem}
+
+Notice that the action of $\mathfrak{gl}(V)$ on $V^{\otimes^d}$ is defined as we define tensor products of representations of Lie algebras, i.e., the image of $e\in \mathfrak{gl}(V)$ in $\text{End}(V^{\otimes^d})$ is the element $S_d e:=\sum_{i=1}^d 1\otimes\cdots\otimes e \mbox{ ($i$-th factor)} \otimes \cdots\otimes 1$.
+
+\begin{proof}
+ Since both subalgebras are semisimple (complete reducibility), by Theorem \ref{theorem-double-centralizer} it is enough to prove the second claim.
+
+ We have $\text{End}_A(V^{\otimes^d}) = \text{End}(V^{\otimes^d})^{S_d} = (\text{End}(V)^{\otimes^d})^{S_d} = S^d \text{End}(V)$, and the $d$-th symmetric power of any vector space $E$ is spanned by the symmetric tensors $e\otimes \dots \otimes e$, for $e\in E$. In this case, $E=\text{End}(V)=B$. By the theory of symmetric polynomials, $e\otimes \dots \otimes e$ is a polynomial in the elements $S_d(e^i)$, $i=1,\dots, d$, which are in the image of $\mathfrak{gl}(V)$.
+\end{proof}
+
+
+Finally, we notice
+
+\begin{lemma}
+\label{lemma-restriction-sl}
+Every irreducible representation of $\mathfrak{gl}_n$ restricts irreducibly to $\mathfrak{sl}_n$.
+\end{lemma}
+
+\begin{proof}
+ We have $\mathfrak{gl}_n = \mathfrak z \oplus \mathfrak{sl}_n$, where $\mathfrak z$ is the center, but the center acts by a scalar, by Schur's lemma, so any $\mathfrak{sl}_n$-invariant subspace is also $\mathfrak{gl}_n$-invariant.
+\end{proof}
+
+Therefore, the irreducible representations of $\mathfrak{gl}_n$ constructed in Theorem \ref{theorem-Schur-Weyl} are also irreducible for $\mathfrak{sl}_n$. We will now classify irreducible representations of the symmetric group, and make the correspondence explicit, observing, in particular, that when $d$ is large enough, the decomposition \ref{equation-Schur-Weyl} contains all irreducible representations of $\mathfrak{sl}_n$.
+
+
+We follow, and reformulate, \cite{Fulton-Harris}, where we point the reader for more fun, to describe irreducible representations of the symmetric group $S_d$. 
+
+For the Lie algebra $\mathfrak{gl}_n$ with the standard Cartan of diagonal elements and the standard Borel of upper triangular elements, the dominant, integral weights are of the form
+$$ \text{diag}(z_1, z_2, \dots, z_n)\mapsto \lambda_1 z_1 + \dots +\lambda_n z_n,$$
+with $\lambda_1\ge \lambda_2\ge \dots \ge \lambda_n$ some integers. 
+
+For the Lie algebra $\mathfrak{sl}_n$, the positive, integral weights are described similarly, except that the $\lambda_i$'s are determined modulo the operation of adding the same constant to all of them. To reduce ambiguity, we can always take $\lambda_n=0$ (but won't be doing that yet).
+
+On the other hand, if $\lambda_1\ge \lambda_2\ge \dots \ge \lambda_n \ge 0$ are integers, and $d=\sum_i \lambda_i$, the $\lambda_i$'s describe a conjugacy class in the symmetric group $S_d$, namely, the conjugacy class of elements which can are products of disjoint cycles of lengths $\lambda_1$, $\lambda_2, \dots, \lambda_n$. Notice that $\lambda_n$ has been taken to be $\ge 0$ here, which is slightly restrictive for $\mathfrak{gl}_n$, but not for $\mathfrak{sl}_n$; in fact, for $\mathfrak{sl}_n$, any integral, dominant weight defines a conjugacy class in any $S_{d+ kn}$, for the minimal $d$ determined by $\lambda_n=0$. 
+
+We consider $G=S_d$ as the permutation group on the set $\Sigma = \{1,\dots, d\}$, and for every $\lambda:\lambda_1\ge \lambda_2\ge \dots \ge \lambda_n \ge 0$, a $\lambda$-partition of $\Sigma$ will be a disjoint decomposition $\Sigma = \bigsqcup_i \Sigma_i$, with $|\Sigma_i| = \lambda_i$. We can think of $\lambda$ as a \emph{Young diagram}, that is, the diagram consisting of a row of $\lambda_1$ squares stacked over $\lambda_2$ squares (aligned on the left), etc,\footnote{Since we allow some $\lambda_i$'s to be zero, the Young diagram does not determine $\lambda$, unless $n$ is known, but this will not play a role in what follows.} and we can also think of \emph{Young tableaux}, which are ways to populate the squares of a given Young diagram with the elements of $\Sigma$ (without repetitions). Then, the group $G=S_d$ acts on the space of Young tableaux of a given shape $\lambda$ (we define this action as a right action), and the space $\Sigma_\lambda$ of $\lambda$-partitions of $\Sigma$ is the homogeneous space $P\backslash G$, where $P=G_\lambda$ is the stabilizer of the rows of the standard Young tableau (where the integers are placed in order). 
+
+The \emph{dual partition} to $\lambda$ is partition $\lambda^*:\lambda^*_1\ge \lambda^*_2 \ge \dots \lambda^*_m >0$ of $d$ counting the sizes of the columns of the Young diagram of $\lambda$. The space $\Sigma_{\lambda^*}$ of $\lambda^*$-partitions of $\Sigma$ is the homogeneous space $Q\backslash G$, where $Q=G_{\lambda^*}$ is the stabilizer of the columns of the standard Young tableau.
+
+We will construct the irreducible representations of $G$ by inducing the trivial and sign representation from the groups $P$ and $Q$. None of them is irreducible, but they share a unique irreducible component.
+
+
+
+
+
+The double quotient space $P\backslash G/Q$ can be identified with $(\Sigma_\lambda \times \Sigma_\mu)/G^{\text{diag}}$, i.e., with the set of pairs
+$(\sigma,\tau)$, where $\sigma$ is a $\lambda$-partition of $\Sigma$ and $\tau$ is a $\mu$-partition of $\Sigma$, \emph{up to relabeling the elements of $\Sigma$}.
+
+The classification of irreducible representations of $S_d$ rests upon the following fundamental lemma:
+
+\begin{lemma}
+\label{lemma-combinatorics}
+ If $\lambda, \mu$ are two partitions of $d$, and $(\sigma,\tau)$ is a pair consisting of a $\lambda$-partition $\sigma$ of $\Sigma$ and a $\mu^*$-partition $\tau$ of $\Sigma$ with no pair $(k,l)$ of elements of $\Sigma$ in the same subset of $\sigma$ and of $\tau$, then $\tau$ is the refinement of a $\lambda^*$-partition of $\Sigma$; in particular, $\mu \ge \lambda$ in the lexicographic ordering, i.e., $\mu=\lambda$ or at the first index $i$ where $\mu_i\ne \lambda_i$ we have $\mu_i > \lambda_i$.
+ 
+ If $\mu=\lambda$ then the only pairs $(\sigma,\tau)$ without a pair $(k,l)$ in the same subset of $\sigma$ and of $\tau$ are those where $\sigma, \tau$ are the rows, resp.\ columns, of a single Young tableau.
+\end{lemma}
+
+
+\begin{proof}
+ Exercise.
+\end{proof}
+
+Now, we let $M_\lambda$, resp.\ $A_\lambda$, be the $G$-equivariant line bundles over the space $\Sigma_\lambda$ which are induced, respectively, from the trivial, resp.\ sign character, of $P$. Explicitly, sections of $M_\lambda$ are left-$P$-invariant functions on $G$, i.e., left-$P$-invariant elements of $\mathbb C[G]$, while sections of $A_\lambda$ are functions on $G$ which vary by the sign character under left translation by $P$. For notational simplicity, we will identify the bundles with their space of sections.
+
+\begin{proposition}
+ \label{proposition-intertwiners}
+We have $\dim\Hom_G(M_\lambda, A_{\lambda^*}) = 1$. 
+
+If $\lambda>\mu$, we have $\dim\Hom_G(M_\lambda, A_{\mu^*}) = 0$.
+\end{proposition}
+
+\begin{proof}
+The space of $G$-morphisms $\Hom_G(M_\lambda, A_{\mu^*})$ can naturally be identified with the space of $G^{\text{diag}}$-invariant sections of $L:=M_\lambda\otimes A_{\mu^*}$ over $\Sigma_\lambda\times\Sigma_{\mu^*}$, considered as kernel functions, i.e., the morphism $T_K$ corresponding to a section $K$ is
+$$ T_K (f) (y) = \sum_{x\in \Sigma_\lambda} f(x) K(x,y).$$
+
+By Lemma \ref{lemma-combinatorics}, if $\lambda \ge \mu$, for a pair $(\sigma,\tau) \in \Sigma_\lambda \times \Sigma_{\mu^*}$ there is a transposition $t=(k,l)$ which stabilizes both $\sigma$ and $\tau$, unless $\lambda=\mu$ and the pair $(\sigma,\tau)$ corresponds to the rows and columns of a Young tableau. But then, $t$ will act by $-1$ on the fiber of $L$ over $(\sigma,\tau)$, which means that its orbit cannot support a $G$-invariant section of $L$. 
+\end{proof}
+
+
+\begin{theorem}
+\label{theorem-irreducibles-symmetric}
+The image of a nonzero $G$-morphism $M_\lambda \to A_{\lambda^*}$ is an irreducible representation $V_\lambda$. For $\lambda, \mu$ different partitions, $V_\lambda, V_\mu$ are non-isomorphic, and these are all the irreducible representations of $G=S_d$.
+\end{theorem}
+
+\begin{proof}
+The image of a nonzero $G$-morphism $M_\lambda \to A_{\lambda^*}$ has to be an irreducible representation $V_\lambda$, because otherwise, the space $\Hom(M_\lambda, A_{\lambda^*})$ would have dimension $>1$, by scaling the irreducible summands in the image by different scalars. This would contradict Proposition \ref{proposition-intertwiners}.
+ 
+Let $\lambda\ne \mu$. Without loss of generality, assume that $\lambda >\mu$ in the lexicographic order. Then, again by Proposition \ref{proposition-intertwiners}, there are no $G$-morphisms from $M_\lambda$ to $A_{\mu^*}$. Therefore, $V_\lambda$ cannot embed in $A_{\mu^*}$, and is non-isomorphic to $V_\mu$. 
+
+The number of partitions $\lambda$ of $d$ is equal to the number of conjugacy classes of $S_d$, so we have constructed all the isomorphism classes of irreducible $S_d$-representations.
+\end{proof}
+
+
+
+
+
+Explicitly, by the bijection between $P\backslash G/Q$ and $(\Sigma_\lambda \times \Sigma_\lambda^*)/G^{\text{diag}}$, we can think of a $G$-invariant section of $L$ as an element of $\mathbb C[G]$ which is left-$P$-invariant and varies by the sign character under right multiplication by $Q$. Then, a basis element for the space of invariant sections is the element 
+$$ c_\lambda = a_\lambda b_\lambda,$$
+where 
+$$ a_\lambda = \sum_{g\in P} g,$$
+$$ b_\lambda = \sum_{g\in Q} \text{sgn}(g)\cdot g.$$
+
+
+\begin{lemma}
+\label{lemma-projectors}
+Let $a_\lambda, b_\lambda, c_\lambda \in \mathbb C[S_d]$ be as above. Then, the irreducible representation $V_\lambda$ of $S_d$ is isomorphic to the module $\mathbb C[S_d] c_\lambda$, or equivalently to the module $c_\lambda^* \mathbb C[S_d]$, where $c_\lambda^*= b_\lambda a_\lambda$. 
+
+For any vector space $V$, the action of $a_\lambda$ induces a surjective map onto the tensor product of symmetric powers
+$$V^{\otimes^d} \to S^{\lambda_1}V \otimes \cdots \otimes S^{\lambda_n} V,$$
+while the action of $b_\lambda$ induces a surjective map onto the tensor product of exterior powers
+$$V^{\otimes^d} \to \bigwedge^{\lambda_1^*}V \otimes \cdots \otimes \bigwedge^{\lambda_m^*} V.$$
+
+Moreover:
+\begin{enumerate}
+ \item $a_\lambda \cdot x \cdot b_\nu = 0$ whenever $\nu: \nu_1 \ge \dots \nu_r \ge 0$ is a partition of $d$ which is \emph{smaller} than $\lambda$ in the lexicographic ordering, i.e., $\nu_i = \lambda_i$ for some $j$ and all $i<j$, while $\lambda_j>\nu_j$. 
+ \item $c_\lambda$ is the only element $c\in \mathbb C[S_d]$, up to scalar, with the property that $p c q = \text{sgn}(q) c$ for all $p\in P$, $q\in Q$. 
+ \item $c_\lambda x c_\lambda$ is a multiple of $c_\lambda$, for every $x\in \mathbb C[S_d]$. In particular, $c_\lambda$ is an idempotent up to a scalar, i.e., $c_\lambda^2 = n_\lambda c_\lambda$ for some $n_\lambda\in \mathbb C$. This scalar is $n_\lambda = \frac{d!}{\dim V_\lambda}$.
+\end{enumerate}
+
+\end{lemma}
+
+
+\begin{proof}
+We can consider $\mathbb C[G] c_\lambda$ as a submodule of $A_{\lambda^*} = \text{Ind}_Q^G (\text{sgn})$. 
+The module $M_\lambda = \text{Ind}_P^G (1)$ is generated by the characteristic function of $P1$, and its image in $A_{\lambda^*}$ under $c_\lambda$, understood as a kernel function as in the proof of Proposition \ref{proposition-intertwiners}, is $1c_\lambda \in \mathbb C[G] c_\lambda\subset A_{\lambda^*}$. Equivalently, we can realize $V_\lambda$ as the image of $A_{\lambda^*}$ in $M_\lambda$ under the adjoint operator (given by the same kernel), and then we obtain the submodule $\mathbb C[G] c_\lambda^*\subset M_\lambda$.
+
+The actions of $a_\lambda$, $b_\lambda$ on $V^{\otimes^d}$ are easy to describe from the definitions.
+
+To prove $a_\lambda \cdot x \cdot b_\nu =0$, it is enough to consider the basis elements $x=g\in S_d$, and then by renaming the elements it is enough to consider $g=1$. If $\lambda>\nu$ (lexicographically), there are two elements $k, l$ which belong to the same row in the Young diagram for $\lambda$ and in the same column for $\nu$. If $t=(k,l)$ then $a_\lambda\cdot t = a_\lambda$, $t\cdot b_\nu = -b_\nu$, hence $a_\lambda b_\nu = a_\lambda t \cdot tb_\nu = -a_\lambda b_\nu$, hence is zero. 
+
+The uniqueness (up to scalar) of $c_\lambda$ with this property is a reformulation of Proposition \ref{proposition-intertwiners}, considering such elements, as in the proof of that proposition, as $G^{\text{diag}}$-invariant kernels. 
+
+Clearly, $c_\lambda x c_\lambda$ has this property, therefore is a multiple of $c_\lambda$. To determine the scalar $n_\lambda$, consider the operator of right multiplication by $c_\lambda$, as an endomorphism of $\mathbb C[S_d]$. It acts by $n_\lambda$ on its image $\mathbb C[S_d]c_\lambda$, which is isomorphic to $V_\lambda$, hence its trace is $n_\lambda \dim[V_\lambda]$. On the other hand, the coefficient of the identity element in $c_\lambda$ is $1$, so its trace is equal to $\dim \mathbb C[S_d] = d!$. 
+\end{proof}
+
+
+
+
+
+\begin{definition}
+\label{definition-Young-symmetrizer}
+The element $c_\lambda$ of the group algebra $\mathbb C[S_d]$ defined above is called the {\it Young symmetrizer} attached to the partition $\lambda$.
+\end{definition}
+
+
+
+\begin{theorem}
+ \label{theorem-Schur-Weyl}
+Let $V$ be the standard representation of $\mathfrak{sl}_n$, and consider $V^{\otimes^d}$ as a representation of $S_d\times \mathfrak{sl}_n$. Denote by $\Pi_n$, $\Pi_d'$ the sets of isomorphism classes of irreducible representations of $\mathfrak{sl}_n$, resp.\ $S_d$. There is a map $\sigma:\Pi_d'\to \Pi_n \cup \{0\},$
+where $0$ denotes the zero-dimensional representation,
+such that 
+$$V^{\otimes^d} = \bigoplus_{\pi\in \Pi_d'} \pi \otimes \sigma(\pi)$$
+as $S_d\times \mathfrak{sl}_n$-modules.  
+
+The map $\sigma$ is induced by the \emph{Schur functor}, sending a vector space $V$ to $c_\lambda V^{\otimes^d}$ (or, equivalently, to $c_\lambda^* V^{\otimes^d}$), where $c_\lambda$ is the Young symmetrizer of Definition \ref{definition-Young-symmetrizer} (and $c_\lambda^*=b_\lambda a_\lambda$ its adjoint). If $\lambda:\lambda_1 \ge \dots \ge \lambda_m$ is a partition, and $\lambda^*: \lambda_1^* \ge \dots \ge \lambda_r^*$ its dual, the space $c_\lambda V^{\otimes^d}$ is the image of the subspace
+$$ \bigwedge^{\lambda_1^*}V \otimes \cdots \otimes \bigwedge^{\lambda_m^*} V$$
+of $V^{\otimes^d}$ under the symmetrization map:
+$$ V^{\otimes^d} \to S^{\lambda_1} V \otimes \dots \otimes S^{\lambda_m} V$$
+(and, respectively, the space $c_\lambda^* V^{\otimes^d}$ is the image of the above product of symmetric powers in the above produce of alternating powers, under the antisymmetrization map). Here, we think of the factors of $V$ as labelled by the boxes of a Young diagram of shape $\lambda$, with symmetric powers taken among the factors in the same row, and exterior powers taken among the factors in the same column.
+
+The map $\sigma$ takes the irreducible representation of $S_d$ parametrized by the partition $\lambda$ to the irreducible $\mathfrak{sl}_n$-module of heighest weight $\lambda_1 \ge \dots \ge \lambda_m \ge 0\ge \dots \ge 0$, if $m \le n$, or to zero, otherwise. 
+
+Consequently, the map $\sigma$ is injective away from the fiber of zero, does not have zero in the image if $n\ge d$, and the resulting map $\sqcup_d \Pi_d' \to \Pi_n \cup\{0\}$ is surjective.
+\end{theorem}
+
+\begin{proof}
+ The existence of the map $\sigma$ follows from the double centralizer theorem \ref{theorem-double-centralizer} and Theorem \ref{theorem-Schur-Weyl-centralizer}. Under this theorem, $\sigma(V_\lambda) = \Hom_{S_d} (V_\lambda, V^{\otimes^d})$. Realizing $V_\lambda$ as $\mathbb C[S_d]c_\lambda$, by the idempotence of $c_\lambda$ the space $\Hom_{S_d} (V_\lambda, V^{\otimes^d})$ can be identified with $c_\lambda V^{\otimes^d}$, by the map that assigns to a morphism the image of $1c_\lambda$. Equivalently, we can realize $V_\lambda$ as $\mathbb C[S_d]c_\lambda$, and the same argument holds. 
+ 
+ The description of $c_\lambda V^{\otimes^d}$, $c_\lambda^* V^{\otimes^d}$ follows from Lemma \ref{lemma-projectors}. We determine the highest weight, using the realization $\sigma V_\lambda = c_\lambda^* V^{\otimes^d}$. Let $x_1, \dots, x_n$ be a basis for $V$, and consider the vector
+ $$ \otimes^{\lambda_1} x_1 \otimes \otimes^{\lambda_2} x_2 \cdots \otimes \otimes^{\lambda_n} x_n \in S^{\lambda_1} V \otimes \dots \otimes S^{\lambda_m} V.$$
+ Its image in $\bigwedge^{\lambda_1^*}V \otimes \cdots \otimes \bigwedge^{\lambda_m^*} V$ (where, recall, we are labeling the factors of $V$ according to the boxes in a Young diagram, and antisymmetrize along the columns) is the vector 
+ $$ \mathcal A(x_1\otimes x_2 \otimes\cdots\otimes x_{\lambda^*_1}) \otimes \cdots \otimes \mathcal A(x_1\otimes x_2 \otimes\cdots\otimes x_{\lambda^*_r}),$$
+ where $\mathcal A$ denotes the antisymmetrization map. 
+ 
+ Evidently, this is an eigenvector for the parabolic subgroup of $\text{GL}_n$ (and, a fortiori, of $\text{SL}_n$) that stabilizes the flag 
+ $$ \text{span}(x_1,x_2, x_{\lambda^*_1}) \supset \text{span}(x_1,x_2, x_{\lambda^*_2}) \supset \dots \supset \text{span}(x_1,x_2, x_{\lambda^*_r}),$$
+ and its weight is $(\lambda_1, \lambda_2 ,\dots, \lambda_n)$. 
+ 
+ 
+\end{proof}
 
 
 
