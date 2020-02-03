@@ -6,8 +6,9 @@
 # Should be the same as in the main Makefile
 # except that it includes the bibliography
 LIJST = introduction representationtheory representations-compact \
-	liegroups-general liestructure reductiveforms vermamodules \
-	gKmodules asymptotics plancherel discreteseries bibliography
+	liegroups-general liestructure algebraicgroups reductiveforms vermamodules \
+	gKmodules asymptotics plancherel discreteseries galoiscohomology \
+    automorphicspace bibliography
 
 # book is a special case
 LIJST_TAGS = $(LIJST) fdl index

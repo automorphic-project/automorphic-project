@@ -1,0 +1,118 @@
+\input{preamble}
+
+ \DeclareFontFamily{U}{wncy}{}
+    \DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
+    \DeclareSymbolFont{mcy}{U}{wncy}{m}{n}
+    \DeclareMathSymbol{\Sha}{\mathord}{mcy}{"58} 
+
+% OK, start here.
+%
+\begin{document}
+
+\title{Galois cohomology of linear algebraic groups}
+
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+\tableofcontents
+
+[This chapter needs a lot of work. For now, we only summarize the results needed in other sections.]
+
+A good reference for this section is Chapter 6 of \cite{Platonov-Rapinchuk}
+
+\section{Galois cohomology over a finite field}
+\label{section-finite-field}
+
+\begin{theorem}[Lang's theorem]
+ \label{theorem-Lang}
+If $G$ is a connected algebraic group over a finite field $k$, then $H^1(k, G)=1$. 
+\end{theorem}
+
+\begin{proof}
+ 
+\end{proof}
+
+
+\section{Tate--Nakayama duality for tori}
+ \label{section-Tate-Nakayama}
+ 
+
+\section{Cohomology of reductive groups over local fields}
+\label{section-local-fields}
+
+\begin{lemma}
+ \label{lemma-cohomology-finite}
+If $G$ is an algebraic group over a local field $F$, then $H^1(F, G)$ is finite.
+\end{lemma}
+
+\begin{proof}
+ 
+\end{proof}
+
+
+\begin{theorem}
+ \label{theorem-H1-trivial}
+If $G$ is a (connected) simply connected, semisimple group over a non-Archimedean field $F$, then $H^1(F,G)$ is trivial. For an arbitrary connected reductive group over a local field $F$, there is a canonical surjective map [Kottwitz], which in the non-Archimedean case is a bijection.
+\end{theorem}
+
+\begin{proof}
+ 
+\end{proof}
+
+\section{Cohomology of reductive groups over global fields; the Hasse principle}
+\label{section-global-fields}
+
+\begin{definition}
+ \label{definition-Sha-Hasse}
+Let $G$ be an algebraic group over a global field $k$. The kernel of the natural map $H^1(k,G)\to \prod_v H^1(k_v, G)$ is the {\it Tate--Shafarevich group} of $G$, denoted $\Sha(G)$. We say that $G$ satisfies the {\it Hasse principle} if $\Sha(G)=1$.
+\end{definition}
+
+
+
+\begin{theorem}
+ \label{theorem-Sha-finite}
+ If $G$ is an algebraic group over a number field, then $\Sha(G)$ is finite.
+\end{theorem}
+
+\begin{proof}
+ 
+\end{proof}
+
+
+The following is the Hasse principle for algebraic groups:
+
+\begin{theorem}
+ \label{theorem-Hasse-principle}
+If $G$ is (connected and) simply connected or adjoint, over a global field, then $\Sha(G) =1$.
+\end{theorem}
+
+\begin{proposition}
+ \label{proposition-H1-surjects}
+If $G$ is a connected algebraic group over a number field $k$, then $H^1(k,G) \to \prod_{v|\infty} H^1(k_v, G)$ is surjective.
+\end{proposition}
+
+
+\begin{proof}
+ See \cite[Proposition 6.17]{Platonov-Rapinchuk}.
+\end{proof}
+
+
+
+
+
+
+%***************************************************************************
+
+
+
+
+\input{chapters}
+
+
+\bibliography{my}
+\bibliographystyle{amsalpha}
+
+\end{document}

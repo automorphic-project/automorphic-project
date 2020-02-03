@@ -4,7 +4,7 @@
 %
 \begin{document}
 
-\title{Lie and algebraic groups, and their homogeneous spaces}
+\title{Linear algebraic groups}
 
 
 \maketitle
@@ -14,17 +14,454 @@
 
 \tableofcontents
 
+[This chapter needs a lot of improvement.]
 
-\section{Overview}
-\label{section-overview}
+\section{Diagonalizable groups}
+\label{section-diagonalizable-groups}
 
-\noindent
+We pass to the study of linear algebraic groups, over a general field $k$. [The rest of this chapter is quite incomplete; it strives to become complete some day, though, so if you notice any omissions/gaps in the arguments, that are not noted, please notify!]
+
+
+The definitions will follow a different order than in the case of Lie algebras, because we want to distinguish between the additive group $\mathbf G_a = \text{Spec} k[T]$ and the multiplicative group $\mathbf G_m = \text{Spec} k[T,T^{-1}]$, whose Lie algebras are the same. It is easy to see that \emph{there are no non-trivial morphisms between these two groups}. 
+
+
+\begin{definition}
+\label{definition-characters-diagonalizable-group} 
+The {\it character group} $X^\bullet(G)$ of a linear algebraic group $G$ is the group of morphisms $G\to \mathbf G_m$. 
+A linear algebraic group $G$ over an field $k$ is called \emph{diagonalizable} if $\bar k[G]$ is spanned, as a vector space, by the $\bar k$-rational characters: $\bar k[G] = \bar k[X_\bullet(G_{\bar k})]$. A {\it torus} is a connected diagonalizable group. A diagonalizable group $G$ is said to be {\it split} if $X^\bullet(G) = X^\bullet(G_{\bar k})$.
+\end{definition}
+
+\begin{theorem}
+\label{theorem-diagonalizable-equivalence}
+Any character of a diagonalizable group $G$ over the algebraic closure $\bar k$ is defined over a finite separable extension of $k$. If $\Gamma$ denotes the Galois group of the separable closure $k^s$ over $k$, the contravariant functor that assigns to any group its $\bar k$-character group gives rise to a contravariant equivalence of categories:
+$$\{\mbox{diagonalizable $k$-groups}\} \leftrightarrow $$
+$$\{\mbox{finitely generated abelian groups without $p$-torsion, with a continuous $\Gamma$-action}\},$$
+where $p$ is the characteristic exponent of $k$.
+Under this equivalence, tori correspond to torsion-free abelian groups.
+\end{theorem}
+
+\begin{proof}
+ Choose any embedding $G\subset \text{GL}(V)$, for a finite-dimensional vector space $V$. For the first statement, it is enough to show that $G$ can be diagonalized over (a finite subextension of) $k^s$. By functoriality of the Jordan decomposition, the image of $G$ consists of semisimple elements. Therefore, the minimal polynomial of every $g\in G(k)$ has distinct roots, which are therefore defined over a finite separable extension. Therefore, $G$ can be diagonalized over a finite separable extension.
+ 
+ The rest of the statements are left to the reader.
+\end{proof}
+
+It is often useful to replace tori by \emph{induced tori}:
+
+\begin{definition}
+ \label{definition-induced-torus}
+An {\it induced torus} over a field $k$ is a torus of the form $\text{Res}_{E/k} \mathbb G_m$, where $E/k$ is a finite \'etale extension, i.e., a finite product of separable field extensions.
+\end{definition}
+
+\begin{lemma}
+ \label{lemma-induced-tori}
+For every torus $T$ over $k$, there is a monomorphism $T\hookrightarrow S_1$ and an epimorphism $S_2\twoheadrightarrow T$, where $S_1, S_2$ are induced tori.
+\end{lemma}
+
+\begin{proof}
+ Consider the $\Gamma$-module $\Lambda=X^*(T)$, and let $E$ be the fixed field of the kernel of the action of $\Gamma$ on $\Lambda$. If $\Gamma_E \subset \Gamma$ denotes the Galois group of $k^s/E$, the identity morphism on $\Lambda$ gives rise to a $\Gamma$-equivariant embedding $\Lambda \hookrightarrow \text{Ind}_{\Gamma_E}^\Gamma \Lambda|_{\Gamma_E}$, and the latter is the character group of an induced torus $S_2 \simeq \text{Res}_{E/k} \mathbb G_m^r$, where $r$ is the rank of $\Lambda$. Vice versa, we can write $\Lambda$ as the quotient of a free $\Gamma/\Gamma_E$-module $M$, which is then the character group of an induced torus $S_1 \simeq \text{Res}_{E/k}^{r'}$, where $r'$ is the rank of $M$. 
+\end{proof}
+
+
+
+\section{Unipotent, solvable, semisimple, and reductive groups}
+\label{section-groups}
+
+A main goal in our discussion of linear algebraic groups will be to recover some of the structure of semisimple Lie algebras that holds in characteristic zero but fails in positive characteristic. The action of the group on its coordinate ring allows us to recover, e.g., the Jordan decomposition. We define notions of semisimplicity etc with respect to this action. We denote by $L$, resp.\ $R$, the left, resp.\ right action of $G$ on $k[G]$; recall that this is a locally finite action, so for every $v\in k[G]$ there is a finite-dimensional stable subspace $V\subset k[G]$ containing $v$, such that $L$ (or $R$) is a morphism of algebraic groups $G\to \text{GL}(V)$.
+
+\begin{definition}
+\label{definition-semisimple-unipotent-group}
+ Let $G$ be a linear algebraic group over a field $k$. An element $g\in G(k)$ is called \emph{semisimple} if $R(g)$ is semisimple, and unipotent if $R(g)$ is unipotent. 
+\end{definition}
+
+\begin{theorem}[Jordan decomposition]
+\label{theorem-Jordan-group}
+ Let $G$ be a linear algebraic group over a field $k$ in characteristic $p\ge 0$. 
+ 
+ Every element $g\in G(k)$ admits a unique decomposition $g = g_s g_u$ in $G(k^{p^{-\infty}})$, with $g_s$ semisimple and $g_u$ unipotent, commuting with each other.
+ 
+ Moreover, every element $X\in \mathfrak g(k)$ admits a unique decomposition $X = X_s + X_n$ in $\mathfrak g(k^{p^{-\infty}})$, with $R(X_s)$ semisimple and $R(X_n)$ nilpotent, commuting with each other.
+ 
+ If $G\to G'$ is a morphism of linear algebraic groups, the Jordan decompositions of elements in the group or the Lie algebra are preserved.
+\end{theorem}
+
+Notice, in particular, that for $\mathfrak g$ semisimple in characteristic zero, the Jordan decomposition in $\mathfrak g$ is the same as the one defined by the adjoint representation in Theorem \ref{liestructure-theorem-Jordan-Chevalley}.
+
+\begin{proof}
+ Assume first that $k$ is algebraically closed. The right action being locally finite, hence a sum of finite-dimensional representations $G\to \text{GL}(V)$, we can apply the Jordan decomposition for $\text{GL}(V)$, to conclude that $R(g) = R(g)_s R(g)_u$ for unique semisimple, resp.\ unipotent $R(g)_s$, $R(g)_u$ which are \emph{polynomials in $R(g)$} (in $\text{End}(V)$). The image of $G$ in $\text{GL}(V)$ is closed [General fact about morphisms of algebraic groups, to be added]. If $B\subset k[\text{GL}(V)]$ is the ideal defining its image, it is stable under the right action of $G$, hence of $R(g)_s$ and $R(g)_u$ (since they are polynomial in $R(g)$). But the subgroup of elements in $\text{GL}(V)(k)$ stabilizing this ideal is equal to $G(k)$, since any other right coset of $G$ is a different closed subvariety of $\text{GL}(V)$. Thus, $R(g)_s$ and $R(g)_u$ are the images of unique elements $g_s$, $g_u$ of $G(k)$.
+ 
+ If $k$ is not algebraically closed, by uniqueness of the Jordan decomposition these elements are fixed under the Galois group, and therefore defined over the maximal inseparable extension $k^{-p^\infty}$.   
+ 
+ The statements on Lie algebras follow similarly. 
+\end{proof}
+
+
+\begin{definition}
+ \label{definition-solvable-unipotent}
+The {\it derived series} of an algebraic group $G$ is the series of normal subgroups 
+$$ \mathcal D^0(G) = G$$
+$$ \mathcal D^{i+1}(G) = \mathcal D(\mathcal D^iG),$$
+where $\mathcal D$ denotes the commutator subgroup. 
+
+An algebraic group $G$ is called \emph{solvable} if $\mathcal D^n G=1$ for some $n$. 
+
+A linar algebraic group $G$ is called \emph{unipotent} if $g = g_u$ in terms of the Jordan decomposition of Theorem \ref{theorem-Jordan-group}, for every $g\in G(\bar k)$.
+\end{definition}
+
+\begin{theorem}
+\label{theorem-representations-unipotent}
+Let $G$ be a unipotent algebraic group over a field $k$. The only (algebraic) irreducible representation of $G$ is the trivial one. For any representation $\rho:G \to \text{GL}(V)$, there is a full flag in $V$ with respect to which $V$ is upper triangular. Any unipotent group is solvable.
+\end{theorem}
+
+This is the group analog of Engel's theorem \ref{liestructure-theorem-Engel}.
+
+\begin{proof}
+Let $V^G$ be the subspace of $G$-fixed vectors: By definition, this is the maximal $G$-stable subspace of $V$ with the property that the action morphism $G\times V\to V$ coincides with the projection to $V$. It is clearly defined over $k$, so if we show that $V^G(\bar k) \ne 0$ then $V^G\ne 0$. But $V^G(\bar k)$ is easily seen to be equal to $V(\bar k)^{G(\bar k)}$, so it is enough to assume that $k$ is algebraically closed. 
+
+By the functoriality of the Jordan decomposition, $\rho(g)$ is unipotent, for every representation $\rho$ and any $g\in G(k)$. If the representation is irreducible and $k = \bar k$, by Burnside's irreducibility criterion, $\text{End}_k(V)$ is generated as an algebra by $\rho(G(k))$. Since $\rho(g)$ is unipotent, we have $\rho(g) = 1+x$ for some nilpotent endomorphism $x$. For every $g'\in G(k)$ we have 
+$$ \text{tr}(x\rho(g')) =\text{tr}((\rho(g)-1)\rho(g'))= \text{tr}(\rho(gg'))-\text{tr}(\rho(g')) = \dim(V)-\dim(V)=0,$$
+since both $\rho(gg')$ and $\rho(g')$ are unipotent. But the trace pairing is nondegenerate on $\text{End}_k(V)$, hence $x=0$, and the representation is trivial.
+
+By induction on the dimension, for any representation $(\rho,V)$ of $G$ there is a filtration $F^i V$ such that $G$ acts trivially on $\text{gr}^i(V)$, i.e., there is a flag with respect to which $\rho(G)$ is upper triangular.
+
+If we consider any faithful representation $G\to \text{End}(\mathfrak g)$, the image is upper triangular, hence solvable.
+\end{proof}
+
+\begin{definition}
+\label{definition-split-solvable}
+ A solvable algebraic group over a field $k$ is said to be {\it split} if it has a filtration over $k$ whose graded pieces are isomorphic to $\mathbf G_m$ or $\mathbf G_a$.
+\end{definition}
+
+\begin{lemma}
+\label{lemma-connected-solvable-split}
+ If $k$ is algebraically closed, every connected solvable group is split.
+\end{lemma}
+
+\begin{proof}
+ Omitted.
+\end{proof}
+
+\begin{proposition}
+ \label{proposition-Levi-solvable}
+If $G$ is a split solvable linear algebraic group over a field $k$, all maximal tori in $G$ are $G(k)$-conjugate. If $T$ is a maximal torus, then $G$ is the semidirect product $G=T\mathcal U(G)$, and any semisimple element in $G$ is conjugate to an element of $T$. 
+\end{proposition}
+
+\begin{proof}
+ This is a delicate argument using induction on the dimension of $G$, see \cite[Theorem 10.6]{Borel-LAG}. 
+\end{proof}
+
+
+
+
+
+The analog of Lie's theorem \ref{liestructure-theorem-Lie} is 
+\begin{theorem}[Borel's fixed point theorem]
+\label{theorem-Borel-fixed-point}
+ If $G$ is a split, solvable, connected algebraic group over field $k$, acting on a proper $k$-scheme $X$ with $X(k)\ne \emptyset$, then $X(k)^G\ne \emptyset$. 
+\end{theorem}
+
+The reason that this is the analog of Lie's theorem is that, if $G$ acts on a vector space $V$, and $X$ is the flag variety classifying full flags in $G$, then the fixed point corresponds to a flag fixed by $G$. Notice that, unlike the Lie algebra version, there is not requirement of characteristic zero here.
+
+\begin{proof}
+ By induction on the dimension $d$ of $G$, the case $d=0$ being trivial. Let $G'\subset G$ be normal of codimension one with $G/G'\simeq \mathbf G_m$ or $\mathbf G_a$, then, by induction, the fixed-point subvariety $X^{G'}$ has a nonempty set of $k$-points, so we may replace $X$ by $X^{G'}$ and $G$ by $G/G'$, reducing us to the case where $G=\mathbf G_m$ or $\mathbf G_a$. Choose $x\in X(k)$, obtaining an orbit map $G\ni g\mapsto gx\in X$.  Then, thinking of $G$ as embedded inside of $\mathbf P^1$, by the valuative criterion for properness the map extends to a map $\varphi:\mathbf P^1\to X$. This extension is $G$-equivariant, because $X$ is proper, hence separated, hence ``limits are unique'', i.e., writing $\lim \gamma$ for specialization of the extension to the spectrum of a valuation ring $\mathfrak o$ of a map $\gamma$ from the spectrum of its quotient field $K$, if $\gamma: \text{Spec K} \to G$ then $\varphi(\lim \gamma) = \lim (\varphi \circ \gamma)$. Therefore, for every $g\in G$ we have $g\cdot \varphi(\lim \gamma) = g\cdot \lim (\varphi\circ\gamma) = \lim( g\cdot \varphi\circ\gamma) = \lim(\varphi(g\cdot \gamma))$ (because $\varphi$ is equivariant on $G$) $= \varphi(\lim (g\cdot\gamma))$. 
+ 
+ The image of $\infty\in \mathbf P^1$ will be the desired $G$-fixed point on $X(k)$.
+\end{proof}
+
+
+
+
+\begin{definition}
+\label{definition-reductive}
+The {\it radical} $\mathcal R(G)$ of an algebraic group $G$ is its maximal connected solvable normal subgroup. The {\it unipotent radical} $\mathcal U(G)$ of a linear algebraic group $G$ is its maximal connected unipotent normal subgroup. A group is {\it reductive} if its unipotent radical over the algebraic closure, $\mathcal U(G_{\bar k})$, is trivial, and {\it semisimple} if $\mathcal R(G)=1$.
+\end{definition}
+
+\begin{remark}
+ \label{remark-unipotent-radical}
+If $k$ is perfect, then $\mathcal U(G_{\bar k}) = \mathcal U(G)_{\bar k}$. However, for non-perfect fields, the absolute unipotent radical could be larger; for example, consider a purely inseparable extension $k'/k$, and let $G = \text{Res}_{k'/k}\text{GL}_1$. Its $k$-unipotent radical is trivial, but its $k'$-unipotent radical is not. [Exercise!]
+\end{remark}
+
+
+
+\section{One-parameter subgroups and the associated parabolics}
+\label{section-one-parameter}
+
+Let $\lambda:\mathbf{G}_m \to G$ be a cocharacter --- also called a ``one-parameter subgroup''. We let it $\mathbf G_m$ act on $G$ by conjugation via this character: $^{\lambda(a)}g:= \lambda(a) g \lambda(a)^{-1}$.
+
+We let 
+$$P(\lambda)=\{g\in G| \lim_{t\to 0} {^{\lambda(t)}g} \mbox{ exists}\},$$  
+$$U(\lambda)=\{g\in G| \lim_{t\to 0} {^{\lambda(t)}g} =1\},$$
+$$L(\lambda)= G^{\lambda(\mathbf G_m)},\mbox{ the centralizer of }\lambda.$$
+
+A priori, these groups could be non-reduced, but the following proposition states that this is not the case:
+
+\begin{proposition}
+ \label{proposition-cocharacters-parabolics}
+The groups $P(\lambda)$, $U(\lambda)$, $L(\lambda)$ are smooth, connected if $G$ is, and $P(\lambda)=L(\lambda)U(\lambda)$ is a semidirect product decomposition of $P(\lambda)$. The multiplication map 
+$$ U(\lambda^{-1})\times P(\lambda)\to G$$
+is an open immersion (embedding).
+\end{proposition}
+
+\begin{proof}
+ For the proof, including a careful discussion of the definitions of these groups, see \S 24, 25 of the course notes of \cite{Conrad-AG1}.
+\end{proof}
+
+
+\begin{definition}
+ \label{definition-Levi-decomposition}
+The decomposition $P(\lambda)=L(\lambda)U(\lambda)$ of Proposition \ref{proposition-cocharacters-parabolics} is called a \emph{Levi decomposition} of the parabolic $P(\lambda)$. 
+\end{definition}
+
+\begin{remark}
+ \label{remark-general-Levi}
+ More generally, a Levi decomposition of a connected linear group $G$ is a semidirect decomposition $G=L\cdot \mathcal U(G)$, where $\mathcal U(G)$ is the unipotent radical of $G$. Levi decompositions always exist in characteristic zero, but not in positive characteristic.
+\end{remark}
+
+
+
+
+This implies:
+
+\begin{proposition}
+\label{proposition-centralizers-tori-connected}
+ If $G$ is a connected linear algebraic group, the centralizer of any torus is connected. 
+\end{proposition}
+
+\begin{proof}
+ We may assume that $k=\bar k$. If $T=T_1T_2$, where the $T_i$'s are tori of smaller dimension, then the centralizer of $T$ in $G$ is equal to the centralizer of $T_1$ inside of the centralizer of $T_2$. This way, the problem reduces to $\text{dim}(T)=1$. Let $\lambda:\mathbf G_m\to G$ be a nontrivial cocharacter, whose image is $T$. Then the claim follows from Proposition \ref{proposition-cocharacters-parabolics}.
+\end{proof}
+
+
+
+
+
+
+\section{Density of points; Borel and Cartan subgroups}
+\label{section-Cartan-Borel-group}
+
+For the definitions that follow, there are slight variants in the literature, e.g., allowing Cartan subgroups to be disconnected when the group is disconnected. To avoid confusion, establish an easy-to-remember principle, and stay close to the theory of Lie algebras, we are imposing connectedness in our definitions.
+
+
+\begin{definition}
+\label{definition-Cartan-Borel-subgroup}
+A {\it Borel subgroup} of a linear algebraic group over an algebraically closed field is a maximal connected solvable subgroup. A {\it Cartan subgroup} is the identity component of the centralizer of a maximal torus. 
+\end{definition}
+
+\begin{remark}
+ \label{remark-Cartan-connected}
+If $G$ is connected then, by Proposition \ref{proposition-centralizers-tori-connected}, the centralizer of any torus is connected, so the word ``connected'' in the definition of Cartan subgroups is superfluous.
+\end{remark}
+
+
+
+\begin{theorem}
+\label{theorem-Borel-subgroups-conjugate}
+A connected solvable subgroup is Borel (i.e., maximal) if and only if the quotient $G/B$ is projective. All Borel subgroups are conjugate over the algebraic closure.
+\end{theorem}
+
+We will eventually see that all Borel subgroups defined over the base field $k$ (if there are any) are conjugate under $G(k)$.
+
+\begin{proof}
+ 
+
+ We first prove that if $B$ is of maximal dimension among connected solvable subgroups, then $G/B$ is projective. We may and will assume that the field of definition $k$ is algebraically closed. By Theorem \ref{liegroups-general-theorem-quotients}, there is a linear representation $V$ of $G$ such that $B$ is the stabilizer of a line $L$. Applying the Borel fixed point theorem \ref{theorem-Borel-fixed-point} on the flag variety of $V/L$, $B$ stabilizes a full flag $f$ in $V$ whose first element is $L$; hence it is the stabilizer of that flag in $G$. Any other stabilizer of a flag in $V$ is also solvable, and by the maximality of $\text{dim}(B)$, the dimension of $G/B = G\cdot f$ is minimal among the dimensions of $G$-orbits on the flag variety of $V$. Hence, $G\cdot f = G/B$ is closed in the flag variety, hence projective. 
+ 
+ Given that $G/B$ is projective, if $P$ is any other solvable connected subgroup of $G$, again by Borel's fixed point theorem it fixes a point on $G/B$, i.e., $P\subset B'$ for some conjugate $B'$ of $B$. Thus, if $P$ is maximal, it is also of maximal dimension, and $G/P$ is projective, as already proven. 
+ 
+ 
+ Vice versa, if $G/P$ is projective, and choosing a maximal solvable connected $B$, Borel's fixed point theorem implies that $B$ fixes a point on $G/P$, hence $P\supset B'$ for a conjugate $B'$ of $B$. If $P$ is solvable and connected, by the maximality of $B$, $P=B'$.
+ 
+ The above show that any two Borel subgroups are conjugate over an algebraically closed field. 
+\end{proof}
+
+\begin{proposition}
+\label{proposition-unipotent-torus}
+If $G$ is a connected linear algebraic group that is not unipotent, over an algebraically closed field $k$, then $G$ contains a nontrivial torus. Any Cartan subgroup $C$ of $G$ is a direct product $T\times U$, with $T$ a torus and $U$ unipotent, and is equal to the identity component of its normalizer. Its Lie algebra is a Cartan subalgebra of $\mathfrak g$.
+\end{proposition}
+
+We will see in Theorem \ref{theorem-maximal-tori-exist} that, even if the field is not algebraically closed, tori exist over $k$.
+
+\begin{proof}
+ Assume $k=\bar k$, and let $B$ be a Borel subgroup; then, by Proposition \ref{proposition-Levi-solvable}, it has a Levi decomposition as a semidirect product  $B=T N$, with $T$ a maximal torus and $N$ its unipotent radical. Assume that $T$ is trivial. If $G\to \text{GL}(V)$ is a representation where $N$ stabilizes a line $L$, because there are no nontrivial homomorphisms $N\to\mathbf{G}_m$, $N$ stabilizes every point on the line, and we get an embedding $G/N\hookrightarrow V$. Since $G/N$ is projective, by Theorem \ref{theorem-Borel-subgroups-conjugate}, and $V$ is affine, $G/N$ must be a point, i.e., $G$ is unipotent.
+ 
+ For the second claim, if $C$ is the connected centralizer of $T$, $C/T$ cannot contain nontrivial tori (this would contradict the maximality of $T$), and therefore is unipotent. By the Levi decomposition of Proposition \ref{proposition-Levi-solvable}, $C=TU$ is a semidirect product of $T$ with the unipotent radical, but $T$ is in the center, so the product is direct. If $N$ is the connected normalizer of $C$, then $T$ is normal in $N$, hence $N/T$ acts on $T$ by automorphisms; but the automorphism group of $T$ is discrete, and $N$ is connected, so $N$ centralizes $T$, hence is equal to $C$. The same argument proves that its Lie algebra is self-normalizing, hence (since it is nilpotent) a Cartan subalgebra.
+\end{proof}
+
+
+
+We prove a result on the existence of regular semisimple elements:
+
+\begin{lemma}
+ \label{lemma-regular-semisimple-exist}
+Assume that $\mathfrak g$ is the Lie algebra of an algebraic group over an infinite field $k$. Then, $\mathfrak g(k)$ contains regular semisimple elements. 
+\end{lemma}
+
+\begin{proof}
+ Since $k$ is infinite, $\mathfrak g(k)$ is Zariski dense, hence meets the Zariski open subset of $s$-regular elements (Lemma \ref{liestructure-lemma-sregular-exist}) nontrivially. If $X=X_s+X_n$ is the Jordan decomposition (Theorem \ref{theorem-Jordan-group}) of an $s$-regular element, then, if $k$ is perfect, $X_s$ and $X_n$ are defined over $k$, in which case $X_s$ is the regular semisimple element we seek. Otherwise, $\text{char}(k)=p>0$, in which case $\mathfrak g$ has the structure of a restricted Lie algebra (Definition \ref{liegroups-general-definition-restricted-Lie-algebra} and Example \ref{liegroups-general-example-restricted-Lie-algebra}), and then for some $r>0$ we have $X_n^{[p]^r}=0$, and $X^{[p]^r}=X_s^{[p]^r}$ is the regular semisimple element that we seek.
+\end{proof}
+
+
+\begin{theorem}
+\label{theorem-Cartan-tori-conjugate}
+If $G$ is a linear algebraic group over an algebraically closed field $k$, all maximal tori of $G$, and all Cartan subgroups, are $G(k)$-conjugate.
+\end{theorem}
+
+
+\begin{proof}
+We first show that Cartan subgroups are centralizers of regular semisimple elements: Let $T$ be a maximal torus, and $C$ its connected centralizer, a Cartan subgroup. It is smooth, by Proposition \ref{proposition-cocharacters-parabolics}. Since $T$ consists of semisimple elements, the adjoint action of $T$ on $\mathfrak g$ decomposes into a direct sum of eigenspaces (whose nontrivial eigencharacters are called \emph{roots}), and $\text{Lie}(C)$ is the zero-eigenspace. Since $k$ is infinite, there is an element $s\in T(k)$ with $\alpha(s)\ne 1$ for all roots $\alpha$. 
+
+By Proposition \ref{proposition-Levi-solvable}, any semisimple element $s'\in G(k)$ is conjugate to an element of $T(k)$. Thus, all Cartan subgroups are conjugate. 
+
+This reduces the statement on tori to the case $C=G$, i.e., the case where $T$ is central in $G$. But then, $T$ is the \emph{unique} maximal torus in $G$, for any nontrivial torus $T'$ not contained in $T$ would lead to a larger torus $TT'$, contradicting the maximality of $T$.
+\end{proof}
+
+
+
+
+
+\begin{theorem}
+\label{theorem-maximal-tori-exist}
+If $G$ is a connected linear algebraic group over a field $k$, then maximal $k$-tori $T\subset G$ remain maximal after passing to the algebraic closure. In particular, there exist maximal $k$-tori of $G_{\bar k}$ that are defined over $k$.
+\end{theorem}
+
+\begin{proof}
+ [Omitted, for now]
+\end{proof}
+
+
+
+
+\begin{proposition}
+\label{proposition-Cartan-reductive}
+If $G$ is reductive, the centralizer of any torus is reductive, and Cartan subgroups are the maximal tori. 
+\end{proposition}
+
+\begin{proof}
+See \cite[\S 13.17, Corollary 2]{Borel-LAG} or the handout ``Basics of reductivity and semisimplicity'' in \cite{Conrad-AG2}. The second claim follows from the first, given that Cartan subgroups are of the form $T\times U$.
+\end{proof}
+
+
+\section{The (universal) Cartan, and the scheme of Borel subgroups}
+\label{section-universal-Cartan}
+
+
+
+An important feature of Borel subgroups is that they are self-normalizing. At the level of Lie algebras, this was an easy corollary of the definition, see Lemma \ref{liestructure-lemma-BSA-self-normalizing}. At the level of algebraic groups, one needs to be more careful, because the normalizer is a group scheme, not guaranteed to be smooth (in positive characteristic). [Definitions of normalizers, centralizers, etc.\ are the natural ones, and left to the reader, for now.]
+
+
+\begin{theorem}
+ \label{theorem-Borel-self-normalizing}
+Let $B$ be a Borel subgroup of a reductive group $G$ over a field $k$. The normalizer subgroup scheme $\mathcal N_G(B)$ is equal to $B$. 
+\end{theorem}
+
+\begin{proof}
+ We have an embedding $B\hookrightarrow \mathcal N_G(B)$, so we need to show that it is an isomorphism. For that, it is enough to assume that $k$ is algebraically closed. 
+ 
+ First, we show that $B(k) = N_G(B)(k)$ (which is equal to $N_{G(k)}(B(k))$). 
+ Choose a maximal torus $T\subset B$. Since all maximal tori inside of $B$ are conjugate (Proposition \ref{proposition-Levi-solvable}), if $g\in G(k)$ normalizes $B$, then $gTg^{-1}=bTb^{-1}$ for some $b\in B$, hence, replacing $g$ by $b^{-1}g$, we may assume that $g$ normalizes $T$.
+  
+The commutator map $t\mapsto g t g^{-1} t^{-1}$ is a homomorphism $T\to T$. There are two cases:
+\begin{enumerate}
+ \item The kernel of this map, i.e., the fixed-point set $S=T^g$, is finite. Then, for dimension reasons, the commutator map is surjective. In particular, if $B'$ is the group generated by $B$ and $g$, any character $B'\to \mathbf G_m$ is trivial on $B$ (because $B=TU$, where $U$ is its unipotent radical, and characters are trivial on unipotent groups and commutators). By \ref{liegroups-general-theorem-quotients}, there is a representation $G\to \text{GL}(V)$ where $B'$ is the stabilizer of a line, acting it via a character $B'\to \mathbf G_m$. Since that character is trivial on $B$, we obtain a map $G/B\to V$, which has to be constant because $G/B$ is projective (Theorem \ref{theorem-Borel-subgroups-conjugate}). Therefore, $G\subset B'$, which means that $g\in G = B$. 
+ 
+ \item The fixed-point set $S=T^g$ is infinite. Then we can replace $G$ by a group of smaller dimension, which is either $G/S^\circ$ (if $S^\circ$ is central) or the centralizer of $S^\circ$ (if $S^\circ$ is not central), which is connected by Proposition \ref{proposition-centralizers-tori-connected}. By an inductive argument, the proof is complete.
+\end{enumerate}
+
+ We have proved that $B(k) = N_G(B)(k)$, \emph{without using the assumption of reductivity}. To finish the proof, we need to show that $N_G(B)$ is reduced. [Omitted for now, as it requires a lot of material that has not been written.]
+\end{proof}
+
+
+
+
+Now we show that, for a reductive group $G$ over a field $k$, there is a smooth variety over $k$ which parametrizes the set of Borel subgroups (whether there are any, or not). The result is established over more general bases in \cite[XXII, Corollaire 5.8.3]{SGA3}, cf.\ \cite[Corollary 5.2.9]{Conrad-RGS}. 
+
+\begin{theorem}
+ \label{theorem-variety-of-Borels}
+Let $G$ be a connected reductive group over a field $k$. The functor that assigns to any scheme $S/k$ the set of Borel subgroups of $G_S$ is representable by a smooth projective variety $\mathcal B$ over $k$. It comes equipped with a canonical line bundle $L$, described as follows: If $\mathbb B\to \mathcal B$ is the universal Borel subgroup, i.e., the subgroup scheme of $G\times \mathcal B$ whose pullback over any $S$-point $S\to \mathcal B$ is the parametrized Borel subgroup of $G_S$, then $L=\det(\text{Lie}(\mathbb B))^*$.
+\end{theorem}
+
+By definition, a Borel subgroup of $G_S$ is a smooth affine subgroup scheme over $S$ whose geometric fibers are Borel subgroups. 
+
+\begin{proof}[Sketch of proof]
+ The proof requires extension to an arbitrary basis of two results that we have already proven over a field $k$: Assuming the existence of a split maximal torus $T$, Borel subgroups containing $T$ are in bijection with bases for the root system of $T$ in $G$ (Proposition \ref{dummy}), and Borel subgroups are self-normalizing (Theorem \ref{theorem-Borel-self-normalizing}). [Omitted for now.]
+ 
+ Let $T$ be a maximal torus in $G$. By Theorem \ref{theorem-maximal-tori-exist}, it remains maximal over the algebraic closure, and by  Theorem \ref{theorem-diagonalizable-equivalence}, it splits over the separable closure $k^s$. By Proposition \ref{dummy}, there is a Borel subgroup $B$ over $k^s$ which contains $T_{k^s}$. By the conjugacy of Borel subgroups (Theorem \ref{theorem-Borel-subgroups-conjugate}), and their self-normalizing property (Theorem \ref{theorem-Borel-self-normalizing}), the quotient $\mathcal B^s:=G_{k^s}/B$ represents the functor of Borel subgroups over $k^s$. 
+ 
+ We need to show that this scheme descends to $k$, which is where the ample line bundle will come into play. We first prove that the stated line bundle is ample: If $d$ is the dimension of a Borel subgroup, consider the map 
+ $$ \mathcal B^s \to \text{Gr}(\mathfrak g_{k^s}, d)$$
+ sending a Borel subgroup to its Lie algebra in the Grassmannian of $d$-dimensional subspaces of $\mathfrak g_{k^s}$. Then $L$ is the pullback of the dual of the determinant line bundle on $\text{Gr}(\mathfrak g_{k^s}, d)$, which is ample. Therefore, $L$ is ample.
+ 
+ Finally, for the descent, we have an embedding $\mathcal B^s\to \mathbb P V^s$, where $V^s = H^0(\mathcal B^s, L^n)^*$ for some $n\gg 0$, and compatible semilinear actions of the Galois group $\Gamma$ of $k^s/k$ on $\mathcal B^s$ and on the $k^s$-vector space $V^s$. Therefore, $V^s = V \otimes_k k^s$, where $V = (V^s)^\Gamma$, and $\mathcal B^s$ is the base change of a closed subvariety $\mathcal B \subset \mathbb P V$.
+\end{proof}
+
+
+Now we pass to an important construction, which assigns, canonically, a torus $\mathbf A^G$ to every reductive group $G$. 
+
+\begin{proposition}
+ \label{proposition-universal-Cartan}
+Let $G$ be a connected reductive group over a field $k$, $\mathbb B\to \mathcal B$ be the universal Borel over the variety of Borel subgroups (Theorem \ref{theorem-variety-of-Borels}), and $\mathbb A\to \mathcal B$ the variety of their reductive quotients (i.e., the fiber of $\mathbb A$ is the fiber of $\mathbb B$ divided by its unipotent radical --- hence, a torus). 
+
+There is a torus $\mathbf A^G$ over $k$ such that $\mathbb A = \mathbf A^G\times \mathcal B $.
+\end{proposition}
+
+Notice that, given such a torus $\mathbf A^G$, it is unique up to unique isomorphism. Indeed, since $\mathbb B$ is projective and tori are affine, any isomorphism $\mathbb A_1^G \times \mathcal B \simeq \mathbb A_2^G \times \mathcal B$ over $\mathcal B$ arises from a unique isomorphism $\mathbb A_1^G \simeq \mathbb A_2^G$.
+
+\begin{proof}
+Is is enough to prove the proposition over the separable closure $k^s$. Indeed, if $\mathbb A_{k^s} = \mathbb A^s\times \mathcal B_{k^s} $ over $k^s$, where $\mathbb A^s$ is some torus over $k^s$, then the $k^s$-semilinear action of the Galois group $\Gamma$ on $\mathbb A_{k^s}$ is induced, necessarily, from its action on $\mathcal B_{k^s} $  and a $k^s$-semilinear action on $\mathbb A^s$ which, by the equivalence of categories between tori and abelian groups (Theorem \ref{theorem-diagonalizable-equivalence}), descends to a form $\mathbb A = \mathbf A^G$ over $k$.
+
+Hence, assume that $k=k^s$. Let $B^s_1, B^s_2$ be two Borel subgroups, and $A_1^s, A_2^s$ their reductive quotients. There is a canonical isomorphism $A_1^s=A_2^s$, induced by the action of any $g\in G(k)$ with $g B^s_1 g^{-1} = B^s_2$. Indeed, such a $g$ exists since all Borel subgroups are conjugate (Theorem \ref{theorem-Borel-subgroups-conjugate}), and it is unique up to right multiplication by $B^s_1$, since Borel subgroups are self-normalizing (Theorem \ref{theorem-Borel-self-normalizing}). But conjugation by an element of $B^s_1$ is the identity on the reductive quotient $A^s_1$ (which is connected), hence all such elements $g$ induce the same isomorphism $A_1^s=A_2^s$. We can therefore set $\mathbf A^G = A_1^s$, and through these isomorphisms we get the isomorphism $\mathbb A = \mathbf A^G\times \mathcal B $ asserted in the proposition.
+\end{proof}
+
+Now let $\mathbf A^G$ be the torus of Proposition \ref{proposition-universal-Cartan}. It comes with a canonical quotient map $B\to \mathbf A^G$ for \emph{any} Borel subgroup of $G$.
+
+\begin{lemma}
+\label{lemma-Cartan-roots}
+ Let $G$ be a connected reductive group over a field $k$, and $B$ a Borel subgroup. Let $T\subset B$ be any maximal torus in $B$. The composition $T\to B\to \mathbf A^G$ is an isomorphism of tori over $k$, inducing a $\Gamma$-equivariant isomorphism of their absolute character groups $X^*(T_{\bar k})\simeq X^*(\mathbf A^G_{\bar k})$. If we use this isomorphism to transfer the subsets $\Phi^+\subset \Phi$ of $B$-positive roots, resp.\ roots, of $T$ to $\mathbf A^G$, the resulting subsets $\Phi^+\subset \Phi\subset X^*(\mathbf A^G_{\bar k})$ do not depend on the choices of $B$ or $T$.
+\end{lemma}
+
+\begin{proof}
+ Easy, and left to the reader.
+\end{proof}
+
+
+
+
+\begin{definition}
+ \label{definition-universal-Cartan}
+Given a connected reductive group $G$ over a field $k$, the torus $\mathbf A^G$ of Proposition \ref{proposition-universal-Cartan} is called the {\it universal Cartan group}, or {\it abstract Cartan group}, or simply {\it the Cartan group}\footnote{But not \emph{subgroup!}} of $G$. The sets $\Phi^+\subset \Phi$ of Lemma \ref{lemma-Cartan-roots} are the {\it abstract (positive) roots} of $G$. 
+\end{definition}
+
+
+
+
+
+
+%***************************************************************************
+
 
 
 
 \input{chapters}
 
+
 \bibliography{my}
 \bibliographystyle{amsalpha}
 
 \end{document}
+
+
+We first discuss the existence of a torus that remains maximal over the algebraic closure. We follow \cite[Theorem 18.2]{Borel-LAG}, presenting the arguments only for the least degenerate cases.
+ 
+ The existence of a maximal torus can be shown inductively on the dimension of $G$, by considering centralizers, under the adjoint representation, of semisimple elements in the Lie algebra $\mathfrak g$, but there are some complications that can appear in positive characteristic, that we will deal with in the end. Assume the theorem to be proven for all dimensions smaller than the dimension of $G$ (the case $\text{dim}(G)=0$ being trivial).
+ 
+ Assume at first that $k$ is infinite, and the Lie algebra $\mathfrak g$ is not nilpotent.
+  Recall from Lemma \ref{lemma-regular-semisimple-exist} that $\mathfrak g(k)$ contains a regular semisimple element $Y$. The centralizer $G_Y$ of $Y$ in $G$ is reduced (exercise, or see the proof of this theorem in \cite[Theorem 18.2]{Borel-LAG}), and of smaller dimension than $G$, since $\mathfrak g$ is not nilpotent. We claim that $G_{Y,\bar k}$ contains a maximal torus of $G_{\bar k}$. It is enough to show that $Y$ is contained in the Lie algebra of some torus $T'\subset G_{Y,\bar k}$, because then $T'$ is contained in a maximal torus, which centralizes $Y$. If $T'$ is a maximal torus in $G_{Y,\bar k}$, its centralizer $C$ is a Cartan subgroup, whose Lie algebra $\mathfrak c$ is the centralizer of $\mathfrak t'$, hence $Y\in \mathfrak c$. But $C^\circ=T'\times N'$ for some unipotent group $N'$ by Proposition \ref{proposition-unipotent-torus}, and since $Y$ is semisimple, it has to lie in the Lie algebra of $T'$. Thus, by induction, there is a maximal torus $T\subset G_Y$ which remains maximal over the algebraic closure, and such a torus is maximal in $G_{\bar k}$, by the conjugacy of maximal tori, Theorem \ref{theorem-Cartan-tori-conjugate}.
+ 
+
+ Now let us assume that $k$ is infinite, but the Lie algebra $\mathfrak g$ is nilpotent. [WRONG:] If $k$ is perfect, then that means that $G$ is unipotent, and contains no tori, so there is nothing to prove. Otherwise, see \cite[17.8 and 18.2]{Borel-LAG}.
+ 
+ Finally, assume that $k$ is finite, with $q$ elements. The relative Frobenius $F_q:G\ni g \mapsto g^{(q)} \to G$ is the morphism over $\text{Spec}(k)$ which, when $G$ is realized as a subscheme of affine space, corresponds to raising the coordinates to the $q$-th power; precisely, when $G=\text{Spec}(R)$, with $R$ a $k$-algebra, $F_q$ is induced by raising elements of $r$ to the $q$-th power. 
+ 
+ By the conjugacy of all maximal tori under the algebraic closure, for any maximal torus $T\subset G_{\bar k}$ there is an element $g\in G(\bar k)$ such that $g T^{(q)} g^{-1} = T$. By Lang's theorem, $g=a^{-1} a^{(q)}$ for some element $a$, and then the torus $T' = aTa^{-1}$ is stable under the Frobenius morphism, hence defined over $k$.
+ 
+ This proves the existence of a maximal torus over $k$. To prove that any maximal $k$-torus of $G$ remains maximal over $\bar k$, we proceed by induction on the dimension of $G$. Given any $k$-torus $S\subset G$, now, its centralizer is connected by Proposition \ref{proposition-centralizers-tori-connected}, and therefore either $S$ is central, or we are done by induction, replacing $G$ by the centralizer. On the other hand, if $S$ is central, proceed by induction on 
