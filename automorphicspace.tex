@@ -149,6 +149,23 @@ Equivalently, fixing a base point $P\in \mathcal P(k)$ with unipotent radical $U
 For a different choice of parabolic $P'= L' U'\in \mathcal P(k)$, there is a canonical isomorphism $ L(k)U(\mathbb A)\backslash G(\mathbb A) \simeq L'(k)U'(\mathbb A)\backslash G(\mathbb A)$, induced by translation by an element of $G(k)$, which is unique modulo left $P(k)$-translation. Hence, in this case, there is no ambiguity in saying that $[G]_{\mathcal P}$ is ``the'' space $L(k)U(\mathbb A)\backslash G(\mathbb A)$.
 \end{remark}
 
+\begin{remark}
+ \label{remark-bdrydegen-as-induction}
+Here is an alternate, and more straightforward construction of the boundary degeneration: For every class $\mathcal P$ of parabolics over $k$, the Levi quotients $L$ of any two elements of $\mathcal P$ are isomorphic, canonically up to $L(k)$-conjugacy. (As in the case of the universal Cartan: the parabolics are conjugate by an element of $G(k)$ unique up to multiplication by $P(k)$.)
+
+Choosing such a parabolic with Levi quotient $L$, we have 
+\begin{equation}
+ \label{equation-bdrydegen-as-induction}
+[G]_P = [L]\times^{P(\mathbb A)} G(\mathbb A).
+\end{equation}
+One easily checks that for any two parabolics, any element of $G(k)$ conjugating one to another defines the same isomorphism between the corresponding spaces defined by \eqref{equation-bdrydegen-as-induction}.
+
+Finally, another way to define the same space is the following: Consider $\mathcal P$ as an algebraic variety, and consider the space
+$$ Z= \mathcal P(k)\times^{G(k)} G(\mathbb A).$$
+If we choose a $P\in \mathcal P(k)$, this is isomorphic to $P(k)\backslash G(\mathbb A)$. Now, the inertia group scheme of $\mathcal P$ has fiber $P$ over the point $P$, and its unipotent radical is a group scheme $\mathbf U\to \mathcal P$. If we divide the space $Z$, which lives over $\mathcal P(\mathbb A)$, by the action of $\mathbf U(\mathbb A)$, we obtain the space $[G]_P$.
+\end{remark}
+
+
 The importance of boundary degenerations lies in the fact that, as we will see, they model the space $[G]$ ``at infinity'', while having a larger group of symmetries:
 
 \begin{lemma}
@@ -167,10 +184,11 @@ which is a partial compactification of $[G]_P$. Here, $A\times^H B$ denotes the 
 
 In practice, $H$ will be the points of a torus and, $\bar H$ will arise from some toric variety. 
 For what follows, if $T$ is any torus over a field $F$, we denote by the corresponding gothic lowercase letter the vector space $\mathfrak t:= \Hom(\mathbb G_m, T) \otimes \mathbb R$. If $F$ is a valued field (or ring), we have a well-defined logarithmic map
-\begin{equation}\label{logmap}
+\begin{equation}
+\label{equation-logmap}
 \log: T(F)\to \mathfrak t
 \end{equation}
-given by $\left<\log(t), \chi\right> = \log|\chi(t)|$ for any $\chi\in \Hom(T,\mathbb G_m)$.
+given by $\left<\log(t), \chi\right> = \log|\chi(t)|$ for any $\chi\in \Hom(T,\mathbb G_m)$. The same definition can be given, globally, replacing $T(F)$ by $[T]$, and using the adelic absolute value.
 
 Recall that a normal affine embedding $Y$ of a torus $T$ over a field $k$ is given by a \emph{strictly convex, rational polyhedral cone} $C\subset \mathfrak t$. The faces of this cone are in bijection with $T$-orbits on $Y$, in such a way that cocharacters $\lambda$ in the relative interior of a face are those for which $\lim_{t\to 0} \lambda(t)$ belongs to the corresponding orbit. (A ``face'', here, is the intersection with the kernel of a linear functional $\chi$ such that $\chi|_C \ge 0$; this way, $\{0\}$ is a face.) The bijection is closure-reversing, e.g., $\{0\}$ corresponds to the open orbit $T$, and the relative interior of $C$ corresponds to the unique closed orbit. More general normal embeddings of $T$ are described by \emph{fans} in $\mathfrak t$, i.e., collections of such cones closed under the operation of passing to a face of a cone and with disjoint relative interiors. 
 
@@ -185,12 +203,10 @@ A {\it standard embedding} of the space $[G]_P$ is either of the following space
 \begin{itemize} 
  \item $\overline{A_P(k_\infty)^0} \times^{A_P(k_\infty)^0} [G]_P$, where $\overline{A_P(k_\infty)^0}$ is the closure of the identity component of $A_P(k_\infty)$ in $\overline{A_P}(k_\infty)$. This makes sense only if $k$ is a number field. When $k=\mathbb Q$ (which we can always assume, by restriction of scalars), it leads to the so-called \emph{reductive Borel--Serre compactification} \cite{Zucker-L2, Borel-Ji}. 
  \item $\overline{A_P}(k_\infty) \times^{A_P(k_\infty)} [G]_P$. Recall that, in the function field case, we just pick a place (or a place of the base field) that we call infinity.
- \item Fix a finite set $S$ of places, containing $k_\infty$, and consider the space $\overline{A_P}(k_S) \times^{A_P(k_S)} [G]_P$.
+ \item $\overline{A_P}(k)A_P(\mathbb A) \times^{A_P(\mathbb A)} [G]_P$. Here, $\overline{A_P}(k)A_P(\mathbb A)$ is the subset of ``primitive elements'' in $\overline{A_P}(\mathbb A)$. Notice that $A_P(\mathbb A)$ is not open in the space $\overline{A_P}(\mathbb A)$, but it is open in the subset of primitive elements (with the induced topology). 
 \end{itemize}
 \end{definition}
 
-
-The quotients, here are understood as topological quotients. If $\overline{[G]_P}^i$, $i=1, 2, 3$ are the three compactifications above, we have surjective maps $\overline{[G]_P}^1 \to \overline{[G]_P}^2 \to \overline{[G]_P}^3$. Notice that all of them are completely different from the space $\overline{A_P}(\mathbb A) \times^{A_P(\mathbb A)} [G]_P$, which is not really a partial compactification of $[G]_P$, since the group $A_P(\mathbb A)$ is not open in the space $\overline{A_P}(\mathbb A)$ --- see, however, Lemma \ref{lemma-cusp-alternative-definition}.
 
 \begin{lemma}
  \label{lemma-manifold-corners}
@@ -211,29 +227,17 @@ Finally, we introduce the notion of the cusp:
 
 Notice that the distinction ``$P$-cusp'', as opposed to ``cusp'', is important: e.g., when $P=G$, the partial compactification $\overline{[G]}$ above is trivial, so the $G$-cusp is $[G]$ itself, but there will be a ``cusp'', which, to define, we first need to discuss reduction theory, and a full compactification. 
 
-\begin{remark}
- \label{remark-cusp-Iwasawa}
-Let us explicate neighborhoods of the cusp in the case where $G$ is split, hence the minimal parabolic is a Borel subgroup. (A similar description will be valid for the minimal parabolic $P$ in every case, once we show --- Theorem \ref{theorem-reduction-theory} --- that $[L']$ is compact, where $L'$ is the derived subgroup of the Levi quotient of $P$.) 
-
-Choose a Borel subgroup $B=AN$, and a maximal compact subgroup $K$ of $G(\mathbb A)$ which satisfies the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$. 
- Then, for \emph{any} identification $\bar Y = N\backslash G$ over $k$, a basis of neighborhoods of the cusp in $[G]_B$ is given by the neighborhoods $V_\epsilon := N(\mathbb A)[A]^{\le \epsilon}  K$ (as $\epsilon\to 0^+$), where $[A]^{\le \epsilon}$ is the set of elements $a$ with $|e^\alpha(a)|\ge \epsilon^{-1}$ for all positive roots $\alpha$. 
-\end{remark} 
-
-
-
-There is an alternative way to define the cusp: Let $Y$ be the pre-flag variety $U\backslash G$. The action of $A_P$ by $G$-automorphisms allows us to define a (so-called \emph{toroidal}) partial compactification $\bar Y\supset Y$, as $\bar Y = \overline{A_P} \times^{A_P} Y$, where $\overline{A_P}$ is the affine embedding defined by the wall of the (semisimple) antidominant chamber, as above. In particular, $\bar Y$ contains a closed $G$-orbit $Y_0$, which we will call \emph{the $P$-cusp in $\bar Y$}. Now, consider an $\text{Aut}^G(Y)(k)$-stable neighborhood $V$ of $Y_0(\mathbb A)$ in $\bar Y(\mathbb A)$ --- recall that $\text{Aut}^G(Y)$ is identified with the Levi quotient of $P$, once we fix a point whose stabilizer is the unipotent radical of $P$. Notice also that $Y(\mathbb A)$ is not open in $\bar Y(\mathbb A)$ --- but it doesn't matter! 
-
-Now recall from Definition \ref{definition-boundary-degeneration} that $[G]_P$ is defined as the set of pairs $(M,y)$ modulo $\text{Aut}^G(Y)(k)$, where $M$ is a $G(\mathbb A)$-translate of $Y(k)$, and $y\in M$. Let $\tilde V\subset [G]_P$ be the subset given by the condition $y\in V$. Then
-
 \begin{lemma}
- \label{lemma-cusp-alternative-definition}
-The neighborhoods of the $P$-cusp in $[G]_P$ are precisely the sets of the form $\tilde V$, where $V$ is an $\text{Aut}^G(Y)(k)$-invariant neighborhood of the $P$-cusp in $\bar Y$, and $\tilde V$ is obtained from $V$ as above.
+\label{lemma-definitions-cusp-equivalent}
+All standard embeddings of Definition \ref{definition-standard-embedding} give rise to the same neighborhoods of the $P$-cusp.
 \end{lemma}
 
-\begin{proof}
-The topological quotient of $\bar Y(\mathbb A)$ by $\text{Aut}^G(Y)(k)$ is the space $\overline{A_P}(\mathbb A) \times^{A_P(\mathbb A)} [G]_P$. We show the following baby case of the statement, and leave the rest to the reader:
 
-\begin{quote}
+\begin{proof}
+This relies on the ``baby case'' of the partial compactification $\mathbb G_m\hookrightarrow \mathbb G_a$. We leave the rest to the reader.
+
+
+ \begin{quote}
 Under the natural map 
 $$ k_\infty \times^{k_\infty^\times} [\mathbb G_m] \to \mathbb A \times^{\mathbb A^\times} [\mathbb G_m] = \mathbb A/k^\times,$$
 a basis of neighborhoods of the ``cusp'' (represented by $0\in \mathbb A$) on the right hand side maps to a basis of neighborhoods of the ``cusp'' (represented by $0\in k_\infty$) on the left hand side.
@@ -242,6 +246,23 @@ a basis of neighborhoods of the ``cusp'' (represented by $0\in \mathbb A$) on th
 The map is continuous, so it is enough to show that any element in a basis of neighborhoods $(V_r)_r$ on the left contains the preimage of a neighborhood on the right. Since the cusp is invariant under $[\mathbb G_m]$, and in particular under the compact subgoup $K=[\mathbb G_m]^1$, we can take the basis on the left to be invariant under $K$, and then it is seen that the sets $V_r = \{ x\in [\mathbb G_m], |x|<r\}$  with $r\to 0^+$ form such a basis. If we choose an adele $b$ with $|b|<r$, and let $V'$ be the union of $k^\times$-translates of the set $\{a \in \mathbb A, \forall v:  |a_v|\le |b_v|\}$, then $V'$ is open, and its preimage belongs to $V_r$. This proves the claim. 
 
 \end{proof}
+
+
+
+
+\begin{remark}
+ \label{remark-cusp-Iwasawa}
+Let us explicate neighborhoods of the cusp in the case where $G$ is split, hence the minimal parabolic is a Borel subgroup. (A similar description will be valid for the minimal parabolic $P$ in every case, once we show --- Theorem \ref{theorem-reduction-theory-general} --- that $[L']$ is compact, where $L'$ is the derived subgroup of the Levi quotient of $P$.) 
+
+Choose a Borel subgroup $B=AN$, and a maximal compact subgroup $K$ of $G(\mathbb A)$ which satisfies the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$. 
+ Then, for \emph{any} identification $\bar Y = N\backslash G$ over $k$, a basis of neighborhoods of the cusp in $[G]_B$ is given by the neighborhoods $V_\epsilon := N(\mathbb A)[A]^{\le \epsilon}  K$ (as $\epsilon\to 0^+$), where $[A]^{\le \epsilon}$ is the set of elements $a$ with $|e^\alpha(a)|\ge \epsilon^{-1}$ for all positive roots $\alpha$. 
+\end{remark} 
+
+We reformulate the definition of the $P$-cusp, when the last choice of standard embedding in Definition \ref{definition-standard-embedding} is made: Let $Y$ be the pre-flag variety $U\backslash G$. The action of $A_P$ by $G$-automorphisms allows us to define a (so-called \emph{toroidal}) partial compactification $\bar Y\supset Y$, as $\bar Y = \overline{A_P} \times^{A_P} Y$, where $\overline{A_P}$ is the affine embedding defined by the wall of the (semisimple) antidominant chamber, as above. In particular, $\bar Y$ contains a closed $G$-orbit $Y_0$, which we will call \emph{the $P$-cusp in $\bar Y$}. Now, consider an $\text{Aut}^G(Y)(k)$-stable neighborhood $V$ of $Y_0(\mathbb A)$ in $\bar Y(\mathbb A)$ --- recall that $\text{Aut}^G(Y)$ is identified with the Levi quotient of $P$, once we fix a point whose stabilizer is the unipotent radical of $P$. Notice also that $Y(\mathbb A)$ is not open in $\bar Y(\mathbb A)$ --- but it doesn't matter! All that matters is the subset $\bar Y(k)G(\mathbb A)$ of ``primitive'' elements, where $Y(\mathbb A)$ is open.
+
+Now recall from Definition \ref{definition-boundary-degeneration} that $[G]_P$ is defined as the set of pairs $(M,y)$ modulo $\text{Aut}^G(Y)(k)$, where $M$ is a $G(\mathbb A)$-translate of $Y(k)$, and $y\in M$. Let $\tilde V\subset [G]_P$ be the subset given by the condition $y\in V$. Then, the neighborhoods of the $P$-cusp in $[G]_P$ are precisely the sets of the form $\tilde V$, where $V$ is an $\text{Aut}^G(Y)(k)$-invariant neighborhood of the $P$-cusp in $\bar Y$, and $\tilde V$ is obtained from $V$ as above.
+
+
 
 We will now modify this description to define a degenerate version of the $P$-cusp, that leads to a coarser collection of ``neighborhoods of infinity''. Let $Y_{deg}$ be the degenerate pre-flag variety $[P,P]\backslash G$. Again, the action of $A_P$ by $G$-automorphisms allows us to define a partial compactification $\bar Y_{deg}\supset Y_{deg}$, as $\bar Y_{deg} = \overline{A_P} \times^{A_P} Y_{deg}$, where $\overline{A_P}$ is the affine embedding defined by the wall of the (semisimple) antidominant chamber, as above. In particular, $\bar Y_{deg}$ contains a closed $G$-orbit $Y_{deg,0}$, which we will call \emph{the degenerate $P$-cusp in $\bar Y_{deg}$}. Now, consider an $L^{ab}(k)$-stable neighborhood $V_{deg}$ of $Y_{deg,0}(\mathbb A)$ in $\bar Y_{deg}(\mathbb A)$, where $L^{ab}$ is the abelianization of $L=\text{Aut}^G(Y)$.
 
@@ -269,6 +290,9 @@ An \emph{adelic height} on a vector space $V$ over $k$ is a function of the form
 \end{itemize}
 \end{definition}
 
+Obviously, the factors of the product are almost all equal to $1$ if $x\in (V\smallsetminus\{0\})(\mathbb A)$, but the height extends continuously by zero to the entire space $V(\mathbb A)$ (though we will never use that).
+
+
 \begin{lemma}
  \label{lemma-height-functions}
 Adelic height functions (Definition \ref{definition-adelic-height}) on a vector space $V$ have the following properties:
@@ -286,14 +310,14 @@ Adelic height functions (Definition \ref{definition-adelic-height}) on a vector 
 \end{proof}
 
 
-Let us now discuss the case of $G=\text{SL}_2$, with its standard representation $V$. Notice that $V^*=V\smallsetminus\{0\}$ can be identified with the pre-flag variety $Y$ for the class of Borel subgroups of $G$ (Definition \ref{definition-pre-flag}), and $V$ is simply its affine closure, i.e., $V= \text{Spec} k[Y]$. In this case, the cusp can also be defined with the help of the affine embedding $V$, instead of the toroidal embedding $\bar Y$ used in Lemma \ref{lemma-cusp-alternative-definition}. That is, instead of choosing a $k^\times$-invariant neighborhood of the cusp $U$ in $\bar Y(\mathbb A)$ (denoted $V$ before Lemma \ref{lemma-cusp-alternative-definition}), one can choose a $k^\times$-invariant neighborhood $U$ of zero in $V(\mathbb A)$, and pull it back to $B(k)\backslash G(\mathbb A)$ to define a neighborhood of the cusp there. By Lemma \ref{lemma-height-functions}, a basis of such neighborhoods of zero is determined by height functions.
+Let us now discuss the case of $G=\text{SL}_2$, with its standard representation $V$. Notice that $V^*=V\smallsetminus\{0\}$ can be identified with the pre-flag variety $Y$ for the class of Borel subgroups of $G$ (Definition \ref{definition-pre-flag}), and $V$ is simply its affine closure, i.e., $V= \text{Spec} k[Y]$. In this case, the cusp can also be defined with the help of the affine embedding $V$, instead of the toroidal embedding $\bar Y$. That is, instead of choosing a $k^\times$-invariant neighborhood of the cusp $U$ in $\bar Y(\mathbb A)$, one can choose a $k^\times$-invariant neighborhood $U$ of zero in $V(\mathbb A)$, and pull it back to $B(k)\backslash G(\mathbb A)$ to define a neighborhood of the cusp there. By Lemma \ref{lemma-height-functions}, a basis of such neighborhoods of zero is determined by height functions.
 
 
 \begin{remark}
  \label{remark-basic-affine}
 We caution the reader that, in higher rank, the affine embedding $\bar Y^{\text{aff}}=\overline{N\backslash G}^{\text{aff}} = \text{Spec} k[N\backslash G]$ (where $G$ is assumed split semisimple, and $N$ is a maximal unipotent subgroup) is \emph{not} the appropriate space to define the cusp, i.e., not every neighborhood of the cusp in $[G]_B$ is the pullback of an $A(k)$-invariant neighborhood of ``zero'' (=the unique $G$-fixed point) in $Y^{\text{aff}}(\mathbb A)$. 
 
-In terms of toric varieties, this is because the toroidal embedding of $Y$ used in Lemma \ref{lemma-cusp-alternative-definition} corresponds to the antidominant Weyl chamber, while the affine closure $Y^{\text{aff}}$ corresponds to the \emph{negative root cone}, in the sense that it admits a blowup $\tilde Y \to \bar Y^{\text{aff}}$, with $\tilde Y = \tilde A\times^A Y$, and $\tilde A$ is the affine embedding of $\tilde A$ corresponding to the negative root cone. Thus, $A(k)$-invariant neighborhoods of zero in $Y^{\text{aff}}(\mathbb A)$ are \emph{much larger} than neighborhoods of the cusp, in higher rank, and the latter cannot be defined using adelic heights on an affine embedding of $Y$.
+In terms of toric varieties, this is because the toroidal embedding of $Y$ used in the definition of the $P$-cusp corresponds to the antidominant Weyl chamber, while the affine closure $Y^{\text{aff}}$ corresponds to the \emph{negative root cone}, in the sense that it admits a blowup $\tilde Y \to \bar Y^{\text{aff}}$, with $\tilde Y = \tilde A\times^A Y$, and $\tilde A$ is the affine embedding of $\tilde A$ corresponding to the negative root cone. Thus, $A(k)$-invariant neighborhoods of zero in $Y^{\text{aff}}(\mathbb A)$ are \emph{much larger} than neighborhoods of the cusp, in higher rank, and the latter cannot be defined using adelic heights on an affine embedding of $Y$.
 \end{remark}
 
 Now, we formulate the main theorem of reduction theory for $G=\text{SL}_2$:
@@ -301,7 +325,9 @@ Now, we formulate the main theorem of reduction theory for $G=\text{SL}_2$:
 \begin{theorem}
  \label{theorem-reduction-SL2}
 Let $G = \text{SL}_2$, and consider the maps 
-\begin{equation}\label{leftrightSL2} \xymatrix{
+\begin{equation}
+\label{equation-leftrightSL2} 
+\xymatrix{
 & B(k)\backslash G(\mathbb A) \ar[dl]_{\pi_G}\ar[dr]^{\pi_B}& \\
 [G] && [G]_B. 
 }\end{equation}
@@ -318,7 +344,7 @@ Then, for $\epsilon$ sufficiently small, the map $\pi_G|_{\tilde U_\epsilon}$ is
  
  Our goal is to show that, if $\epsilon$ is sufficiently small (independently of $[g]$), any other element $z\in Y(k)g$ with height $<\epsilon$ is a $k^\times$-multiple of $y$. If not, we have $z = z_0 g$ with $z_0 = (\kappa, \lambda) \in k^2$ with $\kappa\ne 0$. Up to the $k^\times$-action, we may assume that $\kappa=1$. But $\Vert z_0 g\Vert = \Vert z_0 b\Vert$, and $\Vert z_0 b\Vert = \Vert (a , r + a^{-1} \lambda)\Vert$. It is now clear from the definition of heights that if $\epsilon$ is sufficiently small, so that $|a|$ is sufficiently large, the last expression is $>\epsilon$.
  
- (For a more geometric, and conceptual, version of the same argument, see the proof of the general case in Theorem \ref{theorem-reduction-theory}.)
+ (For a more geometric, and conceptual, version of the same argument, see the proof of the general case in Theorem \ref{theorem-reduction-theory-split}.)
  
  Surjectivity: Vice versa, it suffices to show that if $\epsilon$ is large enough, then for every $[g]\in [G]$ the set $\{y\in Y(k)g | \Vert y\Vert >\epsilon\}$ is nonempty. Given $[g]$, we may choose a representative $g\in G(\mathbb A)$ so that $\Vert y_0 g\Vert$ is minimal in $\Vert Y(k)g\Vert$. (The minimum exists, by Lemma \ref{lemma-height-functions}.) Write $g = bk$ by the Iwasawa decomposition, where $b = \begin{pmatrix} a & r \\ & a^{-1}\end{pmatrix}$. The minimality of $\Vert y_0 g\Vert$ implies that 
  $\Vert (a , r + a^{-1} \lambda)\Vert \ge \Vert y_0 g\Vert = |a|^{-1} \Vert y_0 \Vert$ for all $\lambda\in k$, hence $|a|^2 \ge \frac{\Vert y_0\Vert }{\Vert (1 , a^{-1} r + a^{-2} \lambda)\Vert}$. The denominator is bounded away from zero, giving a lower bound for the absolute value of the positive root $|e^\alpha(b)| = |a|^2$, and an upper bound for $\Vert y_0 g\Vert = |a|^{-1} \Vert y_0 \Vert$. Hence, if $\epsilon$ is larger than this upper bound, the class of $[g]$ is represented in $\tilde U_\epsilon$.
@@ -330,101 +356,205 @@ Then, for $\epsilon$ sufficiently small, the map $\pi_G|_{\tilde U_\epsilon}$ is
 
 
 
-\section{Reduction theory}
-\label{section-reduction-theory}
+\section{Reduction theory and compactifications in the split case}
+\label{section-reduction-theory-split}
 
 Reduction theory is the description of the space $[G]$ ``at infinity'' in terms of its boundary degenerations. 
 
 More precisely, fix a class $\mathcal P$ of parabolics, and a parabolic $P\in \mathcal P(k)$. (Nothing will depend on $P$, but it is notationally convenient.)
-Consider the homogeneous space $P(k)\backslash G(\mathbb A)$; without fixing a parabolic $P$, it can be written as $\mathcal P\times^{G(k)} G(\mathbb A)$. It admits a pair of quotient maps:
-\begin{equation}\label{leftright} \xymatrix{
+Consider the homogeneous space $\mathcal P(k)\times^{G(k)} G(\mathbb A) = P(k)\backslash G(\mathbb A)$, already encountered in Remark \ref{remark-bdrydegen-as-induction}. It admits a pair of quotient maps:
+\begin{equation}
+\label{equation-leftright} 
+\xymatrix{
 & P(k)\backslash G(\mathbb A) \ar[dl]_{\pi_G}\ar[dr]^{\pi_P}& \\
 [G] && [G]_P,
 }\end{equation}
-and notice that $\pi_G$ is a local homeomorphism.
+and notice that $\pi_G$ is a local homeomorphism, while $\pi_P$ has compact fibers.
 
 
-%By ``the cusp'' in $[G]_P$ we will mean the limit of all one-parameter orbits of the form $M(k)N(\mathbb A)\lambda(t) g$, as $t\to 0$, where $\lambda$ is a strictly $P$-antidominant cocharacter into the center of the Levi quotient $M$ of $P$ (and $N$ is the unipotent radical of $P$). 
+We will call ``neighborhood of the (degenerate) $P$-cusp'' in $P(k)\backslash G(\mathbb A)$ the preimage of any neighborhood of the (degenerate) $P$-cusp in $[G]_P$. Generally, for a neighborhood $V$ of the $P$-cusp in $[G]_P$, we will use the notation $\tilde V$ for its preimage in $P(k)\backslash G(\mathbb A)$. Recall that the $P$-cusp is a $G(\mathbb A)$-orbit in a certain partial compactification $\overline{[G]_P}$ of $[G]_P$, see Definition \ref{definition-P-cusp}. A ``scaling'' of such a neighborhood will be the neighborhood that we obtain from it by the action of an element $a\in A_P(\mathbb A)$ on $[G]_P$.
 
-We will call ``neighborhood of the (degenerate) $P$-cusp'' in $P(k)\backslash G(\mathbb A)$ the preimage of any neighborhood of the (degenerate) $P$-cusp in $[G]_P$. Recall that the $P$-cusp is a $G(\mathbb A)$-orbit in a certain partial compactification $\overline{[G]_P}$ of $[G]_P$, see Definition \ref{definition-P-cusp}. A ``scaling'' of such a neighborhood will be the neighborhood that we obtain from it by the action of an element $a\in A_P(\mathbb A)$ on $[G]_P$.
+In this section, we will prove the main result of reduction theory in the split case. We will use it to define a certain compactification of $[G]$, which will be used in the next section to address the general case.
 
-The main result of reduction theory is the following:
 \begin{theorem}
- \label{theorem-reduction-theory}
- \begin{enumerate}
-  \item Every compact subset of the $P$-cusp in $\overline{[G]_P}$ has a neighborhood $V$ such that $\pi_G|_{\tilde V}$ is injective, where $\tilde V$ is the preimage of $V$ in $P(k)\backslash G(\mathbb A)$. 
-  \item Every $[A_G]$-invariant neighborhood of the degenerate $P$-cusp in $[G]_P$ (where $A_G$ is the maximal split torus in the center of $G$) can be scaled to a neighborhood $V$ such that $\pi_G|_{\tilde V}$ is surjective, where $\tilde V$ is as above. 
-  \item $[G]$ is compact iff $G$ is anisotropic (i.e., does not contain any split torus). 
-  \item If $P$ is the class of minimal parabolics, then neighborhoods of the cusp in $[G]_P$ are also neighborhoods of the degenerate cusp, and for any neighborhood $V$ of the cusp in $[G]_P$, the complement of $\pi_G(\tilde V)$ in $[G]$ is relatively compact-mod-center.
- \end{enumerate}
+ \label{theorem-reduction-theory-split}
+Let $G$ be a split reductive connected group over $k$, and $P\subset G$ a (class of) parabolic(s).
+ \begin{description}
+  \item[(I)] Every compact subset of the $P$-cusp in $\overline{[G]_P}$ has a neighborhood $V$ such that $\pi_G|_{\tilde V}$ is injective, where $\tilde V$ is the preimage of $V$ in $P(k)\backslash G(\mathbb A)$.\footnote{Obviously, ``every compact subset'' is superfluous, but we include it to stress that there is no uniformity in the choice of neighborhood.}
+  \item[(S)] Every $[A_G]$-invariant neighborhood of the degenerate $P$-cusp in $[G]_P$ (where $A_G$ is the maximal split torus in the center of $G$) can be scaled to a neighborhood $V$ such that $\pi_G|_{\tilde V}$ is surjective, where $\tilde V$ is as above. 
+ \end{description}
 \end{theorem}
 
 
 \begin{proof}
-There are two approaches to proving this theorem: One, due to Borel and Harish-Chandra \cite{Borel-HC}, is to prove it first for $\text{GL}_n$ over $\mathbb Q$, and then deduce it for a general reductive group via an embedding $G\to \text{GL}_n$ (where $G$, by restriction of scalars, can be considered as a group over $\mathbb Q$, at least in the number field case. We will present the second, as developed by Mostow--Tamagawa \cite{Mostow-Tamagawa}, Godement \cite{Godement-domaines-fondamentaux}, and finally Springer \cite{Springer-reduction-theory}. [We caution that, in Springer's article, there are crucial typos and omissions that make it confusing; it is better to read Godement first.]
+There are two approaches to proving this theorem: One, due to Borel and Harish-Chandra \cite{Borel-HC}, is to prove it first for $\text{GL}_n$ over $\mathbb Q$, and then deduce it for a general reductive group via an embedding $G\to \text{GL}_n$ (where $G$, by restriction of scalars, can be considered as a group over $\mathbb Q$, at least in the number field case. Here and in the next section, we will present the second, as developed by Mostow--Tamagawa \cite{Mostow-Tamagawa}, Godement \cite{Godement-domaines-fondamentaux}, and finally Springer \cite{Springer-reduction-theory}. [We caution that there are crucial omissions in some of these papers that make the proofs confusing, or even incomplete; the presentation here is heavily reformulated.]
 
-Having addressed the case of tori in Proposition \ref{proposition-automorphic-tori}, we will now assume that $G$ is semisimple; the combination of the two to address the general case is easy, and left to the reader. 
+Having addressed the case of split tori in Proposition \ref{proposition-automorphic-Gm}, we will now assume that $G$ is semisimple; the combination of the two to address the general case is ``easy'', and left to the reader. 
 
-First of all, the last statement follows immediately from the rest, by an induction argument: first, neighborhoods of cusps and degenerate cusps coincide, because, by the third statement, $[L']$ is compact, where $L'$ is the commutator of the Levi of the minimal parabolic. For the same reason, the quotient $[A_P]\backslash [G]_P$ is compact, and therefore the difference $a\cdot V \smallsetminus V$ is relatively compact, for any neighborhood $V$ of the cusp and $a\in [A_P](\mathbb A)$. Taking $a$ so that $\widetilde{a\cdot V}$ surjects onto $[G]$, as in the second statement, we see that the complement of $\pi_G(\tilde V)$ is relatively compact. 
- 
- We now discuss the first statement. By embedding $k$ into a field where $G$ splits, it is enough to consider the case where $G$ is split. We will present the argument for the minimal parabolic $P=B = AN$ (a Borel subgroup), giving only a few hints for the general case. Let $\mathcal B$ be the variety of Borel subgroups, hence we have an $A$-torsor $Y\to \mathcal B$, where $Y$ is the associated pre-flag variety ($\simeq N\backslash G$). 
- 
- Our goal is to show the following: There is an $A(k)$-stable neighborhood $V$ of the cusp in $\bar Y(\mathbb A)$, where $\bar Y$ is the toroidal embedding of $Y$ corresponding to the antidominant Weyl chamber (see Lemma \ref{lemma-cusp-alternative-definition}), such that, for all $g\in [G]$, the intersection $Y(k) g \cap V$ does not contain more than one $A(k)$-orbit. (Recall that we are assuming that $G$ is semisimple, otherwise we would have to take $g\in [G]^1$.) Choose $y_0\in Y(k)$, let $B\in \mathcal B$ be its image, and choose a maximal compact subgroup $K$ of $G(\mathbb A)$ which satisfies the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$. 
- Then, by Remark \ref{remark-cusp-Iwasawa}, for \emph{any} identification $Y = N\backslash G$ over $k$, a basis of neighborhoods of the cusp in $[G]_B$ is given by the neighborhoods $V_\epsilon := N(\mathbb A)[A]^{\le \epsilon} K$ (as $\epsilon\to 0^+$), where $[A]^{\le \epsilon}$ is the set of elements $a$ with $|e^\alpha(a)|\ge \epsilon^{-1}$ for all positive roots $\alpha$. 
- 
- 
- Fix $[g]\in [G]$, and consider its fiber in $\tilde V_\epsilon=$ the preimage of $V_\epsilon$ in $B(k)\backslash G(\mathbb A)$. If it is nonempty, we may choose a representative $g\in G(\mathbb A)$ such that $y_0 g \in V_\epsilon$. Then, writing $g = bk$ according to the Iwasawa decomposition, we have that $|e^\alpha(b)|>\epsilon^{-1}$ for every simple root $\alpha$. Since $V$ is $K$-invariant, it suffices to show that, if $\epsilon$ is small enough (independently of $[g]$), $y b \notin V_\epsilon$, for any $y\in Y(k)$ which is not in the $A(k)$-orbit of $y_0$. 
- 
-Fix a maximal torus $T\subset B$, or equivalently a section $A\hookrightarrow B$ of the quotient map. 
-The fixed points of $T$ on the flag variety $\mathcal B$ are in bijection with the Weyl group of $T$, with $w$ corresponding to $B^w$. The Bruhat decomposition $G = \sqcup_{w\in W} BwB$ can be understood in terms of these fixed points as follows: a point $B'$ on the Schubert cell $B\backslash BwB\subset \mathcal B$ is a point for which the limit $\lim_{t\in T} B'^t$ is the fixed point $B^w$, where by ``limit'' we mean that the map $T\ni t \mapsto B'^t$ extends to the $T$-fixed point in the partial compactification $\bar T$ determined by the antidominant cone (i.e., after identifying $T$ with $A$, the same embedding $\bar A$ that was used to define $\bar Y$). 
 
-Any point $y\in Y(k)$ which is not in the $A(k)$-orbit of $y_0$ has some image $B'$ of the form $B^{w \nu}$, for some $w\ne 1$ and $\nu \in N(k)$. Thus, $y = y_0 \tilde w \nu$, for some representative $\tilde w$ of $w$ in the normalizer of $T$. Writing $b=tn$ with $n\in N(\mathbb A)$ and $t\in T(\mathbb A)$, we get that $yb = y_0 {^wt} \tilde w n'$, for some $n'$ in $N(\mathbb A)$. 
+We discuss the injectivity statement, (I). Let $Y=N\backslash G$ be ``the'' pre-flag variety for $G$. In order to keep track of possible limits in various directions, let us consider a full compactification of the torus $A$. It will not be important which compactification we will consider, as long as $\bar A$ admits an open embedding in it, but to fix ideas, let us temporarily take $\bar A^F$: the compactification corresponding to the fan $F$ consisting of all Weyl chambers (and their faces), and let $\bar Y^F = \bar A^F \times^A Y$ --- it is a proper variety over the flag variety $\mathcal B$, and it contains the compacification $\bar Y$ used to define the cusp. The fixed points of $A$ on $\bar A^F$, and the closed orbits of $G$ on $\bar Y^F$, are canonically parametrized by the Weyl group, if we let the fixed point in $\bar A$ correspond to $1$, and then proceed equivariantly according to the \emph{right} action of $W$ on $\mathfrak a$. 
 
-Let $P_\alpha \supset B$ be the standard parabolic generated by $B$ and the root space $\mathfrak g_{-\alpha}$, and consider the map 
-$$ Y = N\backslash G \to Y_{\alpha}:= [P_\alpha,P_\alpha]\backslash G.$$
-(Choosing any isomorphism $Y=N\backslash G$ over $k$.) The fibers of this map are isomorphic to $N_2\backslash \text{PGL}_2$ or $N_2\backslash \text{SL}_2$, where $N_2$ is a maximal unipotent subgroup of $\text{SL}_2$; let us, for notational simplicity, assume that we are in the latter case. (This will be the case if $G$ is simply connected.) Then, we have an embedding $Y\hookrightarrow \bar Y^\alpha$ where to each fiber $N_2\backslash \text{SL}_2 \simeq \mathbb A^2\smallsetminus\{0\}$ we add the zero point --- in fact, $\bar Y^\alpha$ is a $G$-equivariant vector bundle of rank two over $Y_\alpha$, and the complement of the zero section is $Y$. 
+Choose a Borel subgroup $B\in \mathcal B(k)$, and a section of the canonical map $B\to A$, and denote its image by $T$; hence, $T$ is a maximal torus in $B$, identified with $A$ through the quotient map. We use $\bar T$, $\bar T^F$ etc.\ for $T$, as for $A$. For every $B'\in \mathcal B$ and any strictly antidominant cocharacter $\lambda$ into $T$, we have $\lim_{x \to 0} B'^{\lambda(x)} = B^w$, for some $w$ in the Weyl group of $W$ --- this is the Bruhat decomposition!  
 
-Let $A_{P_\alpha}$ be the identity component of the center of $L_\alpha$, the Levi quotient of $P_\alpha$; it acts on $[P_\alpha,P_\alpha]\backslash G$ by $G$-automorphisms. 
-We claim:
+Suppose $y'\in Y$ lies over $B'$, and $w$ is as above; then, $y' = y_0 \tilde w$, for a $y_0$ over $B$, and some representative $\tilde w$ of $w$ in the normalizer of $T$.
+The proof of (I) relies on the second of the following statements on limits on $\bar Y^F$; the first is stated just for the reader's interest:  
 
-\begin{quote}
- \item For every $z\in Y(k)$, $\delta>0$ there is an $A_{P_\alpha}(\mathbb A)$-invariant neighborhood of the zero section in $\bar Y^\alpha(\mathbb A)$ such that, if $a\in A(\mathbb A)$ with $|e^\alpha(a)|<\epsilon$, then $a z N(\mathbb A)$ does not meet this neighborhood. 
-\end{quote}
+\begin{itemize}
+ \item If $\lambda:\mathbb G_m\to T$ is strictly dominant, then $\lim_{x\to 0} y_0 \tilde w\cdot \lambda(x) \in \bar Y^F$ is the $A$-fixed point in the fiber over $B^w$ which corresponds to $w$. 
 
-[To be added.]
+ \item The closure $\overline{y_0 \tilde w N}\subset \bar Y^F$ intersects the fiber over $B$ (=the unique fixed point/closed orbit of $N$ on $\mathcal B$) along the limits of all cocharacters in the relative interior of the cone $R_w^+\subset \mathfrak a$ spanned by the simple coroots $\check\alpha$ such that $w\check\alpha <0$.
+\end{itemize}
 
-Applying the claim to $\tilde w$, the first statement of the proposition follows, for the split case.
+The second statement means the following: Let $\bar A^{R_w^+}$ be the embedding of $A$ corresponding to the cone $R_w^+$; it has a unique closed orbit (it does not contain what was denoted by $\bar A$ before!), and let $\bar Y^{R_w^+}$ be the corresponding embedding of $Y$. Then, the closure of $y_0 \tilde w N$ in $\bar Y^{R_w^+}$ is projective, and intersects the orbit over $B$ along the closed $A$-orbit. For any other completion such as $\bar Y^F$, there is a blowup of $\bar Y^{R_w^+}$ that maps to $\bar Y^F$, and the closure of $y_0 \tilde w N$ will be contained in the image.
+
+Let us prove the second statement: Since $\bar Y^F =\bar A^F \times^A Y$, the closure of $y_0 \tilde w N$ in $\bar Y^F$ corresponds to the closure of the set $A\cdot (1,y_0\tilde w N)$ in $\bar A^F \times Y$, where $A$ acts by $a\cdot (x,y) = (a^{-1} x, a y)$. Let $Y_w\subset Y$ be the preimage of the closed Bruhat cell $\overline{B w N}$, and $Y_w\sslash N = \text{Spec} k[Y_w]^N$ the affine quotient by $N$. Fixing the base point $\overline{y_0\tilde w}$=the image of $y_0\tilde W$, this is identified with the affine embedding of $A$ with divisors corresponding to the codimension-one $B$-orbits in $Y_w$, which are in bijection with the set of simple roots $\alpha$ such that $w^{-1}\alpha <0$. If $D_\alpha$ is the corresponding divisor in $Y_w\sslash N$, then the valuation it induces on the character group of $A$ is proportional to $-\check\alpha$. Thus, $Y_w\sslash N \simeq \bar A^{R_w^-}$, $A$-equivariantly (after we fix a base point), where $R_w^-$ is the embedding of $A$ corresponding to the opposite cone of $R_w^+$. Passing to the corresponding quotient of $\bar A^F \times Y_w$,  the closure of $A\cdot (1,y_0\tilde w N)$ maps to the closure of $A\hookrightarrow \bar A^F \times \bar A^{R_w^-}$, where the embedding is the antidiagonal one. The projection of this to the first factor is the image of the blowup of the variety $\bar A^{R_w^+}$. Note that this statement and proof does not depend on the choice of compactification $\bar A^F$.
+
+The way that this statement will be applied to our setting, is the following: Fix the base point $y_0\in Y(k)$, and let $B$ be the stabilizer of its $A$-orbit. Fix a maximal compact subgroup satisfying the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A) K$. We use this, together with the logarithmic maps $B(\mathbb A)\to \mathfrak a$, defined as in \eqref{equation-logmap}, to define a ``height'' function  on $[G]_B = A(k)\backslash y_0 G(\mathbb A)$:
+$$h(g) = \log(b)\in \mathfrak a.$$ 
+This is similar to the height functions of Definition \ref{definition-adelic-height}, except that it does not use an affine embedding of $Y$; rather, the sets $V_\epsilon = \{ [g] \in [G]_B| h(g) > -\log \epsilon\}$ form a basis of neighborhoods for the cusp. (See Remarks  \ref{remark-cusp-Iwasawa} and \ref{remark-basic-affine}.)
+
+We claim that the above statement about the closure of $y_0 \tilde w N$ implies the following:
+
+\begin{itemize}
+ \item There is a compact $C_0\subset \mathfrak a$ such that 
+\begin{equation}
+ \label{equation-bound-height}
+h(y_0 \tilde w N(\mathbb A)) \subset C_0 + R_w^+.
+\end{equation}
+\end{itemize}
+[We leave it to the reader to check this corollary, for now.]
+
+
+Returning to the proof of (I), consider the surjective maps $B(k)\backslash G(\mathbb A)\to P(k)\backslash G(\mathbb A) \to [G]$, for any parabolic $P\supset B$. Fix a compact $\Omega\subset [G]_P$, and consider the subsets $\Omega_\epsilon= [A_P]_\epsilon \cdot \Omega$, where $[A_P]_{\epsilon}$ is the set of elements $a$ with $\left< \alpha,\log(a)\right> -\log \epsilon$ for every simple root $\alpha$ in the unipotent radical of $P$; recall that $\log(a)\in\mathfrak a_P$, for $a\in A_P(\mathbb A)$. These subsets form a basis of neighborhoods of the image of $\Omega$ in the $P$-cusp. In turn, $\Omega$ is contained in the image $\Omega'$ of a compact subset of $B(k)\backslash G(\mathbb A)$ under $B(k)\backslash G(\mathbb A)\to P(k)\backslash G(\mathbb A) \to [G]_P$. Thus, we see
+\begin{itemize}
+ \item For any $\lambda_0  \in \mathfrak a_P^+$, any countable decreasing basis of compact neighborhoods of $A_P\backslash \Omega$ (in the $P$-cusp) is eventually contained in  the image of a set of the form $h^{-1} (C+\lambda_0 + \mathfrak a_P^+)\subset B(k)\backslash G(\mathbb A)$, where $C$ is a fixed compact subset depending on $\Omega$. 
+\end{itemize}
+
+Thus, to prove (I), it suffices to show that, if $\lambda_0$ is sufficiently antidominant (i.e., sufficiently deep in the relative interior of $\mathfrak a_P^+$), any two elements $g, g'\in B(k)\backslash G(\mathbb A)$ with $h(g), h(g')\in C+\lambda_0 + \mathfrak a_P^+$ and the same image in $[G]$, have the same image in $P(k)\backslash G(\mathbb A)$. In other words, we need to show that if $y = y_0 \tilde w \nu$ for $\tilde w\in \mathcal N(T)$ and $\nu\in N(k)$, and $y g = y_0 g'$, then $y \in  y_0 L(k)$. 
+
+Now, on one hand, $h(y g) = h(y_0 g') =  h(g') \in C+\lambda_0 + \mathfrak a_P^+$, by assumption. On the other, writing $g = n t k$ according to the Iwasawa decomposition, we have $h(yg) = h(y_0 \tilde w \nu ntk) \in h(y_0 {^wt} \tilde w N(\mathbb A))$. By \eqref{equation-bound-height}, which translates in the obvious way under the action of $A$, we have $h(y_0 {^wt} \tilde w N(\mathbb A)) \in C_0 + h({^wt}) + R_w^+ \subset C_0 + wC+ w\lambda_0 + w\mathfrak a_P^+$. 
+Because $\lambda_0 \in \mathfrak a_P^+$ is antidominant, the difference $w\lambda_0 -\lambda_0$ lies in the cone $R_w^-$. Since $R_w^+\cap R_w^- = \{0\}$, the only way that the intersection 
+$$(C+\lambda_0 + \mathfrak a_P^+) \cap  (C_0 + wC+ w\lambda_0 + w\mathfrak a_P^+)$$
+can be nonempty, when $\lambda_0$ is sufficiently ``large'' (deep in the interior of $\mathfrak a_P^+$), is that $w$ preserves $\mathfrak a_P^+$; that is, $\tilde w\subset P(k)$. This proves (I).
 
  
-[A discussion of the non-minimal $B$, coming up.]
+Now we come to the proof of (S). It is enough to prove it for the minimal parabolic (i.e., the Borel). The cusp of $\overline{[G]_B}$ is isomorphic to $\mathcal B(\mathbb A)$, hence compact. Fix an ordering $\alpha_1, \alpha_2, \dots,\alpha_r$ of the simple roots in the root system of $G$, and let $P_i$ be the parabolic which contains $\alpha_j$ with $j\le i$ in its unipotent radical, and $\alpha_j$ with $j>i$ in its Levi. Hence, $P_0=G$ and $P_r=B$. For each $i$, fix a (right) representation $V_i$ and a vector $v_i \in V_i(k)$ such that $v_i$ is an eigenvector for $P_i$, but no larger parabolic. Fix adelic heights on the $V_i$'s, and consider the set 
+ $$ \Omega = \{g \in B(k)\backslash G(\mathbb A) | \forall i \ge 1, \forall \gamma \in P_{i-1}(k), \Vert v_i \gamma g \Vert \ge \Vert  v_i g\Vert\}.$$
+ Then, by the properties of heights (Lemma \ref{lemma-height-functions}), $G(k)\Omega = G(\mathbb A)$. 
  
+ We may fix again a good maximal compact subgroup $K$ with Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$, and assume that $V$ is $K$-invariant. Writing an element of $[G]_B$ as $g=bk$, accordingly, and defining a ``height'' function (nothing to do with the adelic height functions defined previously, but this is a standard name) $h(g) = \log(b)\in \mathfrak a$, it is enough to show that $h(\Omega)$ lies in a translate of $\mathfrak a^+$. Such a translate is defined by equations $\left < \lambda, \alpha_i\right> \ge T_i$ for some scalars $T_i$ and any $i=1,\dots ,r$, i.e., we need to show that $\left< h(\Omega, \alpha_i\right>$ is bounded below, for all $i$. 
  
- Now we move to the second statement. It is enough to prove it for the minimal parabolic. We will assume, by induction on the dimension, the third statement to be proven for the derived subgroup $L'$ of the Levi of $P$; then, we will use the second statement, for the split case, to prove the third. Hence, $[L'](\mathbb A)$ is compact, and so is the cusp of $\overline{[G]_P}$. Fix an ordering $\alpha_1, \alpha_2, \dots,\alpha_r$ of the simple roots in the (relative) root system of $G$, and let $P_i$ be the parabolic which contains $\alpha_j$ with $j\le i$ in its unipotent radical, and $\alpha_j$ with $j>i$ in its Levi. Hence, $P_0=G$ and $P_r=P$ is minimal. For each $i$, fix a (right) representation $V_i$ and a vector $v_i \in V_i(k)$ such that $v_i$ is an eigenvector for $P_i$, but no larger parabolic. Fix adelic heights on the $V_i$'s, and consider the set 
- $$ \Omega = \{g \in P(k)\backslash G(\mathbb A) | \forall i \ge 1, \forall \gamma \in P_{i-1}(k), \Vert v_i \gamma g \Vert \ge \Vert  v_i g\Vert\}.$$
- Then, by the properties of heights (Lemma \ref{lemma-height-functions}), $G(k)\Omega = G(\mathbb A)$. Thus, it is enough to show that for any given neighborhood $V$ of the cusp in $P(k)\backslash G(\mathbb A)$, there are numbers $T_1, T_2, \dots, T_r$ such that, if $a\in A_P(\mathbb A)$ has $|e^{\alpha_i}(a)|\le T_i$ for all $i$, then $\widetilde{a\cdot V} \supset \Omega$.
+ By induction on $r$, we may assume this to be the case for $i \ge 2$. But then, to show it for $\alpha_1$, we may replace $G$ by the group $G'=$the Levi quotient of the parabolic $Q$ generated by $P$ and the root spaces proportional to $\alpha_1$. Indeed, the condition $\Vert v_1 \gamma g \Vert \ge \Vert v_1 g\Vert$ holds a fortiori for $\gamma \in Q (k)$, and $Q$ acts on $v_1$ through its Levi quotient. Thus, we are reduced to the case of $G$ being of \emph{semisimple rank one}, which we now assume. We may keep assuming that $G$ is semisimple, since the center evidently plays no role. But then we are in the case of $G = \text{SL}_2$, covered in Theorem \ref{theorem-reduction-SL2}, or $\text{PGL}_2$, which is similar. Thus, the theorem is proven. 
+\end{proof}
+
+We will now use Theorem \ref{theorem-reduction-theory-split} to construct a compactification of $[G]$. Set-theoretically, the compactification is
+$$ {[G]}^{RBS} = \bigcup_P A_P\backslash [G]_P,$$
+where $P$ ranges over all conjugacy classes of parabolics, so $A_P\backslash [G]_P$ is the $P$-cusp. Here, we are being a bit ambiguous about the meaning of $A_P$: it depends on which of the ``standard embeddings''  of $[G]_P$ (Definition \ref{definition-standard-embedding}) one chooses; corresponding to the choices in this definition, one can take $A_P = A_P(k_\infty)^0$, $A_P(k_\infty)$, or $[A_P]$. The last one this seems the most natural choice, in general, but, when $k = \mathbb Q$, and we take $A_P = A_P(k_\infty)^0$ (or, more generally, when $k$ is a number field, and we replace $k_\infty$ by the diagonal embedding of $\mathbb R$ in $k_\infty$), we obtain the \emph{reductive Borel--Serre compactification}, which is a manifold with corners (after we mod out by a sufficiently small compact open subgroup of $G(\mathbb A_f)$) --- this is why we use the notation ${[G]}^{RBS}$ in general. Thus, we will be using $A_P$, and leave it to the reader to choose their favorite version, except where we need to use a specific one.
+
+
+We will define, more generally, an embedding $[G]^F$ for every fan $F$ of rational, strictly convex polyhedral cones supported in $\mathfrak a^+$, following \cite{Sakellaridis-stacks}. Set-theoretically, it will be the union of $G(\mathbb A)$-orbits $Z_C$, for all cones $C\in F$. The RBS compactification will be the one corresponding to $F=$ the fan consisting of the faces of $\mathfrak a^+_{ss}$. 
+
+Assume, first, that $F$ is a fan supported entirely on the face of the anti-dominant cone corresponding to a parabolic $P$ with Levi quotient $L$, whose split center $A_P$ is canonically a subtorus of $A$. Then $F$ defines a toric embedding $A_P\hookrightarrow \overline{A_P}^F$, and we set:
+\begin{equation}
+\label{equation-LF} 
+[L]^{F}:= \overline{A_P}^F\times^{A_P} [L],
+\end{equation}
+\begin{equation}
+\label{equation-GF} 
+[G]_P^{F}:= [L]^{F} \times^{P(\mathbb A)} G(\mathbb A).
+\end{equation}
+Its $G(\mathbb A)$-orbits are in natural bijection with cones in the fan, as is the case with $A_P$-orbits in $\overline{A_P}^F$. If $C\in F$ does not belong to the face corresponding to any larger parabolic,  we let $Z_C$ be the orbit corresponding to a cone $C$. If $C$ belongs to the face corresponding to a larger parabolic $Q$, we will denote its orbit by $Z_C^P$, because $Z_C$ will be defined by the analogous construction for $Q$.
+
+For a general fan $F$, the $G(\mathbb A)$-space $[G]_P^{F}$ will be defined by the formula \eqref{equation-GF}, once $[L]^{F}$ is defined. To define $[L]^F$, we may assume that $L=G$, and that the spaces $[L]^{F}$, $[G]_P^{F}$ have been defined for all proper parabolics $P$.
+
+We first consider the restriction $F_G$ of $F$ to $\mathfrak a_G$ (i.e.\ the sub-fan consisting of all cones which are contained in the central cocharacter space of $G$). By \eqref{equation-LF}, it defines an embedding $[G]^{F_G}$ of $[G]$. Now, all the strata $Z_C$ have been defined: If $C$ belongs to $\mathfrak a_G$, then $Z_C\subset [G]^{F_G}$. If not, then $Z_C$ has been defined is a stratum of $[G]_P^F$, for $P=$ the maximal parabolic such that $C\subset \mathfrak a_P$, and, by the inductive construction, it is a stratum of $[G]_Q^F$, for all $Q\supset P$ other than $G$. There remains to explain how to glue those onto $[G]^{F_G}$. 
+
+It suffices to consider a maximal parabolic $P$. 
+First, we lift the embedding $[G]_P^{F}$ to an embedding of the space $\overline{A_G}^{F_G} \times^{A_G} P(k)\backslash G(\mathbb A)$ (recall that $F_G$ is the restriction of $F$ to $\mathfrak a_G$), by considering the universal $G(\mathbb A)$-space $X$ fitting in a diagram of continuous, $G(\mathbb A)$-equivariant maps:
+$$ \xymatrix{\overline{A_G}^{F_G} \times^{A_G} P(k)\backslash G(\mathbb A) \ar[d] \ar[r] & X \ar[d] \\ \overline{A_G}^{F_G} \times^{A_G} [G]_P \ar[r] & [G]_P^F},$$
+where the first horizontal map is supposed to be an isomorphism over $\overline{A_G}^{F_G} \times^{A_G} [G]_P$.
+Explicity, the universal such $X$ (to be denoted $\overline{P(k)\backslash G(\mathbb A)}^F$) is the union of $\overline{A_G}^{F_G} \times^{A_G} P(k)\backslash G(\mathbb A)$ with all $G(\mathbb A)$-orbits $Z_C\subset [G]_P^F$ with $C\in F$ not belonging to $\mathfrak a_G$. (We stress again that, for $C\subset \mathfrak a_G$, the corresponding orbit $Z_C^P\subset [G]_P^F$ is different from the orbit $Z_C \subset [G]^{F_G}$, which will be part of the final compactification $[G]^F$.)
+
+Now, consider the pair of quotient maps \eqref{equation-leftright}. By Theorem \ref{theorem-reduction-theory-split}, there is an $[A_G]$-stable neighborhood of the $P$-cusp where the map $\pi_G$ is an isomorphism. Thus, we can glue $\overline{P(k)\backslash G(\mathbb A)}^F$ to $[G]$ over such a neighborhood. In fact, the map $\pi_G$ extends to a morphism 
+$$ \overline{A_G}^{F_G} \times^{A_G} P(k)\backslash G(\mathbb A) \to [G]^{F_G},$$
+which is an isomorphism on an $[A_G]$-invariant neighborhood of the $P$-cusp. All orbits $Z_C\subset \overline{P(k)\backslash G(\mathbb A)}^F$ with $C$ not belonging to $\mathfrak a_G$ have a neighborhood which is contained in such a neighborhood of the $P$-cusp, \emph{therefore we can use such a neighborhood to glue $Z_C$ to $[G]^{F_G}$}. 
+
+Finally, if $Z_C\subset [G]_P^F$ and $Z_C\subset [G]_Q^F$ for two different maximal parabolics, there is a smaller parabolic $R\subset P\cap Q$ such that $Z_C\subset [G]_R^F$, and a neighborhood of $Z_C$ in $[G]_R^F$ is contained in a neighborhood of the $R$-cusp whose preimage in $R(k)\backslash G(\mathbb A)$ injects into both $P(k)\backslash G(\mathbb A)$ and $Q(k)\backslash G(\mathbb A)$, and into $[G]$. Thus, the way that $Z_C$ is glued to $[G]$ does not depend on the choice of maximal parabolic $P$ or $Q$.
+
+\begin{definition}
+ \label{definition-equivariant-toroidal-compactification}
+The (partial) compactification $[G]^F$ described above, where $F$ is a fan supported on $\mathfrak a^+$, will be called the {\it equivariant toroidal compactification} attached to $F$. If $F=\mathfrak a^+_{ss}$, it will be denoted by $[G]^{RBS}$, for {\it reductive Borel--Serre compactification}. (It is a partial compactification if $\mathfrak a_G$ is nontrivial.)
+\end{definition}
+
+\begin{remark}
+ \label{remark-toroidal-name}
+The equivariant toroidal compactifications are not related to the ``toroidal compactifications'' of locally symmetric spaces, defined by Ash--Mumford--Rapoport--Tai in \cite{Ash-Mumford-Rapoport-Tai}. However, the name is appropriate as they are have the local structure of toric varieties. 
+\end{remark}
+
+
+
+
+
+
+\section{Reduction theory in the general case}
+\label{section-reduction-theory-general}
+
+We will now use the split case to deduce the general theorem of reduction theory. The main tool will be the compactification $[G]^{RBS}$ of Definition \ref{definition-equivariant-toroidal-compactification}, and the fact that ``it is defined over $k$'', in the following sense:
+
+\begin{proposition}
+ \label{proposition-RBS-Galois-stable}
+ Let $G$ be a connected reductive group over $k$, and let $k\hookrightarrow l$ be a Galois extension, with Galois group $\Gamma$, such that $G$ splits over $l$. Then, the action of $\Gamma$ on $[G_l]$ extends continuously to the RBS compactification $[G_l]^{RBS}$.
+\end{proposition}
+
+\begin{proof}
+ The basic ingredient of the proof is that \emph{the boundary degeneration $[G]_B$ is ``defined'' over $k$}, in the sense that $[G_l]_B$ admits a canonical action of $\Gamma$. The reason is that the flag variety $\mathcal B$ of $G$ is defined over $k$, even if $G$ has no Borel subgroups over $k$. Recall that $B(l)\backslash G(\mathbb A_l) = \mathcal B(l)\times^{G(l)}G(\mathbb A_l)$, so it has a natural action of $\Gamma$. This action descends to $[G_l]_B$ (= the quotient of $\mathcal B(l)\times^{G(l)}G(\mathbb A_l)$ by the group bundle of unipotent radicals over $\mathcal B(\mathbb A_l)$).
  
- We may fix again a good maximal compact subgroup $K$ with Iwasawa decomposition $G(\mathbb A) = P(\mathbb A)K$, and assume that $V$ is $K$-invariant. Writing an element of $[G]_P$ as $g=pk$, accordingly, and if $\ell$ is the image of $p$ in the Levi quotient $L$, we need to show that all $\ell = \ell(g)$ coming from $\Omega$ lie in an $A_P(\mathbb A)$-translate of any neighborhood of the ``cusp'' in $\overline{A_P}(\mathbb A)\times^{A_P(\mathbb A)} [L]$. Since $\mathfrak a_P = \Hom(\mathbb G_m,A_P)\otimes\mathbb R = \Hom(L, \mathbb G_m)^*\otimes\mathbb R$, every point $\ell \in L(\mathbb A)$ has a logarithm $\log(\ell) \in \mathfrak a_P$ with the property that $\log |\chi(\ell)| = \left< \chi, \log(\ell)\right>$ for all characters $\chi$ of $L$, and since $[L']$ is compact, a basis of such neighborhoods of the cusp is given by the neighborhoods $V^L_T=\{ \ell| \log \ell \ge T\}$, with $T\in\mathfrak a_P$, where $ T'\ge T$, here,  means that $T'-T$ is in the dominant Weyl chamber. Correspondingly, we can define a height function (depending on a lot of choices: $P$, $K$) on $[G]_P$ by $h_P(g) = \log (\ell(g))$, where $\ell(g)$ is as above, and then a basis of neighborhoods of the cusp in $[G]_P$ is given by the neighborhoods $V_T=\{ g | h_P(g)  \ge T\}$. 
+ The same holds for the partial flag varieties of the form $P\backslash G$, except that one has to group them into \emph{associate classes}: Two conjugacy classes of parabolics are called \emph{associate} if they have conjugate Levi subgroups. An associate class $\mathcal A$ of parabolics is a variety defined over $k$, such that $\mathcal A_l$ splits into a disjoint union of conjugacy classes $\mathcal P_i$ of parabolics. Thus, we have a well-defined action of $\Gamma$ on $\sqcup_i \mathcal P_i(l)$, and from this we obtain a well-defined action of $\Gamma$ on the union $\sqcup_i P_i(l)\backslash G(l)$, or the union of boundary degenerations $\sqcup_i [G_l]_{P_i}$. 
  
- Thus, we need to show that $\Omega\subset V_T$ for some $T$ or, equivalently, $<\left < h_P(\Omega), \alpha_i\right> \ge T_i$ for some scalars $T_i$ and any $i=1,\dots ,r$. 
- 
- By induction on $r$, we may assume this to be the case for $i \ge 2$. But then, to show it for $\alpha_1$, we may replace $G$ by the group $G'=$the Levi quotient of the parabolic $Q$ generated by $P$ and the root spaces proportional to $\alpha_1$. Indeed, the condition $\Vert v_1 \gamma g \Vert \ge \Vert v_1 g\Vert$ holds a fortiori for $\gamma \in Q (k)$, and $Q$ acts on $v_1$ through its Levi quotient. Thus, we are reduced to the case of $G$ being of \emph{semisimple rank one}, which we now assume. We may keep assuming that $G$ is semisimple, since the center evidently plays no role.
- 
- The split case, $G = \text{SL}_2$ (or $\text{PGL}_2$, which is similar) is Theorem \ref{theorem-reduction-SL2}. Thus, the claim is proven for any split group. Assume now that $G$ is a general semisimple group of $k$-rank one, hence with a unique class of proper parabolics $P$. Choose a Galois extension $k\hookrightarrow l$ with Galois group $\Gamma$, such that $G$ splits over $l$. We have an action of $\Gamma$ on $G(\mathbb A_l)$, $[G_l]$, and a closed embedding $[G_k]\hookrightarrow [G_l]$, with image in the $\Gamma$-invariants. If $V$ is a compact neighborhood of the $P$-cusp in $[G_l]_P$, by the statement for split groups, there is an $A_P(\mathbb A_l)$-scaling $V'$ of $V$ (which we can take $\Gamma$-invariant, since $P$, and hence the degenerate $P$-cusp, is stable under $\Gamma$) such that $\tilde V'$, its preimage in $P(l)\backslash G(\mathbb A_l)$, surjects onto $[G_l]$. 
- 
- Recall that $[G_l]_P$ parametrizes pairs $(M,y)$ modulo $L(l)$, where $M$ is a $G(\mathbb A_l)$-translate of $Y_P(l) = U\backslash G(l)$ and $y\in M$. Here, $Y_P \simeq U\backslash G$, with $U\subset P$ the unipotent radical. Thus, every $g\in [G]$ has a $\Gamma$-stable preimage in $\tilde V'$, corresponding to a $\Gamma \ltimes L(l)$-orbit $\Omega$ of elements in $Y_P(l)g$.
- 
- Consider the compactification $\overline{A_P}$ of $A_P$ used to define the $P$-cusp $\overline{Y_P^0}$ in the embedding $\overline{Y_P}$; it has a fixed point that we will denote by $0$. Let $\bar\Omega \subset Y_P^0(\mathbb A)$ be the limit $\lim_{a \to 0} \Omega$; it is a $\Gamma \ltimes L(l)$-orbit in the cusp. Let $M$ be a compact neighborhood of $\bar \Omega$ in $[G_l]_P$ (that is, the intersection of $[G_l]_P$ with the $L(l)$-translates of a compact neighborhood of $\bar \Omega$ in $Y_P(\mathbb A)$). Then, by the first statement, if $M$ is small enough then the map $\tilde M\to [G_l]$ is injective. On the other hand, if we take $a \in A_P(\mathbb A_k)$ ``small enough'' (i.e., close enough to $0\in \overline{A_P}(\mathbb A_k)$), then $a\cdot \Omega \in M$. But, since $a$ is $\Gamma$-stable, the elements $a\cdot \Omega$ remain $G(l)$-stable, which by injectivity implies that $\Omega$ consists of a single element, i.e., corresponds to a point in $[G_k]$.
- 
- 
- Finally, we come to the third statement: the compactness of $[G]$ when $G$ is anisotropic. We have proven the second statement, without assuming the third, when $G$ is split, and the fourth statement also follows, in the split case. Choose again a Galois extension $k\hookrightarrow l$ with Galois group $\Gamma$, such that $G$ splits over $l$. If $B\subset G_l$ is a Borel subgroup, consider the map $\pi_G: B(l)\backslash G(\mathbb A_l) \to [G_l]$.  Recall that $[G_l]_B$ parametrizes pairs $(M,y)$ modulo $A(l)$, where $M$ is a $G(\mathbb A_l)$-translate of $Y(l) = N\backslash G(l)$ and $y\in M$. Here, $Y$ is a pre-flag variety defined only over $l$, but we can also consider $Y(l)$ as $\text{Res}_{l/k} Y(k)$, and we have a $\Gamma$-action on $Y(\mathbb A_l)$ which preserves the cusp in the partial compactification $\bar Y$. (Notice that $\Gamma$ will, in general, act non-trivially on the restriction of scalars of the universal Cartan $A$, but it fixes the antidominant Weyl chamber and hence it acts on the embedding $\bar A$.) Thus, there is a basis of neighborhoods of the cusp that are $\Gamma$-invariant, and we will be working with those. 
- 
- By the fourth statement, it suffices to prove that there is a neighborhood $V$ of the cusp in $[G]_B$ such that $\pi_G(\tilde V)$ does not meet $[G_k]$, where $\tilde V$ is its preimage in $B(l)\backslash G(\mathbb A_l)$. Let $(M,y)$ represent a point in $[G]_B$, and assume that it has a preimage in $B(l)\backslash G(\mathbb A_l)$ which maps to $[G_k]$ --- that means that $M = Y(l) g$ for some $g\in G(\mathbb A_k)$ and $y = y_0 g$ for some $y_0\in Y(l)$. We may assume that $V$ is $\Gamma$-stable, and then ${^\gamma y_0}g = {^\gamma(y_0g)}\in {^\gamma V} = V$ for every $\gamma\in \Gamma$. But, if $V$ is small enough as in the first statement, this implies that ${^\gamma y_0} = y_0$, i.e., $y_0 \in Y(l)^\Gamma$, a contradiction since $Y$ does not have any Galois-fixed points. Thus, $\pi_G(\tilde V)\cap [G_k] = \emptyset$, and $[G_k]$ is compact. 
- 
+ Using these facts, it is not hard to see that the $\Gamma$-action extends to $[G_l]^{RBS}$; we leave the details to the reader.
+\end{proof}
+
+
+If, now, $G$ is a reductive group over $k$, and $k\hookrightarrow l$ is a Galois extension, with Galois group $\Gamma$, such that $G$ splits over $l$, we have an embedding $[G_k]\hookrightarrow [G_l]^\Gamma\hookrightarrow ([G_l]^{RBS})^\Gamma$.
+
+\begin{proposition}
+ \label{proposition-Gk-in-Gl}
+If $\mathcal P$ is a conjugacy class of parabolics in $G_l$, and $[G_k]$ has an accumulation point in the $\mathcal P$-cusp of $[G_l]^{RBS}$, then $\mathcal P$ has an element $P$ defined over $k$. Moreover, there is a neighborhood $V$ of the $P$-cusp of $[G_l]^{RBS}$ such that $\pi_G(\tilde V) \cap [G_k] = \pi_G(\tilde V \cap P(k)\backslash G(\mathbb A))$, where $\pi_G$ is the map of \eqref{equation-leftright}. 
+\end{proposition}
+
+\begin{proof}
+The statement is local over the $P$-cusp, so it is enough to replace ``neighborhood of the cusp'' by ``neighborhood of a compact subset of the cusp''. Let $V$ to be any $\Gamma$-stable neighborhood in $[G_l]_P$ of a compact subset of accumulation points of $[G_k]$ in the $P$-cusp, satisfying the conclusion of the injectivity statement (I) of Theorem \ref{theorem-reduction-theory-split}. If $[g]\in [G_k]$ is a point in $\pi_G(\tilde V)$ by the injectivity property, and the stability of $V$, $g$ under $\Gamma$, the preimage $\tilde g$ of $g$ in $\tilde V$ is also $\Gamma$-stable. But 
+$$\tilde g \in P(l)g \in \mathcal P(l)\times^{G(k)}G(\mathbb A_k)\subset \mathcal P(l)\times^{G(l)}G(\mathbb A_l) = P(l)\backslash G(\mathbb A_l),$$
+hence the Galois action on the subset $\mathcal P(l)\times^{G(k)}G(\mathbb A_k)$ mapping to $[G_k]$ comes entirely from its action on $\mathcal P(l)$ (more precisely, on $\mathcal A(l)$, where $\mathcal A$ is the union of associate classes to $\mathcal P$). Thus, the existence of a $\Gamma$-fixed point on $P(l)\backslash G(\mathbb A_l)$, mapping to $[G_k]$, implies that $\mathcal P(k) \ne \emptyset$, and $g\in [G_k]_P$.
 \end{proof}
 
 
 
-Theorem \ref{theorem-reduction-theory} implies that the space $[G]$ can be covered by domains of a particular form, called \emph{Siegel sets}.
+
+\begin{theorem}
+ \label{theorem-reduction-theory-general}
+Let $G$ be a reductive connected group over $k$, and $P\subset G$ a (class of) parabolic(s).
+ \begin{description}
+  \item[(C)] $[G]$ is compact iff $G$ is anisotropic (i.e., does not contain any split torus). 
+  \item[(I)] Every compact subset of the $P$-cusp in $\overline{[G]_P}$ has a neighborhood $V$ such that $\pi_G|_{\tilde V}$ is injective, where $\tilde V$ is the preimage of $V$ in $P(k)\backslash G(\mathbb A)$.
+  \item[(S)] Every $[A_G]$-invariant neighborhood of the degenerate $P$-cusp in $[G]_P$ (where $A_G$ is the maximal split torus in the center of $G$) can be scaled to a neighborhood $V$ such that $\pi_G|_{\tilde V}$ is surjective, where $\tilde V$ is as above. 
+ \end{description}
+\end{theorem}
+
+
+\begin{proof}
+Again, having addressed the case of tori in Proposition \ref{proposition-automorphic-tori}, we will now assume that $G$ is semisimple; the combination of the two to address the general case is left to the reader. 
+
+
+We start with (C):  Let $k\hookrightarrow l$ be a Galois extension, with Galois group $\Gamma$, such that $G$ splits over $l$. Then, we have a closed embedding $[G_k]\hookrightarrow [G_l]^\Gamma$. If $[G_k]$ is not compact, then it has a $\Gamma$-stable accumulation point in some boundary component (some $P$-cusp) of $[G_l]^{RBS}$. By Proposition \ref{proposition-Gk-in-Gl}, it must have a proper parabolic, which contradicts the assumption that $G$ is anisotropic over $k$.
+
+For (I), there is nothing to prove, since by embedding again $[G_k]\hookrightarrow [G_l]$, the statement follows from the corresponding statement for split groups, contained in Theorem \ref{theorem-reduction-theory-split}.
+
+ 
+Now we pass to (S). The same argument as in the split case reduces us to the case of split semisimple rank one. Thus, we assume that $G$ has a unique class of proper parabolics $P$ over $k$.  Since $P$ is minimal, by the statement (C) applied to its Levi quotient $L$, its cusp will be compact, and therefore the neighborhoods of the $P$-cusp coincide with the neighborhoods of the degenerate $P$-cusp. If, again, $l$ is a splitting field as above, and $V$ is any small neighborhood of the $P$-cusp in $[G_l]_P$ satisfying the conclusion of Proposition \ref{proposition-Gk-in-Gl}, the proposition shows that, on one hand, $[G_k]\smallsetminus \pi_G(\tilde V)$ is relatively compact, and on the other $P(k)\backslash G(\mathbb A)\cap \tilde V$ surjects onto $[G_k]\cap  \pi_G(\tilde V)$. Thus, there is an $A_P(\mathbb A)$-scaling $V'$ of $V\cap [G_k]_P$ such that $\pi_G(\tilde V') = [G_k]$. 
+\end{proof}
+
+Now we draw some corollaries from Theorem \ref{theorem-reduction-theory-general}: the finiteness of class numbers, and a more classical formulation, saying that $[G]$ can be covered by domains of a particular form, called \emph{Siegel sets}.
 
 \begin{definition}
  \label{definition-fundamental-set-domain}
@@ -438,12 +568,12 @@ A {\it fundamental set} $\Omega$ for $\Gamma\backslash G$ is a subset of $G$ suc
  \label{definition-Siegel-set}
 Let $P\subset G$ be a minimal parabolic subgroup, and fix a maximal compact subgroup $K\subset G(\mathbb A)$ satisfying the Iwasawa decomposition $G(\mathbb A)= P(\mathbb A) K$. A {\it Siegel set} is a subset of $G(\mathbb A)$ of the form: $\Omega A_\epsilon K$, where: 
 \begin{itemize}
- \item $\Omega$ is a compact subset of $P_0(\mathbb A)$;
- \item $A_\epsilon\subset A_P(k_\infty)$ subset of those elements $t$ satisfying $|e^\alpha(t)|>\epsilon>0$ for all positive roots $\alpha$. \footnote{More generally, one can specify different values of $\epsilon$ for different roots.}
+ \item $\Omega$ is a compact subset of $P(\mathbb A)$;
+ \item $A_\epsilon\subset A_P(k_\infty)$ (or, in the number field case, $A_\epsilon\subset A_P(\mathbb R)^0$, where $\mathbb R\hookrightarrow k_\infty$ is the diagonal embedding) is the subset of those elements $t$ satisfying $|e^\alpha(t)|>\epsilon>0$ for all positive roots $\alpha$. \footnote{More generally, one can specify different values of $\epsilon$ for different roots.}
 \end{itemize} 
 \end{definition}
 
-Then, a corollary of Theorem \ref{theorem-reduction-theory} is:
+Then, a corollary of Theorem \ref{theorem-reduction-theory-general} is:
 
 \begin{theorem}
 \label{theorem-Siegel-finiteness}
@@ -454,9 +584,11 @@ Then, a corollary of Theorem \ref{theorem-reduction-theory} is:
 \end{theorem}
 
 \begin{proof}
-Let $P\subset G$ be a minimal parabolic, and $K\subset G(\mathbb A)$ a maximal compact subgroup satisfying the Iwasawa decomposition. Using the Iwasawa decomposition, the question is reduced to the question of $P(k_\infty)$-orbits on $[P]/J_P$, where $J_P$ is an open compact subgroup of $P(\mathbb A_f)$. If $P\to L\to L^{ab}$ are the Levi quotient of $P$ and its abelianization, a torus, the problem is easily reduced from $P$ to $L$ by means of Proposition \ref{proposition-automorphic-Ga}, from $L$ to $L^{ab}$ by means of the compactness of $[L']$, where $L'$ is the derived subgroup of $L$ (Theorem \ref{theorem-reduction-theory}), and the case of $L^{ab}$ is Proposition \ref{proposition-automorphic-tori}.
+Let $P\subset G$ be a minimal parabolic, and $K\subset G(\mathbb A)$ a maximal compact subgroup satisfying the Iwasawa decomposition $G(\mathbb A) = P(\mathbb A)K$. Using the Iwasawa decomposition, the question is reduced to the question of $P(k_\infty)$-orbits on $[P]/J_P$, where $J_P$ is an open compact subgroup of $P(\mathbb A_f)$. If $P\to L\to L^{ab}$ are the Levi quotient of $P$ and its abelianization, a torus, the problem is easily reduced from $P$ to $L$ by means of Proposition \ref{proposition-automorphic-Ga}, from $L$ to $L^{ab}$ by means of the compactness of $[L']$, where $L'$ is the derived subgroup of $L$ (Statement (C) of Theorem \ref{theorem-reduction-theory-general}), and the case of $L^{ab}$ is Proposition \ref{proposition-automorphic-tori}.
 
-The second statement follows from the second and third statements of Theorem \ref{theorem-reduction-theory}, and the Iwasawa decomposition.
+For the second statement, first choose a compact subset $\Omega\subset P_0(\mathbb A)$, such that $U(k)\Omega \supset U(\mathbb A)\Omega$ (possible by Proposition \ref{proposition-automorphic-Ga}), and $U(\mathbb A) A_P(k_\infty) \Omega = G(\mathbb A)$ (or, respectively, $U(\mathbb A) A_P(\mathbb R) \Omega = G(\mathbb A)$ --- this is possible by the compactness of $[L']$, and the finiteness of the class number for tori, Proposition \ref{proposition-automorphic-tori}, applied to $L^{ab}$.
+
+The surjectivity, now, of a subset of the form $\Omega A_\epsilon K$ onto $[G]$ follows from Statement (S) of Theorem \ref{theorem-reduction-theory-general}.
 \end{proof}
 
 
@@ -537,7 +669,7 @@ Here is an example for the failure of strong approximation: Assume that $G$ is a
  Let $G$ be a linear algebraic group over the ring of integers $\mathfrak o$ of a number field $k$, or over the integers of a function field away from a non-empty set of places that we will denote as $k_\infty$. The cardinality of the set $G(k)\backslash G(\mathbb A_f)/\prod_{v\ne \infty} G(\mathfrak o_v)$ is the {\it class number} of $G$. 
 \end{definition}
 
-The class number is always finite, as a corollary of reduction theory, that we will discuss in \S \ref{section-reduction-theory}. Here, we will use strong approximation (definitely a deeper fact than reduction theory) in order to get a more precise calculation of the class number in several cases.
+The class number is always finite, by Theorem \ref{theorem-Siegel-finiteness}. Here, we will use strong approximation (definitely a deeper fact than reduction theory) in order to get a more precise calculation of the class number in several cases.
 
 \begin{proposition}
 \label{proposition-class-number-abelianization}
@@ -595,7 +727,10 @@ Any reductive group over a field $k$ admits a $z$-extension.
 \begin{proof}
 \end{proof}
 
+[To be continued: describe the class group of $G$ in terms of the class group of $\tilde G^{ab}$, where $\tilde G$ is a $z$-extension.]
 
+\section{Tamagawa numbers}
+\label{section-Tamagawa-numbers}
 
 
 
