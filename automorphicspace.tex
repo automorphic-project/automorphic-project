@@ -120,20 +120,20 @@ If $F$ is a number field, with $r_1$ real places and $r_2$ complex places, then 
 
 When studying the geometry and harmonic analysis of the space $[G]$, a very important role is played by certain related $G(\mathbb A)$-homogeneous spaces, that we will call \emph{boundary degenerations}. The term is not standard, but is borrowed from \cite{Sakellaridis-Venkatesh}, where it was used in a local setting, and it is a useful concept that unifies the ideas of harmonic analysis globally and locally.
 
+Let $\mathcal P$ denote a (conjugacy) class of parabolics in $G$; it can be understood as a homogeneous space of $G$, endowed with the tautological sub-group scheme $\mathbb P$ of the constant scheme $\mathcal P\times G$, where the fiber of $\mathbb P$ over a parabolic $P$ is $P$ itself. It admits a canonical quotient $\mathbb L$, where the fiber over $P$ is the Levi quotient of $P$, and a further canonical quotient $\mathbb L^{ab}$, where the fiber is the abelianization of the Levi quotient. Notice that the action of $P$ is trivial on its fiber in $\mathbb L^{ab}$, but not on its fiber in $\mathbb L$, unless $\mathcal P = \mathcal B$, the class of Borel subgroups, where the group scheme $\mathbb L$ is the constant ``universal Cartan'' group scheme (Definition \ref{algebraicgroups-definition-universal-Cartan}), $\mathbb L = \mathbf A^G\times \mathcal B$. 
+
 \begin{definition}
  \label{definition-pre-flag}
-Let $G$ be a reductive group over a field $k$, let $\mathcal P$ denote a (conjugacy) class of parabolics in $G$, and let $R$ be a trivializable $G$-torsor. The {\it pre-flag variety} [can someone suggest a better term?] associated to these data is the variety classifying pairs $(P, Z)$, where $P\in \mathcal P$ and $Z$ is an orbit for the action of the unipotent radical $U_P$ on $R$. The {\it degenerate pre-flag variety} associated to these data is the variety classifying pairs $(P, Z)$, where $P\in \mathcal P$ and $Z$ is an orbit for the action of the derived group $[P,P]$ on $R$.
+Let $G$ be a reductive group over a field $k$, let $\mathcal P$ denote a (conjugacy) class of parabolics in $G$, and let $\mathbb L$ be the group scheme of Levi quotients over $\mathcal P$. A {\it pre-flag variety} [can someone suggest a better term?] associated to $\mathcal P$ is a $G$-equivariant $\mathbb L$-torsor $R$ over $\mathcal P$, where any $P\in \mathcal P$ acts on its fiber $R_P$ through its Levi quotient $P\to \mathbb L_P$. A {\it degenerate pre-flag variety} is a $G$-equivariant $\mathbb L^{ab}$-torsor $R$ over $\mathcal P$, where any $P\in \mathcal P$ acts on its fiber $R_P$ through its abelianized Levi quotient $P\to \mathbb L^{ab}_P$.
 \end{definition}
 
-In other words, up to choosing a base point, the pre-flag variety (resp.\ degenerate pre-flag variety) is isomorphic to $U_P\backslash G$ (resp.\ $[P,P]\backslash G$) --- but the definition is formulated in a way to avoid having a chosen base point. For example, if $\mathcal P=\{G\}$, then the pre-flag variety is simply a $G$-torsor. Note that, if $Y$ is such a pre-flag variety and we fix a point $y = (P,Z)\in Y$, through its action on $y$ the $G$-automorphism group of such pre-flag variety can be identified with the Levi quotient $P\twoheadrightarrow L$ of $P$. (Choice of different point will modify this identification by conjugation.)
-Clearly, the isomorphism class of the pre-flag variety depends only on the conjugacy class of $\mathcal P$, but the existence of $G$-automorphisms does not allow us to fix a canonical isomorphism between two of those. We will often abuse language, pick a parabolic $P \in \mathcal P$, and say that $U_P\backslash G$ is ``the'' pre-flag variety associated to $P$ --- but without a fixed point, unless otherwise stated.
-
 \begin{remark}
-\label{remark-preflag-Borel}
-When $\mathcal P = \mathcal B$, the class of Borel subgroups, there is an alternative definition of the associated pre-flag variety: Recall from Proposition \ref{algebraicgroups-proposition-universal-Cartan} that there is a canonical, constant group scheme $\mathbf A^G\times \mathcal B$ over $\mathcal B$, whose fiber at every point $B$ comes with an identification with the reductive quotient of $B$. Then, an associated pre-flag variety is a $G$-equivariant $\mathbf A^G$-torsor over $\mathcal B$, pointwise trivializable, where any Borel subgroup $B$ acts on the fiber over $B\in \mathcal B$ through its quotient $\mathbf A^G$. 
+\label{remark-pre-flag}
+In this section, we will always take a (degenerate) pre-flag variety to have points over the field of definition, unless otherwise stated. In this case is isomorphic to $U_P\backslash G$ (resp.\ $[P,P]\backslash G$) --- but the definition is formulated in a way to avoid having a chosen base point. For example, if $\mathcal P=\{G\}$, then the pre-flag variety is simply a $G$-torsor. 
+
+Clearly, the isomorphism class of the pre-flag variety (which has a point) depends only on the conjugacy class $\mathcal P$, but we will often abuse language, pick a parabolic $P \in \mathcal P$, and say that $U_P\backslash G$ is ``the'' pre-flag variety associated to $P$ --- but without a fixed point, unless otherwise stated.
 \end{remark}
 
-The definition, of course, begs to remove the ``trivializable'' condition; then, we would end up with homogeneous spaces for inner forms of $G$.
 
 
 \begin{definition}
@@ -407,7 +407,7 @@ The proof of (I) relies on the second of the following statements on limits on $
 
 The second statement means the following: Let $\bar A^{R_w^+}$ be the embedding of $A$ corresponding to the cone $R_w^+$; it has a unique closed orbit (it does not contain what was denoted by $\bar A$ before!), and let $\bar Y^{R_w^+}$ be the corresponding embedding of $Y$. Then, the closure of $y_0 \tilde w N$ in $\bar Y^{R_w^+}$ is projective, and intersects the orbit over $B$ along the closed $A$-orbit. For any other completion such as $\bar Y^F$, there is a blowup of $\bar Y^{R_w^+}$ that maps to $\bar Y^F$, and the closure of $y_0 \tilde w N$ will be contained in the image.
 
-Let us prove the second statement: Since $\bar Y^F =\bar A^F \times^A Y$, the closure of $y_0 \tilde w N$ in $\bar Y^F$ corresponds to the closure of the set $A\cdot (1,y_0\tilde w N)$ in $\bar A^F \times Y$, where $A$ acts by $a\cdot (x,y) = (a^{-1} x, a y)$. Let $Y_w\subset Y$ be the preimage of the closed Bruhat cell $\overline{B w N}$, and $Y_w\sslash N = \text{Spec} k[Y_w]^N$ the affine quotient by $N$. Fixing the base point $\overline{y_0\tilde w}$=the image of $y_0\tilde W$, this is identified with the affine embedding of $A$ with divisors corresponding to the codimension-one $B$-orbits in $Y_w$, which are in bijection with the set of simple roots $\alpha$ such that $w^{-1}\alpha <0$. If $D_\alpha$ is the corresponding divisor in $Y_w\sslash N$, then the valuation it induces on the character group of $A$ is proportional to $-\check\alpha$. Thus, $Y_w\sslash N \simeq \bar A^{R_w^-}$, $A$-equivariantly (after we fix a base point), where $R_w^-$ is the embedding of $A$ corresponding to the opposite cone of $R_w^+$. Passing to the corresponding quotient of $\bar A^F \times Y_w$,  the closure of $A\cdot (1,y_0\tilde w N)$ maps to the closure of $A\hookrightarrow \bar A^F \times \bar A^{R_w^-}$, where the embedding is the antidiagonal one. The projection of this to the first factor is the image of the blowup of the variety $\bar A^{R_w^+}$. Note that this statement and proof does not depend on the choice of compactification $\bar A^F$.
+Let us prove the second statement: Since $\bar Y^F =\bar A^F \times^A Y$, the closure of $y_0 \tilde w N$ in $\bar Y^F$ corresponds to the closure of the set $A\cdot (1,y_0\tilde w N)$ in $\bar A^F \times Y$, where $A$ acts by $a\cdot (x,y) = (a^{-1} x, a y)$. Let $Y_w\subset Y$ be the preimage of the closed Bruhat cell $\overline{B w N}$, and $Y_w\sslash N = \text{Spec} k[Y_w]^N$ the affine quotient by $N$. Fixing the base point $\overline{y_0\tilde w}$=the image of $y_0\tilde w$, this is identified with the affine embedding of $A$ with divisors corresponding to the codimension-one $B$-orbits in $Y_w$, which are in bijection with the set of simple roots $\alpha$ such that $w^{-1}\alpha <0$. If $D_\alpha$ is the corresponding divisor in $Y_w\sslash N$, then the valuation it induces on the character group of $A$ is proportional to $-\check\alpha$. Thus, $Y_w\sslash N \simeq \bar A^{R_w^-}$, $A$-equivariantly (after we fix a base point), where $R_w^-$ is the embedding of $A$ corresponding to the opposite cone of $R_w^+$. Passing to the corresponding quotient of $\bar A^F \times Y_w$,  the closure of $A\cdot (1,y_0\tilde w N)$ maps to the closure of $A\hookrightarrow \bar A^F \times \bar A^{R_w^-}$, where the embedding is the antidiagonal one. The projection of this to the first factor is the image of the blowup of the variety $\bar A^{R_w^+}$. Note that this statement and proof does not depend on the choice of compactification $\bar A^F$.
 
 The way that this statement will be applied to our setting, is the following: Fix the base point $y_0\in Y(k)$, and let $B$ be the stabilizer of its $A$-orbit. Fix a maximal compact subgroup satisfying the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A) K$. We use this, together with the logarithmic maps $B(\mathbb A)\to \mathfrak a$, defined as in \eqref{equation-logmap}, to define a ``height'' function  on $[G]_B = A(k)\backslash y_0 G(\mathbb A)$:
 $$h(g) = \log(b)\in \mathfrak a.$$ 
@@ -731,6 +731,298 @@ Any reductive group over a field $k$ admits a $z$-extension.
 
 \section{Tamagawa numbers}
 \label{section-Tamagawa-numbers}
+
+\subsection{General definitions}
+\label{subsection-Tamagawa-definitions}
+
+\begin{definition}
+ \label{definition-standard-Haar}
+The {\it standard Haar measure} $dx$ on $\mathbb A$ is the measure that assigns volume $1$ to the quotient $\mathbb A/k$. The {\it standard multiplicative Haar measure} on $\mathbb A^\times$ is the measure $\frac{dx}{|x|}$. 
+\end{definition}
+
+\begin{remark}
+ \label{remark-absolute-value}
+The standard Haar measure on $\mathbb A$ can be factorized as $\prod_v dx_v$, where $dx_v$ is a Haar measure on $k_v$. Although there is not ``canonical'' Haar measure on $k_v$, there is a standard choice that one can make, compatible with norms to the base field (a completion of $\mathbb Q$ or $\mathbb F_p(t)$ --- where we have the ``usual'' Haar measure). Notice that this is not preserved under field embeddings $k\hookrightarrow l$. In particular, the absolute value on $\mathbb C$ is the \emph{square} of the usual one.
+\end{remark}
+
+
+
+\begin{definition}
+ \label{definition-absolute-value-measure}
+Let $F$ be a local field, endowed with a Haar measure $dx$, and let $X$ be a smooth algebraic variety of dimension $n$ over $F$. Let $\omega$ be a volume form on $X$. The {\it absolute value of the volume form} $\omega$ is the measure $|\omega|$ which, in any open chart $(U ,(x_i)_i)$, that is, an open subset (in the $F$-topology) $U\subset X(F)$ endowed with a set of algebraic coordinates $x_1, \dots, x_n$, if $\omega$ is written as $f(\underline x) dx_1 \wedge \cdots \wedge dx_n$, then $\left. |\omega| \right|_{U}$ is equal to the measure $|f(\underline x)| dx_1 \cdots \wedge dx_n$.
+\end{definition}
+
+By ``a set of algebraic coordinates'' we mean a set of algebraic functions $x_1, \dots x_n$, which are regular at all points of $U$, and such that the volume form $\omega'=dx_1 \wedge \dots \wedge dx_n$ is nowhere vanishing on $U$; hence, the quotient $\frac{\omega}{\omega'}$ is a rational function that is regular at all points of $U$. The definition, of course, presupposes that the measure $|f(\underline x)| dx_1 \cdots \wedge dx_n$ does not depend on the coordinates chosen, which is easily checked. See also Weil's \cite{Weil-adeles}.
+
+Now, we discuss volume forms on algebraic groups.
+
+\begin{lemma}
+ \label{lemma-Haar-volume-form}
+If $G$ is an algebraic group over a field $k$, then $G$ has a unique, up to scaling, nonzero right-invariant volume form $\omega_G^R$, and a unique, up to scalar, nonzero left-invariant volume form $\omega_G^L$. There is a character $\partial_G: G\to \mathbb G_m$ such that, if $\omega_G^R$ is a right-invariant volume form on $G$, then $\omega_G^R(ag) = \partial_G(a) \cdot \omega_G^R(g)$, or equivalently, $\partial_G$ is the quotient $\frac{\omega_G^R}{\omega^L_G}$ between a right- and a(n appropriately scaled) left-invariant volume form. 
+
+If $G$ is reductive, unipotent, or projective (i.e., an abelian variety), then $\partial_G = 1$, i.e., left- and right-invariant volume forms coincide.
+\end{lemma}
+
+\begin{proof}
+ Take a volume form on the tangent space to the identity, and translate it by right- or left-multiplication.
+
+ The left translate of a right-invariant volume form is again a right-invariant volume form, so it must be a multiple of it. (More rigorously, $\partial_G$ is the character of the left coadjoint representation of $G$ on the one-dimensional space $\bigwedge^{\text{top}} \mathfrak g^*$.)
+ 
+ Unipotent and projective groups do not have non-trivial characters, so $\partial_G=1$. In the reductive case, because roots come in opposite pairs, the determinant of the coadjoint representation is trivial on semisimple elements, hence (by density of semisimple elements) on the entire group.
+\end{proof}
+
+\begin{definition}
+\label{definition-modular-character}
+A left- or right- invariant volume form on an algebraic group $G$ is called a (left- or right-) {\it Haar volume form}. The character $\partial_G$ of Lemma \ref{lemma-Haar-volume form} (or its absolute value $\delta_G = |\partial_G|$, valued in $\mathbb R^\times_+$, on the points of $G$ over a local field) is called the {\it modular character} of $G$.\footnote{The convention in Bourbaki is the opposite one: left over right; however, right over left is the standard definition of the modular character in more recent literature.} 
+\end{definition}
+
+
+
+An interesting feature of adelic groups is that they come with \emph{canonical} measures. To define them, we first need to discuss volumes of unit groups, $G(\mathfrak o_v)$, when $G$ is a reductive group scheme over the ring of integers of a local non-Archimedean field $v$. The answer is expressed in terms of the \emph{motive of $G$}, see \cite{Gross-motive}:
+
+\begin{definition}
+ \label{definition-motive-G}
+Let $G$ be a connected reductive group defined over a field $k$. Let $T$ be the universal Cartan of $G$ (Definition \ref{algebraicgroups-definition-universal-Cartan}), , with absolute Galois group $\Gamma$, with absolute Weyl group $W$ and absolute cocharacter group $X_{*,k^s}(T)$. Set $\mathfrak c = \mathfrak t\sslash W$, where $\mathfrak t = X_{*,k^s}(T) \otimes \mathbb Q$, where $T$ is a maximal torus, and ; notice that it contains a distinguished point $0\in \mathfrak c$, the image of $0\in \mathfrak t$. 
+
+We define $M_G^\vee(1) = $ the tangent space $V=T_0\mathfrak c$ as a vector space, considered as a graded $\mathbb Q$-vector space with the grading descending from the $\mathbb G_{m, \mathbb Q}$-action on $\mathfrak t^*$, and as a $\Gamma$-module by $M_G^\vee(1)  = \bigoplus_d V_d(d)$, i.e., the twist of the natural $\Gamma$-action on $V$ by the $d$-th power of the Tate motive on the $d$-th graded piece. We define the {\it motive of $G$} to be the motive $M_G$, defined as the notation suggests, i.e., $M_G = (M_G^\vee(1))^\vee(1) = \bigoplus_d V_d^\vee(1-d)$.
+\end{definition}
+
+
+\begin{proposition}
+ \label{proposition-measure-integers}
+Let $G$ be a reductive group scheme over the integers $\mathfrak o$ of a local non-Archimedean field $F$ which is unramified over the base field; fix the measure $dx$ on $G$ with $dx(\mathfrak o)=1$, and let $\omega$ be an invariant volume form on $G$, defined over $\mathfrak o$ and residually non-vanishing. Then,
+\begin{equation}
+ \label{equation-measure-integers}
+ \int_{G(\mathfrak o)} |\omega| = L(M_G^\vee(1))^{-1} = \det(I-\mathcal F|M^\vee(1)^I), 
+\end{equation}
+where $I$ is the inertia group, and $\mathcal F$ is the geometric Frobenius morphism (acting by $q^{-1} on \mathbb Q(1)$, where $q$ is the residual degree). 
+\end{proposition}
+
+\begin{proof}
+ 
+ ...
+\end{proof}
+
+
+
+\begin{proposition}
+ \label{proposition-Tamagawa-canonical}
+Let $G$ be a connected, reductive group over the global field $k$, and let $\omega$ be a nonzero right-invariant volume form on $G$ over $k$. Fix a finite set $S$ of places, including the Archimedean ones, and a model for $G$ over the $S$-integers $\mathfrak o_S$, such that $G$ is connected reductive over $\mathfrak o_S$ and the form $\omega$ is integral and residually nonvanishing. Then:
+\begin{enumerate}
+ \item The partial $L$-function 
+ $$ L^S(M^\vee(1), s)= \prod_{v\in S} \det(I- q_v^{-s} \mathcal F_v|M^\vee(1))^{-1}$$
+ admits a meromorphic continuation to $s=0$, with pole of order equal to the $k$-character group of $G$.
+ \item The Haar measure $\mu_{Tam}$ on $G(\mathbb A)$, which assigns to an open neighborhood $U= \prod_v U_v$ of the identity, with $U_v = G(\mathfrak o_v)$ for $v\notin S$ (which we can assume for any such neighborhood, by enlarging $S$ if necessary) the value 
+ $$ \mu_{Tam}(U) = \frac{\prod_{v\in S} |\omega_v|(U_v)}{L^S(M^\vee(1))^* },$$
+ where $L^S(M^\vee(1))^*$ is the leading coefficient of the Laurent expansion of $L^S(M^\vee(1),s)$ at $s=0$, is independent of the volume form $\omega$, the set of places $S$, or the integral model of $G$ over $\mathfrak o_S$.
+\end{enumerate}
+
+\end{proposition}
+
+
+\begin{proof}
+ ...
+\end{proof}
+
+
+
+
+
+\begin{definition}
+ \label{definition-Tamagawa-measure-number}
+The {\it Tamagawa measure} on $G(\mathbb A)$ (or on $[G]$) is the measure $\mu_{Tam}$ of Proposition \ref{proposition-Tamagawa-canonical} (resp., its descent to $[G]$).  
+
+The {\it Tamagawa number} of $G$ is the number
+\begin{equation}
+ \label{equation-Tamagawa-number}
+\tau(G) = \text{AvgVol}([G],\mu_{Tam}) = \lim_{c\to\infty} \frac{\mu_{Tam}(\log^{-1}(cB))}{\text{Vol}(cB)},
+\end{equation}
+where $\log: [G] \to \mathfrak a_G = \Hom(G, \mathbb G_m)^\vee \otimes \mathbb R$ is the logarithmic map defined as in \eqref{equation-logmap}, $B$ is the unit ball of any norm on the real vector space $\mathfrak a_G$, and $\text{Vol}(cB)$ is taken with respect to the measure on $\mathfrak a_G$ which assigns covolume $1$ to the lattice $\Hom(G, \mathbb G_m)^\vee$. 
+\end{definition}
+
+
+\begin{remark}
+ \label{remark-Tamagawa-measure}
+ This definition is usually expressed in terms of the volume of $[G]^1=\{g\in [G]| \forall \chi\in \Hom(G, \mathbb G_m), |\chi(g)|=1\}$, which one endows with the Haar measure $\mu_{Tam}'$ such that the measure $\mu_{Tam}$ on $[G]$ factorizes as
+ $$ \int_{[G]} \mu_{Tam} = \int_{\mathfrak a_G} (\int_{[G]^1} \mu_{Tam}') dx,$$
+ with $dx$ the same measure on $\mathfrak a_G$ as in the definition. [TO DOUBLE-CHECK THE CONVENTIONS FOR $dx$.] In the case of the function field of a curve over a finite field with $q$ elements, the image of $[G]$ in $\mathfrak a_G$ is not the entire space, but just the lattice $\log q \cdot \Hom(G, \mathbb G_m)^\vee$, and the above integral over $\mathfrak a_G$ should be replaced with a sum over that lattice, multiplied by $\log q$. The definition with ``average volume'' unifies the number field and function field cases, and provides a more conceptual way to understand the regularization procedure, whereby the infinite $L^S(M^\vee(1),0)$ is replaced by its leading coefficient $L^S(M^\vee(1))^*$: formally, we are computing the volume of \emph{the entire space} $[G]$ with respect to a measure defined using the infinite quantity $L^S(M^\vee(1),0)$. The ``infinities'' of the space $[G]$ and this quantity are ``of the same order'', and cancel each other.
+\end{remark}
+
+\subsection{The Tamagawa number conjecture}
+\label{subsection-Tamagawa-conjecture}
+
+\subsection{Application: The Smith--Minkowski--Siegel mass formula for quadratic forms}
+\label{subsection-mass-formula}
+
+
+\section{Various incarnations of the automorphic space}
+\label{section-incarnations}
+
+\subsection{Moduli of principal $G$-bundles}
+\label{subsection-BunG}
+
+
+Let $G$ be a (smooth) affine algebraic group over a field $\mathbb F$. 
+By a \emph{(principal) $G$-bundle} over an $\mathbb F$-scheme $C$ we will mean a $G$-torsor $P\to C$ in the fpqc or \'etale topology, that is, a $G$-equivariant sheaf (or, equivalently by fpqc descent, a $G$-equivariant scheme) over $C$, such that there is a finitely presented, quasicompact cover, or an \'etale cover  $\tilde C\to C$, with a $G$-equivariant isomorphism
+$$ P\times_C \tilde C \simeq G \times \tilde C.$$
+
+That the two topologies give rise to the same objects follows from the smoothness of $G$ (and hence of any $G$-torsor), and the fact that smooth morphisms $X\to Y$ admit sections \'etale-locally. It is not, in general, true that an \'etale $G$-torsor is trivial Zariski-locally.
+
+
+
+However, this is often true when $C$ is a curve. Let $C$ be a one-dimensional, reduced and irreducible scheme of finite type over $\mathbb F$. Let $k = \mathbb F(C)$ be the function field of the curve, $\mathbb A$ its ring of adeles, defined as the restricted tensor product, over all closed points $x$ of the curve, of the fields $k_x$, and $\mathcal O:= \prod_x \mathfrak o_x\subset \mathbb A$, the product of the associated stalks of rings. 
+
+
+
+
+
+The set of isomorphism classes of $G$-bundles over $C$ will be denoted by $\text{Bun}_G(\mathbb F)$; it is the set of $\mathbb F$-isomorphism classes of a moduli stack $\text{Bun}_G$, which we will not define.
+
+
+\begin{proposition}
+ \label{proposition-BunG}
+Assume that $H^1(k,G)=1$ and, for every finite extension $\mathbb F'/\mathbb F$, $H^1(\mathbb F',G)=1$. Then, 
+there is a canonical isomorphism of \emph{groupoids of sets} $[G]/G(\mathcal O) \leftrightarrow \text{Bun}_G(\mathbb F)$, such that, if a $G$-bundle $P$ corresponds to the class of $(g_v)_v$, which can be assumed to be equal to $1$ for every $v\in U$, for some open dense $U\subset C$, then there are trivializations $t_U: P|_U\xrightarrow\sim G\times U$ and $t_v: P|_{\text{Spec} \mathfrak o_v} \xrightarrow\sim G\times \text{Spec} \mathfrak o_v$ for $v\notin U$, such that $t_U \circ t_v^{-1}|_{\text{Spec} k_v} = g_v$.
+\end{proposition}
+
+``Groupoid of sets'' means (small) categories where all morphisms are isomorphisms; such a category is equivalent to a set, where every point is equipped with a group of automorphisms.
+
+
+\begin{proof}
+Citing \cite[112593]{Mathoverflow}---look there for more details and links to sources:
+
+Since $H^1(k,G)=1$, any $G$-torsor is trivial over the generic point of $C$, hence over a nonempty upen $U\subset C$. Fix such an open set and an isomorphism $P|_{U} \simeq G\times U$, i.e.\ a section $\rho: U \to P$. 
+
+On the other hand, for every $v\in C$, consider the restriction of $P$ to the formal neighborhood $D_v = \text{Spec} \mathfrak o_v$ at $v$. The residue field $\mathbb F(v)$ is a finite extension $\mathbb F'$ of $\mathbb F$, and since $H^1(\mathbb F',G)=1$, the restriction to $P$ over the special fiber is trivial, i.e., admits a section $\text{Spec} \mathbb F' \to P$. Since $P$ is formally smooth, this extends to a section $\sigma_v: D_v \to P$, i.e., $P$ is trivial over $D_v$; fix such a section $\sigma_v$, for every $v \notin U$. 
+ 
+Then, on the intersection $U\cap D_v = \text{Spec} k_v$, we have the restrictions of two sections $\rho$ and $\sigma_v$, and thus there is a $g_v\in G(k_v)$ such that $g_v\cdot \sigma_v = \rho$. Set $g_v=1$ for $v\in U$; the collection $(g_v)_v$ gives an element of $G(\mathbb A)$, which depends on choices made. All different choices for $\rho$ (possibly for different $U$) are of the form $G(k)\rho$, and for $\sigma_v$ of the form $G(\mathfrak o_v) \sigma_v$. Thus, independently of choices, the $G$-bundle $P$ gives rise to an element of $G(k)\backslash G(\mathbb A)/G(\mathcal O)$.
+
+Vice versa, descent for the fpqc cover $\text{Spec}(k) \sqcup \text{Spec} \mathfrak o_v \to \text{Spec} \mathfrak o_{(v)}$ (where $\mathfrak o_{(v)}\subset k$ is the local ring at $v$) shows that the category of $G$-torsors over $\text{Spec}(\mathfrak o_{(v)})$ is equivalent to the category of data $(P_v, \tau_v)$, where $P_v$ is a $G$-torsor over $\mathfrak o_v$, and $\tau_v$ is a descent datum from its generic fiber to the trivial bundle over $k$ --- equivalently, a section of $P_v$ over $\text{Spec}(k_v)$. 
+
+If two $G$-bundles $P_1, P_2$ give rise to the same class in $[G]/G(\mathcal O)$, and we represent them as the trivial bundle over an open set $U$ (which we can assume to be the same for both) and data $(P_{i,v}, \tau_{i,v})$ for $v\in S:= C\smallsetminus U$, the fact that the classes in $[G]/G(\mathcal O)$ are the same means that there are isomorphisms $r_v: P_{1,v}\xrightarrow\sim P_{2,v}$ such that $r_v\circ \tau_{1,v} = \tau_{2,v}$. By the equivalence of categories, these data give rise to an isomorphism $r:P_1\xrightarrow\sim P_2$. A similar argument shows that an automorphism $r$ of a $P$-bundle presented as above is the same as an element $r_U \in G(\mathfrak o_S)$ (=a section of $G$ over $U$) and sections $r_v \in G(\mathfrak o_v)$ such that $r_v = g_v^{-1} r g_v$, i.e., $r\in G(k)\cap (g_v)_v G(\mathcal O) (g_v)_v^{-1}$, which is the stabilizer of the corresponding point in $[G]/G(\mathcal O)$.
+
+Finally, any class of $G(k)\backslash G(\mathbb A)/G(\mathcal O)$ can be represented by an element $(g_v)_v$ which is equal to $1$ at the points of an open subset $U\subset C$, and then we can form an associated $G$-bundle by \emph{modification} of the trivial vector bundle over the points of $C\smallsetminus U$, that is, by glueing $G\times U$ to $G\times \text{Spec}(\mathfrak o_v)$ according to $g_v$ over $\text{Spec}(k_v)$. 
+\end{proof}
+
+
+
+\begin{remark}
+\label{remark-vanishing-cohomology}
+The condition $H^1(k,G)=1$ is satisfied if $\mathbb F$ is algebraically closed and $G$ is connected reductive, by results of Tsen, and Springer ($+\epsilon$); it is satisfied when $\mathbb F$ is finite and $G$ is semisimple, simply connected, by a result of Harder. The condition $H^1(\mathbb F',G)$ holds, trivially, when $\mathbb F = \mathbb C$, and by Lang's theorem \ref{galoiscohomology-theorem-Lang} when $\mathbb F$ is finite and $G$ is connected.
+
+On the other hand, the $\mu_n$-torsor $\mathbb G_m\xrightarrow{~^n}\mathbb G_m$ is not locally trivial in the Zariski topology, for  any $n\ge 2$. Moreover, over higher-dimensional bases (e.g., surfaces), even for simply connected semisimple groups, there are \'etale torsors which are not locally trivial in the Zariski topology.
+\end{remark}
+
+\begin{remark}
+ \label{remark-automorphism-group}
+Note that the $G$-automorphism group of a $G$-bundle makes sense as a group scheme $G'$ over the curve, and is an inner form of $G$ (compare with \ref{reductiveforms-definition-pure-inner-form}). The automorphisms appearing in Proposition \ref{proposition-BunG} are simply the \emph{global sections} of $G'$.
+\end{remark}
+
+It is interesting to discuss the isomorphism of Proposition \ref{proposition-BunG} in the case of $G= \text{GL}_n$, in which case the category of $G$-bundles is equivalent to the category of rank $n$ vector bundles by means of the functor $P\mapsto V=V_0\times^G P$, where $V_0$ is the standard representation of $\text{GL}_n$, with inverse $V\mapsto $the frame bundle of $V$. In particular, it is interesting to consider the vector bundles parametrized by points sufficiently close to the cusp, and their automorphisms. These are the \emph{unstable} vector bundles. [Later]
+
+\subsection{Locally symmetric spaces}
+\label{subsection-locally-symmetric}
+
+\begin{definition}
+ \label{definition-symmetric}
+A {\it symmetric space} is a pair $(M,g)$, where $M$ is a (connected)\footnote{``Connected'' is not always part of the definition, but we will include it, for convenience.} manifold, and $g$ is a Hermitian metric on $M$, with the property that for every $x\in M$ there is an isometry $s_x:M\to M$, having $x$ as an isolated fixed point, and acting by $-1$ on the tangent space of $x$. 
+\end{definition}
+
+\begin{lemma}
+ \label{lemma-symmetric-homogeneous}
+If $(M,g)$ is a connected symmetric space, then it is geodesically complete, the Lie group $G$ of isometries of $M$ acts transitively on $M$, and the stabilizer of any point $x\in M$ is a compact subgroup.
+\end{lemma}
+
+Notice that this implies that the identity component $G^0$ of the Lie group already acts transitively.
+
+\begin{proof}
+ \cite[Lemma 1.5 and Proposition 1.11]{Milne-Shimura}.
+\end{proof}
+
+
+
+\subsection{Locally Hermitian symmetric spaces}
+\label{subsection-hermitian-symmetric}
+
+There are instances where the space $G_\infty/K_\infty$ of the previous subsection has more structure, that of a \emph{Hermitian symmetric space}. 
+
+\begin{definition}
+ \label{definition-hermitian-symmetric}
+A {\it Hermitian symmetric space} is a pair $(M,g)$, where $M$ is a complex manifold, and $g$ is a Hermitian metric on $M$, with the property that for every $m\in M$ there is an isometry $s_x:M\to M$, having $m$ as an isolated fixed point, and acting by $-1$ on the tangent space of $m$. 
+
+A {\it Hermitian symmetric domain} is a Hermitian symmetric space which, as a complex manifold, is isomorphic to a bounded open subset of $\mathbb C^n$. 
+\end{definition}
+
+\begin{remark}
+ \label{remark-Bergman-metric}
+For a Hermitian symmetric domain realized as a bounded open $U\subset \mathbb C^n$, the metric on $U$ is the {\it Bergman metric}, \cite[Theorem 1.3]{Milne-Shimura}. There is also another way to define Hermitian symmetric domains, as {\it Hermitian symmetric spaces of noncompact type}, \cite[\S 1]{Milne-Shimura}.
+\end{remark}
+
+
+\begin{lemma}
+ \label{lemma-hermitian-homogeneous}
+If $(M,g)$ is a hermitian symmetric domain, and $G$ is the Lie group of its isometries as a Riemannian manifold, then $G^0$ acts by holomorphic automorphisms. In particular, by Lemma \ref{lemma-symmetric-homogeneous}, $M$ is homogeneous, with compact stabilizers, under the group of its Hermitian automorphisms.
+\end{lemma}
+
+\begin{proof}
+ \cite[Proposition 1.6]{Milne-Shimura}.
+\end{proof}
+
+From now on, ``automorphisms'' of a Hermitian symmetric domain will mean ``Hermitian automorphisms'', i.e., holomorphic isometries.
+The Hermitian structure upgrades the $\pm 1$-symmetry at each point to an $S^1(=U_1)$-symmetry:
+
+\begin{lemma}
+ \label{lemma-S1-symmetry}
+If $(M,g)$ is a Hermitian symmetric domain with group $G$ of holomorphic isometries, then for every $x\in M$ and every $z\in \mathbb C^1$ there is an automorphism $s_{x,z}$ of $M$, fixing $x$ and acting by $z$ on its tangent space.
+\end{lemma}
+
+\begin{proof}
+ \cite[Theorem 1.9]{Milne-Shimura}.
+\end{proof}
+
+
+In particular, $s_{x,-1}$ is the automorphism $s_x$ of the symmetric structure. Another way to phrase this lemma is that there is a homomorphism $U_1\to G_x$, acting by the tautological character on the tangent space $\mathfrak g/\mathfrak g_x$ (which has a complex structure). 
+
+\begin{lemma}
+ \label{lemma-cocharacter-in-center}
+The image of the homomorphism $U_1\to G_x$ lies in the center of $G_x$.
+\end{lemma}
+
+\begin{proof}
+The group $G_x$ acts by holomorphic isometries on $M$, hence by complex linear automorphisms of the tangent space $T_x M$. Hence, its action on $T_x M$ commutes with the action of $U_1$; but an element in the image of $U_1\subset G_x^0$ is completely determined by its action on the tangent space.
+\end{proof}
+
+
+
+For our purposes, we want a realization of $G$ in terms of algebraic groups.
+
+\begin{lemma}
+ \label{lemma-hermitian-automorphisms-algebraic}
+Let $(M,g)$ be a hermitian symmetric domain. Then, there is a unique connected semisimple algebraic group $G$ over $\mathbb R$ such that the identity component of the automorphism group of $M$ is equal to $G(\mathbb R)^0$.
+\end{lemma}
+
+\begin{proof}
+ \cite[Proposition 1.7]{Milne-Shimura}.
+\end{proof}
+
+Thus, we can identify $M$ with the real points of an algebraic symmetric space $G/G_x$ over $\mathbb C$.
+Every representation of a compact group is algebraic, so the homomorphism $s_x: U_1(\mathbb R) \to G_x(\mathbb R)$ comes from an algebraic morphism: $U_1 \to G_x$. Base-changing to $\mathbb C$, we obtain a cocharacter $\mathbb G_m \to G_{x,\mathbb C}$, which acts on the complexification $\mathfrak g_{\mathbb C}/\mathfrak g_{x,\mathbb C}$ by the characters $z\mapsto z^{\pm 1}$. Since the image lies on the center of $G_x$ (Lemma \ref{lemma-cocharacter-in-center}), it acts trivially on $\mathfrak g_{x,\mathbb C}$. 
+
+\begin{definition}
+ \label{definition-minuscule-weight}
+Let $\mathfrak g$ be a semisimple Lie algebra over an algebraically closed field, and $\mathfrak h\subset \mathfrak g$ a Cartan subalgebra. A {\it minuscule coweight} is a coweight $\mu\in \mathfrak h$ such that for every root $\alpha$ we have $\left< \alpha, \mu\right> \in \{ -1, 0, 1\}$. Similarly, replacing roots by coroots one defines a {\it minuscule weight}.
+\end{definition}
+
+\begin{remark}
+ \label{remark-minuscule-coweight}
+Minuscule weights have the following representation-theoretic interpretation: An integral, dominant (with respect to some base of the root system --- can always assume by Weyl translation) weight $\mu$ is minuscule if and only if the only weights appearing in the associated irreducible heighest weight module $V_\mu$ are Weyl group-translates of $\mu$, and zero. This follows directly from the Weyl character formula.
+
+Minuscule coweights are relatively rare, and so are Hermitian symmetric domains. In the Langlands program, certain general constructions over function fields (Drinfeld's shtukas) that depend on an irreducible representation/dominant weight for the dual group (= coweight for $G$), only have known (partial) analogs (Shimura varieties) over number fields when the weight is minuscule.
+\end{remark}
+
+
+
+
 
 
 
