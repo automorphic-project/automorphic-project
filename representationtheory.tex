@@ -371,6 +371,28 @@ Moreover, $v^*$ is in the weak-* closure of this map: it is enough to consider a
  holds even without the assumption on local compactness of $G$, see \cite[Corollary 6.9]{Megrelishvili}.
 \end{remark}
 
+If the Banach space $V$ is not reflexive, then $V^*$ may fail to be a continuous representation with the norm topology. In this case, we can work with the subspace of $V^*$ for which this is true:
+
+\begin{definition}
+ \label{definition-contragredient}
+The {\it contragredient} of a Banach representation $(\pi, V)$ of a topological group $G$ is the natural representation $(\tilde\pi, \tilde V)$ of $G$ on the subspace $\tilde V\subset V^*$ consisting of those vectors $v^*$ such that the orbit map $G\ni g\mapsto g\cdot v^* \in V^*$ is (norm) continuous. 
+\end{definition}
+
+
+\begin{lemma}
+ \label{lemma-contragredient}
+The subspace $\tilde V\subset V^*$ of the contragredient representation is closed. 
+\end{lemma}
+
+\begin{proof}
+ See \cite[\S 3.1]{Bernstein-Kroetz} for references. 
+\end{proof}
+
+\begin{example}
+ \label{example-contragredient}
+If $G$ is a compact group, and $V=L^1(G)$ under the regular representation, then $\tilde V = C(G)$, but $V^*=L^\infty(G)$. Moreover, $\tilde{\tilde V} = V$, while $(\tilde V)^* = M(G)$, the space of Radon measures.
+\end{example}
+
 
 
 
@@ -402,15 +424,15 @@ $$ \Vert fdg \Vert_{C_r^*} = \Vert R(fdg)\Vert.$$
 The completion of $C_c(G) dg$ with respect to the norm $\Vert\bullet\Vert_{C^*}$ is the {\it $C^*$-algebra of $G$}. Its completion with respect to $\Vert\bullet \Vert_{C_r^*}$ is the {\it reduced $C^*$-algebra of $G$}.
 \end{definition}
 
-\section{$F$-representations}
+\section{Fr\'echet representations of moderate growth}
 \label{section-Frepresentations}
 
 We continue assuming that the coefficient field is $\mathbb C$. We also assume that the topological group $G$ is locally compact, and compactly generated. 
 
 \begin{definition}
 \label{definition-Frepresentation}
-An {\it $F$-representation} of $G$, in the language of 
-\cite{Bernstein-Kroetz}, 
+An {\it F-representation} of $G$ (in the language of 
+\cite{Bernstein-Kroetz}), or {\it Fr\'echet representation of moderate growth}
 is a countable (inverse) limit of Banach representations, that is, a representation on a Fr\'echet space $V$, such that $V$ admits an equivariant topological isomorphism 
 $$ 
 V = \lim_{\leftarrow} V_n,
@@ -420,7 +442,7 @@ where the $V_n$'s are Banach representations of $G$.
  
 Note that this is {\it stronger} than just a Fr\'echet representation of $G$: In a Fr\'echet representation, for every (continuous) seminorm $p$, and for every compact $K\subset G$, there is a seminorm $q$ such that 
 $$ p(\pi(g) (v)) \le q(v)$$
-for $g\in K$, $v\in V$. For an $F$-representation, there is a complete system of seminorms $p_n$ such that we can take $q_n=c_{K,n}\cdot p$, where $c_{K,n}$ is a scalar that depends on $K$ and $n$.
+for $g\in K$, $v\in V$. For an F-representation, there is a complete system of seminorms $p_n$ such that we can take $q_n=c_{K,n}\cdot p$, where $c_{K,n}$ is a scalar that depends on $K$ and $n$.
 
 Note that by Proposition \ref{proposition-rapiddecay-Banach}, the action of $M_c(G)$ on $V$ extends to the measures $M_{rd}(G)$ of rapid decay. 
 
@@ -431,9 +453,10 @@ Fix a (natural) radial function $r$, and let $\Vert g\Vert:= e^{r(g)}$. The foll
 A Fr\'echet representation $(\pi,V)$ of $G$ is said to be of {\it moderate
 growth} if for any (continuous) seminorm $p$ on $V$ there exists a seminorm $q$
 and an integer $N > 0$ such that
-$$
+\begin{equation}
+\label{equation-moderate-growth}
 p(\pi(g)v) \le \Vert g\Vert^N q(v)
-$$
+\end{equation}
 for all $g \in G$.
 \end{definition}
 
@@ -448,14 +471,25 @@ $G$. Then the following statements are equivalent:
 \end{lemma}
 
 \begin{proof}
-See \cite[Lemma 2.10]{Bernstein-Kroetz}.
+We follow \cite[Lemma 2.10]{Bernstein-Kroetz}.
+
+If $(\pi, V)$ if of moderate growth, $p$ is any seminorm, and $q$, $N$ are a seminorm and a positive number satisfying \eqref{equation-moderate-growth}, setting 
+$$ \tilde p (v) = \sup_{g\in G} \frac{p(\pi(g)v)}{\Vert g\Vert^N}$$ 
+we have inequalities $p\le \tilde p\le q$, and $\tilde p(\pi(g)) \le \Vert g\Vert^N \tilde p(v)$. The former implies that the seminorms of the form $\tilde p$ define the topology, and the latter implies that they are $G$-continuous.
+
+Vice versa, if $(\pi, V)$ is an F-representation, it suffices to prove the moderate growth condition for a system of $G$-continuous seminorms defining the topology. But then it reduces to the case of Banach representations, Lemma \ref{lemma-bounded-by-radial}. 
 \end{proof}
 
 \begin{remark}
 \label{remark-generalscalefunctions}
- Bernstein and Kr\"otz introduce a more general notion of $F$-representations, which allows for more general scale functions on the group than the one defined in \ref{section-Banach-representations}.
+ Bernstein and Kr\"otz introduce a more general notion of F-representations, which allows for more general scale functions on the group than the one defined in \ref{section-Banach-representations}.
 \end{remark}
 
+
+\section{The $C^*$-algebra of a group, and Plancherel decomposition of unitary representations}
+\label{section-Plancherel}
+
+In this section, we collect results from the theory of $C^*$-algebras (which, in turn, rely on results on the theory of Von Neumann-, or $W^*$-, algebras. We point the reader to \cite{Dixmier-Cstar} for complete definitions and proofs.
 
 
 

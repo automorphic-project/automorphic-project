@@ -7,7 +7,7 @@
 # except that it includes the bibliography
 LIJST = introduction representationtheory representations-compact \
 	liegroups-general liestructure algebraicgroups reductiveforms vermamodules \
-	gKmodules asymptotics plancherel discreteseries galoiscohomology \
+	representations-local plancherel discreteseries galoiscohomology \
     automorphicspace bibliography
 
 # book is a special case

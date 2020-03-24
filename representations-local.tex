@@ -1,0 +1,558 @@
+\input{preamble}
+
+% OK, start here.
+%
+\begin{document}
+
+\title{Representations of reductive groups over local fields}
+
+
+\maketitle
+
+\phantomsection
+\label{section-phantom}
+
+
+\tableofcontents
+
+[This chapter, especially the theory of asymptotics, is under construction and has not been proofread. Some statements may be slightly imprecise.]
+
+In this chapter, we discuss representations of a group of the form $G(F)$, when $F$ is a local (locally compact) field, and $G$ is a reductive algebraic group over $F$. We treat the Archimedean and non-Archimedean cases in parallel, highlighting similarities. For economy of language, such a group will be called a ``real or $p$-adic reductive group'' --- the $p$-adic case including non-Archimedean local fields in equal characteristic, $F=\mathbb F_q((t))$. The ``real'' case includes the case when $F=\mathbb C$ --- notice that the complex structure plays no role in the representation theory, and we can think instead of $G(\mathbb C)$ as $\text{Res}_{\mathbb C/\mathbb R} G(\mathbb R)$. Everything in this chapter also applies to finite central extensions of reductive groups of the form $G(F)$, like the \emph{metaplectic group}, which are not necessarily algebraic; however, the notation is mostly adapted to the algebraic case.  When it is clear from the context, the group $G(F)$ will simply be denoted by $G$. If the word ``reductive'' is omitted, a ``real group'' will be a Lie group, and a ``$p$-adic group'' will be a $p$-adic analytic group (although most statements will be true for arbitrary totally disconnected, locally compact groups, in this case).
+
+\begin{remark}
+ \label{remark-complexification-Lie-algebra}
+A common misunderstanding, when $G=G(\mathbb C)$ is a complex group, and $(\pi,V)$ is a smooth complex representation of $G$, is that the (complex) Lie algebra $\mathfrak g$ acts by complex-linear endomorphisms on $V$; it does not! Instead, $G$ should be treated as a real Lie group; for any smooth, complex representation of a real Lie group, we have an action of the complexified Lie algebra $\mathfrak g\otimes_{\mathbb R} \mathbb C$ on $V$ by complex-linear automorphisms.
+\end{remark}
+
+
+\section{Various categories of representations}
+\label{section-categories-representations}
+
+\subsection{Smooth and SF-representations}
+\label{subsection-smooth-SF-representations}
+
+
+The notion of a continuous, in particular of a Banach representation of a topological group was introduced in Definition \ref{representationtheory-definition-representation}. We also introduced an $F$-representation (or Fr\'echet representation of moderate growth) in Definition \ref{representationtheory-definition-Frepresentation}, which is a Fr\'echet representation that is a countable limit of Banach representations. 
+
+\begin{definition}
+ \label{definition-smooth-representation}
+A {\it smooth vector} in a representation $(\pi, V)$ of a real or $p$-adic group, resp.\ an {\it analytic vector}, in the real case, is a vector $v\in V$ such that the action map $G\ni g \mapsto \pi(g) v \in V$ is smooth (resp., analytic).\footnote{In the $p$-adic case, ``smooth'' means locally constant, so the definition is equivalent to requiring that $v$ have an open stabilizer.} In particular, in the real case, for a smooth vector $v$ and any element $D$ of the universal enveloping algebra $U(\mathfrak g_{\mathbb C})$, the element $\pi(D) v$ is defined.
+
+The {\it space of smooth vectors} of a representation $(\pi, V)$ is denoted by $V^\infty$, and considered as a topological space, in the $p$-adic case with the direct limit topology over the subspaces $V^J$ as $J$ varies over open compact subgroups, and in the real case with the topology of convergence of all $\pi(D)v$, where $D$ ranges over elements of the universal enveloping algebra $U(\mathfrak g_{\mathbb C})$. 
+ 
+A {\it smooth representation} $(\pi, V)$ is a representation such that $V = V^\infty$ as topological vector spaces. 
+
+An {\it SF-representation}, or {\it smooth representation of moderate growth} of a real group $G$ is a smooth F-representation. 
+\end{definition}
+
+\begin{lemma}
+ \label{lemma-smooth-dense}
+If $V$ is a Fr\'echet representation of a Lie group $G$, the subspace $V^\infty$ of smooth vectors is dense.
+\end{lemma}
+
+\begin{proof}
+ By Proposition \ref{representationtheory-proposition-integral-lcs}, the algebra $M_c^\infty(G)$ of smooth, compactly supported measures (= smooth, compactly supported functions times a Haar measure) acts on $V$. The image of the action is clearly in $V^\infty$, and by an approximation of the identity, one sees that the image is dense. 
+\end{proof}
+
+A much stronger, and important, statement is true: the {\it Dixmier--Malliavin theorem} states that the image of the action of $M_c^\infty(G)$ is all of $V^\infty$:
+
+\begin{theorem}[Dixmier--Malliavin]
+ \label{theorem-Dixmier-Malliavin}
+Let $V$ be a Fr\'echet representation of a Lie group $G$. The action map 
+$$ M_c^\infty(G)\otimes V \to V^\infty$$
+is surjective.
+\end{theorem}
+
+Notice that the tensor product here is not completed! The theorem means that every smooth vector can be written as a finite linear combinations of smooth, compactly supported measures acting on other vectors. (Also, without loss of generality, one might assume that $V=V^\infty$, if desired.)
+
+\begin{proof}
+ See \cite{Dixmier-Malliavin}, or \cite{Casselman-Dixmier-Malliavin}.
+\end{proof}
+
+
+
+\begin{remark}
+\label{remark-smooth-not-SF}
+Outside of the realm of F-representations (Fr\'echet representations of moderate growth), the notion of smooth representation leads to counterintuitive examples, e.g., the space of distributions on a Lie group $G$ is a smooth representation. We will only be considering Smooth Fr\'echet representations of moderate growth from now on.
+\end{remark}
+
+\begin{lemma}
+ \label{lemma-smooth-vectors-Frepresentation}
+If $V$ is an F-representation of a real group, then $V^\infty$ is an SF-representation.
+\end{lemma}
+
+\begin{proof}
+First of all, notice that the topology on $V^\infty$ is also given by a countable set of $G$-continuous seminorms: If $\rho_n$ is a sequence of $G$-continuous seminorms on $V$, definining its topology, and we fix, for every $d\ge 0$, a basis $(D_{d,i})_i$ of the $d$-th filtered part of the universal enveloping algebra $U(\mathfrak g_{\mathbb C})$, then the seminorms $\rho_{d,n}(v) = \max_i \rho_n (D_{d,i}v)$ define the topology on $V^\infty$ as $n$ and $d$ vary, and are $G$-continuous, because $\rho_{d,n}(gv) = \max_i \rho_n (g \cdot \text{Ad}(g^{-1})(D_{d,i}) v) \ll \rho_{d,n}(v)$ (locally uniformly in $G$), since the adjoint representation preserves the filtration. 
+
+
+The content of the lemma, then, is that the topological vector space $V^\infty$ is complete. One shows that the action map $g\mapsto \pi(g) v$ gives rise to a morphism $V^\infty \to C^\infty(G, V)$, where $G$ acts by the right regular representation on $C^\infty(G, V)$, and that this is an isomorphism onto the closed subspace $C^\infty(G, V)^G$ of functions that are invariant under the simultaneous action: $g\cdot f (x) := \pi(g) f(g^{-1} x)$. 
+\end{proof}
+
+\subsection{Unitary representations}
+\label{subsection-unitary-representations}
+
+Unitary representations have been introduced in \S \ref{representationtheory-section-unitary-representations}. Their Plancherel decomposition was discussed [TO BE ADDED] in \S \ref{representationtheory-section-Plancherel}. Here, we will just add the uniqueness of the Plancherel decomposition, for reductive real or $p$-adic groups. [LATER]
+
+
+\subsection{$(\mathfrak g, K)$-modules}
+\label{subsection-gK-modules}
+
+Topological representations of Lie groups do not form an abelian category. This is sometimes cumbersome; to make the theory more algebraic, we sometimes work with $(\mathfrak g,K)$-modules. 
+
+\begin{definition}
+ \label{definition-g-K-module}
+Let $\mathfrak g$ be a complex Lie algebra, and $H$ a Lie group, with an embedding $\mathfrak h_{\mathbb C}\hookrightarrow \mathfrak g$, and a representation $\text{Ad}:H \to \text{GL}(\mathfrak g)$, extending the adjoint action on $\mathfrak h_{\mathbb C}$, whose differential coincides with the adjoint action of $\mathfrak h\subset\mathfrak g$. (For example, $\mathfrak g$ is the complexified Lie algebra of a Lie group containing $H$.) A {\it $(\mathfrak g, K)$-module} is a vector space $V$ with actions of both $\mathfrak g$ and $H$, such that:
+\begin{enumerate}
+ \item the action of $H$ is locally finite;
+ \item the differential of the action of $H$ coincides with the action of $\mathfrak h$, considered as a subalgebra of $\mathfrak g$;
+ \item $h\cdot X\cdot h^{-1}\cdot v = \text{Ad}(h)(X)\cdot v$, for all $h\in H$, $X\in \mathfrak g$, $v\in V$.
+\end{enumerate}
+\end{definition}
+
+This notion is most often (but not exclusively!) used when $H=K$ is a maximal compact subgroup of a Lie group $G$ (with complexified Lie algebra $\mathfrak g$). 
+
+
+\begin{lemma}
+ \label{lemma-gK-of-representation}
+Let $(\pi, V)$ be a representation of a Lie group $G$, and $H\subset G$ a subgroup. The subspace $V_{H-\text{fin}}$ of $H$-finite vectors is stable under the action of $\mathfrak g_{\mathbb C}$.
+\end{lemma}
+
+\begin{proof}
+ For every $v\in V_{H-\text{fin}}$, the image of the action map $\mathfrak g \otimes \text{span}(Hv) \to V$ is finite-dimensional, and contains the element $h\cdot X\cdot v$ for all $X\in \mathfrak g$ and $h\in H$, since $h\cdot X\cdot v = \text{Ad}(h)(X)\cdot h\cdot v$.
+\end{proof}
+
+Recall also from Theorem \ref{representations-compact-theorem-PeterWeyl-general} that if $H=K$ is compact, and the representation is Fr\'echet, the space of $K$-finite vectors is dense.
+
+\begin{definition}
+ \label{definition-gK-of-representation}
+Let $G$ be a reductive Lie group, and $K\subset G$ a maximal subgroup; use $\mathfrak g$ to denote the complexified Lie algebra of $G$. The {\it $(\mathfrak g, K)$-module of a Fr\'echet representation} $(\pi, V)$ of $G$ is the  $(\mathfrak g, K)$-module $V^\infty_{K\text{-fin}}$ of $K$-finite smooth vectors in $V$. 
+
+Two representations $V_1$, $V_2$ are said to be {\it infinitesimally equivalent} if their $(\mathfrak g, K)$-modules are isomorphic.
+\end{definition}
+
+
+\begin{remark}
+ \label{remark-infinitesimal-equivalence}
+Infinitesimal equivalence captures more of the essence of representation theory than isomorphisms of representations. For example, all Banach representations $L^p(\mathbb R^\times)$ ($p\ge 1$) of the group $R^\times$ are infinitesimally equivalent, although they are not isomorphic as topological vector spaces. On the other hand, the ``globalization'' theorem of Casselman and Wallach \cite{Casselman-canonicalextensions, Wallach-RR2, Bernstein-Kroetz}) says that any finitely generated, \emph{admissible} (see Definition \ref{definition-admissible}) $(\mathfrak g, K)$-module admits a unique ``globalization'' to a smooth Fr\'echet representation of moderate growth. The proof of this theorem relies on the subrepresentation theorem (see Theorem \ref{theorem-subrepresentation}), realizing irreducible $(\mathfrak g,K)$-modules as submodules of parabolically induced representations.
+\end{remark}
+
+
+
+\begin{lemma}
+ \label{lemma-gK-dense}
+If $V$ is a Fr\'echet representation of a reductive Lie group $G$, and $K\subset G$ a maximal subgroup, its $(\mathfrak g,K)$-module $V^\infty_{K\text{-fin}}$ is dense in $V$. In particular, if the $(\mathfrak g, K)$-module $V^\infty_{K\text{-fin}}$ is irreducible, so is $V$. 
+\end{lemma}
+
+\begin{proof}
+ This follows from Lemma \ref{lemma-smooth-dense} and Proposition \ref{representations-compact-proposition-denseinclusions}. 
+\end{proof}
+
+The converse is true in the category of \emph{admissible} representations (see \S \ref{subsection-admissibility}). 
+
+
+\subsection{Admissibility}
+\label{subsection-admissibility}
+
+
+\begin{definition}
+ \label{definition-admissible}
+A $(\mathfrak g, K)$-module $(\pi, V)$ (in the real case), or a smooth $K$-module $V$ (in the $p$-adic case) is called {\it admissible} if  all irreducible representations of $K$ appear with finite multiplicity, i.e., $\dim\Hom_K(\tau, V)<\infty$ for every irreducible representation $\tau$ of $K$. 
+
+A (topological) representation $(\pi, V)$ of a real or $p$-adic reductive group $G$ is admissible if the $(\mathfrak g, K)$-module (resp.\ $K$-module, in the $p$-adic case) $V^\infty_{K-\text{fin}}$ is admissible. Here, $K$ is any maximal compact subgroup of $G$, in the real case, and any compact open subgroup of $G$, in the $p$-adic case.
+\end{definition}
+
+
+\begin{remark}
+ \label{remark-admissible-indep-K}
+The property of being admissible, for a representation of $G$, does not depend on the choice of $K$; indeed, in the real reductive case, all Cartan subgroups are conjugate, by Theorem \ref{reductiveforms-theorem-Cartan-involution-exists}. In the $p$-adic case, the independence follows from the lemma below.
+\end{remark}
+
+\begin{lemma}
+ \label{lemma-admissible-padic}
+In the $p$-adic case, a representation $(\pi, V)$ is admissible if and only if, for every compact open $J\subset G$, we have $\dim V^J <\infty$. 
+\end{lemma}
+
+\begin{proof}
+ First of all, observe that $V^\infty_{K-\text{fin}} = V^\infty$ for every compact open $K\subset G$.  
+ 
+ If a (smooth) irreducible representation $\tau$ of $K$ appears with infinite multiplicity, then, obviously, $\dim V^J = \infty$ for all $J$ with $\tau^J\ne 0$. 
+ 
+ Vice versa, given $K$, for every open compact $J\subset K$, the set of (isomorphism classes of) irreducible representations $\tau$ of $K$ with $\tau^J\ne 0$ is finite. Indeed, to prove this claim, we can replace $J$ with the intersection of all its $K$-conjugates, which is still open and compact, but also normal. Then, if $\tau^J\ne 0$ and $\tau$ is irreducible, we have $\tau = \tau^J$, hence $\tau$ is an irreducible representation of the finite group $K/J$, and there are only finitely many such. Thus, admissibility according to Definition \ref{definition-admissible} implies that $V^J$ is finite-dimensional, for every $J$.  
+\end{proof}
+
+\begin{definition}
+ \label{definition-contragredient}
+The {\it contragredient} of a $(\mathfrak g,K)$-module $V$, in the real case, or a smooth $G$-representation $V$, in the $p$-adic case, is the $(\mathfrak g, K)$-module, resp.\ smooth $G$-representation $\tilde V:=\{ v^*\in V^*| v^*\mbox{ is $K$-finite}\}$. 
+\end{definition}
+
+
+
+\begin{lemma}
+ \label{lemma-admissible-gK}
+Assume that $V$ is an admissible $(\mathfrak g,K)$-module $V$, in the real case, or an admissible smooth $G$-representation, in the $p$-adic case. Then, $\tilde{\tilde V} = V$.
+
+If $V$ is irreducible, any automorphism of $V$ (as a $(\mathfrak g,K)$-module or as a $G$-representation) is scalar.
+\end{lemma}
+
+\begin{proof}
+ The module is a direct sum over its $K$-types, and those are finite-dimensional. The contragredient, as a representation of $K$, will be the direct sum of the duals, and any automorphism preserves the isotypic spaces. The result, now, follows easily from the finite-dimensional case.
+\end{proof}
+
+The converse to Lemma \ref{lemma-gK-dense} holds, for admissible representations: 
+
+\begin{theorem}
+ \label{theorem-irreducible-admissible}
+If $V$ is an irreducible admissible Fr\'echet representation of moderate growth of a reductive Lie group $G$, its $(\mathfrak g, K)$-module is irreducible, and all $K$-finite vectors are automatically analytic (in particular, smooth).
+\end{theorem}
+
+\begin{proof}
+First of all, since $V^\infty_{K\text{-fin}}$ is dense (Lemma \ref{lemma-gK-dense}) in $V$, it is also dense in $V_{K\text{-fin}}$. For any $K$-type $\tau$, there is a measure $\mu_\tau$ on $K$ whose action on any Fr\'echet module is a projection onto the $\tau$-isotypic component. Therefore, the $\tau$-isotypic subspace $V^{\infty,\tau}$ is dense in $V^\tau$. But the former is finite-dimensional, therefore the two coincide, i.e., every $K$-finite vector is smooth.
+
+Suppose that $V_0\subset V_{K\text{-fin}}$ is a nonzero $(\mathfrak g, K)$-submodule. We claim that the closure of $V_0$ is $G$-stable. This requires the ``big hammer'' of elliptic regularity to prove, so we only give a couple of steps, followed by references.
+
+First, we notice that the action of the center $\mathfrak z(\mathfrak g)$ of the universal enveloping algebra of the (complexified) Lie algebra $\mathfrak g$ on $V_{K\text{-fin}}$ is locally finite: indeed, it preserves the finite-dimensional, $K$-isotypic subspaces. 
+
+Elliptic regularity, now, implies that all vectors in $V_{K\text{-fin}}$ are analytic; see \cite[3.4.9]{Wallach-RR1}.\footnote{In Wallach's book, the argument is formulated for representations on Hilbert spaces, but it holds verbatim for Banach spaces, and hence for Fr\'echet representations of moderate growth. Note that a function $G\to V$, where $V$ is a Banach space, is (real) analytic iff it is \emph{weakly} analytic, i.e., iff its composition with any continuous functional $v^*: V\to \mathbb C$ is analytic.} And, the closure of a $\mathfrak g$-stable subspace of analytic vectors in $V$ is stable under the identity component of $G$: simply apply the exponential map $\mathfrak g_{\mathbb R} \to G$, whose image generates the identity component. 
+
+Since $V_0$ is not only $\mathfrak g$-stable, but also $K$-stable, and $K$ meets all connected components of $G$, and since $V$ is irreducible, $V_0$ has to be dense. But, again, applying projectors to the $K$-types, this means that for any $K$-type $\tau$, the $\tau$-isotypic subspace $V_0^\tau$ is dense in $V^\tau$. Since these spaces are finite-dimensional, $V_0^\tau=V^\tau$ for all $\tau$, hence $V_0 = V_{K\text{-fin}}$. 
+\end{proof}
+
+
+
+
+
+\section{Schwartz and Harish--Chandra Schwartz spaces}
+\label{section-Schwartz}
+
+\subsection{Schwartz space defined by a scale function}
+\label{subsection-Schwartz-scale}
+
+We follow \cite[\S 2]{Bernstein-Kroetz}.
+
+\begin{definition}
+ \label{definition-scale}
+A {\it scale} on a locally compact group $G$ is a function $s : G \to \mathbb R^+$ such that:
+\begin{itemize}
+ \item $s$ and $s^{-1}$ are locally bounded,
+ \item $s$ is submultiplicative, i.e., $s(gh) \le s(g)s(h)$ for all $g, h \in G$.
+\end{itemize}
+
+A scale function $s'$ \emph{dominates} a scale function $s$, if there exist positive constants $C, N$ such that $s \le C s'^N$. They are \emph{equivalent} if each dominates the other. 
+
+
+A {\it scale structure} on $G$ is an equivalence class of scale
+functions.
+\end{definition}
+
+In other words, a scale function is the exponential of a radial function, Definition \ref{representationtheory-definition-radial-function}.
+
+
+In \ref{representationtheory-section-Banach-representations} we saw the ``natural radial function'' $r_{\text{nat}}$ (and hence its exponential, the ``natural scale function'' $s_{\text{nat}}$, denoted $\Vert g\Vert$ there) of a compactly generated group; recall that $r_{\text{nat}}(g)$ counts how many times we need to multiply a compact generating set by itself in order to produce a set containing $g$. 
+
+
+\begin{definition}
+ \label{definition-Schwartz-space}
+Let $G$ be a group equipped with a scale structure $[s]$ (Definition \ref{definition-scale}), with associated radial function $r=\log s$. The associated {\it Schwartz space} $\mathcal S_{[s]}(G)$ is the space of smooth vectors in the left and right regular F-representation on measures $f$ on $G$ which satisfy $f \cdot s^n \in L^1(G)$ for all $n\in \mathbb N$. 
+
+ The {\it natural Schwarz space} $\mathcal S_{\text{nat}}(G)$ is the one defined by the class of natural scale functions. 
+\end{definition}
+
+Equivalently, the natural Schwartz space is the space of smooth vectors in the space of rapidly decaying measures of Definition \ref{representationtheory-definition-rapidly-decaying}. 
+
+
+\begin{example}
+ \label{example-natural-Schwartz-additive-multiplicative}
+For the additive group $G=\mathbb G_a(F)$, we have $\mathcal S_{nat}(G)=$ the Schwartz space of smooth functions (times a Haar measure) which, together with their derivatives (in the real case), are of superexponential decay. On the other hand, for $G=\mathbb G_m(F)$, they coincide with smooth functions $f$ (times a Haar measure) such that $f(x)\cdot |x|^n$ is bounded for all $n\in \mathbb Z$, and similarly for all derivatives (in the real case).
+\end{example}
+
+\begin{remark}
+ \label{remark-almost-smooth}
+There is some clumsiness in trying to deal with the real and $p$-adic cases at the same time, which is due to the fact that the notion of ``smooth'' in the $p$-adic case is not quite analogous to that of ``smooth'' in the real case; for example, smooth vectors in an F-representation of a $p$-adic group do not produce Fr\'echet spaces. There is a notion of ``almost smooth'' vectors in the $p$-adic case, which is a better analogy to ``smooth'' in the real case, see \cite{}, but it is not very useful in practice. Because of the strong definition of smoothness (=local constancy), and because we tend to forget about the topology on spaces of smooth vectors of representations of $p$-adic groups, the ``rapid decay'' Schwartz spaces that we are defining here are not suitable for $p$-adic groups; in the next subsection, we will discuss algebraically defined Schwartz spaces using compactifications, where the definitions in the real and $p$-adic cases coincide, and produce compactly supported functions/measures in the $p$-adic case. [But, note for the future: Maybe we can expand the notion of SF-representation to the $p$-adic case, to include the LF-spaces of smooth vectors in an F-representation; or, include a full discussion of ``almost smooth'' vectors, for the sake of uniformity.]
+\end{remark}
+
+
+
+\begin{proposition}
+ \label{proposition-SF-Schwartz-equivalence}
+Let $G$ be a real Lie group. The categories of smooth Fr\'echet representations of moderate growth of $G$, and of nondegenerate continuous algebra representations of $\mathcal S_{\text{nat}}(G)$ on Fr\'echet spaces, are equivalent.
+\end{proposition}
+
+\begin{proof}
+ If $(\pi, V)$ is any F-representation, the action of $G$ extends to a continuous representation of the algebra of rapidly decaying measures by Proposition \ref{representationtheory-proposition-rapiddecay-Banach}, in particular, to the natural Schwartz space. 
+
+ A theorem of Dixmier and Malliavin \cite{Dixmier-Malliavin} states that, if $(\pi,V)$ is a smooth Fr\'echet representation of a real Lie group $G$, then the action map $M_c^\infty(G) \otimes V \to V$ is surjective. Hence, so is the map $\mathcal S_{\text{nat}}(G)\otimes V \to V$, i.e., $V$ is nondegenerate. 
+ 
+ Vice versa, if $V$ is a nondegenerate continuous Fr\'echet $\mathcal S_{\text{nat}}(G)$-module, that is, it is nondegenerate and the action map $\mathcal S_{\text{nat}}(G) \times V\to V$ is continuous, this action extends to the \emph{projective tensor product} $\mathcal S_{\text{nat}}(G) \hat\otimes_\pi V \to V$, which is also a Fr\'echet space, and this gives a topological identification of $V$ as a quotient of the projective tensor product. Quotients of SF-representations are SF-representations, see \cite[Lemma 2.9 and Proposition 2.20]{Bernstein-Kroetz} for more details. 
+\end{proof}
+
+
+
+
+
+\subsection{Schwartz space of a semi-algebraic manifold}
+\label{subsection-Schwartz-algebraic}
+
+If $G$ denotes the points of a linear algebraic group over a local field, we also define another scale function, that depends on the algebraic structure. (The same definition can be given for finite covers thereof, by passing to the algebraic quotient.)
+
+\begin{definition}
+ \label{definition-algebraic-scale}
+Let $G$ be a linear algebraic group, and fix a closed embedding $G\hookrightarrow \mathbb A^r$, with coordinates $x_1, \dots, x_r$. The corresponding {\it algebraic scale function} of $G(F)$, where $F$ is a local field, is 
+$$s_{\text{alg}} (g) = \max_i |x_i(g)|.$$
+\end{definition}
+
+It is easy to prove that any two algebraic scale functions are equivalent.
+
+\begin{lemma}
+ \label{lemma-reductive-algebraic-natural}
+If $G$ is a reductive group, the natural and algebraic scale functions on $G$ are equivalent.
+\end{lemma}
+
+\begin{proof}
+ The statement is easily seen to be true for a torus. For a general reductive group, it reduces to the case of tori by the Cartan decomposition $G=K A^+ K$.
+\end{proof}
+
+This leads to a notion of ``algebraic Schwartz space'' according to Definition \ref{definition-Schwartz-space}, but in the $p$-adic case we would like a stricter definition that coincides with the space of compactly supported smooth measures. In this subsection, we will provide a uniform such for arbitrary real or $p$-adic (smooth) varieties (or semialgebraic spaces). 
+
+[Definition of Schwartz space $\mathcal S(X)$ on a Nash manifold $X$ here. In the $p$-adic case, it coincides with $M_c^\infty(X)$. In particular, in the $p$-adic group case, $\mathcal S(G)=\mathcal H(G)=$ the Hecke algebra.]
+
+\begin{proposition}
+ \label{proposition-smooth-Schwartz-equivalence}
+For both real and $p$-adic reductive groups, there is an equivalence of categories between SF-representations (in the real case), or smooth representations without topology (in the $p$-adic case), and nondegenerate $\mathcal S(G)$-modules.
+\end{proposition} 
+
+\begin{proof}
+ In the real case, this is just Proposition \ref{proposition-SF-Schwartz-equivalence}, together with the equivalence of natural and algebraic scale structures, Lemma \ref{lemma-reductive-algebraic-natural}. 
+ 
+ In the $p$-adic case, the proof is similar (but simpler). Notice that the analogous statement holds, more generally, for any locally compact, totally disconnected group.
+\end{proof}
+
+\subsection{Harish-Chandra Schwartz space}
+\label{subsection-HC-Schwartz}
+
+We follow \cite{Bernstein-Plancherel}. [TBC]
+
+
+
+\section{Asymptotics}
+\label{section-asymptotics}
+
+\subsection{General setup}
+\label{subsection-asymptotics-setup}
+
+When $X = H\backslash G$ is a homogeneous $G$-space, and $\pi$ a smooth representation of $G$, a morphism $m:\pi\to C^\infty(X)$ is sometimes called a \emph{generalized matrix coefficient}; the reason is that any such morphism is equivalent (by Frobenius reciprocity) to an $H$-invariant functional $\ell$, so $m(v)(x) = \left< \pi(g) v, \ell \right>$ is a ``matrix coefficient'', where the covector $\ell$ is allowed to be non-smooth. In this section, we compare generalized matrix coefficients of certain representations of $G$ on a spherical variety $X$, with generalized matrix coefficients on the boundary degenerations. 
+
+There are similarities, but also differences, between the real and $p$-adic cases. The main difference, in the real case, is that we need to restrict to admissible modules. (A general theory of asymptotics for smooth representations would be very desirable, but has not yet been developed! The naive tranlation of statements from the $p$-adic to the real case does not hold, in general.)
+
+For the remainder of this section, $G$ is a real or $p$-adic reductive group, and $K$ is a maximal compact subgroup, if $G$ is real. We compare generalized matrix coefficients on $X$ and $X_\Theta$ by choosing some reasonable (but noncanonical) identification of the spaces ``close to infinity'':
+
+\begin{definition}
+ \label{definition-approximate-exponential}
+Let $Z$ be the closure of a $G$-orbit in a toroidal embedding $\bar X$ of $X$. An {\it approximate exponential map} is an analytic map $\phi: U_Z\to \bar X(F),$ where $U_Z$ is a neighborhood of $Z$ in the $F$-points of the normal bundle $N_Z \bar X$,  with the property that the partial differential of $\phi$ induces the identity between on the normal bundle, and $\phi$ maps the intersection of every $G$-orbit with $U_Z$ to the corresponding $G$-orbit on $\bar X$. The {\it exponential bundle} $\text{Exp}_Z \bar X$ over $Z$ is the bundle of germs, over $Z$, of approximate exponential maps. 
+\end{definition}
+
+Note that $\text{Exp}_Z \bar X$ is a torsor for the group bundle $\text{Exp}_Z N_Z\bar X$ of germs of approximate exponential maps from the normal bundle to itself (defined the same way). 
+
+\begin{proposition}
+ \label{proposition-exponential-p-adic}
+Assume that $F$ is non-Archimedean. Using the notation of Definition \ref{definition-approximate-exponential}, let $\phi: U_Z \to \bar X(F)$ be an approximate exponential map for some orbit closure $Z\subset \bar X$.  
+Then, given an open compact subgroup $J\subset G$, there is a $J$-invariant neighborhood $U_Z'\subset U_Z$ of $Z$, with $J$-invariant image $U_X'\subset \bar X(F)$, such that $\phi$ descends to a bijection: $U_Z'/J\to U_X'/J$. Moreover, any two approximate exponential maps descend to the same bijection, if the neighborhood $U_Z'$ is taken sufficiently small.
+\end{proposition}
+
+\begin{proof}
+ See \cite[Proposition 4.3.1]{Sakellaridis-Venkatesh}. The reader is encouraged to check it directly in the baby case of $\bar X=\mathbb A^1$, $Z=\{0\}$.
+\end{proof}
+
+Now, the normal bundle to $Z$ contains some open $G$-orbit, which we have called the boundary degeneration; let's denote it by $X_\Theta$. This proposition implies that, for any $J$-invariant functions $f$, $f_\Theta$ on $X$ and $X_\Theta$, respectively, there is a well-defined notion of the functions being asymptotically equal:
+
+\begin{definition}
+ \label{definition-asymptotically-equal-padic}
+Assume that $F$ is non-Archimedean. Let $X$ be a spherical variety, and $X_\Theta$ an asymptotic cone thereof, obtained as the open $G$-orbit in the normal bundle of some orbit $Z$ in a toroidal embedding. If $f\in C^\infty(X)$, $f_\Theta\in C^\infty(X_\Theta)$, we say that $f$ is {\it asymptotically equal} to $f_\Theta$, written $f\sim f_\Theta$, if there is an approximate exponential map $\phi: U_Z\to \bar X(F)$ (Definition \ref{definition-approximate-exponential}), where $U_Z$ is a neighborhood of $Z$, such that, after possibly replacing $U_Z$ by a smaller neighborhood, $\phi^* f|_{U_Z} = f_\Theta|_{U_Z}$.
+\end{definition}
+
+Notice that, by Proposition \ref{proposition-exponential-p-adic}, this notion does not depend on the choice of approximate exponential.
+
+In the real case, things are finer, since smooth functions are not locally constant. Therefore, any such attempt to identify $f$ and $f_\Theta$ will depend on the choice of approximate exponential. Instead of looking at arbitrary smooth functions, here, we will restrict our attention to ``functions that look like generalized characters'' (of the tori $A_\Theta$) at infinity---we will call such functions ``asymptotically finite''. The following baby example captures the essence of such functions:
+
+\begin{example}
+ \label{example-real-asymptotics-baby}
+Let $\bar X = \mathbb A^1 \supset X=\mathbb A^1\smallsetminus\{0\}$, over $F=\mathbb R$. Let $Z=\{0\}$; then, $N_Z \bar X = \mathbb A^1$. Here, we want to think of $\bar X$ simply as a variety (without a group action), while $N_Z \bar X$ has a $\mathbb G_m$-action. Any analytic map $\phi: U_Z\to \mathbb R$, where $U_Z$ is a neighborhood of zero, fixing zero and inducing the identity on its tangent space, is an asymptotic exponential. Explicitly, such a $\phi$ is given by a power series of the form $\phi(x) = x + \sum_{n=2}^\infty a_n x^n$, convergent within some radius. 
+
+An ``asymptotically finite'' function $f$ on $X$ is a function with the property that $\phi^* f = \sum_\lambda f_\lambda \cdot h_\lambda$, a finite sum indexed by characters of the multiplicative group, where $f_\lambda$ is a generalized $\mathbb G_m$-eigenfunction with generalized eigencharcter $\lambda$, and $h_\lambda \in C^\infty(U_Z)$. The reader should check [exercise!] that this notion does not depend on the choice of approximate exponential $\phi^*$.
+\end{example}
+
+\begin{definition}
+ \label{definition-asymptotically-finite}
+ Let $F$ be  real or non-Archimedean, and let $X$ be a spherical variety over $F$. An \emph{asymptotically finite} function on $X$ is a smooth function $f$ with the property that, for some toroidal compactification $\bar X$, in a neighborhood of any point $z\in \bar X$ (belonging to a $G$-orbit $Z$ whose normal bundle is the boundary degeneration $X_Z$), and for any approximate exponential $\phi$ defined in a neighborhood $U$ of $z$, the function $\phi^*f$, restricted to a neighborhood $U'\subset U$ of $z$, is equal to 
+ \begin{equation}
+  \label{equation-asymptotically-finite}
+  \sum_\lambda f_\lambda \cdot h_\lambda,
+ \end{equation}
+ a finite sum indexed by characters of $A_Z$, where $f_\lambda$ is a generalized $A_Z$-eigenfunction with generalized eigencharacter $\lambda$, and $h_\lambda \in C^\infty(U')$.
+  
+ We let $\text{Fin}_Z(\bar X)$ denote the bundle of germs, over a $G$-orbit $Z$, of asymptotically finite functions defined in a neighborhood of $Z$ in $\bar X$, and call the image (germ) of such a function $f$ in $\text{Fin}_Z(\bar X)$ the {\it asymptotic expansion} of $f$ at $Z$. Equivalently, if $\text{Fin}_Z(N_Z\bar X)$ denotes the space of germs, at $Z$, of functions of the form \eqref{equation-asymptotically-finite} defined in a neighborhood of $Z$ in $N_Z \bar X$, the asymptotic expansion of $f$ is the induced map
+ $$ \text{Exp}_Z(\bar X) \to \text{Fin}_Z (N_Z X)$$
+ from germs of approximate exponential functions (see Definition \ref{definition-approximate-exponential}), which is equivariant for the group bundle $\text{Exp}_Z(N_Z\bar X)$. 
+  
+  The characters $\lambda$ in an expansion \eqref{equation-asymptotically-finite} will always be assumed to be such that no quotient of two of them extends to a smooth function on $U'$. 
+ Under that assumption, the {\it dominant term} of an asymptotically finite function of the form \eqref{equation-asymptotically-finite} is the sum $f_Z=\sum_{\lambda} f_{\lambda} \in C^\infty(U')$; when $U'$ contains the entire orbit of $z$, $f_{\lambda}$ extends uniquely as a generalized $A_Z$-eigenfunction to $X_Z$, and we will consider the dominant term as a function on $X_Z$. (This depends on the orbit of $z$, not just the isomorphism class of $X_Z$!.) We write $f\sim f_Z$ to indicate that $f_Z$ is the dominant term of $f$.
+\end{definition}
+
+\begin{remark}
+ \label{remark-asymptotically-finite-padic}
+Notice that, in the non-Archimedean case, the functions $h_\lambda$ in the asymptotic expansion \eqref{equation-asymptotically-finite} are not needed, since they are constant in a neighborhood of $z$; hence, an asymptotically finite function is exactly equal to an $A_Z$-eigenfunction in a neighborhood of $z$.
+\end{remark}
+
+
+
+\begin{lemma}
+ \label{lemma-dominant-term}
+The dominant term $f_Z$ of an asymptotically finite function along a $G$-orbit is independent of the choice of an approximate exponential function used to define it.
+\end{lemma}
+
+\begin{proof}
+
+[Easy; will be added.]
+\end{proof}
+
+In the real case, asymptotically finite functions with respect to a given compactification $\bar X$, set $E$ of ``exponents'' $\lambda$, and bounded degree for the generalized eigenfunctions $f_\lambda$ have a natural structure of a Fr\'echet space. [Details are left to the reader, for now.]
+
+
+
+\begin{remark}
+\label{remark-expectedtheorem-asymptotics} 
+The following is expected to be true for every spherical variety:
+
+\underline{\textbf{Expected theorem:}}
+
+\emph{
+Let $X$ denote the points of a homogeneous spherical $G$-variety, and let $X_\Theta$ be a boundary degeneration.\\
+  If $\pi$ is any smooth representation of $G$, in the $p$-adic case, and an admissible SF representation of $G$, in the real case, then for any morphism $\ell: \pi\to C^\infty(X)$, there is a unique morphism $\ell_\Theta: \pi\to C^\infty(X_\Theta)$, such that 
+  $\ell(v) \sim \ell_\Theta(v)$ for all $v\in \pi$.} (In particular, in the admissible case, $\ell(v)$ is asymptotically finite.)
+  
+In fact, one can make a stronger statements, where the neighborhood of infinity, or the rate of convergence of asymptotic expansions, is determined by a compact open subset by which $v$ is invariant, resp.\ a continuous seminorm of $v$. This theorem has not appeared in the literature in complete generality. In the next subsections we will formulate (some of) the cases that are known.
+\end{remark}
+
+\subsection{Asymptotics in the non-Archimedean case}
+\label{subsection-asymptotics-nonarchimedean}
+
+
+
+\begin{theorem}
+ \label{theorem-asymptotics-nonarchimedean}
+Let $X$ denote the points of a homogeneous spherical $G$-variety over a non-Archimedean field, and let $X_\Theta$ be a boundary degeneration. Under the following assumptions:
+\begin{itemize}
+ \item $G$ is split and $X$ is of \emph{wavefront} type (see \cite[\S 2.1]{Sakellaridis-Venkatesh}), OR
+ \item $X$ is symmetric,
+\end{itemize}
+the following is true: There is a unique morphism
+$$ e_\Theta: \mathcal S(X_\Theta)\to \mathcal S(X)$$
+with the property that, whenever $X_\Theta$ is realized in the normal bundle of an orbit $Z$ in a smooth toroidal compactification of $X$, and $\phi$ is an approximate exponential map (Definition \ref{definition-approximate-exponential}), for every open compact subgroup $J$ there is a $J$-stable neighborhood $U_Z'$ of $Z$ as in Proposition \ref{proposition-exponential-p-adic}--- in particular, $\phi$ induces a bijection $U_Z'/J=U_X'/J$, where $U_X'$ is the image of $U_Z'$ in $X$--- such that, for $f\in \mathcal S(U_Z')^J$, $e_\Theta(f) = \phi_*(f)$, its pushforward to $U_X'/J$ through this identification.
+
+In particular, the adjoint morphism $e_\Theta^*: C^\infty(X)\to C^\infty(X_\Theta)$ has the property that $e_\Theta^*f|_{U'_Z} = \phi^* f|_{U'_Z}$, for every $f\in C^\infty(X)^J$. 
+\end{theorem}
+
+The theorem is expected to hold without these assumptions on $X$.
+
+\begin{proof}
+ See \cite[Theorem 5.1.1]{Sakellaridis-Venkatesh} and \cite[Theorem 1]{Delorme-Plancherel-padic}. 
+\end{proof}
+
+
+
+
+\subsection{Asymptotics in the real case}
+\label{subsection-asymptotics-real}
+
+\begin{theorem}
+ \label{theorem-asymptotics-real}
+\begin{enumerate}
+ \item Let $X=H$, a (connected) reductive group over $\mathbb R$, under the $G=H\times H$-action. Let $\tau$ be an admissible smooth Fr\'echet representation of moderate growth of $H$, and $\tilde\tau$ its contragredient. Then, for every class $P$ of parabolics in $H$, there exists a finite set $E$ of $A_P$-exponents and a degree $d$, depending on $\tau$, such that all matrix coefficients
+ $$ f_{v,\tilde v}(g):=\left< \tau(g) v, \tilde v\right>$$
+ are asymptotically finite with exponents $\lambda \in E$ and degree bounded by $d$ in a neighborhood of $P$-infinty, and the map from $\tau\hat\otimes\tilde\tau$ to the corresponding Fr\'echet space $\text{Fin}_P^{E,d}$ of asymptotic expansions is continuous.
+ 
+ In particular, considering only leading terms, there is a morphism $\ell_P:\tau\hat\otimes\tilde\tau \to C^\infty(X_P)$ such that $f_{v,\tilde v} \sim \ell_P(v\otimes\tilde v)$ in a neighborhood of $P$-infinity.
+ 
+ Moreover, if $\ell_P=0$ (i.e., the matrix coefficients of $\tau$ are of rapid decay), for any $P$, then $\tau=0$.
+ 
+ \item Let $X$ be any real spherical variety for a reductive group $G$, and $\pi$ an admissible representation with a \emph{tempered} morphism $\ell: \pi \to C^\infty_{\text{temp}}(X)$, and let $X_\Theta$ denote a boundary degeneration, identified with the open $G$-orbit in the normal bundle of some orbit in a toroidal compactification. Then, there exists a tempered morphism $\ell_\Theta: \pi \to C^\infty_{\text{temp}}(X_\Theta)$, an $A_\Theta$-eigenfunction $h$ on $X_\Theta$ with real positive eigencharacter which is $<1$ on $\exp(\mathfrak a_\Theta^+)$, and a continuous seminorm $q$, such that, for any approximate exponential map $\phi$, $|\phi^* \ell(v) - \ell_\Theta(v)| \le  h\cdot q(v)$ in a neighborhood of $\Theta$-infinity. 
+\end{enumerate}
+
+\end{theorem}
+
+
+\begin{proof}
+ For the group case, see \cite[4.4]{Wallach-RR1}. For the tempered case, see \cite{Delorme-Kroetz-Souaifi}.
+\end{proof}
+
+\begin{definition}
+ \label{definition-asymptotic-matrix-coefficient}
+Let $\tau$ be an arbitrary smooth representation of a $p$-adic reductive group $H$, or an admissible smooth representation of moderate growth of a real reductive group $H$. For every class $P$ of parabolics in $H$, let $H_P$ be the corresponding boundary degeneration. The {\it asymptotic matrix coefficient} morphism associated to $P$ is the morphism 
+$$m_P: \tau\hat\otimes\tau \to C^\infty(H_P),$$
+where $m_P = \ell_P$ in the notation of Theorem \ref{theorem-asymptotics-real}, in the real case, and $m_P = e_P^*\circ m$, where $m$ is the matrix coefficient map, and $e_P^*: C^\infty(H)\to C^\infty(H_P)$ is the asymptotics map of Theorem \ref{theorem-asymptotics-nonarchimedean}, in the $p$-adic case.
+\end{definition}
+
+
+
+\section{Consequences of the asymptotics}
+\label{consequences-asymptotics}
+
+\subsection{Supercuspidals}
+\label{subsection-supercuspidals}
+
+
+\begin{proposition}
+ \label{proposition-compact-matrix-coefficients}
+For an admissible smooth representation of a real or $p$-adic Lie group $H$, the following are equivalent:
+\begin{enumerate}
+ \item The matrix coefficients of $\tau$ are of rapid decay (in the real case) or compactly supported (in the $p$-adic case) modulo the center.
+ \item The asymptotic matrix coefficient morphisms $m_P$ (Definition \ref{definition-asymptotic-matrix-coefficient} are zero for every class $P$ of proper parabolics in $H$. 
+\end{enumerate}
+
+ In particular, in the real case, if the matrix coefficients are of rapid decay modulo the center, then $\tau=0$.
+\end{proposition}
+
+\begin{proof}
+ Follows immediately from Theorems \ref{theorem-asymptotics-nonarchimedean} and Theorem \ref{theorem-asymptotics-real}, together with the fact that, in the real case, if the asymptotic expansion at infinity is zero, then the function is of rapid decay (modulo center).
+\end{proof}
+
+
+
+\begin{definition}
+ \label{definition-supercuspidal}
+Let $H$ be a $p$-adic reductive group. An irreducible admissible representation $\tau$ of $H$ is called {\it supercuspidal} if its matrix coefficients are compactly supported modulo the center.
+\end{definition}
+
+
+\begin{theorem}
+ \label{theorem-subrepresentation}
+Any irreducible admissible representation $\tau$ of a real reductive group $H$, is infinitesimally equivalent to a submodule of an irreducible representation induced from a minimal parabolic; that is, there exists an irreducible (finite-dimensional, necessarily) representation $\sigma$ of the Levi quotient $L$ of the minimal parabolic subgroup $P$ of $H$, and an embedding of $(\mathfrak g, K)$-modules $\tau_{K\text{-fin}} \hookrightarrow I_P(\sigma)_{K\text{-fin}}$, where $I_P(\sigma) = \text{Ind}_P^H(\sigma \delta_P^\frac{1}{2})$ is the (normalized) induced representation.
+\end{theorem}
+
+\begin{proof}
+ This relies on the statement of Theorem \ref{theorem-asymptotics-real}, that the asymptotics of matrix coefficients in any direction have to be nontrivial. In particular, for the minimal direction we have a non-zero map, which by irreducibility has to be an embedding, $\tau\otimes\tilde \tau \to C^\infty(H_P) = I_{P\times P^-} C^\infty(L)$, whose image consists of $A_P$-finite functions. By projecting to an $A_P$-eigenquotient of the image, we may assume that the image is in an eigenspace, with respect to some character $\chi$ of $A_P$. Notice that $L/A_P$ is compact; hence, the space $C^\infty(L/A_P, \chi)$ has a dense subspace of $L$-finite vectors, which are spanned by matrix coefficients of irreducible representations. Thus, restricting to $K$-finite vectors, there is an morphism (necessarily an embedding) of $(\mathfrak g, K)$-modules $(\tau\otimes\tilde\tau)_{K\times K\text{-fin}} \hookrightarrow I_{P\times P^-} (\sigma\otimes\tilde\sigma)_{K\times K\text{-fin}} = I_P(\sigma)_{K\text{-fin}} \otimes I_{P^-}(\tilde\sigma)_{K\text{-fin}}$, for some irreducible representation $\sigma$ of $L$, and by fixing a vector in $\tilde\tau_{K\text{-fin}}$, we get the embedding claimed in the theorem.
+\end{proof}
+
+
+
+
+
+
+
+
+
+%**************************************************************************************
+
+
+%*************************************************************************
+
+
+
+
+\input{chapters}
+
+
+\bibliography{my}
+\bibliographystyle{amsalpha}
+
+\end{document}
+

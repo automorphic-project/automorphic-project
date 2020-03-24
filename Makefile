@@ -6,7 +6,7 @@
 # This should be in order.
 LIJST = introduction representationtheory representations-compact \
 	liegroups-general liestructure algebraicgroups reductiveforms vermamodules \
-    gKmodules asymptotics plancherel discreteseries \
+    representations-local plancherel discreteseries \
     galoiscohomology automorphicspace
 
 # Add index and fdl to get index and license latexed as well.

@@ -360,8 +360,40 @@ Then, for $\epsilon$ sufficiently small, the map $\pi_G|_{\tilde U_\epsilon}$ is
 \label{section-reduction-theory-split}
 
 Reduction theory is the description of the space $[G]$ ``at infinity'' in terms of its boundary degenerations. 
+In this section, we will prove the main result of reduction theory in the split case. We will use it to define a certain compactification of $[G]$, which will be used in the next section to address the general case.
 
-More precisely, fix a class $\mathcal P$ of parabolics, and a parabolic $P\in \mathcal P(k)$. (Nothing will depend on $P$, but it is notationally convenient.)
+Before we generalize from $\text{SL}_2$ to the general case, we need a purely algebro-geometric result on closure of horocycles on pre-flag varieties. The result is analogous to the following statement in the case of $\text{SL}_2$: Let $N\subset \text{SL}_2$ be the stabilizer of a nonzero vector on the two-dimensional plane, let $\ell$ be the line spanned by that vector, and let $\ell'$ be a different, affine line parallel to $\ell$; notice that $\ell'$ is an $N$-orbit. Let $v_n \in \ell'$ be a sequence of points such that the lines that they span approach $\ell$ in the projective space; the statement is that $v_n\to \infty$. This fact is obvious in this case, or for any unipotent orbit on a quasiaffine space, since by a result of Rosenlicht \cite{Rosenlicht-quotient-varieties} orbits of unipotent groups on affine spaces are closed. Here, however, we need finer information for the quasiaffine space $Y=N\backslash G$ in higher rank: Roughly speaking, we need to know that if a point is far from the cusp, so is its entire $N$-orbit. Since the cusp cannot be described in terms of affine embeddings in higher rank (see Remark \ref{remark-basic-affine}), we need to consider more general compactifications, and Rosenlicht's theorem will not be enough.
+
+Let $Y=N\backslash G$ be ``the'' pre-flag variety for $G$. In order to keep track of possible limits in various directions, let us consider a full compactification of the torus $A$. It will not be important which compactification we will consider, as long as $\bar A$ admits an open embedding in it, but to fix ideas, let us temporarily take $\bar A^F$: the compactification corresponding to the fan $F$ consisting of all Weyl chambers (and their faces), and let $\bar Y^F = \bar A^F \times^A Y$ --- it is a proper variety over the flag variety $\mathcal B$, and it contains the compacification $\bar Y$ used to define the cusp. The fixed points of $A$ on $\bar A^F$, and the closed orbits of $G$ on $\bar Y^F$, are canonically parametrized by the Weyl group, if we let the fixed point in $\bar A$ correspond to $1$, and then proceed equivariantly according to the \emph{right} action of $W$ on $\mathfrak a$. 
+
+Choose a Borel subgroup $B\in \mathcal B(k)$, and a section of the canonical map $B\to A$, and denote its image by $T$; hence, $T$ is a maximal torus in $B$, identified with $A$ through the quotient map. We use $\bar T$, $\bar T^F$ etc.\ for $T$, as for $A$. For every $B'\in \mathcal B$ and any strictly antidominant cocharacter $\lambda$ into $T$, we have $\lim_{x \to 0} B'^{\lambda(x)} = B^w$, for some $w$ in the Weyl group of $W$ --- this is the Bruhat decomposition!  
+
+
+
+\begin{proposition}
+\label{proposition-horocycle-closures}
+Let $Y\to \mathcal B$ be the preflag variety of a reductive group $G$, and let $\bar Y^F \to \mathcal B$ be its compactification determined by the fan of all Weyl chambers. Let $y_0, y' \in Y$ be two points lying over Borel subgroups $B$, $B'$, let $T\subset B$ be a maximal torus, and assume that $y' \in  y_0 \tilde w N$, where $N\subset B$ is the unipotent radical, and $\tilde w$ is an element in the normalizer of $T$. 
+\begin{enumerate}
+ \item If $\lambda:\mathbb G_m\to T$ is strictly dominant with respect to $B$, then $\lim_{x\to 0} y' \lambda(x) \in \bar Y^F$ is the $A$-fixed point in the fiber over $B^w$ which corresponds to $w=$the image of $\tilde w$ in the Weyl group of $T$. 
+
+ \item The closure $\overline{y' N}\subset \bar Y^F$ intersects the fiber over $B$ (=the unique fixed point/closed orbit of $N$ on $\mathcal B$) along the limits of all cocharacters in the relative interior of the cone $R_w^+\subset \mathfrak a$ spanned by the simple coroots $\check\alpha$ such that $w\check\alpha <0$. 
+ 
+ Better said, let $\bar A^{R_w^+}$ be the embedding of $A$ corresponding to the cone $R_w^+$; it has a unique closed orbit (it does not contain what was denoted by $\bar A$ before!), and let $\bar Y^{R_w^+}$ be the corresponding embedding of $Y$. Then, the closure of $y_0 \tilde w N$ in $\bar Y^{R_w^+}$ is proper, and intersects the orbit over $B$ along the closed $A$-orbit. For any other completion such as $\bar Y^F$, there is a blowup of $\bar Y^{R_w^+}$ that maps to $\bar Y^F$, and the closure of $y_0 \tilde w N$ will be contained in the image.
+
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+ The first statement is not needed, and left to the reader.
+
+Let us prove the second statement: Since $\bar Y^F =\bar A^F \times^A Y$, the closure of $y_0 \tilde w N$ in $\bar Y^F$ corresponds to the closure of the set $A\cdot (1,y_0\tilde w N)$ in $\bar A^F \times Y$, where $A$ acts by $a\cdot (x,y) = (a^{-1} x, a y)$. Let $Y_w\subset Y$ be the preimage of the closed Bruhat cell $\overline{B w N}$, and $Y_w\sslash N = \text{Spec} k[Y_w]^N$ the affine quotient by $N$. Fixing the base point $\overline{y_0\tilde w}$=the image of $y_0\tilde w$, this is identified with the affine embedding of $A$ with divisors corresponding to the codimension-one $B$-orbits in $Y_w$, which are in bijection with the set of simple roots $\alpha$ such that $w^{-1}\alpha <0$. If $D_\alpha$ is the corresponding divisor in $Y_w\sslash N$, then the valuation it induces on the character group of $A$ is proportional to $-\check\alpha$. Thus, $Y_w\sslash N \simeq \bar A^{R_w^-}$, $A$-equivariantly (after we fix a base point), where $R_w^-$ is the embedding of $A$ corresponding to the opposite cone of $R_w^+$. Passing to the corresponding quotient of $\bar A^F \times Y_w$,  the closure of $A\cdot (1,y_0\tilde w N)$ maps to the closure of $A\hookrightarrow \bar A^F \times \bar A^{R_w^-}$, where the embedding is the antidiagonal one. The projection of this to the first factor is the image of the blowup of the variety $\bar A^{R_w^+}$. Note that this statement and proof does not depend on the choice of compactification $\bar A^F$.
+
+\end{proof}
+
+
+
+
+Fix a class $\mathcal P$ of parabolics, and a parabolic $P\in \mathcal P(k)$. (Nothing will depend on $P$, but it is notationally convenient.)
 Consider the homogeneous space $\mathcal P(k)\times^{G(k)} G(\mathbb A) = P(k)\backslash G(\mathbb A)$, already encountered in Remark \ref{remark-bdrydegen-as-induction}. It admits a pair of quotient maps:
 \begin{equation}
 \label{equation-leftright} 
@@ -374,7 +406,6 @@ and notice that $\pi_G$ is a local homeomorphism, while $\pi_P$ has compact fibe
 
 We will call ``neighborhood of the (degenerate) $P$-cusp'' in $P(k)\backslash G(\mathbb A)$ the preimage of any neighborhood of the (degenerate) $P$-cusp in $[G]_P$. Generally, for a neighborhood $V$ of the $P$-cusp in $[G]_P$, we will use the notation $\tilde V$ for its preimage in $P(k)\backslash G(\mathbb A)$. Recall that the $P$-cusp is a $G(\mathbb A)$-orbit in a certain partial compactification $\overline{[G]_P}$ of $[G]_P$, see Definition \ref{definition-P-cusp}. A ``scaling'' of such a neighborhood will be the neighborhood that we obtain from it by the action of an element $a\in A_P(\mathbb A)$ on $[G]_P$.
 
-In this section, we will prove the main result of reduction theory in the split case. We will use it to define a certain compactification of $[G]$, which will be used in the next section to address the general case.
 
 \begin{theorem}
  \label{theorem-reduction-theory-split}
@@ -387,33 +418,17 @@ Let $G$ be a split reductive connected group over $k$, and $P\subset G$ a (class
 
 
 \begin{proof}
-There are two approaches to proving this theorem: One, due to Borel and Harish-Chandra \cite{Borel-HC}, is to prove it first for $\text{GL}_n$ over $\mathbb Q$, and then deduce it for a general reductive group via an embedding $G\to \text{GL}_n$ (where $G$, by restriction of scalars, can be considered as a group over $\mathbb Q$, at least in the number field case. Here and in the next section, we will present the second, as developed by Mostow--Tamagawa \cite{Mostow-Tamagawa}, Godement \cite{Godement-domaines-fondamentaux}, and finally Springer \cite{Springer-reduction-theory}. [We caution that there are crucial omissions in some of these papers that make the proofs confusing, or even incomplete; the presentation here is heavily reformulated.]
+There are two approaches to proving this theorem: One, due to Borel and Harish-Chandra \cite{Borel-HC}, is to prove it first for $\text{GL}_n$ over $\mathbb Q$, and then deduce it for a general reductive group via an embedding $G\to \text{GL}_n$ (where $G$, by restriction of scalars, can be considered as a group over $\mathbb Q$, at least in the number field case. Here and in the next section, we will present the second, following Godement \cite{Godement-domaines-fondamentaux} and Springer \cite{Springer-reduction-theory}, but heavily reformulated. [We caution that there are serious gaps in both Godement and Springer, especially at the point that corresponds to Proposition \ref{proposition-horocycle-closures}.]
 
 Having addressed the case of split tori in Proposition \ref{proposition-automorphic-Gm}, we will now assume that $G$ is semisimple; the combination of the two to address the general case is ``easy'', and left to the reader. 
 
 
-We discuss the injectivity statement, (I). Let $Y=N\backslash G$ be ``the'' pre-flag variety for $G$. In order to keep track of possible limits in various directions, let us consider a full compactification of the torus $A$. It will not be important which compactification we will consider, as long as $\bar A$ admits an open embedding in it, but to fix ideas, let us temporarily take $\bar A^F$: the compactification corresponding to the fan $F$ consisting of all Weyl chambers (and their faces), and let $\bar Y^F = \bar A^F \times^A Y$ --- it is a proper variety over the flag variety $\mathcal B$, and it contains the compacification $\bar Y$ used to define the cusp. The fixed points of $A$ on $\bar A^F$, and the closed orbits of $G$ on $\bar Y^F$, are canonically parametrized by the Weyl group, if we let the fixed point in $\bar A$ correspond to $1$, and then proceed equivariantly according to the \emph{right} action of $W$ on $\mathfrak a$. 
 
-Choose a Borel subgroup $B\in \mathcal B(k)$, and a section of the canonical map $B\to A$, and denote its image by $T$; hence, $T$ is a maximal torus in $B$, identified with $A$ through the quotient map. We use $\bar T$, $\bar T^F$ etc.\ for $T$, as for $A$. For every $B'\in \mathcal B$ and any strictly antidominant cocharacter $\lambda$ into $T$, we have $\lim_{x \to 0} B'^{\lambda(x)} = B^w$, for some $w$ in the Weyl group of $W$ --- this is the Bruhat decomposition!  
-
-Suppose $y'\in Y$ lies over $B'$, and $w$ is as above; then, $y' = y_0 \tilde w$, for a $y_0$ over $B$, and some representative $\tilde w$ of $w$ in the normalizer of $T$.
-The proof of (I) relies on the second of the following statements on limits on $\bar Y^F$; the first is stated just for the reader's interest:  
-
-\begin{itemize}
- \item If $\lambda:\mathbb G_m\to T$ is strictly dominant, then $\lim_{x\to 0} y_0 \tilde w\cdot \lambda(x) \in \bar Y^F$ is the $A$-fixed point in the fiber over $B^w$ which corresponds to $w$. 
-
- \item The closure $\overline{y_0 \tilde w N}\subset \bar Y^F$ intersects the fiber over $B$ (=the unique fixed point/closed orbit of $N$ on $\mathcal B$) along the limits of all cocharacters in the relative interior of the cone $R_w^+\subset \mathfrak a$ spanned by the simple coroots $\check\alpha$ such that $w\check\alpha <0$.
-\end{itemize}
-
-The second statement means the following: Let $\bar A^{R_w^+}$ be the embedding of $A$ corresponding to the cone $R_w^+$; it has a unique closed orbit (it does not contain what was denoted by $\bar A$ before!), and let $\bar Y^{R_w^+}$ be the corresponding embedding of $Y$. Then, the closure of $y_0 \tilde w N$ in $\bar Y^{R_w^+}$ is projective, and intersects the orbit over $B$ along the closed $A$-orbit. For any other completion such as $\bar Y^F$, there is a blowup of $\bar Y^{R_w^+}$ that maps to $\bar Y^F$, and the closure of $y_0 \tilde w N$ will be contained in the image.
-
-Let us prove the second statement: Since $\bar Y^F =\bar A^F \times^A Y$, the closure of $y_0 \tilde w N$ in $\bar Y^F$ corresponds to the closure of the set $A\cdot (1,y_0\tilde w N)$ in $\bar A^F \times Y$, where $A$ acts by $a\cdot (x,y) = (a^{-1} x, a y)$. Let $Y_w\subset Y$ be the preimage of the closed Bruhat cell $\overline{B w N}$, and $Y_w\sslash N = \text{Spec} k[Y_w]^N$ the affine quotient by $N$. Fixing the base point $\overline{y_0\tilde w}$=the image of $y_0\tilde w$, this is identified with the affine embedding of $A$ with divisors corresponding to the codimension-one $B$-orbits in $Y_w$, which are in bijection with the set of simple roots $\alpha$ such that $w^{-1}\alpha <0$. If $D_\alpha$ is the corresponding divisor in $Y_w\sslash N$, then the valuation it induces on the character group of $A$ is proportional to $-\check\alpha$. Thus, $Y_w\sslash N \simeq \bar A^{R_w^-}$, $A$-equivariantly (after we fix a base point), where $R_w^-$ is the embedding of $A$ corresponding to the opposite cone of $R_w^+$. Passing to the corresponding quotient of $\bar A^F \times Y_w$,  the closure of $A\cdot (1,y_0\tilde w N)$ maps to the closure of $A\hookrightarrow \bar A^F \times \bar A^{R_w^-}$, where the embedding is the antidiagonal one. The projection of this to the first factor is the image of the blowup of the variety $\bar A^{R_w^+}$. Note that this statement and proof does not depend on the choice of compactification $\bar A^F$.
-
-The way that this statement will be applied to our setting, is the following: Fix the base point $y_0\in Y(k)$, and let $B$ be the stabilizer of its $A$-orbit. Fix a maximal compact subgroup satisfying the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A) K$. We use this, together with the logarithmic maps $B(\mathbb A)\to \mathfrak a$, defined as in \eqref{equation-logmap}, to define a ``height'' function  on $[G]_B = A(k)\backslash y_0 G(\mathbb A)$:
+The proof of (I) relies on Proposition \ref{proposition-horocycle-closures}.  Fix the base point $y_0\in Y(k)$, and let $B$ be the stabilizer of its $A$-orbit. Fix a maximal compact subgroup satisfying the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A) K$. We use this, together with the logarithmic maps $B(\mathbb A)\to \mathfrak a$, defined as in \eqref{equation-logmap}, to define a ``height'' function  on $[G]_B = A(k)\backslash y_0 G(\mathbb A)$:
 $$h(g) = \log(b)\in \mathfrak a.$$ 
 This is similar to the height functions of Definition \ref{definition-adelic-height}, except that it does not use an affine embedding of $Y$; rather, the sets $V_\epsilon = \{ [g] \in [G]_B| h(g) > -\log \epsilon\}$ form a basis of neighborhoods for the cusp. (See Remarks  \ref{remark-cusp-Iwasawa} and \ref{remark-basic-affine}.)
 
-We claim that the above statement about the closure of $y_0 \tilde w N$ implies the following:
+We claim that the statement of Proposition \ref{proposition-horocycle-closures} about the closure of $y_0 \tilde w N$ implies the following:
 
 \begin{itemize}
  \item There is a compact $C_0\subset \mathfrak a$ such that 
@@ -773,7 +788,7 @@ If $G$ is reductive, unipotent, or projective (i.e., an abelian variety), then $
 
 \begin{definition}
 \label{definition-modular-character}
-A left- or right- invariant volume form on an algebraic group $G$ is called a (left- or right-) {\it Haar volume form}. The character $\partial_G$ of Lemma \ref{lemma-Haar-volume form} (or its absolute value $\delta_G = |\partial_G|$, valued in $\mathbb R^\times_+$, on the points of $G$ over a local field) is called the {\it modular character} of $G$.\footnote{The convention in Bourbaki is the opposite one: left over right; however, right over left is the standard definition of the modular character in more recent literature.} 
+A left- or right- invariant volume form on an algebraic group $G$ is called a (left- or right-) {\it Haar volume form}. The character $\partial_G$ of Lemma \ref{lemma-Haar-volume-form} (or its absolute value $\delta_G = |\partial_G|$, valued in $\mathbb R^\times_+$, on the points of $G$ over a local field) is called the {\it modular character} of $G$.\footnote{The convention in Bourbaki is the opposite one: left over right; however, right over left is the standard definition of the modular character in more recent literature.} 
 \end{definition}
 
 
