@@ -47,7 +47,7 @@ An {\it SF-representation}, or {\it smooth representation of moderate growth} of
 
 \begin{lemma}
  \label{lemma-smooth-dense}
-If $V$ is a Fr\'echet representation of a Lie group $G$, the subspace $V^\infty$ of smooth vectors is dense.
+If $V$ is a Fr\'echet representation of a Lie or $p$-adic group $G$, the subspace $V^\infty$ of smooth vectors is dense.
 \end{lemma}
 
 \begin{proof}
@@ -56,9 +56,9 @@ If $V$ is a Fr\'echet representation of a Lie group $G$, the subspace $V^\infty$
 
 A much stronger, and important, statement is true: the {\it Dixmier--Malliavin theorem} states that the image of the action of $M_c^\infty(G)$ is all of $V^\infty$:
 
-\begin{theorem}[Dixmier--Malliavin]
+\begin{theorem}
  \label{theorem-Dixmier-Malliavin}
-Let $V$ be a Fr\'echet representation of a Lie group $G$. The action map 
+Let $V$ be a Fr\'echet representation of a Lie group or $p$-adic group $G$. The action map 
 $$ M_c^\infty(G)\otimes V \to V^\infty$$
 is surjective.
 \end{theorem}
@@ -66,14 +66,14 @@ is surjective.
 Notice that the tensor product here is not completed! The theorem means that every smooth vector can be written as a finite linear combinations of smooth, compactly supported measures acting on other vectors. (Also, without loss of generality, one might assume that $V=V^\infty$, if desired.)
 
 \begin{proof}
- See \cite{Dixmier-Malliavin}, or \cite{Casselman-Dixmier-Malliavin}.
+The $p$-adic case is trivial, since every $J$-invariant vector (where $J$ is an open compact subgroup) is fixed by the action of $e_J=$ the probability Haar measure on $J$. The real case is the theorem of Dixmier--Malliavin, see \cite{Dixmier-Malliavin}, or \cite{Casselman-Dixmier-Malliavin}.
 \end{proof}
 
 
 
 \begin{remark}
 \label{remark-smooth-not-SF}
-Outside of the realm of F-representations (Fr\'echet representations of moderate growth), the notion of smooth representation leads to counterintuitive examples, e.g., the space of distributions on a Lie group $G$ is a smooth representation. We will only be considering Smooth Fr\'echet representations of moderate growth from now on.
+Outside of the realm of F-representations (Fr\'echet representations of moderate growth), the notion of smooth representation leads to counterintuitive examples, e.g., the space of distributions on a Lie group $G$ is a smooth representation. We will only be considering smooth Fr\'echet representations of moderate growth from now on.
 \end{remark}
 
 \begin{lemma}
@@ -114,11 +114,11 @@ This notion is most often (but not exclusively!) used when $H=K$ is a maximal co
 
 \begin{lemma}
  \label{lemma-gK-of-representation}
-Let $(\pi, V)$ be a representation of a Lie group $G$, and $H\subset G$ a subgroup. The subspace $V_{H-\text{fin}}$ of $H$-finite vectors is stable under the action of $\mathfrak g_{\mathbb C}$.
+Let $(\pi, V)$ be a representation of a Lie group $G$, and $H\subset G$ a subgroup. The subspace $V_{H\text{-fin}}$ of $H$-finite vectors is stable under the action of $\mathfrak g_{\mathbb C}$.
 \end{lemma}
 
 \begin{proof}
- For every $v\in V_{H-\text{fin}}$, the image of the action map $\mathfrak g \otimes \text{span}(Hv) \to V$ is finite-dimensional, and contains the element $h\cdot X\cdot v$ for all $X\in \mathfrak g$ and $h\in H$, since $h\cdot X\cdot v = \text{Ad}(h)(X)\cdot h\cdot v$.
+ For every $v\in V_{H\text{-fin}}$, the image of the action map $\mathfrak g \otimes \text{span}(Hv) \to V$ is finite-dimensional, and contains the element $h\cdot X\cdot v$ for all $X\in \mathfrak g$ and $h\in H$, since $h\cdot X\cdot v = \text{Ad}(h)(X)\cdot h\cdot v$.
 \end{proof}
 
 Recall also from Theorem \ref{representations-compact-theorem-PeterWeyl-general} that if $H=K$ is compact, and the representation is Fr\'echet, the space of $K$-finite vectors is dense.
@@ -147,7 +147,7 @@ If $V$ is a Fr\'echet representation of a reductive Lie group $G$, and $K\subset
  This follows from Lemma \ref{lemma-smooth-dense} and Proposition \ref{representations-compact-proposition-denseinclusions}. 
 \end{proof}
 
-The converse is true in the category of \emph{admissible} representations (see \S \ref{subsection-admissibility}). 
+The converse is true in the category of \emph{admissible} representations (Theorem \ref{theorem-irreducible-admissible}). 
 
 
 \subsection{Admissibility}
@@ -158,7 +158,7 @@ The converse is true in the category of \emph{admissible} representations (see \
  \label{definition-admissible}
 A $(\mathfrak g, K)$-module $(\pi, V)$ (in the real case), or a smooth $K$-module $V$ (in the $p$-adic case) is called {\it admissible} if  all irreducible representations of $K$ appear with finite multiplicity, i.e., $\dim\Hom_K(\tau, V)<\infty$ for every irreducible representation $\tau$ of $K$. 
 
-A (topological) representation $(\pi, V)$ of a real or $p$-adic reductive group $G$ is admissible if the $(\mathfrak g, K)$-module (resp.\ $K$-module, in the $p$-adic case) $V^\infty_{K-\text{fin}}$ is admissible. Here, $K$ is any maximal compact subgroup of $G$, in the real case, and any compact open subgroup of $G$, in the $p$-adic case.
+A (topological) representation $(\pi, V)$ of a real or $p$-adic reductive group $G$ is admissible if the $(\mathfrak g, K)$-module (resp.\ $K$-module, in the $p$-adic case) $V^\infty_{K\text{-fin}}$ is admissible. Here, $K$ is any maximal compact subgroup of $G$, in the real case, and any compact open subgroup of $G$, in the $p$-adic case.
 \end{definition}
 
 
@@ -173,7 +173,7 @@ In the $p$-adic case, a representation $(\pi, V)$ is admissible if and only if, 
 \end{lemma}
 
 \begin{proof}
- First of all, observe that $V^\infty_{K-\text{fin}} = V^\infty$ for every compact open $K\subset G$.  
+ First of all, observe that $V^\infty_{K\text{-fin}} = V^\infty$ for every compact open $K\subset G$.  
  
  If a (smooth) irreducible representation $\tau$ of $K$ appears with infinite multiplicity, then, obviously, $\dim V^J = \infty$ for all $J$ with $\tau^J\ne 0$. 
  
@@ -182,7 +182,7 @@ In the $p$-adic case, a representation $(\pi, V)$ is admissible if and only if, 
 
 \begin{definition}
  \label{definition-contragredient}
-The {\it contragredient} of a $(\mathfrak g,K)$-module $V$, in the real case, or a smooth $G$-representation $V$, in the $p$-adic case, is the $(\mathfrak g, K)$-module, resp.\ smooth $G$-representation $\tilde V:=\{ v^*\in V^*| v^*\mbox{ is $K$-finite}\}$. 
+The {\it contragredient} of a $(\mathfrak g,K)$-module $V$, in the real case, or a smooth $G$-representation $V$, in the $p$-adic case, is the $(\mathfrak g, K)$-module, resp.\ smooth $G$-representation $\tilde V:=(V^*)_{K\text{-fin}}$ of $K$-finite vectors in the linear dual of $V$. 
 \end{definition}
 
 
@@ -191,7 +191,7 @@ The {\it contragredient} of a $(\mathfrak g,K)$-module $V$, in the real case, or
  \label{lemma-admissible-gK}
 Assume that $V$ is an admissible $(\mathfrak g,K)$-module $V$, in the real case, or an admissible smooth $G$-representation, in the $p$-adic case. Then, $\tilde{\tilde V} = V$.
 
-If $V$ is irreducible, any automorphism of $V$ (as a $(\mathfrak g,K)$-module or as a $G$-representation) is scalar.
+If $V$ is irreducible, any automorphism of $V$ (as a $(\mathfrak g,K)$-module, resp.\ as a $G$-representation) is scalar.
 \end{lemma}
 
 \begin{proof}
@@ -214,7 +214,7 @@ First, we notice that the action of the center $\mathfrak z(\mathfrak g)$ of the
 
 Elliptic regularity, now, implies that all vectors in $V_{K\text{-fin}}$ are analytic; see \cite[3.4.9]{Wallach-RR1}.\footnote{In Wallach's book, the argument is formulated for representations on Hilbert spaces, but it holds verbatim for Banach spaces, and hence for Fr\'echet representations of moderate growth. Note that a function $G\to V$, where $V$ is a Banach space, is (real) analytic iff it is \emph{weakly} analytic, i.e., iff its composition with any continuous functional $v^*: V\to \mathbb C$ is analytic.} And, the closure of a $\mathfrak g$-stable subspace of analytic vectors in $V$ is stable under the identity component of $G$: simply apply the exponential map $\mathfrak g_{\mathbb R} \to G$, whose image generates the identity component. 
 
-Since $V_0$ is not only $\mathfrak g$-stable, but also $K$-stable, and $K$ meets all connected components of $G$, and since $V$ is irreducible, $V_0$ has to be dense. But, again, applying projectors to the $K$-types, this means that for any $K$-type $\tau$, the $\tau$-isotypic subspace $V_0^\tau$ is dense in $V^\tau$. Since these spaces are finite-dimensional, $V_0^\tau=V^\tau$ for all $\tau$, hence $V_0 = V_{K\text{-fin}}$. 
+Since $V_0$ is not only $\mathfrak g$-stable, but also $K$-stable, and $K$ meets all connected components of $G$, $V_0$ is $G$-stable. Since $V$ is irreducible, $V_0$ is dense. But, again, applying projectors to the $K$-types, this means that for any $K$-type $\tau$, the $\tau$-isotypic subspace $V_0^\tau$ is dense in $V^\tau$. Since these spaces are finite-dimensional, $V_0^\tau=V^\tau$ for all $\tau$, hence $V_0 = V_{K\text{-fin}}$. 
 \end{proof}
 
 
@@ -223,6 +223,7 @@ Since $V_0$ is not only $\mathfrak g$-stable, but also $K$-stable, and $K$ meets
 
 \section{Schwartz and Harish--Chandra Schwartz spaces}
 \label{section-Schwartz}
+
 
 \subsection{Schwartz space defined by a scale function}
 \label{subsection-Schwartz-scale}
@@ -247,7 +248,7 @@ functions.
 In other words, a scale function is the exponential of a radial function, Definition \ref{representationtheory-definition-radial-function}.
 
 
-In \ref{representationtheory-section-Banach-representations} we saw the ``natural radial function'' $r_{\text{nat}}$ (and hence its exponential, the ``natural scale function'' $s_{\text{nat}}$, denoted $\Vert g\Vert$ there) of a compactly generated group; recall that $r_{\text{nat}}(g)$ counts how many times we need to multiply a compact generating set by itself in order to produce a set containing $g$. 
+In \ref{representationtheory-definition-radial-natural} we saw the ``natural radial function'' $r_{\text{nat}}$ (and hence its exponential, the ``natural scale function'' $s_{\text{nat}}$, denoted $\Vert g\Vert$ there) of a compactly generated group; recall that $r_{\text{nat}}(g)$ counts how many times we need to multiply a compact generating neighborhood of the identity by itself in order to produce a set containing $g$. 
 
 
 \begin{definition}
@@ -329,7 +330,51 @@ For both real and $p$-adic reductive groups, there is an equivalence of categori
 \subsection{Harish-Chandra Schwartz space}
 \label{subsection-HC-Schwartz}
 
-We follow \cite{Bernstein-Plancherel}. [TBC]
+We follow \cite{Bernstein-Plancherel}. We start by defining a notion of radial function for a homogeneous space of a locally compact group; everything in this section applies to a finite union of homogeneous spaces, as well.
+
+
+\begin{definition}
+ \label{definition-radial-homogeneous}
+Let $X$ be a homogeneous space for a locally compact group $G$. A {\it radial function} is a locally bounded function $r_X: X\to \mathbb R_+$, such that:
+\begin{enumerate}
+ \item for every $R \in \mathbb R_+$, the ``ball'' $B(R) = \{ x\in X| r_X(x)\le R\}$ is relatively compact in $X$;
+ \item for any compact $\Omega\subset G$, there is a constant $C>0$ such that $|r_X(gx)-r_X(x)|<C$. 
+\end{enumerate}
+We say that $r_X$, $r_X'$ are two {\it equivalent radial functions} if there is a constant $C$ such that $C^{-1}(1+r_X)\le (1+r_X')\le C(1+r_X)$. 
+
+We say that the space $X$ is of {\it polynomial growth} (with respect to a given equivalence class of radial functions) if there is a $d\ge 0$ such that, for one (any) compact neighborhood $\Omega$ of the identity in $G$, and some positive constant $C$, the ball $B(R)$ can be covered by $\le C(1+R^d)$ orbits of $\Omega$. 
+
+The equivalence class of {\it natural radial functions} on $X$ is the equivalence class of the function $ r_X( x) = \inf\{r(g)| x_0\cdot g = x\}$, where $r$ is a natural radial function on $G$, and $x_0$ is some fixed point on $X$. 
+\end{definition}
+
+Now we assume that $X$ is a homogeneous real or $p$-adic manifold, of polynomial growth, under the action of a real or $p$-adic group $G$, or a finite union of such. [Fact, to be added: the space $X(F)$ of points of a spherical $G$-variety $X$ over a local field $F$, under the action of the group $G(F)$, are such.] 
+
+\begin{definition}
+ \label{definition-Harish-Chandra-Schwartz}
+The {\it Harish-Chandra--Schwartz space} of $X$ is the space $\mathcal C(X)$ of smooth vectors in the Fr\'echet space of half-densities $f$ on $X$ with $f \in \bigcap_{d >0} L^2(X, (1+r)^d)$, where $r$ is a natural scale function on $X$. 
+\end{definition}
+
+The notation $L^2(X, (1+r)^d)$ stands for the Hilbert space of half-densities $f$ with norm equal to the square root of $\int_X |f|^2 (1+r)^d$. 
+
+
+\begin{remark}
+ \label{remark-half-densities}
+If $X$ has an invariant measure $dx$, or, more generally, a positive $G$-eigenmeasure with (positive) $G$-eigencharacter $\eta$, one can think of half-densities as functions, by dividing by $(dx)^\frac{1}{2}$, but the action of $G$ on those functions is twisted by the square root of $\eta$, that is: 
+\begin{equation}
+ \label{equation-twisted-action}
+ (g\cdot \Phi)(x) = \eta^\frac{1}{2}(g) \Phi(x\cdot g).
+\end{equation}
+
+In other words, if $\mathcal F(X)$ denotes functions and $\mathcal D(X)$ denotes half-densities, division by $(dx)^\frac{1}{2}$ defines an equivariant isomorphism $\mathcal D(X) \xrightarrow\sim \mathcal F(X) \otimes \eta^\frac{1}{2}$. 
+
+For example, consider the pre-flag variety $X=U\backslash G_0$, where $U\subset P\subset G_0$ is the unipotent radical of a parabolic subgroup. Considering it as a homogeneous space for the product $G=L\times G_0$, where $L$ is the Levi quotient of $P$, it possesses $G$-eigenmeasure, which is invariant under $G_0$, but $\delta_P$-equivariant under $L$, where $\delta_P$ is the modular character of $P$. Thus, half-densities on $X$ can be identified (after a choice of such a measure, unique up to scalar), with functions on $X$, with the action of $L$ on the latter twisted by $\delta_P$.
+\end{remark}
+
+
+\begin{definition}
+ \label{definition-tempered}
+The space of {\it tempered half-densities} on $X$ is the dual of the topological vector space $\mathcal C(X)$. If a $G$-eigenmeasure $dx$ on $X$ is chosen, the dual of $(dx)^{-\frac{1}{2}} \mathcal C(X)$ is the space of {\it tempered measures}, and the dual of $(dx)^{-\frac{1}{2}} \mathcal C(X)$ is the space of {\it tempered generalized functions}. 
+\end{definition}
 
 
 
@@ -347,7 +392,7 @@ For the remainder of this section, $G$ is a real or $p$-adic reductive group, an
 
 \begin{definition}
  \label{definition-approximate-exponential}
-Let $Z$ be the closure of a $G$-orbit in a toroidal embedding $\bar X$ of $X$. An {\it approximate exponential map} is an analytic map $\phi: U_Z\to \bar X(F),$ where $U_Z$ is a neighborhood of $Z$ in the $F$-points of the normal bundle $N_Z \bar X$,  with the property that the partial differential of $\phi$ induces the identity between on the normal bundle, and $\phi$ maps the intersection of every $G$-orbit with $U_Z$ to the corresponding $G$-orbit on $\bar X$. The {\it exponential bundle} $\text{Exp}_Z \bar X$ over $Z$ is the bundle of germs, over $Z$, of approximate exponential maps. 
+Let $Z$ be the closure of a $G$-orbit in a toroidal embedding $\bar X$ of $X$. An {\it approximate exponential map} is an analytic map $\phi: U_Z\to \bar X(F),$ where $U_Z$ is a neighborhood of $Z$ in the $F$-points of the normal bundle $N_Z \bar X$,  with the property that the partial differential of $\phi$ induces the identity between on the normal bundle, and $\phi$ maps the intersection of every $G$-orbit with $U_Z$ to the corresponding $G$-orbit on $\bar X$. The {\it exponential bundle} $\text{Exp}_Z \bar X$ over $Z$ is the fiber bundle of germs, over $Z$, of approximate exponential maps. 
 \end{definition}
 
 Note that $\text{Exp}_Z \bar X$ is a torsor for the group bundle $\text{Exp}_Z N_Z\bar X$ of germs of approximate exponential maps from the normal bundle to itself (defined the same way). 
@@ -359,7 +404,7 @@ Then, given an open compact subgroup $J\subset G$, there is a $J$-invariant neig
 \end{proposition}
 
 \begin{proof}
- See \cite[Proposition 4.3.1]{Sakellaridis-Venkatesh}. The reader is encouraged to check it directly in the baby case of $\bar X=\mathbb A^1$, $Z=\{0\}$.
+ See \cite[Proposition 4.3.1]{Sakellaridis-Venkatesh}. The reader is encouraged to check it directly in the baby case of $\bar X=\mathbb A^1$, $Z=\{0\}$, $G=\mathbb G_m$.
 \end{proof}
 
 Now, the normal bundle to $Z$ contains some open $G$-orbit, which we have called the boundary degeneration; let's denote it by $X_\Theta$. This proposition implies that, for any $J$-invariant functions $f$, $f_\Theta$ on $X$ and $X_\Theta$, respectively, there is a well-defined notion of the functions being asymptotically equal:
@@ -377,7 +422,7 @@ In the real case, things are finer, since smooth functions are not locally const
  \label{example-real-asymptotics-baby}
 Let $\bar X = \mathbb A^1 \supset X=\mathbb A^1\smallsetminus\{0\}$, over $F=\mathbb R$. Let $Z=\{0\}$; then, $N_Z \bar X = \mathbb A^1$. Here, we want to think of $\bar X$ simply as a variety (without a group action), while $N_Z \bar X$ has a $\mathbb G_m$-action. Any analytic map $\phi: U_Z\to \mathbb R$, where $U_Z$ is a neighborhood of zero, fixing zero and inducing the identity on its tangent space, is an asymptotic exponential. Explicitly, such a $\phi$ is given by a power series of the form $\phi(x) = x + \sum_{n=2}^\infty a_n x^n$, convergent within some radius. 
 
-An ``asymptotically finite'' function $f$ on $X$ is a function with the property that $\phi^* f = \sum_\lambda f_\lambda \cdot h_\lambda$, a finite sum indexed by characters of the multiplicative group, where $f_\lambda$ is a generalized $\mathbb G_m$-eigenfunction with generalized eigencharcter $\lambda$, and $h_\lambda \in C^\infty(U_Z)$. The reader should check [exercise!] that this notion does not depend on the choice of approximate exponential $\phi^*$.
+An ``asymptotically finite'' function $f$ on $X$ is a function with the property that $\phi^* f = \sum_\lambda f_\lambda \cdot h_\lambda$, a finite sum indexed by characters of the multiplicative group, where $f_\lambda$ is a generalized $\mathbb G_m$-eigenfunction with generalized eigencharcter $\lambda$, and $h_\lambda \in C^\infty(U_Z)$. The reader should check [exercise!] that this notion does not depend on the choice of approximate exponential $\phi$.
 \end{example}
 
 \begin{definition}
@@ -394,7 +439,7 @@ An ``asymptotically finite'' function $f$ on $X$ is a function with the property
  from germs of approximate exponential functions (see Definition \ref{definition-approximate-exponential}), which is equivariant for the group bundle $\text{Exp}_Z(N_Z\bar X)$. 
   
   The characters $\lambda$ in an expansion \eqref{equation-asymptotically-finite} will always be assumed to be such that no quotient of two of them extends to a smooth function on $U'$. 
- Under that assumption, the {\it dominant term} of an asymptotically finite function of the form \eqref{equation-asymptotically-finite} is the sum $f_Z=\sum_{\lambda} f_{\lambda} \in C^\infty(U')$; when $U'$ contains the entire orbit of $z$, $f_{\lambda}$ extends uniquely as a generalized $A_Z$-eigenfunction to $X_Z$, and we will consider the dominant term as a function on $X_Z$. (This depends on the orbit of $z$, not just the isomorphism class of $X_Z$!.) We write $f\sim f_Z$ to indicate that $f_Z$ is the dominant term of $f$.
+ Under that assumption, the {\it dominant term} of an asymptotically finite function of the form \eqref{equation-asymptotically-finite} is the sum $f_Z=\sum_{\lambda} f_{\lambda} \in C^\infty(U')$; when $U'$ contains the entire orbit of $z$, $f_{\lambda}$ extends uniquely as a generalized $A_Z$-eigenfunction to $X_Z$, and we will consider the dominant term as a function on $X_Z$. (This depends on the orbit of $z$, not just the isomorphism class of $X_Z$!) We write $f\sim f_Z$ to indicate that $f_Z$ is the dominant term of $f$.
 \end{definition}
 
 \begin{remark}
@@ -452,6 +497,8 @@ In particular, the adjoint morphism $e_\Theta^*: C^\infty(X)\to C^\infty(X_\Thet
 \end{theorem}
 
 The theorem is expected to hold without these assumptions on $X$.
+
+In particular, if $\ell:\pi\to C^\infty(X)$ is any morphism of smooth representations, we obtain the asymptotic morphism $\ell_\Theta$ of the ``Expected Theorem'' of Remark \ref{remark-expectedtheorem-asymptotics} as $\ell_\Theta = e_\Theta^*\circ \ell$.
 
 \begin{proof}
  See \cite[Theorem 5.1.1]{Sakellaridis-Venkatesh} and \cite[Theorem 1]{Delorme-Plancherel-padic}. 

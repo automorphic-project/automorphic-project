@@ -274,13 +274,21 @@ $$\left< \mu , M_\pi (v^*\otimes v)\right> =  \int_G \left< v^*, \pi(g) v\right>
 \begin{definition}
 \label{definition-radial-function}
  A {\it radial function} $r: G\to \mathbb R_+$, in the language of 
- \cite{Bernstein-Plancherel}
+ \cite{Bernstein-Plancherel}\footnote{Except that we do not impose the condition $r(g)=r(g^{-1})$, as Bernstein does for convenience.}
 is a locally bounded positive function on $G$ such that $r(g_1\cdot g_2) \le r(g_1) + r(g_2)$. 
 
 Two radial functions $r, r'$ are said to be {\it equivalent} if $(r+1)$ is comparable to $(r'+1)$, that is, there is a constant $C>0$ such that $C^{-1} (r+1)\le (r'+1) \le C (r+1)$.
 \end{definition}
 
-Suppose that $G$ is compactly generated and locally compact. Then there is a canonical equivalence class of radial functions on $G$, a representative of which is described by taking a compact generating subset $K$ with non-empty interior, and setting $r(g) = \min\{k| g\in K^k\}$. We will be working with such radial functions unless otherwise stated, and calling them ``natural''. 
+Suppose that $G$ is compactly generated and locally compact. Then there is a canonical equivalence class of radial functions on $G$:
+
+\begin{definition}
+ \label{definition-radial-natural}
+The equivalence class of {\it natural radial functions} on a  compactly generated and locally compact group $G$ is the equivalence class of the radial function $r(g) = \min\{k| g\in B^k\}$, where $B$ is a compact generating neighborhood of the identity in $G$. 
+\end{definition}
+
+
+We will be working with natural radial functions, unless otherwise stated.
 
 
 \begin{lemma}
