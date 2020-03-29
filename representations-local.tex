@@ -619,7 +619,36 @@ Any irreducible admissible representation $\tau$ of a real reductive group $H$, 
 \section{The Langlands classification}
 \label{section-Langlands-classification}
 
+\begin{definition}
+ \label{definition-P-dominant}
+ Let $G$ be a reductive real or $p$-adic group, let $P\to L$ be a parabolic subgroup with its Levi quotient, and let $\nu:L \to \mathbb C^\times$ be a character. We will say that $\nu$ is {\it $P$-dominant} if $\log(\nu)\in \mathfrak a_P^{*,+}$, and {\it strictly $P$-dominant} if $\log(\nu)\in \mathfrak a_P^{*,+}$. Here, $\mathfrak a_P^* = \Hom(L, \mathbb G_m) \otimes \mathbb R$, $\log$ is the map that sends the absolute value of an algebraic character to its image in $\mathfrak a_P^*$, and $\mathfrak a_P^{*,+}$, $\mathfrak a_P^{*,+}$ are those characters which are non-negative (resp.\ strictly positive) on coroots $\check \alpha$ corresponding to roots in the unipotent radical of $P$, i.e., $|\nu(e^{\check\alpha}(x))| = |x|^\epsilon$ for some $\epsilon \ge 0$ (resp.\ $\epsilon >0$). 
+\end{definition}
 
+Equivalently, $\mathfrak a_P^*$ is identified with a subspace of $\mathfrak a^*$ (spanned by the $F$-rational characters of the universal Cartan), and $\mathfrak a_P^{*,+}$ (resp.\ $\mathfrak a_P^{*,+}$) is just the corresponding wall (resp., relative interior of the wall) of the dominant Weyl chamber.
+
+
+\begin{theorem}[The Langlands quotient theorem]
+ \label{theorem-Langlands-quotient}
+Let $G$ be a reductive real or $p$-adic group, let $P\to L$ be a parabolic subgroup with its Levi quotient, and let $\tau$ be an irreducible tempered representation of $L$. For any character $\nu:L \to \mathbb C^\times$ which is strictly $P$-dominant, the (normalized) induced representation $I_P^G(\tau\nu)$ has a unique irreducible quotient $\pi_{P,\tau\nu}$, and every irreducible representation of $G$ is of this form, for a unique (up to conjugacy) pair $(P, \tau\nu)$. Moreover, $\pi_{P,\tau\nu}$ is the image of the standard intertwining operator $M_{P^-|P}(\tau\nu): I_P(\tau\nu)\to I_{P^-}(\tau\nu)$. 
+\end{theorem}
+
+\begin{proof}
+
+ [Later]
+\end{proof}
+
+\begin{example}
+ \label{example-trivial-representation}
+The trivial representation, for a quasisplit group, is equal to $\pi_{B, \delta^\frac{1}{2}}$, where $B$ is a Borel subgroup, and $\delta$ is its modular character.
+\end{example}
+
+
+\begin{remark}
+ \label{remark-Langlands-classification}
+The Langlands quotient theorem reduces the classification of irreducible representations to the case of irreducible tempered representations, offering an invaluable link between the ``smooth'' and the ``$L^2$ theory/Plancherel formula'' of irreducible representations. It is also supposed to be compatible with the parametrization provided by the local Langlands conjecture: If $\phi_\tau: \Gamma\to {^LL}$ and $\phi_\nu: \Gamma\to {^LL}$ are Langlands parameters for $\tau$ and $\nu$ (where $\Gamma$, here, denotes the appropriate version of the Weil, or Weil--Deligne group), then $\phi_\tau\cdot\phi_\nu: \Gamma\to {^LL}\hookrightarrow {^LG}$ is a Langlands parameter for $\pi_{P,\tau\nu}$. (Notice that $\phi_\tau$ and $\phi_\nu$ commute, because $\nu$ is a character.)
+
+For example, the Langlands parameter (or rather, its projection to $\check G$) of the trivial representation of a quasisplit group is given by $\Gamma \to \mathbb C^\times \to \check G$, where $\Gamma \to \mathbb C^\times$ is the ``cyclotomic''/absolute value character, and $\mathbb C^\times \to \check G$ is given by $e^{2\rho}: \mathbb G_m\to \check A\subset\check G$ (where $\check A$ is the dual of the universal Cartan).
+\end{remark}
 
 
 
