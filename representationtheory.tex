@@ -493,12 +493,39 @@ Vice versa, if $(\pi, V)$ is an F-representation, it suffices to prove the moder
  Bernstein and Kr\"otz introduce a more general notion of F-representations, which allows for more general scale functions on the group than the one defined in \ref{section-Banach-representations}.
 \end{remark}
 
+\begin{definition}
+ \label{definition-contragredient-F}
+Let $V$ be an F-representation of $G$, and let $V= \lim_\leftarrow V_n$ be a presentation as a limit of Banach representations. The {\it contragredient representation} is the direct limit $\tilde V= \lim_\to \tilde V_n$ of contragredient Banach representations (Definition \ref{definition-contragredient}).
+\end{definition}
+
+\begin{lemma}
+ \label{lemma-contragredient-norm}
+The contragredient representation does not depend on the chosen fundamental system of seminorms. 
+\end{lemma}
+
+\begin{proof}
+ Indeed, if $q_n$ denotes the chosen system of seminorms corresponding to the spaces $V_n$, and $q$ is any other $G$-continuous seminorm, then there is an $n$ with $q\ll q_n$, hence a continuous map of Banach completions $V_n\to V_q$. On contragredients, this induces $\tilde V_q \to \tilde V_n \to \tilde V$. Thus, for another system of seminorms $q_n'$ with completions $V_n'$, we have continuous maps between the spaces $\lim_\to \tilde V_n$ and $\lim_\to \tilde V_n'$ in both directions, which are clearly inverse to each other.
+\end{proof}
+
+[To be added: a discussion of the concept of \emph{distinction} of a Fr\'echet space, i.e., the property that the inductive limit dual coincides with the ``strong dual'' of uniform convergence on bounded sets. True for reflexive Fr\'echet spaces, which includes nuclear spaces and, more generally, limits of Hilbert spaces.]
+
 
 \section{The $C^*$-algebra of a group, and Plancherel decomposition of unitary representations}
 \label{section-Plancherel}
 
 In this section, we collect results from the theory of $C^*$-algebras (which, in turn, rely on results on the theory of Von Neumann-, or $W^*$-, algebras. We point the reader to \cite{Dixmier-Cstar} for complete definitions and proofs.
 
+
+\begin{definition}
+ \label{definition-direct-integral}
+(Define direct integral of Hilbert spaces.)
+\end{definition}
+
+
+\begin{definition}
+ \label{definition-pointwise-defined}
+Let $H=\int H_z \mu(z)$ be a direct integral of Hilbert spaces, and $V$ another topological vector space. A morphism $T: V\to H$ is {\it pointwise defined} if there is a family of morphisms $T_z: V\to H_z$ such that, for every $v\in V$, the section $z\mapsto T_z(v)$ represents the vector $T(v)\in H$. 
+\end{definition}
 
 
 

@@ -351,10 +351,16 @@ Now we assume that $X$ is a homogeneous real or $p$-adic manifold, of polynomial
 
 \begin{definition}
  \label{definition-Harish-Chandra-Schwartz}
-The {\it Harish-Chandra--Schwartz space} of $X$ is the space $\mathcal C(X)$ of smooth vectors in the Fr\'echet space of half-densities $f$ on $X$ with $f \in \bigcap_{d >0} L^2(X, (1+r)^d)$, where $r$ is a natural scale function on $X$. 
+Let $X$ be a homogeneous real or $p$-adic manifold, under the action of a real or $p$-adic group $G$, of polynomial growth with respect to the natural scale. The {\it Harish-Chandra--Schwartz space} of $X$ is the space $\mathcal C(X)$ of smooth vectors in the Fr\'echet space of half-densities $f$ on $X$ with $f \in \lim_{\underset{d >0}{\leftarrow}} L^2(X, (1+r)^d)$, where $r$ is a natural scale function on $X$. 
 \end{definition}
 
 The notation $L^2(X, (1+r)^d)$ stands for the Hilbert space of half-densities $f$ with norm equal to the square root of $\int_X |f|^2 (1+r)^d$. 
+
+\begin{remark}
+ \label{remark-HCS-nuclear}
+The space $\mathcal C(X)$ is a nuclear Fr\'echet space, in the real case, and a countable direct limit over the nuclear Fr\'echet spaces of $J$-invariants, as $J$ ranges over a basis of open compact subgroups, in the $p$-adic case.
+\end{remark}
+
 
 
 \begin{remark}
@@ -373,8 +379,35 @@ For example, consider the pre-flag variety $X=U\backslash G_0$, where $U\subset 
 
 \begin{definition}
  \label{definition-tempered}
-The space of {\it tempered half-densities} on $X$ is the dual of the topological vector space $\mathcal C(X)$. If a $G$-eigenmeasure $dx$ on $X$ is chosen, the dual of $(dx)^{-\frac{1}{2}} \mathcal C(X)$ is the space of {\it tempered measures}, and the dual of $(dx)^{-\frac{1}{2}} \mathcal C(X)$ is the space of {\it tempered generalized functions}. 
+The space of {\it tempered half-densities} on $X$ is the dual of the topological vector space $\mathcal C(X)$. If a $G$-eigenmeasure $dx$ on $X$ is chosen (always to be taken $G$-invariant, if possible), the dual of the space $(dx)^{-\frac{1}{2}} \mathcal C(X)$ of Harish-Chandra--Schwartz functions is the space of {\it tempered measures}, and the dual of the space $(dx)^{\frac{1}{2}} \mathcal C(X)$ of Harish-Chandra--Schwartz measures is the space of {\it tempered generalized functions}. 
+
+The space of {\it tempered smooth half-densities} (and, correspondingly, functions or measures in the presence of an eigenmeasure) is the space of smooth vectors in the contragredient of the F-representation $\bigcap_d L^2(X, (1+r)^d)$ (Definition \ref{representationtheory-definition-contragredient-F}), that is, in the direct limit of Hilbert spaces $\lim_{\underset{d >0}{\to}} L^2(X, (1+r)^d)$.
 \end{definition}
+
+Here is the main result of \cite{Bernstein-Plancherel}:
+
+\begin{theorem}
+ \label{theorem-Bernstein-Plancherel}
+The inclusion $\mathcal C(X)\hookrightarrow L^2(X)$ is {\it fine}; that is, for any morphism from $L^2(X)$ to a direct integral $H=\int H_z \mu(z)$ of Hilbert spaces, the composition $\mathcal C(X)\to H$ is pointwise defined (Definition \ref{definition-poinwise-defined}). 
+\end{theorem}
+
+
+\begin{proof}
+ This is \cite[Theorem 3.2]{Bernstein-Plancherel}, applied to the setting of \cite[\S 3.5, 3.7]{Bernstein-Plancherel}.
+\end{proof}
+
+\begin{definition}
+ \label{definition-tempered-representation}
+An admissible smooth representation $\pi$ of a real or $p$-adic reductive group is called {\it tempered} if its matrix coefficients are tempered, i.e., have image in the space $C^\infty_{\text{temp}}(G)$ of smooth, tempered functions (Definition \ref{representationtheory-definition-tempered}).
+
+More generally, if $X$ is a homogeneous $G$-space of polynomial growth, a morphism $\ell:\pi\to C^\infty(X)$ is called {\it tempered} if the image lies in $C^\infty_{\text{temp}}(X)$.
+\end{definition}
+
+
+
+
+
+
 
 
 
@@ -569,6 +602,8 @@ For an admissible smooth representation of a real or $p$-adic Lie group $H$, the
 Let $H$ be a $p$-adic reductive group. An irreducible admissible representation $\tau$ of $H$ is called {\it supercuspidal} if its matrix coefficients are compactly supported modulo the center.
 \end{definition}
 
+\subsection{The subrepresentation theorem}
+\label{subsection-subrepresentation}
 
 \begin{theorem}
  \label{theorem-subrepresentation}
