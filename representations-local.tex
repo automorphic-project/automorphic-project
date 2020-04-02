@@ -574,7 +574,7 @@ where $m_P = \ell_P$ in the notation of Theorem \ref{theorem-asymptotics-real}, 
 
 
 \section{Consequences of the asymptotics}
-\label{consequences-asymptotics}
+\label{section-consequences-asymptotics}
 
 \subsection{Supercuspidals}
 \label{subsection-supercuspidals}
@@ -651,8 +651,156 @@ For example, the Langlands parameter (or rather, its projection to $\check G$) o
 \end{remark}
 
 
+\section{The Satake isomorphism}
+\label{section-Satake-isomorphism}
 
 
+\begin{definition}
+ \label{definition-unramified-group}
+A reductive group over a local non-Archimedean field $F$ is said to be {\it unramified} if it is quasisplit, and splits over an unramified extension.
+\end{definition}
+
+
+\begin{proposition}
+ \label{proposition-unramified-group}
+For a connected reductive group $G$ over $F$, the following are equivalent:
+\begin{enumerate}
+ \item $G$ is unramified (Definition \ref{definition-unramified-group});
+ \item $G$ admits a reductive model of the ring of integers $\mathfrak o$ (i.e., a smooth model with connected reductive geometric fibers).
+\end{enumerate}
+Moreover, the integral model over $\mathfrak o$ is unique up to $G_{\text{ad}}(F)$-conjugacy, that is, for any two reductive $\mathfrak o$-groups $\mathcal G_1$, $\mathcal G_2$ with general fiber identified with $G$, there is an isomorphism $\mathcal G_1 \simeq \mathcal G_2$ that restricts to an inner automorphism (over $F$) on $G$.
+\end{proposition}
+
+[This proposition should be moved to the chapter on algebraic groups.]
+
+\begin{proof}
+ For the direction from the second to the first, see \cite[Corollary 5.2.14]{Conrad-RGS}. The opposite direction follows from the classification in terms of root data with Galois actions. [To be added.] For the uniqueness, see \cite[Theorem 7.2.16]{Conrad-RGS}.
+\end{proof}
+
+
+\begin{definition}
+ \label{definition-hyperspecial}
+A \text{hyperspecial subgroup} of $G(F)$, where $G$ is an unramified connected reductive group over $F$, is a subgroup of the form $K = \mathcal G (\mathfrak o)$, where $\mathcal G$ is a reductive integral model.
+\end{definition}
+
+Hyperspecial subgroups are unique, up to conjugacy, for adjoint groups, as follows from the uniqueness statement of Proposition \ref{proposition-unramified-group}. This does not need to be true when $G(F)$ does not surject onto $G_{\text{ad}}(F)$.
+
+\begin{proposition}
+ \label{proposition-hyperspecial-maximal}
+A hyperspecial subgroup (Definition \ref{definition-hyperspecial}) is maximal.
+\end{proposition}
+
+\begin{proof}
+ 
+ [Omitted for now.]
+\end{proof}
+
+
+From now on, $G$ will denote $G(F)$. 
+Fix a hyperspecial subgroup $K = \mathcal G(\mathfrak o)$, corresponding to an $\mathfrak o$-model $\mathcal G$, and consider the \emph{integral} unramified (``spherical'') Hecke algebra $\mathcal H(G,K)$ of $\mathbb Z$-valued, $K$-biinvariant functions on $G$. If we consider them as functions on the discrete space $G/K$, using the counting measure on this space we can identify them as measures, and this defines their convolution and, more generally, their action on the $K$-invariant vectors of any representation $V$ (with arbitrary coefficients!). Explicitly, if $v\in V^K$, the characteristic function of a double coset $KgK$ acts as 
+$$ 1_{KgK}\cdot v = \sum_{\gamma \in [KgK/K]} \gamma\cdot v.$$
+
+The goal of this section is to establish the integral Satake isomorphism. For this purpose, let $\mathcal Y$ be ``the'' full pre-flag variety of $\mathcal G$ over $\mathfrak o$, $\mathcal Y \simeq \mathcal N\backslash \mathcal G$, where $\mathcal N$ is the unipotent radical of a Borel subgroup. We do not really choose a Borel subgroup, but the choice of integral model matters, as it endows $\mathcal Y$ with a distinguished $K$-orbit, equal to $\mathcal Y(\mathfrak o)$, that will serve as our base point. As for the group, will use $Y$ etc.\ to denote $F$-points. We let $T\supset T_0$ denote the universal Cartan $T=B/N$, and its maximal compact subgroup $T_0=\mathcal T(\mathfrak o)$; we reserve the letter $A$ for the maximal split torus in $T$. 
+
+We let $\mathcal S(Y/K)$ denote the space of \emph{$\mathbb Z$-valued}, compactly supported, $K$-invariant functions on $\mathcal S$. It is a module for $\mathcal H(G,K)$ (under the right action of $G$ on $Y$) and for $T$ (under the ``left'' action of $T$ on $Y$). To be clear, the action of an element $t\in T$ on functions is defined as translation by $t$, not $t^{-1}$, and it is not normalized by any modular character --- which is not defined over $\mathbb Z$: $(t\cdot f)(y) = f(ty)$; this way, the center of $G$ acts the same, whether it is considered as a subgroup of $G$ or of $T$.
+
+
+\begin{lemma}
+ \label{lemma-torus-module}
+ Every element of $\mathcal S(Y/K)$ is $T_0$-invariant, hence the action of $T$ factors through the quotient $T/T_0$; in particular, we have an action of the Hecke algebra $\mathcal H(T,T_0)$. Under this action, $\mathcal S(Y/K)$ is a free module of rank one, and the element $e_0 = 1_{\mathcal Y(\mathfrak o)}$ is a generator.
+\end{lemma}
+
+\begin{proof}
+ The Iwasawa decomposition [needs to be added] $G = N T K$ shows that $G = \bigsqcup_{t\in T/T_0} N t K$, and in particular: 
+ \begin{itemize}
+  \item every $N\backslash G/K$-coset is left invariant by $T_0$;
+  \item the group $T/T_0$ acts simply transitively on the cosets.
+\end{itemize}
+One of these cosets is equal (modulo $N$) to $\mathcal Y(\mathfrak o)$.
+\end{proof}
+
+Let $\Lambda = T/T_0$.  We start with the Satake isomorphism for tori:
+
+\begin{proposition}
+ \label{proposition-Satake-torus}
+Let $T$ be an unramified torus over $F$, and let $A\subset T$ be the maximal split subtorus. If $\varpi \in F$ is a uniformizer, the map $\Lambda:=X_*(A)\ni \lambda\mapsto \lambda(\varpi) \in A(F)$ descends to an isomorphism $X_*(A)\simeq T/T_0$. 
+
+Moreover, let $\check T$ be the dual torus to $T$, understood as a group scheme over $\mathbb Z$, with an action of the unramified Galois group $\Gamma = \left< \sigma \right>$, where $\sigma$ denotes the Frobenius element. Then, the dual $\check A$ of $A$ is the maximal torus quotient of $\check T$ where $\Gamma$ acts trivially, and the natural maps induce isomorphisms of algebras
+\begin{equation}
+ \label{equation-Satake-torus}
+ \mathbb Z[\check T \sigma]^{\check T} = \mathbb Z[\check A] = \mathbb Z[\Lambda] = \mathcal H(T,T_0),
+\end{equation}
+where the ``coset'' $\check T \sigma$ is the space $\check T$ equipped with the $\sigma$-twisted conjugation of $\check T$, $x\sigma \cdot t = (t\cdot {^\sigma t^{-1}}) x \sigma$
+(and the notation $\mathbb Z[\cdot]$ is used both for group rings and coordinate rings --- it should be clear which is which).
+\end{proposition}
+
+\begin{proof}
+ Consider the quotient of algebraic group schemes over $\mathfrak o$:
+ $$ 1\to \mathcal A \to \mathcal T \to \mathcal T/\mathcal A\to 1.$$
+ Since $A$ is split, this induces (by Hilbert 90) surjections at the level of $F$- and $\mathbb F_q$-points, hence (by smoothness) at the level of $\mathfrak o$-points.  On the other hand, $T/A$ is anisotropic, and $T/A(F)=\mathcal T/\mathcal A(\mathfrak o)$. Therefore, $T(F) = A(F) \mathcal T(\mathfrak o)$, and since $A(F)\cap \mathcal T(\mathfrak o) = A(\mathfrak o)$, and $A(F)/A(\mathfrak o) = \Lambda$, this shows the bijection $\Lambda \xrightarrow\sim T/T_0$.
+ 
+ For the coordinate rings, if $\Lambda'$ is the $\bar F$-cocharacter group of $T$, then the torus $A$ is spanned by the images of Galois-stable cocharacters, hence $\Lambda = (\Lambda')^\Gamma$. On the dual side, the embedding $\Lambda \hookrightarrow \Lambda'$ induces a morphism of dual tori $\check T \to \check A$, which identifies $\check A$ with the quotient of $\check T$ by the subtorus of all elements of the form $(t\cdot {^\sigma t^{-1}})$, $t\in \check T$, hence   
+ $\mathbb Z[\check T\sigma ]^{\check T} = \mathbb Z[\check A] = \mathbb Z[\Lambda]$.
+\end{proof}
+
+Now denote by $t_\lambda$ a representative for $\lambda \in \Lambda = T/T_0$ in $T$, and let $\delta_\lambda=1_{N t_\lambda K} = t_\lambda^{-1}\cdot 1_{\mathcal Y(\mathfrak o)}$; thus, the elements $\delta_\lambda$ form a basis for $\mathcal S(Y/K)$. By Lemma \ref{lemma-torus-module}, the action map $\mathcal H(T,T_0)\ni h \mapsto h\cdot 1_{\mathcal Y(\mathfrak o)}$ identifies the spaces $\mathcal S(Y/K)$ and $\mathcal H(T,T_0)\simeq \mathbb Z[\Lambda]$; notice, however, that the characteristic function $t_\lambda T_0$ in $\mathcal H(T,T_0)$ corresponds to $\delta_{-\lambda}$. 
+
+\begin{theorem}[Satake isomorphism]
+ Let $S: \mathcal H(G,K) \to \mathcal H(T,T_0)$ be the map given by the action map $\mathcal H(G,K)\ni h \mapsto h\cdot 1_{\mathcal Y(\mathfrak o)} \in \mathcal S(Y/K)$ and the identification of $\mathcal S(Y/K)$ with $\mathcal H(T,T_0)$ (again through the analogous action map), i.e., $S(h)$ is that element of $\mathcal H(T,T_0)$ such that $h\cdot 1_{\mathcal Y(\mathfrak o)} = S(h)\cdot 1_{\mathcal Y(\mathfrak o)} $. Then $S$ gives rise to an isomorphism of algebras: 
+ \begin{equation}
+ \label{equation-Satake}
+ \mathcal H(G,K) \simeq \mathcal H(T,T_0)_{\mathbb Z} \cap \mathcal H(T,T_0)_{\mathbb Q}^{W,\bullet} = \mathbb Z[\Lambda]\cap \mathbb Q[\Lambda]^{W,\bullet},
+ \end{equation}
+ where the $\bullet$-action of the (relative) Weyl group $W$ is defined by $(w\bullet f)(t_\lambda)  = q^{\left < \lambda, \rho - w\rho \right>} f(t_{w^{-1}\lambda})$ (where $q$ is the degree of the residue field).
+\end{theorem}
+
+Explicitly, the element $h \in \mathcal H(G,K)$, is mapped to the element of $\mathcal H(T,T_0)$ whose value at $t$ is equal to 
+\begin{equation}
+ \label{equation-Satake-integral}
+h\cdot 1_{\mathcal Y(\mathfrak o)} (Nt^{-1}) = \int_G h(g) 1_{NK} (Nt^{-1}g) dg =  \int_N h(tn) dn,
+\end{equation}
+where the Haar measure on $N$ gives volume $1$ to $\mathcal N(\mathfrak o)$. The way that the Satake isomorphism is usually defined in the literature is through the equation \eqref{equation-Satake-integral}, multiplied by $\delta_B(t)^{\frac{1}{2}}$ (where $\delta_B$ is the modular character of the Borel subgroup), in order to replace the $\bullet$-action of $W$ by the usual action of $W$ --- but this modification is not defined over $\mathbb Z$.
+
+Notice also that, the characteristic function of $t_\lambda T_0$ in $\mathcal H(T,T_0)$ corresponds to the element $\delta_{-\lambda}$ of $\mathcal S(Y/K)$, image of the action map will be invariant under the following Weyl group action on $\mathcal S(Y/K)_{\mathbb Q}$:
+\begin{equation}
+ \label{equation-bullet-Weyl}
+w\bullet \delta_{\lambda} = q^{\left < \lambda, \rho - w^{-1}\rho\right>} \delta_{w\lambda}.
+\end{equation}
+
+\begin{proof}
+ First of all, we notice that the map $S$ is a homomorphism of algebras, because the actions of $G$ and $T$ on $Y$ commute, and $\mathcal H(T,T_0)$ is abelian: if $h_i\in \mathcal H(G,K)$ and $h_i'\in \mathcal H(T,T_0)$ are such that $h_i\cdot  1_{\mathcal Y(\mathfrak o)} = h_i' \cdot 1_{\mathcal Y(\mathfrak o)}$, then $(h_1 h_2) \cdot 1_{\mathcal Y(\mathfrak o)} = h_1 \cdot (h_2 \cdot 1_{\mathcal Y(\mathfrak o)}) = h_1 ( h_2' \cdot 1_{\mathcal Y(\mathfrak o)}) = h_2' (h_1\cdot 1_{\mathcal Y(\mathfrak o)}) = (h_2'  h_1') \cdot 1_{\mathcal Y(\mathfrak o)} = (h_1'h_2')\cdot 1_{\mathcal Y(\mathfrak o)}$.
+ 
+ Next, we claim that the image lies in $\mathbb Q[\Lambda]^{W,\bullet}$. We will present two proofs for that, one of them only for the split case [but it can be generalized --- to do]. 
+ 
+ The first proof, following \cite{Cartier-Corvallis}, uses the explicit expression \eqref{equation-Satake-integral} of the Satake transform as an integral, and replaces it by an orbital integral for the action of $G$ on itself by conjugacy. Namely, choose a lift of the quotient map $B\to T$, thus identifying $T$ as a subtorus of $B$. If $t \in T$ is a \emph{regular} element (i.e., has trivial stabilizer under the action of the Weyl group), then we have the following formula:
+ $$ \int_N h(t n) dn =  |\det(\text{Ad}_{\mathfrak n} (t^{-1}) - 1)| \int_N f(n^{-1} t n) dn = |\det(\text{Ad}_{\mathfrak n} (t^{-1}) - 1)| \int_{T\backslash G} f(g^{-1} t g) dg,$$
+ where $\text{Ad}_{\mathfrak n}$ denotes the left adjoint action of $T$ on the Lie algebra $\mathfrak n$, and the invariant measure on $T\backslash G$ is normalized so that the total measure of $K$-orbits represented by $T\backslash TN(\mathfrak o)$ is $1$. This formula follows easily by considering the map $N\to tN$ given by $n\mapsto n^{-1} t n$, and representing the measures as absolute values of volume forms; at the last step, one uses the $K$-invariance of $H$ to represent $T\backslash G$ by $NK$. 
+ 
+ Hence, for $w\in W$ and $t$ a \emph{regular} element in $T$ (any class in $T/T_0$ has such representatives),
+ $$ \frac{\int_N h(n{^wt}) dn}{\int_N h(nt) dn} = \frac{|\det(\text{Ad}_{\mathfrak n} ({^wt^{-1}}) - 1)|}{|\det(\text{Ad}_{\mathfrak n} (t^{-1}) - 1)|} = \left | \prod_{\alpha > 0}  \frac{1-e^{-w^{-1}\alpha}(t)}{1-e^{-\alpha}(t)} \right |$$
+ $$ = \left| \prod_{\alpha > 0, w\alpha <0}  \frac{1-e^{\alpha}(t)}{1-e^{-\alpha}(t)} \right| = \left| \prod_{\alpha > 0, w\alpha <0} e^{\alpha}(t)\right| = | e^{\rho -w\rho}(t)|,$$
+ which amounts to the stated invariance property. (We have not assumed $G$ to be split, for this calculation: the terms inside the absolute values are algebraic functions, and therefore it is valid to manipulate them over the algebraic closure --- where all roots are defined.)
+ 
+ [Another proof with Fourier transforms to be added.]
+ 
+ Finally, we prove that the map $\mathcal H(G,K) \to  \mathbb Z[\Lambda]\cap \mathbb Q[\Lambda]^{W,\bullet}$ is an isomorphism. We will argue by identifying the space on the right (call it $M$) as a subspace of $\mathcal S(Y/K)$ --- the $\bullet$-action of $W$ is given by \eqref{equation-bullet-Weyl}. Notice that $M$ is a free $\mathbb Z$-module with generators $m_\lambda$, indexed by dominant cocharacters $\lambda$ into $A$, given by $m_\lambda= \sum_{\lambda'\sim \lambda} q_{\lambda'} \delta_{\lambda'}$, where $\lambda' \sim \lambda$ means that $\lambda'=w\lambda$ for some $w\in W$, and in this case we set $q_{\lambda'} = q^{\left < \lambda, \rho - w^{-1}\rho\right>}$. We define a filtration of this module with respect to the partial ordering by coroots, $\mu \ge \lambda$ if $\mu-\lambda$ is a sum of positive coroots. Similarly, $\mathcal H(G,K)$ has a basis consisting of the characteristic functions of the cosets $Kt_{-\lambda} K$ (with $\lambda$ dominant, again), and we use it to define a filtration of $\mathcal H(G,K)$ indexed by dominant weights. We claim that the map $\mathcal H(G,K)\to M$ respects these filtrations:
+ $$ F^\lambda \mathcal H(G,K)\to F^\lambda M,$$
+ and that the generator of the $\lambda$-th graded piece, represented by the function $1_{Kt_\lambda K}$, maps to the generator of the $\lambda$-th graded piece, represented by $m_\lambda$. These statements follow from the following fundamental fact:
+ 
+ \begin{quote}
+  For $\lambda$ dominant, we have 
+\begin{equation}
+\label{equation-Hecke-action-preflag} 
+K t_\lambda K \subset \bigcup_{\mu\le \lambda} N t_\mu\cdot K,
+\end{equation}
+and $K t_\lambda K \cap N t_\lambda K = \mathcal N(\mathfrak o)  t_\lambda  K$. 
+ \end{quote}
+
+ [The proof of this will be added together with the proof of the Cartan and Iwasawa decompositions.]
+ 
+This implies that $1_{K t_{-\lambda} K} \cdot \delta_0 = \delta_\lambda + \sum_{\mu<\lambda} c_{\mu,\lambda} \delta_\mu$ for some coefficients $c_{\mu, \lambda}\in\mathbb N$. We leave it to the reader to check that this is equivalent to the claim.
+ 
+\end{proof}
 
 %**************************************************************************************
 
