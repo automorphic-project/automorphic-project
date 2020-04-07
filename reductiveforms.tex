@@ -22,14 +22,14 @@
 
 For this section we assume $k$ to be separably closed (unless otherwise noted). [For now, this section is missing a lot of results, as one needs to establish the analogs of results that we proved for semisimple Lie algebras in characteristic zero, for reductive groups.]
 
-We saw in Theorem \ref{liestructure-theorem-diagonalizable-equivalence} a simple combinatorial description for diagonalizable groups, and we would like to have a similar description for more general reductive groups. This is not possible in the sense of getting an equivalence of categories\footnote{There is a good reason for it: To get an equivalence of categories one must consider the category of all $G$-representations, cf.\ Tannaka-Krein duality. For diagonalizable groups this category is described easily in terms of combinatorial data, this is no longer the case for other groups.}, but at least we can fully describe the isomorphism classes this way.
+We saw in Theorem \ref{algebraicgroups-theorem-diagonalizable-equivalence} a simple combinatorial description for diagonalizable groups, and we would like to have a similar description for more general reductive groups. This is not possible in the sense of getting an equivalence of categories\footnote{There is a good reason for it: To get an equivalence of categories one must consider the category of all $G$-representations, cf.\ Tannaka-Krein duality. For diagonalizable groups this category is described easily in terms of combinatorial data, this is no longer the case for other groups.}, but at least we can fully describe the isomorphism classes this way.
 
 
 Let $G$ be reductive (over $k$), and let $T$ be a maximal torus in $G$. Let $X^\bullet(T)$, $X_\bullet(T)$ be the character and cocharacter groups of $T$. The adjoint action of $T$ on $\mathfrak g$ is semisimple, and we have a decomposition 
 $$\mathfrak g = \mathfrak g_0 \oplus \bigoplus_{\alpha\in\Phi} \mathfrak g_\alpha,$$
 where the $\alpha$'s, here, are eigencharacters $\alpha: T\to \mathbf G_m$. 
 
-By Proposition \ref{liestructure-proposition-Cartan-reductive}, $\mathfrak g_0$ is just the Lie algebra of $T$, however, \emph{to accommodate the case of positive characteristic}, we will not be using $\mathfrak t$ to denote this Lie algebra, but the real vector space
+By Proposition \ref{algebraicgroups-proposition-Cartan-reductive}, $\mathfrak g_0$ is just the Lie algebra of $T$, however, \emph{to accommodate the case of positive characteristic}, we will not be using $\mathfrak t$ to denote this Lie algebra, but the real vector space
 $$ \mathfrak t = X_\bullet(T)\otimes \mathbb R$$
 (and, similarly, $\mathfrak t^*= X^\bullet(T)\otimes \mathbb R$). For real algebraic groups, this $\mathfrak t^*$ can be identified with the dual of the Lie algebra,  by the map that assigns to any character $\chi$ its differential $d\chi$ at the identity. 
 
@@ -73,7 +73,7 @@ We now define the appropriate notion of morphisms between root data.
 
 \begin{proposition}
 \label{proposition-simple-reflections}
- Given a connected reductive group $G$ and a maximal torus $T$ with set of roots $\Phi\subset X^*(T)$, and given $\alpha\in \Phi$, consider the subtorus $T_\alpha=\text{ker}(\alpha)^\circ\subset T$. Let $L_\alpha$ be the centralizer of $T_\alpha$ (which is connected by Proposition \ref{liestructure-proposition-centralizers-tori-connected}, and $L_\alpha'$ its derived subgroup. Then $L_\alpha'$ is isomorphic to $\text{SL}_2$ or $\text{PGL}_2$, and therefore there is a unique cocharacter $\check\alpha:\mathbf G_m\to T\cap L_{\alpha}'$ with $\left< \alpha, \check\alpha\right>=2$. If $w_\alpha$ is the nontrivial element of the Weyl group of $T$ inside of $L_\alpha'$, then the elements $w_\alpha$ generate the full Weyl group of $T$ in $G$, $W = \mathcal N_G(T)/T$.
+ Given a connected reductive group $G$ and a maximal torus $T$ with set of roots $\Phi\subset X^*(T)$, and given $\alpha\in \Phi$, consider the subtorus $T_\alpha=\text{ker}(\alpha)^\circ\subset T$. Let $L_\alpha$ be the centralizer of $T_\alpha$ (which is connected by Proposition \ref{algebraicgroups-proposition-centralizers-tori-connected}, and $L_\alpha'$ its derived subgroup. Then $L_\alpha'$ is isomorphic to $\text{SL}_2$ or $\text{PGL}_2$, and therefore there is a unique cocharacter $\check\alpha:\mathbf G_m\to T\cap L_{\alpha}'$ with $\left< \alpha, \check\alpha\right>=2$. If $w_\alpha$ is the nontrivial element of the Weyl group of $T$ inside of $L_\alpha'$, then the elements $w_\alpha$ generate the full Weyl group of $T$ in $G$, $W = \mathcal N_G(T)/T$.
 \end{proposition}
 
 \begin{proof}
@@ -93,7 +93,7 @@ In the notation of Proposition \ref{proposition-simple-reflections}, the element
 
 \begin{remark}
  \label{remark-on-central-isogenies}
-A surjective morphism $(G',T')\to (G,T)$ with finite kernel gives rise to an injective map $X^*(T)\to X^*(T')$ with finite cokernel, and a bijection between the roots of $T$ on $G$ and the roots of $T'$ on $G'$. The requirement that the map induce an isomorphism between root spaces: $\mathfrak g_\alpha'\to \mathfrak g_\alpha$ is automatically satisfied in characteristic zero, but not in positive characteristic. For example, if $G$ is defined over a finite field with $q$ elements, the Frobenius morphism $F_q$ (see the proof of Theorem \ref{liestructure-theorem-maximal-tori-exist}) restricts to the Frobenius morphism on the subgroups $\mathfrak g_\alpha\simeq \mathbf G_a$, which is not an isomorphism.
+A surjective morphism $(G',T')\to (G,T)$ with finite kernel gives rise to an injective map $X^*(T)\to X^*(T')$ with finite cokernel, and a bijection between the roots of $T$ on $G$ and the roots of $T'$ on $G'$. The requirement that the map induce an isomorphism between root spaces: $\mathfrak g_\alpha'\to \mathfrak g_\alpha$ is automatically satisfied in characteristic zero, but not in positive characteristic. For example, if $G$ is defined over a finite field with $q$ elements, the Frobenius morphism $F_q$ (see the proof of Theorem \ref{algebraicgroups-theorem-maximal-tori-exist}) restricts to the Frobenius morphism on the subgroups $\mathfrak g_\alpha\simeq \mathbf G_a$, which is not an isomorphism.
 \end{remark}
 
 
@@ -217,7 +217,7 @@ Let $(G,T)$ be a connected reductive group with a maximal torus over a field $k$
 
 \begin{proof}
 \begin{enumerate}
- \item A reductive group is semisimple iff its center is finite. The center belongs to $T$, and coincides with the common kernel of all roots. In other words, in terms of the equivalence of diagonalizable groups and finitely generated abelian groups (Theorem \ref{liestructure-theorem-diagonalizable-equivalence}), the character group of the center is the cokernel of the inclusion $R\to X$. Hence, it is finite iff $R$ is of finite index in $X$.
+ \item A reductive group is semisimple iff its center is finite. The center belongs to $T$, and coincides with the common kernel of all roots. In other words, in terms of the equivalence of diagonalizable groups and finitely generated abelian groups (Theorem \ref{algebraicgroups-theorem-diagonalizable-equivalence}), the character group of the center is the cokernel of the inclusion $R\to X$. Hence, it is finite iff $R$ is of finite index in $X$.
  
  (Notice that the center is not necessarily reduced; for example, the center of $\text{SL}_p$ in characteristic $p$ is the non-reduced group scheme $\mu_p$ of $p$-th roots of unity.)
  
@@ -389,15 +389,15 @@ If $G, G'$ are two reductive groups over a field $k$ that are isomorphic over th
 \end{lemma}
 
 \begin{proof}
- This is a corollary of the existence of maximal $\bar k$-tori over $k$, Theorem \ref{liestructure-theorem-maximal-tori-exist}, the fact that those split over a finite separable extension, Theorem \ref{liestructure-theorem-diagonalizable-equivalence}, and the classification of split reductive groups in terms of root data, Theorem \ref{theorem-classification-with-universal-Cartan}.
+ This is a corollary of the existence of maximal $\bar k$-tori over $k$, Theorem \ref{algebraicgroups-theorem-maximal-tori-exist}, the fact that those split over a finite separable extension, Theorem \ref{algebraicgroups-theorem-diagonalizable-equivalence}, and the classification of split reductive groups in terms of root data, Theorem \ref{theorem-classification-with-universal-Cartan}.
 \end{proof}
 
-By ``continuous descent data'' over the separable closure $k^s$, in a $k$-groupoid $\mathcal F$ as above, we will mean pairs $(u,\phi)$ consisting of $u\in \mathcal F_{k^s}$ and isomorphisms $\phi_\gamma: \gamma u \to u$ for $\gamma\in\Gamma = \text{Gal}(k^s/k)$, such that \emph{these descent data are induced from descent data over a finite Galois extension $L/k$}, in the obvious way (i.e., $u$ is the base change of some object $u'\in \mathcal F_L$, and $\phi$ is obtained by extending scalars from some descent datum $\phi'$ over $L$).
+By ``continuous descent data'' over a separable closure $k^s$, in a $k$-groupoid $\mathcal F$ as above, we will mean pairs $(u,\phi)$ consisting of $u\in \mathcal F_{k^s}$ and isomorphisms $\phi_\gamma: \gamma u \to u$ for $\gamma\in\Gamma = \text{Gal}(k^s/k)$, such that \emph{these descent data are induced from descent data over a finite Galois extension $L/k$}, in the obvious way (i.e., $u$ is the base change of some object $u'\in \mathcal F_L$, and $\phi$ is obtained by extending scalars from some descent datum $\phi'$ over $L$).
 
 
 \begin{proposition}
 \label{proposition-forms-by-descent}
- The category of reductive groups over $k$ is equivalent to the category of continuous descent data $(G, \phi)$, where $G$ is a reductive group over the separable closure $k^s$, and $\phi$ is an isomorphism $G\times_k k^s\simeq k^s\times_k G$. 
+ The category of reductive groups over $k$ is equivalent to the category of continuous descent data $(G, \phi)$, where $G$ is a reductive group over a fixed separable closure $k^s$, and $\phi$ is an isomorphism $G\times_k k^s\simeq k^s\times_k G$. 
  
  Given a reductive group $G$ over $k$, the set of isomorphism classes of forms $G'$ of $G$ over $k$ is in natural bijection with the Galois cohomology set $H^1_{\text{cont}}(\Gamma, \text{Aut}(G_{k^s}))$, defined as the set of $G(k^s)$-orbits of \emph{continuous} $1$-cocycles $\Gamma\to \text{Aut}(G_{k^s})$ (i.e., factoring through a finite extension). 
 \end{proposition}
@@ -420,7 +420,7 @@ $$  H^1(\Gamma, \text{Out}(G)) \to H^1(\Gamma, \text{Aut}(G))$$
 whose image corresponds to the quasisplit forms of $G$. 
 
 Moreover, the cohomology groups of \eqref{equation-inner-outer-cohomology}, together with this splitting, classify isomorphism classes in the following sequence of categories:
-$$ \{\mbox{$G_{\text{ad}}$-torsors over $k$}\} \to \{\mbox{forms of $G$ over $k$}\} \leftarrow \{\mbox{quasisplit forms of $G$ over $k$}\},$$
+$$ \{\mbox{$G_{\text{ad}}$-torsors over $k$}\} \to \{\mbox{forms of $G$ over $k$}\} \rightleftarrows \{\mbox{quasisplit forms of $G$ over $k$}\},$$
 compatibly with the inclusion functor on the right, and the functor that assigns to a right $G$-torsor $T$ the $G$-automorphism group $\text{Aut}^G(T)$.
 \end{proposition}
 
@@ -442,8 +442,88 @@ A {\it pure inner form} of an algebraic group $G$ over $k$ is a $G$-torsor $T$; 
 
 
 
-\section{The $L$-group}
-\label{section-L-group}
+\section{The $L$-group and the $C$-group}
+\label{section-Lgroup}
+
+Let $G$ be a reductive group over a field $k$, fix a separable closure $k^s$ of $k$ with Galois group $\Gamma$, and let $\Psi^+(G)$ be the associated based root datum of $G_{k^s}$, by Theorem \ref{theorem-classification-with-universal-Cartan}. Since the universal Cartan $\mathbb A^G$ is defined over $k$ (Proposition \ref{algebraicgroups-proposition-universal-Cartan}), and has a canonical set of positive roots, there is an action of the Galois group $\Gamma$ on its character group which preserves the positive roots, hence an action 
+\begin{equation}
+ \label{equation-Galoisaction-basedrootdatum}
+\Gamma \to \text{Aut}(\Psi^+(G)).
+\end{equation}
+
+\begin{remark}
+ \label{remark-Galoisaction-basedrootdatum}
+By Proposition \ref{proposition-automorphism-sequence}, we have a canonical isomorphism $\text{Out}(G) \simeq \text{Aut}(\Psi^+(G))$. 
+Viewed as a Galois cocycle into  $\text{Aut}(\Psi^+(G))$ (with trivial Galois action, corresponding to the split form of $G$), the corresponding cohomology class in $H^1(\Gamma, \text{Out}(G))$ is the one attached to the outer class of $G$ by Proposition \ref{proposition-inner-outer-cohomology}. 
+
+Notice that the universal Cartan groups for inner forms are canonically isomorphic, in an order-preserving way, so that the action \eqref{equation-Galoisaction-basedrootdatum}, hence also the $L$-group that we are about to define, are identical for two groups that are inner forms of each other.
+\end{remark}
+
+
+\begin{definition}
+ \label{definition-Lgroup}
+Let $G$ be a reductive group over a field $k$, and fix a separable closure $k_s$ with Galois group $\Gamma$. Let $\Psi^+(G)$ be the based root datum of $G$, and $\check\Psi^+(G)$ the dual based root datum, obtained by interchanging the character and the cocharacter lattices. The {\it Langlands dual group} $\check G$ is the pinned group (provided by the equivalence of categories of Theorem \ref{theorem-classification-with-pinning}) with based root datum $\check\Psi^+(G)$. The {\it $L$-group} is the semidirect product ${^LG}=\check G \rtimes\Gamma$, where $\Gamma$ acts through \eqref{equation-Galoisaction-basedrootdatum}, by the pinned automorphisms provided by the equivalence of Theorem \ref{theorem-classification-with-pinning}. 
+\end{definition}
+
+Notice that the $L$-group can be thought of as being defined over any field, in fact over $\mathbb Z$. The ring of definition that one uses for the $L$-group depends on the coefficients of representations of $G$ that one considers.
+
+Although the Langlands program with complex coefficients is often formulated in terms of the $L$-group, this is not the most natural dual group to consider, and in particular does not work well with integer coefficients. A more natural choice is the \emph{$C$-group}, which we introduce now, following \cite{Buzzard-Gee} and ideas of Joseph Bernstein. The description of \cite{Buzzard-Gee} is combinatorial, but, following Bernstein, we will describe the $C$-group in terms of the Langlands dual of a natural extension of $G$.
+
+\begin{lemma}
+ \label{lemma-squareroot-canonicalbundle}
+Let $G$ be a connected reductive group, $\mathcal B$ its flag variety of Borel subgroups, $\Omega$ the canonical bundle (bundle of volume forms) on $\mathcal B$. Then, there is a canonical square root $\Omega^\frac{1}{2}$, i.e., a line bundle over $\mathcal B$ whose square is $\Omega$, characterized by the fact that it admits a linearization for the action of the simply connected cover $G_{sc}$ of the derived group of $G$. 
+\end{lemma}
+
+We recall that ``linearization'' means an action of the group on the bundle, i.e., on its sheaf of sections, compatible with its action on the base, i.e., an isomorphism of the two pullbacks under the projection and action maps $G_{sc} \times \mathcal B \rightrightarrows \mathcal B$ which is compatible with the group structure.
+
+\begin{proof}
+By Galois descent and the uniqueness of the square root with this property, it is enough to assume that the field is algebraically closed. If $B\in \mathcal B$ is a Borel subgroup, $2\rho$ is the sum of positive roots of $G$, and we use exponential notation when thinking about the corresponding character $e^{2\rho}:B\to \mathbb G_m$, then $\Omega$ is a $G$-linear bundle under the right action of $G$ on $\mathcal B$, and $B$ acts by the character $e^{2\rho}$ on its fiber [exercise!]. In other words, $\Omega$ is induced from the character $e^{2\rho}$ of $B$; its total space is $\mathbb Ga_{2\rho} \times^B G$,
+where $\mathbb Ga_{2\rho}$ is the line with an action of $B$ by this character.
+
+If $B_{sc}$ is the corresponding Borel of $G_{sc}$, then $\mathcal B = B\backslash G=B_{sc}\backslash G_{sc}$, and the restriction of $2\rho$ to $B_{sc}$ admits a unique square root, namely $\rho$. Thus, there is a unique $G_{sc}$-linear bundle $\Omega^{\frac{1}{2}}$ over $\mathcal B$ whose square is $\Omega$.
+\end{proof}
+
+
+
+\begin{definition}
+ \label{definition-canonical-extension}
+Let $G$ be a connected reductive group, $\mathcal B$ its flag variety of Borel subgroups, $\Omega^\frac{1}{2}$ the canonical square root of the canonical bundle on $\mathcal B$ (Lemma \ref{lemma-squareroot-canonicalbundle}). The {\it canonical extension} $\tilde G$ is the group of pairs $(g,\tau)$, where $g\in G$ and $\tau$ is an isomorphism: $g^*\Omega^\frac{1}{2}\xrightarrow\sim \Omega^\frac{1}{2}$.
+\end{definition}
+
+\begin{remark}
+ \label{remark-canonical-extension}
+Notice that we consider $G$ as acting on the right on $\mathcal B$, so pullback is a left action on line bundles: $(g_1g_2)^*\Omega = g_1^*(g_2^*\Omega)$. The composition law on the extended group is $(g_1,\tau_1)\cdot (g_2,\tau_2) = (g_1g_2, \tau_1\circ(g_1^*\tau_2))$. The extended group in a central linear algebraic extension:
+\begin{equation}
+\label{equation-canonical-extension} 1\to \mathbb G_m \to \tilde G \to G \to 1,
+\end{equation}
+where the central $\mathbb G_m$ is the group of scalar automorphisms of the line bundle $\Omega^\frac{1}{2}$. It acts on $\mathcal B$ through the quotient $G$, and, by definition, \emph{the line bundle $\Omega^\frac{1}{2}$ is canonically $\tilde G$-linear}.
+
+On the other hand, if $G$ is simply connected, then, by the definition of $\Omega^\frac{1}{2}$, it already has a (unique) $G$-linearization; hence, in this case, $\tilde G = \mathbb G_m \times G$, canonically.
+\end{remark}
+
+
+\begin{definition}
+ \label{definition-C-group}
+For a reductive group $G$ over a field $k$ (in a fixed separable closure with Galois group $\Gamma$), the {\it extended Langlands dual group} $\check{\tilde G}$ of $G$ is the Langlands dual group (Definition \ref{definition-Lgroup}) of the canonical extension $\tilde G$ (Definition \ref{definition-canonical-extension}), and the {\it $C$-group} ${^CG}$ is the $L$-group of the canonical extension. 
+
+The $C$-group comes with a canonical character dual to the sequence \eqref{equation-canonical-extension}:
+\begin{equation}
+\label{equation-cyclotomic-character} 
+1\to {^LG} \to {^CG} \to \mathbb G_m \to 1,
+\end{equation}
+which will be called the {\it cyclotomic character} of the $C$-group.
+\end{definition}
+
+\begin{remark}
+ \label{remark-Cgroup-rootdata}
+In terms of based root data, if $X$ denotes the weight lattice in $\Psi^+(G)$, and $\check X$ the coweight lattice, the weight lattice $\tilde X$ of $\tilde G$ is generated inside of the vector space $X_{\mathbb Q} \oplus \mathbb Q$ by $X$ and the element $\tilde\rho = (\rho, 1)$; its projection $\mathbb Z\subset \mathbb Q$ is the weight lattice of the central $\mathbb G_m$, and $\tilde\rho$ is the character from which the $\tilde G$-linear line bundle $\Omega^\frac{1}{2}$ is induced. 
+
+Notice that the element $e^{2\rho}(-1)$ is a canonical central element of the dual group $\check G$ (possibly trivial), thus defining a map $\mu_2\to \check G$. The extended dual group $\check{\tilde G}$ is the group $\check G \times^{\mu_2} \mathbb G_m$. 
+\end{remark}
+
+
+
+
 
 \section{The real case: compact Lie groups and Lie algebras}
 \label{section-real-compact}
