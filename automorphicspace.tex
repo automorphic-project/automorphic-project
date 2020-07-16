@@ -115,10 +115,10 @@ If $F$ is a number field, with $r_1$ real places and $r_2$ complex places, then 
 
 
 
-\section{Boundary degenerations}
+\section{Parabolic automorphic spaces}
 \label{section-boundary-degenerations}
 
-When studying the geometry and harmonic analysis of the space $[G]$, a very important role is played by certain related $G(\mathbb A)$-homogeneous spaces, that we will call \emph{boundary degenerations}. The term is not standard, but is borrowed from \cite{Sakellaridis-Venkatesh}, where it was used in a local setting, and it is a useful concept that unifies the ideas of harmonic analysis globally and locally.
+When studying the geometry and harmonic analysis of the space $[G]$, a very important role is played by certain related $G(\mathbb A)$-homogeneous spaces, that we will call \emph{parabolic automorphic spaces}, or \emph{boundary degenerations}. The last term is not standard, but is borrowed from \cite{Sakellaridis-Venkatesh}, where it was used in a local setting, and it is a useful concept that unifies the ideas of harmonic analysis globally and locally.
 
 Let $\mathcal P$ denote a (conjugacy) class of parabolics in $G$; it can be understood as a homogeneous space of $G$, endowed with the tautological sub-group scheme $\mathbb P$ of the constant scheme $\mathcal P\times G$, where the fiber of $\mathbb P$ over a parabolic $P$ is $P$ itself. It admits a canonical quotient $\mathbb L$, where the fiber over $P$ is the Levi quotient of $P$, and a further canonical quotient $\mathbb L^{ab}$, where the fiber is the abelianization of the Levi quotient. Notice that the action of $P$ is trivial on its fiber in $\mathbb L^{ab}$, but not on its fiber in $\mathbb L$, unless $\mathcal P = \mathcal B$, the class of Borel subgroups, where the group scheme $\mathbb L$ is the constant ``universal Cartan'' group scheme (Definition \ref{algebraicgroups-definition-universal-Cartan}), $\mathbb L = \mathbf A^G\times \mathcal B$. 
 
@@ -139,7 +139,7 @@ Clearly, the isomorphism class of the pre-flag variety (which has a point) depen
 \begin{definition}
  \label{definition-boundary-degeneration}
 Let $G$ be a reductive group over a global field $k$, and $\mathcal P$ a class of parabolics. Fix a pre-flag variety $Y$ associated to $\mathcal P$.
-The {\it boundary degeneration} $[G]_{\mathcal P}$ of the automorphic space $[G]$ associated to these data is the set of pairs $(y \in M)$, where $M$ is a $G(\mathbb A)$-translate of $Y(k)$ in $Y(\mathbb A)$, and $y\in M$,  modulo the action of $\text{Aut}^G(Y)(k)$. 
+The {\it parabolic automorphic space} or {\it boundary degeneration} $[G]_{\mathcal P}$ of the automorphic space $[G]$ associated to these data is the set of pairs $(y \in M)$, where $M$ is a $G(\mathbb A)$-translate of $Y(k)$ in $Y(\mathbb A)$, and $y\in M$,  modulo the action of $\text{Aut}^G(Y)(k)$. 
 
 Equivalently, fixing a base point $P\in \mathcal P(k)$ with unipotent radical $U$ and Levi quotient $L$, the boundary degeneration $[G]_{\mathcal P}$, which by abuse of notation will also be denoted by $[G]_P$, is the space $L(k)U(\mathbb A)\backslash G(\mathbb A)$.
 \end{definition}
@@ -193,9 +193,9 @@ given by $\left<\log(t), \chi\right> = \log|\chi(t)|$ for any $\chi\in \Hom(T,\m
 Recall that a normal affine embedding $Y$ of a torus $T$ over a field $k$ is given by a \emph{strictly convex, rational polyhedral cone} $C\subset \mathfrak t$. The faces of this cone are in bijection with $T$-orbits on $Y$, in such a way that cocharacters $\lambda$ in the relative interior of a face are those for which $\lim_{t\to 0} \lambda(t)$ belongs to the corresponding orbit. (A ``face'', here, is the intersection with the kernel of a linear functional $\chi$ such that $\chi|_C \ge 0$; this way, $\{0\}$ is a face.) The bijection is closure-reversing, e.g., $\{0\}$ corresponds to the open orbit $T$, and the relative interior of $C$ corresponds to the unique closed orbit. More general normal embeddings of $T$ are described by \emph{fans} in $\mathfrak t$, i.e., collections of such cones closed under the operation of passing to a face of a cone and with disjoint relative interiors. 
 
 Returning to our group $G$, let $\mathbf A^G$ be its universal Cartan (Definition \ref{algebraicgroups-definition-universal-Cartan}), and let $A\subset \mathbf A^G$ be its maximal split subtorus. 
-We denote by $\mathfrak a^+\subset \mathfrak a$ the antidominant cone, and by $\mathfrak a^+_{ss}\subset \mathfrak a^+$ its intersection with the weight space of the associated semisimple group. Faces of $\mathfrak a^+$ (or $\mathfrak a^+_{ss}$) correspond to conjugacy classes of parabolic subgroups defined over $k$, and the span of the face $\mathfrak a_P^+$ (resp.\ $\mathfrak a_{ss,P}^+$) associated to $P$ will be denoted by $\mathfrak a_P$ (resp.\ $\mathfrak a_{ss,P}^+$). The center $Z$ of a Levi quotient as in Lemma \ref{lemma-boundary-automorphisms} is canonically a subgroup of $\mathbf A^G$, and the cocharacters in $\mathfrak a_P$ span the maximal split subtorus $A_P$ of $Z$.
+We denote by $\mathfrak a^-\subset \mathfrak a$ the antidominant cone, and by $\mathfrak a^-_{ss}\subset \mathfrak a^-$ its intersection with the weight space of the associated semisimple group. Faces of $\mathfrak a^-$ (or $\mathfrak a^-_{ss}$) correspond to conjugacy classes of parabolic subgroups defined over $k$, and the span of the face $\mathfrak a_P^-$ (resp.\ $\mathfrak a_{ss,P}^-$) associated to $P$ will be denoted by $\mathfrak a_P$ (resp.\ $\mathfrak a_{ss,P}^-$). The center $Z$ of a Levi quotient as in Lemma \ref{lemma-boundary-automorphisms} is canonically a subgroup of $\mathbf A^G$, and the cocharacters in $\mathfrak a_P$ span the maximal split subtorus $A_P$ of $Z$.
 
-Now, the face $\mathfrak a_{ss,P}^+\subset \mathfrak a_P$ defines an affine embedding $A_P \hookrightarrow \overline{A_P}$. We can define a corresponding partial compactification $\overline{[G]_P}$ of $[G]_P$, by either of the construction in the following definition:
+Now, the face $\mathfrak a_{ss,P}^-\subset \mathfrak a_P$ defines an affine embedding $A_P \hookrightarrow \overline{A_P}$. We can define a corresponding partial compactification $\overline{[G]_P}$ of $[G]_P$, by either of the construction in the following definition:
 
 \begin{definition}
  \label{definition-standard-embedding}
@@ -222,7 +222,7 @@ There is some coarser topology than the manifold topology that these spaces have
 Finally, we introduce the notion of the cusp:
 \begin{definition}
  \label{definition-P-cusp}
- Consider a standard embedding $[G]_P \subset \overline{[G]_P}$, as in Definition \ref{definition-standard-embedding}. The {\it $P$-cusp} in $\overline{[G]_P}$ is the closed $G(\mathbb A)$-orbit. A {\it neighborhood of the $P$-cusp} in $[G]_P$ is the intersection of $[G]_P$ with a neighborhood of the $P$-cusp in $\overline{[G]_P}$. When $P$ is the class of minimal parabolics, the $P$-cusp will simply be called ``the cusp''.
+ Consider a standard embedding $[G]_P \subset \overline{[G]_P}$, as in Definition \ref{definition-standard-embedding}. The {\it $P$-cusp} in $\overline{[G]_P}$ is the closed $G(\mathbb A)$-orbit. A {\it neighborhood of the $P$-cusp} in $[G]_P$ is the intersection of $[G]_P$ with a neighborhood of the $P$-cusp in $\overline{[G]_P}$. When $P$ is the class of minimal parabolics, the $P$-cusp will simply be called ``the cusp''. 
 \end{definition}
 
 Notice that the distinction ``$P$-cusp'', as opposed to ``cusp'', is important: e.g., when $P=G$, the partial compactification $\overline{[G]}$ above is trivial, so the $G$-cusp is $[G]$ itself, but there will be a ``cusp'', which, to define, we first need to discuss reduction theory, and a full compactification. 
@@ -364,30 +364,38 @@ In this section, we will prove the main result of reduction theory in the split 
 
 Before we generalize from $\text{SL}_2$ to the general case, we need a purely algebro-geometric result on closure of horocycles on pre-flag varieties. The result is analogous to the following statement in the case of $\text{SL}_2$: Let $N\subset \text{SL}_2$ be the stabilizer of a nonzero vector on the two-dimensional plane, let $\ell$ be the line spanned by that vector, and let $\ell'$ be a different, affine line parallel to $\ell$; notice that $\ell'$ is an $N$-orbit. Let $v_n \in \ell'$ be a sequence of points such that the lines that they span approach $\ell$ in the projective space; the statement is that $v_n\to \infty$. This fact is obvious in this case, or for any unipotent orbit on a quasiaffine space, since by a result of Rosenlicht \cite{Rosenlicht-quotient-varieties} orbits of unipotent groups on affine spaces are closed. Here, however, we need finer information for the quasiaffine space $Y=N\backslash G$ in higher rank: Roughly speaking, we need to know that if a point is far from the cusp, so is its entire $N$-orbit. Since the cusp cannot be described in terms of affine embeddings in higher rank (see Remark \ref{remark-basic-affine}), we need to consider more general compactifications, and Rosenlicht's theorem will not be enough.
 
-Let $Y=N\backslash G$ be ``the'' pre-flag variety for $G$. In order to keep track of possible limits in various directions, let us consider a full compactification of the torus $A$. It will not be important which compactification we will consider, as long as $\bar A$ admits an open embedding in it, but to fix ideas, let us temporarily take $\bar A^F$: the compactification corresponding to the fan $F$ consisting of all Weyl chambers (and their faces), and let $\bar Y^F = \bar A^F \times^A Y$ --- it is a proper variety over the flag variety $\mathcal B$, and it contains the compacification $\bar Y$ used to define the cusp. The fixed points of $A$ on $\bar A^F$, and the closed orbits of $G$ on $\bar Y^F$, are canonically parametrized by the Weyl group, if we let the fixed point in $\bar A$ correspond to $1$, and then proceed equivariantly according to the \emph{right} action of $W$ on $\mathfrak a$. 
+Let $Y=N\backslash G$ be ``the'' pre-flag variety for $G$. In order to keep track of possible limits in various directions, let us consider a full compactification $\bar A^F$ of the torus $A$, described by a fan $F$ whose support is the entire space $\mathfrak a$. Let $\bar Y^F = \bar A^F \times^A Y$ --- it is a proper variety over the flag variety $\mathcal B$.
 
 Choose a Borel subgroup $B\in \mathcal B(k)$, and a section of the canonical map $B\to A$, and denote its image by $T$; hence, $T$ is a maximal torus in $B$, identified with $A$ through the quotient map. We use $\bar T$, $\bar T^F$ etc.\ for $T$, as for $A$. For every $B'\in \mathcal B$ and any strictly antidominant cocharacter $\lambda$ into $T$, we have $\lim_{x \to 0} B'^{\lambda(x)} = B^w$, for some $w$ in the Weyl group of $W$ --- this is the Bruhat decomposition!  
 
 
+The following proposition is very essential in what follows; although purely of algebrogeometric nature, it will enventually translate to information about the ``heights'' of points on $N$-orbits on the preflag variety. This information is useful not only for reduction theory, but also for the study of Radon transforms and intertwining operators.
+
 
 \begin{proposition}
 \label{proposition-horocycle-closures}
-Let $Y\to \mathcal B$ be the preflag variety of a reductive group $G$, and let $\bar Y^F \to \mathcal B$ be its compactification determined by the fan of all Weyl chambers. Let $y_0, y' \in Y$ be two points lying over Borel subgroups $B$, $B'$, let $T\subset B$ be a maximal torus, and assume that $y' \in  y_0 \tilde w N$, where $N\subset B$ is the unipotent radical, and $\tilde w$ is an element in the normalizer of $T$. 
+Let $Y\to \mathcal B$ be the preflag variety of a reductive group $G$, $y_0, y' \in Y$ be two points lying over Borel subgroups $B$, $B'$, let $T\subset B$ be a maximal torus, and assume that $y' \in  y_0 \tilde w N$, where $N\subset B$ is the unipotent radical, and $\tilde w$ is an element in the normalizer of $T$. 
 \begin{enumerate}
- \item If $\lambda:\mathbb G_m\to T$ is strictly dominant with respect to $B$, then $\lim_{x\to 0} y' \lambda(x) \in \bar Y^F$ is the $A$-fixed point in the fiber over $B^w$ which corresponds to $w=$the image of $\tilde w$ in the Weyl group of $T$. 
+ \item Let $\bar Y^F = \bar A^F\times^A Y \to \mathcal B$ be the fiberwise compactification of $Y$ determined by the fan of all Weyl chambers. If $\lambda:\mathbb G_m\to T$ is a strictly antidominant cocharacter with respect to $B$, then $\lim_{x\to 0} y' \lambda(x) \in \bar Y^F$ is the $A$-fixed point in the fiber over $B^w \in \mathcal B$ which corresponds to the right-$w$ translate of the antidominant cone in $\mathfrak a$. 
 
- \item The closure $\overline{y' N}\subset \bar Y^F$ intersects the fiber over $B$ (=the unique fixed point/closed orbit of $N$ on $\mathcal B$) along the limits of all cocharacters in the relative interior of the cone $R_w^+\subset \mathfrak a$ spanned by the simple coroots $\check\alpha$ such that $w\check\alpha <0$. 
- 
- Better said, let $\bar A^{R_w^+}$ be the embedding of $A$ corresponding to the cone $R_w^+$; it has a unique closed orbit (it does not contain what was denoted by $\bar A$ before!), and let $\bar Y^{R_w^+}$ be the corresponding embedding of $Y$. Then, the closure of $y_0 \tilde w N$ in $\bar Y^{R_w^+}$ is proper, and intersects the orbit over $B$ along the closed $A$-orbit. For any other completion such as $\bar Y^F$, there is a blowup of $\bar Y^{R_w^+}$ that maps to $\bar Y^F$, and the closure of $y_0 \tilde w N$ will be contained in the image.
+ \item Let $\bar A^{R(w^{-1})^+}$ be the embedding of $A$ corresponding to the cone $R(w^{-1})^+$ spanned by the positive coroots $\check\gamma$ such that $w^{-1}\check\gamma <0$, and let $\bar Y^{R(w^{-1})^+}$ be the corresponding embedding of $Y$, so that $G$-orbits on $\bar Y^{R(w^{-1})^+}$ (or, equivalently, $A$-orbits in each fiber over the flag variety) correspond to faces of the cone $R(w^{-1})^+$. 
+ Then, the closure of $y_0 \tilde w N$ in $\bar Y^{R(w^{-1})^+}$ is proper, and the points in the boundary of $y_0 \tilde w N$ lie in the complement of the open $G$-orbit. 
 
 \end{enumerate}
 \end{proposition}
 
 \begin{proof}
- The first statement is not needed, and left to the reader.
+ The first statement is not needed for what follows, and is left to the reader.
 
-Let us prove the second statement: Since $\bar Y^F =\bar A^F \times^A Y$, the closure of $y_0 \tilde w N$ in $\bar Y^F$ corresponds to the closure of the set $A\cdot (1,y_0\tilde w N)$ in $\bar A^F \times Y$, where $A$ acts by $a\cdot (x,y) = (a^{-1} x, a y)$. Let $Y_w\subset Y$ be the preimage of the closed Bruhat cell $\overline{B w N}$, and $Y_w\sslash N = \text{Spec} k[Y_w]^N$ the affine quotient by $N$. Fixing the base point $\overline{y_0\tilde w}$=the image of $y_0\tilde w$, this is identified with the affine embedding of $A$ with divisors corresponding to the codimension-one $B$-orbits in $Y_w$, which are in bijection with the set of simple roots $\alpha$ such that $w^{-1}\alpha <0$. If $D_\alpha$ is the corresponding divisor in $Y_w\sslash N$, then the valuation it induces on the character group of $A$ is proportional to $-\check\alpha$. Thus, $Y_w\sslash N \simeq \bar A^{R_w^-}$, $A$-equivariantly (after we fix a base point), where $R_w^-$ is the embedding of $A$ corresponding to the opposite cone of $R_w^+$. Passing to the corresponding quotient of $\bar A^F \times Y_w$,  the closure of $A\cdot (1,y_0\tilde w N)$ maps to the closure of $A\hookrightarrow \bar A^F \times \bar A^{R_w^-}$, where the embedding is the antidiagonal one. The projection of this to the first factor is the image of the blowup of the variety $\bar A^{R_w^+}$. Note that this statement and proof does not depend on the choice of compactification $\bar A^F$.
+Let us prove the second statement: First, fix any compacification $\bar Y^F =\bar A^F \times^A Y$, so that the closure of $y_0 \tilde w N$ in $\bar Y^F$ is proper. This closure corresponds to the closure of the set $A\cdot (1,y_0\tilde w N)$ in $\bar A^F \times Y$, where $A$ acts by $a\cdot (x,y) = (a^{-1} x, a y)$. 
 
+Let $Y_w\subset Y$ be the preimage of the closed Schubert cell $S_w:=\overline{B\backslash B w N}$. We write $\mathring S_w$, $\mathring Y_w$ for the corresponding open Schubert cell and its preimage, and identify the (``geometric'') quotient of $\mathring Y_w$ by $N$ with $A$, equivariantly under the right action of $B=A/N$, by fixing the base point $\overline{y_0\tilde w}$=the image of $y_0\tilde w$. Notice that this is \emph{not} the equivariant identification with respect to the canonical action of $A$ on $Y$.
+The complement of $\mathring S_w$ in $S_w$ is a union of Schubert divisors $S_{w'}$ with $w' = w w_\gamma$ for some (not necessarily simple) root $\gamma$ and length $\ell(w') = \ell(w)-1$. The coordinate ring $k[Y_w]^N$ is generated by those characters of $A$ which, considered as functions on $\mathring Y_w$, have $\ge 0$ valuations on the corresponding divisors $Y_{w'}$. We claim that these are the characters which are $\ge 0$ on the cone $R(w)^+$ spanned by the positive coroots $\check\gamma$ such that $w\check\gamma <0$. Indeed, consider a reduced decomposition $w= w_{\alpha_1} w_{\alpha_2} \cdots w_{\alpha_n}$ into simple reflections, and work on the corresponding Bott--Samelson resolution of $S_w$: $\tilde S_w = B\backslash P_{\alpha_1} \times^B P_{\alpha_2} \times^B \cdots \times^B P_{\alpha_n}$, and the corresponding resolution $\tilde Y_w$ of $Y_w$ (divide by $N$ on the left instead of by $B$). Each codimension-one divisor $S_{w'}$ is the image of the subset $\tilde S_{w'}\subset \tilde S_w$ obtained by omitting a factor $P_{\alpha_i}$. Is is easy to see that the divisor $N\backslash B$ induces the valuation $\left<\check\alpha_i, \chi\right>$ on $B$-eigenfunctions with character $\chi$ on $N\backslash P_\alpha$, and therefore $\tilde Y_{w'}$ induces the valuation $\left<\check\gamma, \chi\right>$ on $B$-eigenfunctions on $\tilde Y_w$, where $\check\gamma = w^{-1}\check\alpha_i$. These are precisely the positive coroots such that $w\check\gamma <0$. Thus, the regular characters are those which are $\ge 0$ on $R(w)^+$. 
+
+
+Thus, $Y_w\sslash N \simeq \bar A^{R(w)^+}$, the embedding of $A$ corresponding to the cone $R(w)^+$, equivariantly under the right action of $A=B/N$. If instead we use the (``left'') action of $A$ on $Y$, we identify this space with the embedding $\bar A^{w\cdot R(w)^+}$.
+Passing to the corresponding quotient of $\bar A^F \times Y_w$,  the closure of $A\cdot (1,y_0\tilde w N)$ maps to the closure of $A\hookrightarrow \bar A^F \times \bar A^{w R(w)^+}$, where the embedding is the antidiagonal one. Notice that $w R(w)^+ = -R(w^{-1})^+$.
+If we now assume that $\bar A^F$ contains $\bar A^{R(w^{-1})^+}$ as an open subset, we see that the closure of $A\hookrightarrow \bar A^F \times \bar A^{wR_{w}^+}$ maps into $\bar A^{R(w^{-1})^+}$ under the projection to the first factor. This proves the properness of the closure of $y_0 \tilde w N$ in $\bar Y^{R(w^{-1})^+}$. Moreover, the proof shows that a point in the boundary of this set, hence lying over a non-open orbit of $Y_w\sslash A$, will project to the complement of the open $A$-orbit in $A^{R(w^{-1})^+}$. 
 \end{proof}
 
 
@@ -426,7 +434,7 @@ Having addressed the case of split tori in Proposition \ref{proposition-automorp
 
 The proof of (I) relies on Proposition \ref{proposition-horocycle-closures}.  Fix the base point $y_0\in Y(k)$, and let $B$ be the stabilizer of its $A$-orbit. Fix a maximal compact subgroup satisfying the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A) K$. We use this, together with the logarithmic maps $B(\mathbb A)\to \mathfrak a$, defined as in \eqref{equation-logmap}, to define a ``height'' function  on $[G]_B = A(k)\backslash y_0 G(\mathbb A)$:
 $$h(g) = \log(b)\in \mathfrak a.$$ 
-This is similar to the height functions of Definition \ref{definition-adelic-height}, except that it does not use an affine embedding of $Y$; rather, the sets $V_\epsilon = \{ [g] \in [G]_B| h(g) > -\log \epsilon\}$ form a basis of neighborhoods for the cusp. (See Remarks  \ref{remark-cusp-Iwasawa} and \ref{remark-basic-affine}.)
+This is similar to the height functions of Definition \ref{definition-adelic-height}, except that it does not use an affine embedding of $Y$; rather, the sets $V_\epsilon = \{ [g] \in [G]_B| \left < \alpha, h(g) \right > > -\log \epsilon \,\, \mbox{ for all positive roots } \alpha\}$ form a basis of neighborhoods for the cusp. (See Remarks  \ref{remark-cusp-Iwasawa} and \ref{remark-basic-affine}.)
 
 We claim that the statement of Proposition \ref{proposition-horocycle-closures} about the closure of $y_0 \tilde w N$ implies the following:
 
@@ -434,30 +442,49 @@ We claim that the statement of Proposition \ref{proposition-horocycle-closures} 
  \item There is a compact $C_0\subset \mathfrak a$ such that 
 \begin{equation}
  \label{equation-bound-height}
-h(y_0 \tilde w N(\mathbb A)) \subset C_0 + R_w^+.
+h(y_0 \tilde w N(\mathbb A)) \subset C_0 - R(w^{-1})^+.
 \end{equation}
 \end{itemize}
-[We leave it to the reader to check this corollary, for now.]
+[We leave it to the reader to check this corollary, for now. We remark only that the embedding of $N\backslash G$ which corresponds to the cone $R(w^{-1})^+$ is the one where, for a cocharacter $\lambda\in R(w^{-1})^+$ into the torus $A$, and a point $y\in N\backslash G$, the limit of $\lambda(t)\cdot y$ exists \emph{as $t\to 0$}; the logarithm of such an element $\lambda(t)$, for $t$ close to zero, belongs to the \emph{negative} of the cone $R(w^{-1})^+$, hence the negative sign above.]
 
 
-Returning to the proof of (I), consider the surjective maps $B(k)\backslash G(\mathbb A)\to P(k)\backslash G(\mathbb A) \to [G]$, for any parabolic $P\supset B$. Fix a compact $\Omega\subset [G]_P$, and consider the subsets $\Omega_\epsilon= [A_P]_\epsilon \cdot \Omega$, where $[A_P]_{\epsilon}$ is the set of elements $a$ with $\left< \alpha,\log(a)\right> -\log \epsilon$ for every simple root $\alpha$ in the unipotent radical of $P$; recall that $\log(a)\in\mathfrak a_P$, for $a\in A_P(\mathbb A)$. These subsets form a basis of neighborhoods of the image of $\Omega$ in the $P$-cusp. In turn, $\Omega$ is contained in the image $\Omega'$ of a compact subset of $B(k)\backslash G(\mathbb A)$ under $B(k)\backslash G(\mathbb A)\to P(k)\backslash G(\mathbb A) \to [G]_P$. Thus, we see
+Returning to the proof of (I), consider the surjective maps 
+$$B(k)\backslash G(\mathbb A)\xrightarrow{\pi^B_P} P(k)\backslash G(\mathbb A) \xrightarrow{\pi_G} [G],$$ 
+for any parabolic $P\supset B$. Fix a compact $\Omega\subset [G]_P$, and consider the subsets $\Omega_\epsilon= [A_P]_\epsilon \cdot \Omega$, where $[A_P]_{\epsilon}$ is the set of elements $a$ with $\left< \alpha,\log(a)\right> > -\log \epsilon$ for every simple root $\alpha$ in the unipotent radical of $P$; recall that $\log(a)\in\mathfrak a_P$, for $a\in A_P(\mathbb A)$. These subsets form a basis of neighborhoods of the image of $\Omega$ in the $P$-cusp as $\epsilon\to 0$ (which, by abuse of notation, we will denote by $A_P\backslash \Omega$). In turn, $\Omega$ is contained in the image $\Omega'$ of a compact subset of $B(k)\backslash G(\mathbb A)$ under $B(k)\backslash G(\mathbb A)\to P(k)\backslash G(\mathbb A) \to [G]_P$. Thus, we see
 \begin{itemize}
- \item For any $\lambda_0  \in \mathfrak a_P^+$, any countable decreasing basis of compact neighborhoods of $A_P\backslash \Omega$ (in the $P$-cusp) is eventually contained in  the image of a set of the form $h^{-1} (C+\lambda_0 + \mathfrak a_P^+)\subset B(k)\backslash G(\mathbb A)$, where $C$ is a fixed compact subset depending on $\Omega$. 
+ \item There is a countable basis of neighborhoods in $[G]_P$ of the subset $A_P\backslash \Omega$ of the $P$-cusp which, for any $\lambda_0\in \mathfrak a_P$, is eventually contained in  the image of a set of the form $h^{-1} (C+\lambda_0 + \mathfrak a_P^+)\subset B(k)\backslash G(\mathbb A)$ under the map $\pi^B_P$ above, where $C$ is a fixed compact subset depending on $\Omega$. 
 \end{itemize}
 
-Thus, to prove (I), it suffices to show that, if $\lambda_0$ is sufficiently antidominant (i.e., sufficiently deep in the relative interior of $\mathfrak a_P^+$), any two elements $g, g'\in B(k)\backslash G(\mathbb A)$ with $h(g), h(g')\in C+\lambda_0 + \mathfrak a_P^+$ and the same image in $[G]$, have the same image in $P(k)\backslash G(\mathbb A)$. In other words, we need to show that if $y = y_0 \tilde w \nu$ for $\tilde w\in \mathcal N(T)$ and $\nu\in N(k)$, and $y g = y_0 g'$, then $y \in  y_0 L(k)$. 
+Thus, to prove (I), it suffices to show that, if $\lambda_0$ is sufficiently dominant (i.e., sufficiently deep in the relative interior of $\mathfrak a_P^+$), any two elements $g, g'\in B(k)\backslash G(\mathbb A)$ with $h(g), h(g')\in C+\lambda_0 + \mathfrak a_P^+$ and the same image in $[G]$, have the same image in $P(k)\backslash G(\mathbb A)$. In other words, we need to show that if $y = y_0 \tilde w \nu$ for $\tilde w\in \mathcal N(T)(k)$ and $\nu\in N(k)$, and $y g = y_0 g'$ for two elements as above, then $y \in  y_0 L(k)$. 
 
-Now, on one hand, $h(y g) = h(y_0 g') =  h(g') \in C+\lambda_0 + \mathfrak a_P^+$, by assumption. On the other, writing $g = n t k$ according to the Iwasawa decomposition, we have $h(yg) = h(y_0 \tilde w \nu ntk) \in h(y_0 {^wt} \tilde w N(\mathbb A))$. By \eqref{equation-bound-height}, which translates in the obvious way under the action of $A$, we have $h(y_0 {^wt} \tilde w N(\mathbb A)) \in C_0 + h({^wt}) + R_w^+ \subset C_0 + wC+ w\lambda_0 + w\mathfrak a_P^+$. 
-Because $\lambda_0 \in \mathfrak a_P^+$ is antidominant, the difference $w\lambda_0 -\lambda_0$ lies in the cone $R_w^-$. Since $R_w^+\cap R_w^- = \{0\}$, the only way that the intersection 
-$$(C+\lambda_0 + \mathfrak a_P^+) \cap  (C_0 + wC+ w\lambda_0 + w\mathfrak a_P^+)$$
-can be nonempty, when $\lambda_0$ is sufficiently ``large'' (deep in the interior of $\mathfrak a_P^+$), is that $w$ preserves $\mathfrak a_P^+$; that is, $\tilde w\subset P(k)$. This proves (I).
+Now, on one hand, $h(y_0g) = h(g)$ and $h(y g) = h(y_0 g') =  h(g')$ belong to $C+\lambda_0 + \mathfrak a_P^+$, by assumption. On the other, writing $g = n t k$ according to the Iwasawa decomposition, we have $h(y_0g) = h(t)$ and $h(yg) = h(y_0 \tilde w \nu ntk) \in h(y_0 {^wt} \tilde w N(\mathbb A))$. By \eqref{equation-bound-height}, which translates in the obvious way under the action of $A$, we obtain $h(y_0 {^wt} \tilde w N(\mathbb A)) \subset C_0 + h({^wt}) - R(w^{-1})^+ \subset C_0 + wC+ w\lambda_0 + w\mathfrak a_P^+ + w R(w)^+$. 
+Thus, it suffices to show that the intersection
+\begin{equation}
+\label{equation-intersection-cones}
+(C+\lambda_0 + \mathfrak a_P^+) \cap  (C_0 + wC+ w\lambda_0 + w\mathfrak a_P^+ +w R(w)^+)
+\end{equation}
+is empty for sufficiently large $\lambda_0$ (i.e., sufficiently deep in the interior of $\mathfrak a_P^+$), unless $w$ preserves $\mathfrak a_P^+$, that is, unless $\tilde w\subset P(k)$. 
+
+Write $\mathcal C$ for the cone $-R(w^{-1})^+=wR(w)^+$. As a first hint for the proof, notice that, because $\lambda_0 \in \mathfrak a_P^+$ is dominant, the difference $w\lambda_0 -\lambda_0$ lies in $\mathcal C$. If this difference is nonzero, i.e., if $w$ does not preserve $\lambda_0$ (equivalently, does not preserve the face $\mathfrak a_P^+$), then by a simple scaling argument the difference can be made to avoid any compact set, by taking $\lambda_0$ large enough, so that $(C+\lambda_0) \cap  (C_0 + wC+ w\lambda_0 + \mathcal C) = \emptyset$.
+
+To show the stronger statement that, for such $w$, the intersection \eqref{equation-intersection-cones} is empty, it suffices to prove that the intersection 
+$$ {\mathfrak a}^+ \cap  (w\mathfrak a^+ + \mathcal C)$$
+does not meet the relative interior of $\mathfrak a^+$. (In fact, the argument will show that the intersection consists precisely of those faces of $\mathfrak a^+$ which are fixed by $w$, i.e., are orthogonal to $\mathcal C$.) To see this, let $R^\pm$ denote the positive and negative root cones, and notice that $\mathcal C$ is equal to $wR^+\cap R^-$. Let $\mathcal C^\vee$ denote the dual cone of all elements of $\mathfrak a$ that are $\ge 0$ on $\mathcal C$ (under one, equivalently any, $W$-invariant positive definite quadratic form). Then $w\mathfrak a^+ \subset \mathcal C^\vee$, while $\mathfrak a^+\subset -\mathcal C^\vee$. Therefore, $ {\mathfrak a}^+ \cap  (w\mathfrak a^+ +\mathcal C )\subset  -\mathcal C^\vee \cap (\mathcal C +\mathcal C^\vee) = \mathcal C^\perp$.
+
+
+
+
+
+
+
+This proves (I).
 
  
 Now we come to the proof of (S). It is enough to prove it for the minimal parabolic (i.e., the Borel). The cusp of $\overline{[G]_B}$ is isomorphic to $\mathcal B(\mathbb A)$, hence compact. Fix an ordering $\alpha_1, \alpha_2, \dots,\alpha_r$ of the simple roots in the root system of $G$, and let $P_i$ be the parabolic which contains $\alpha_j$ with $j\le i$ in its unipotent radical, and $\alpha_j$ with $j>i$ in its Levi. Hence, $P_0=G$ and $P_r=B$. For each $i$, fix a (right) representation $V_i$ and a vector $v_i \in V_i(k)$ such that $v_i$ is an eigenvector for $P_i$, but no larger parabolic. Fix adelic heights on the $V_i$'s, and consider the set 
  $$ \Omega = \{g \in B(k)\backslash G(\mathbb A) | \forall i \ge 1, \forall \gamma \in P_{i-1}(k), \Vert v_i \gamma g \Vert \ge \Vert  v_i g\Vert\}.$$
  Then, by the properties of heights (Lemma \ref{lemma-height-functions}), $G(k)\Omega = G(\mathbb A)$. 
  
- We may fix again a good maximal compact subgroup $K$ with Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$, and assume that $V$ is $K$-invariant. Writing an element of $[G]_B$ as $g=bk$, accordingly, and defining a ``height'' function (nothing to do with the adelic height functions defined previously, but this is a standard name) $h(g) = \log(b)\in \mathfrak a$, it is enough to show that $h(\Omega)$ lies in a translate of $\mathfrak a^+$. Such a translate is defined by equations $\left < \lambda, \alpha_i\right> \ge T_i$ for some scalars $T_i$ and any $i=1,\dots ,r$, i.e., we need to show that $\left< h(\Omega, \alpha_i\right>$ is bounded below, for all $i$. 
+ We may fix again a good maximal compact subgroup $K$ with Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$, and assume that $V$ is $K$-invariant. Writing an element of $[G]_B$ as $g=bk$, accordingly, and defining a ``height'' function (nothing to do with the adelic height functions defined previously, but this is a standard name) $h(g) = \log(b)\in \mathfrak a$, it is enough to show that $h(\Omega)$ lies in a translate of $\mathfrak a^+$. Such a translate is defined by equations $\left < \lambda, \alpha_i\right> \ge T_i$ for some scalars $T_i$ and any $i=1,\dots ,r$, i.e., we need to show that $\left< h(\Omega), \alpha_i\right>$ is bounded below, for all $i$. 
  
  By induction on $r$, we may assume this to be the case for $i \ge 2$. But then, to show it for $\alpha_1$, we may replace $G$ by the group $G'=$the Levi quotient of the parabolic $Q$ generated by $P$ and the root spaces proportional to $\alpha_1$. Indeed, the condition $\Vert v_1 \gamma g \Vert \ge \Vert v_1 g\Vert$ holds a fortiori for $\gamma \in Q (k)$, and $Q$ acts on $v_1$ through its Levi quotient. Thus, we are reduced to the case of $G$ being of \emph{semisimple rank one}, which we now assume. We may keep assuming that $G$ is semisimple, since the center evidently plays no role. But then we are in the case of $G = \text{SL}_2$, covered in Theorem \ref{theorem-reduction-SL2}, or $\text{PGL}_2$, which is similar. Thus, the theorem is proven. 
 \end{proof}
@@ -467,7 +494,7 @@ $$ {[G]}^{RBS} = \bigcup_P A_P\backslash [G]_P,$$
 where $P$ ranges over all conjugacy classes of parabolics, so $A_P\backslash [G]_P$ is the $P$-cusp. Here, we are being a bit ambiguous about the meaning of $A_P$: it depends on which of the ``standard embeddings''  of $[G]_P$ (Definition \ref{definition-standard-embedding}) one chooses; corresponding to the choices in this definition, one can take $A_P = A_P(k_\infty)^0$, $A_P(k_\infty)$, or $[A_P]$. The last one this seems the most natural choice, in general, but, when $k = \mathbb Q$, and we take $A_P = A_P(k_\infty)^0$ (or, more generally, when $k$ is a number field, and we replace $k_\infty$ by the diagonal embedding of $\mathbb R$ in $k_\infty$), we obtain the \emph{reductive Borel--Serre compactification}, which is a manifold with corners (after we mod out by a sufficiently small compact open subgroup of $G(\mathbb A_f)$) --- this is why we use the notation ${[G]}^{RBS}$ in general. Thus, we will be using $A_P$, and leave it to the reader to choose their favorite version, except where we need to use a specific one.
 
 
-We will define, more generally, an embedding $[G]^F$ for every fan $F$ of rational, strictly convex polyhedral cones supported in $\mathfrak a^+$, following \cite{Sakellaridis-stacks}. Set-theoretically, it will be the union of $G(\mathbb A)$-orbits $Z_C$, for all cones $C\in F$. The RBS compactification will be the one corresponding to $F=$ the fan consisting of the faces of $\mathfrak a^+_{ss}$. 
+We will define, more generally, an embedding $[G]^F$ for every fan $F$ of rational, strictly convex polyhedral cones supported in $\mathfrak a^-$, following \cite{Sakellaridis-stacks}. Set-theoretically, it will be the union of $G(\mathbb A)$-orbits $Z_C$, for all cones $C\in F$. The RBS compactification will be the one corresponding to $F=$ the fan consisting of the faces of $\mathfrak a^-_{ss}$. 
 
 Assume, first, that $F$ is a fan supported entirely on the face of the anti-dominant cone corresponding to a parabolic $P$ with Levi quotient $L$, whose split center $A_P$ is canonically a subtorus of $A$. Then $F$ defines a toric embedding $A_P\hookrightarrow \overline{A_P}^F$, and we set:
 \begin{equation}
@@ -498,7 +525,7 @@ Finally, if $Z_C\subset [G]_P^F$ and $Z_C\subset [G]_Q^F$ for two different maxi
 
 \begin{definition}
  \label{definition-equivariant-toroidal-compactification}
-The (partial) compactification $[G]^F$ described above, where $F$ is a fan supported on $\mathfrak a^+$, will be called the {\it equivariant toroidal compactification} attached to $F$. If $F=\mathfrak a^+_{ss}$, it will be denoted by $[G]^{RBS}$, for {\it reductive Borel--Serre compactification}. (It is a partial compactification if $\mathfrak a_G$ is nontrivial.)
+The (partial) compactification $[G]^F$ described above, where $F$ is a fan supported on $\mathfrak a^-$, will be called the {\it equivariant toroidal compactification} attached to $F$. If $F=\mathfrak a^-_{ss}$, it will be denoted by $[G]^{RBS}$, for {\it reductive Borel--Serre compactification}. (It is a partial compactification if $\mathfrak a_G$ is nontrivial.)
 \end{definition}
 
 \begin{remark}
@@ -606,6 +633,13 @@ For the second statement, first choose a compact subset $\Omega\subset P_0(\math
 The surjectivity, now, of a subset of the form $\Omega A_\epsilon K$ onto $[G]$ follows from Statement (S) of Theorem \ref{theorem-reduction-theory-general}.
 \end{proof}
 
+\begin{remark}
+ \label{remark-Ginfty-orbits}
+By Theorem \ref{theorem-Siegel-finiteness}, the $G(k_\infty)$-space $[G]/J$ is a finite disjoint union
+$$ \bigsqcup_i \Gamma_i \backslash G(k_\infty),$$
+where $\Gamma_i = g_i^{-1}G(k)g_i \cap JG(k_\infty)$, for $g_i$ ranging over a set of representatives of the $G(k_\infty)$-orbits, is a discrete \emph{congruence subgroup}. 
+
+\end{remark}
 
 
 \section{Weak and strong approximation.}
@@ -746,28 +780,86 @@ Any reductive group over a field $k$ admits a $z$-extension.
 
 \section{Tamagawa numbers}
 \label{section-Tamagawa-numbers}
-
-\subsection{General definitions}
-\label{subsection-Tamagawa-definitions}
-
+	
+	
+\subsection{Motivating example I}
+\label{subsection-example1}
+	Consider the group $\mathrm{SL}_2/\mathbb{Q}$, on which we have an invariant algebraic differential $\omega = dx dy dz/x$, where we are realizing $\mathrm{SL}_2$ as matrices of the form 
+	$\begin{pmatrix}
+	x&y\\z&\frac{1+yz}{x}
+	\end{pmatrix}$. As such we obtain an invariant measure $\mu_\infty = |\omega|$ 
+	on the Lie group 
+	$\mathrm{SL}_2(\mathbb{R})$. Since the quotient 
+	$\mathrm{SL}_2(\mathbb{Z})\backslash \mathrm{SL}_2(\mathbb{R})$ is of finite volume, we may try to consider the measure induced by $\mu_\infty$ on it, and compute its mass. And, it turns out we get the number $\zeta(2)=\pi^2/6$.
+	
+	
+	On the other hand we may consider the $p$-adic analogues: consider the group $\mathrm{SL}_2(\mathbb{Q}_p)$, and we form $\mu_p = |\omega|_p=|dxdydz/x|_p$ (in the following we drop the subscript $p$ for simplicity), which we understand as a real-valued measure by setting $dx(\mathbb Z_p)=1$. Now, we compute the mass of $\mathrm{SL}_2(\mathbb{Z}_p)$ under $\mu_p$. Consider the subgroup $1+p\mathrm{Mat}_2(\mathbb{Q}_p)$: it has mass $1/p^3$ by our measure since it coincides with $(1+p\mathbb{Z}_p)\times (p\mathbb{Z}_p)^2$ in coordinates $(x,y,z)$. Also, this subgroup is open compact, with number of coset representatives equal to $|\mathrm{SL}_2(\mathbb{F}_p)|=p(p^2-1)$. So we conclude that $\mu_p(\mathrm{SL}_2(\mathbb{Z}_p)) = 1-p^{-2}$, seemingly miraculous to coincide with the reverse of the Euler factor of $\zeta(2)$ at $p$! Hence, we see that 
+	$\mu_\infty(\mathrm{SL}_2(\mathbb Z)\backslash \mathrm{SL}_2(\mathbb R))\cdot \prod_p \mu_p(\mathrm{SL}_2(\mathbb{Z}_p)) = 1$.
+	
+	A nice way to (partly) reformulate our computation is that, when we use the measure $\prod_v \mu_v$ on $\mathrm{SL}_2(\mathbb{A})$, the mass of the compact quotient $\mathrm{SL}_2(\mathbb{Q})\backslash \mathrm{SL}_2(\mathbb{A}) \simeq \mathrm{SL}_2(\mathbb{Z})\backslash \mathrm{SL}_2(\mathbb{R}) \times \prod_p \mathrm{SL}_2(\mathbb{Z}_p)$ is 1. This example is in fact almost general enough to the classical definition of the Tamagawa measure and the attached Tamagawa number, being the generalization of $\prod_v \mu_v$ and the mass of $G(\mathbb{Q})\backslash G(\mathbb A)$ when $G$ is semisimple. 
+	
+	
+\subsection{Motivating example II}
+\label{subsection-example2}
+	Now consider the group $\mathrm{SO}_2/\mathbb{Q}$, or more precisely the special orthogonal group for the rational quadratic form $Q(x,y)=x^2+y^2$. We realize $\mathrm{SO}_2$ as matrices of the form 
+	$\left[\begin{matrix}
+	a& -b \\ b&a
+	\end{matrix}\right]$ where $a^2+b^2=1$, and one can check that the algebraic differential $\omega = da/b$ is invariant. 
+	
+	Now we can imitate the previous example: for real points, $\mathrm{SO}_2(\mathbb{R})$ is already compact, and the mass is 
+	\[\int_{(a,b)\in S^1}\left|\frac{da}{b}\right|_\infty = 2\int_{-1}^1 \frac{dx}{\sqrt{1-x^2}} = 2\pi.\]
+	
+	Next for a prime $p\ne 2$, we consider the group $\mathrm{SO}_2(\mathbb{Q}_p)$ and $\mu_p = |\omega|_p=|da/b|_p$, with the group being identified as $\{(a,b)\in \mathbb{Q}_p^2:a^2+b^2=1\}$. We use again the trick of reduction (which is available as the quadratic form is integral): the map $\mathrm{SO}_2(\mathbb{Z}_p)\to \mathrm{SO}_2(\mathbb{F}_p)$ is surjective, as when $p\ne 2$ the derivatives of $Q$ doesn't vanish and we may employ a Hensel-lemma type of argument. Furthermore, the kernel of the reduction map is same as $\mathrm{SO}_2(\mathbb{Z}_p)\cap 1+p\mathrm{Mat}(\mathbb{Z}_p)$, which is parametrized by $b\in p\mathbb{Z}_p$, and hence on it $|da/b|_p = |-db/a|_p = |db|_p$, and hence the mass of the kernel is equal to $1/p$. Next we count $|\mathrm{SO}_2(\mathbb{F}_p)|$. When $\sqrt{-1} \in \mathbb{F}_p$ we see the group is the same as 
+	$\{(a,b)\in \mathbb{F}_p: (a+ib)(a-ib)=1\}$,
+	which is in bijection with $\mathbb{F}_p^\times$ by the map $(a,b) \mapsto a+ib$. So the number is $p-1$. When $\sqrt{-1}\notin \mathbb{F}_p$ denote $q= p^2$. We then have an embedding 
+	\[\mathrm{SO}_2(\mathbb{F}_p) \to \mathbb{F}_q^\times \qquad (a,b)\longmapsto a+ib,\]
+	the image being identified with $u\in \mathbb{F}_q^\times$ having norm 1. Now again using $p\ne 2$ we can show the norm map $\mathbb{F}_q^\times \to \mathbb{F}_p^\times$ is surjective, and hence $|\mathrm{SO}_2(\mathbb{F}_p)| = \frac{p^2-1}{p-1}=p+1$. So in summary, when $p\ne 2$ the mass of $\mathrm{SO}_2(\mathbb{Z}_p)$ is $1-\chi(p)/p$, where $\chi(p)$ is the Legendre symbol $(\frac{-1}{p})$.
+	
+	
+	At $p=2$, one can carry out a small computation to verify that the mass is $1 = 1/2\cdot 2$ again using reduction (albeit not surjective). Thus we did all the local computations. 
+	
+	Finally to put everything together, we see that, while $\prod_{p\ne 2}(1-\chi(p)/p)$ is not absolutely convergent, we may ``equate'' it to the reverse of $1-1/3+1/5-1/7+\cdots = \pi/4$ by the formula of Leibniz. And by multiplying with the mass at $\infty$ we get $8$. To convert this to our reformulation as before, it asserts that, if we define the \textit{Tamagawa measure} $\mu = \frac{1}{L(1,\chi)}\mu_\infty\cdot \prod_p L_p(1,\chi)\mu_p$ to ensure the convergence, then it becomes a measure on $\mathrm{SO}_2(\mathbb{A})$, and the mass of $\mathrm{SO}_2(\mathbb{Q})\backslash \mathrm{SO}_2(\mathbb{A})\simeq \mathrm{SO}_2(\mathbb{R})/\mu_4 \times \prod_p \mathrm{SO}_2(\mathbb{Z}_p)$ is 2.
+	
+\subsection{Volume forms and measures}
+\label{subsection-measures}
+	
+	To a top algebraic differential on a linear algebraic group we want to attach a measure on its points over a local field.  
+	
 \begin{definition}
  \label{definition-standard-Haar}
 The {\it standard Haar measure} $dx$ on $\mathbb A$ is the measure that assigns volume $1$ to the quotient $\mathbb A/k$. The {\it standard multiplicative Haar measure} on $\mathbb A^\times$ is the measure $\frac{dx}{|x|}$. 
 \end{definition}
 
 \begin{remark}
- \label{remark-absolute-value}
-The standard Haar measure on $\mathbb A$ can be factorized as $\prod_v dx_v$, where $dx_v$ is a Haar measure on $k_v$. Although there is not ``canonical'' Haar measure on $k_v$, there is a standard choice that one can make, compatible with norms to the base field (a completion of $\mathbb Q$ or $\mathbb F_p(t)$ --- where we have the ``usual'' Haar measure). Notice that this is not preserved under field embeddings $k\hookrightarrow l$. In particular, the absolute value on $\mathbb C$ is the \emph{square} of the usual one.
+ \label{remark-local-measures}
+The standard Haar measure on $\mathbb A$ can be factorized as $\prod_v dx_v$, where $dx_v$ is a Haar measure on $k_v$. Although there is no ``canonical'' Haar measure on $k_v$, there is a standard choice that one can make, which at every non-Archimedean completion with discriminant $D_v$ over the base field ($\mathbb Q_p$ or $\mathbb F_p(t)$) assigns mass $|D_v|^{-\frac{1}{2}}$ to the ring of integers $\mathfrak o_v$, at real places is the usual Lebesgue measure, and at complex places is twice the usual Lebesgue measure.
 \end{remark}
 
 
 
 \begin{definition}
  \label{definition-absolute-value-measure}
-Let $F$ be a local field, endowed with a Haar measure $dx$, and let $X$ be a smooth algebraic variety of dimension $n$ over $F$. Let $\omega$ be a volume form on $X$. The {\it absolute value of the volume form} $\omega$ is the measure $|\omega|$ which, in any open chart $(U ,(x_i)_i)$, that is, an open subset (in the $F$-topology) $U\subset X(F)$ endowed with a set of algebraic coordinates $x_1, \dots, x_n$, if $\omega$ is written as $f(\underline x) dx_1 \wedge \cdots \wedge dx_n$, then $\left. |\omega| \right|_{U}$ is equal to the measure $|f(\underline x)| dx_1 \cdots \wedge dx_n$.
+Let $F$ be a local field, endowed with a Haar measure $dx$, and let $X$ be a smooth algebraic variety of dimension $n$ over $F$. Let $\omega$ be a volume form on $X$. The {\it absolute value of the volume form} $\omega$ is the measure $|\omega|$ which, in any open chart $(U ,(x_i)_i)$, that is, an open subset (in the $F$-topology) $U\subset X(F)$ endowed with a set of algebraic coordinates $x_1, \dots, x_n$, if $\omega$ is written as $f(\underline x) dx_1 \wedge \cdots \wedge dx_n$, then $\left. |\omega| \right|_{U}$ is equal to the measure $|f(\underline x)| dx_1 \cdots dx_n$.
 \end{definition}
 
-By ``a set of algebraic coordinates'' we mean a set of algebraic functions $x_1, \dots x_n$, which are regular at all points of $U$, and such that the volume form $\omega'=dx_1 \wedge \dots \wedge dx_n$ is nowhere vanishing on $U$; hence, the quotient $\frac{\omega}{\omega'}$ is a rational function that is regular at all points of $U$. The definition, of course, presupposes that the measure $|f(\underline x)| dx_1 \cdots \wedge dx_n$ does not depend on the coordinates chosen, which is easily checked. See also Weil's \cite{Weil-adeles}.
+By ``a set of algebraic coordinates'' we mean a set of algebraic functions $x_1, \dots x_n$, which are regular at all points of $U$, and such that the volume form $\omega'=dx_1 \wedge \dots \wedge dx_n$ is nowhere vanishing on $U$; hence, the quotient $\frac{\omega}{\omega'}$ is a rational function that is regular at all points of $U$. The definition, of course, presupposes that the measure $|f(\underline x)| dx_1 \cdots dx_n$ does not depend on the coordinates chosen, which is easily checked. See also Weil's \cite{Weil-adeles}.
+
+When $X$ is a smooth scheme over the ring of integers $\mathfrak o$ of a non-Archimedean field, with ``standard'' choices of measures, this measure is just counting points over the residue field:
+
+\begin{lemma}
+ \label{lemma-integral-pointcounting}
+Suppose that $X$ is a smooth scheme of dimension $n$ over the ring of integers $\mathfrak o$ of a non-Archimedean field $F$, with residue field $\mathbb F_q$. If $\omega$ is a volume form on $X$ that is defined over $\mathfrak o$ and residually non-vanishing, then 
+$$ \int_{X(\mathfrak o)} |\omega| = q^{-n} \# X(\mathbb F_q),$$
+when $|\omega|$ is defined with respect to the measure on $F$ that assigns mass $1$ to $\mathfrak o$.
+\end{lemma}
+
+
+\begin{proof}
+ By smoothness (Hensel's lemma), the map $X(\mathfrak o)\to X(\mathbb F)$ is surjective, so we need to show that the preimage of every point in $X(\mathbb F_q)$ has mass equal to $q^{-n}$. 
+
+ By smoothness, locally on $X$, there is an embedding $X \hookrightarrow A_{\mathfrak o}^r$, where $A_{\mathfrak o}^r$ denotes affine $r$-space over $\mathfrak o$ (whose coordinates we will denote by $x_i$), and a set of $r-n$ equations $f_{n+1}, \dots,  f_{r}$, such that $df_{n+1}\wedge \cdots \wedge f_r$ is nowhere vanishing, such that $X$ is the zero locus of the $f_i$'s. By Hensel's lemma, the map $X(\mathfrak o)\to X(\mathbb F)$ is surjective, and for any point $x = (x_i)_i \in X(\mathfrak o)$, the points with coordinates $(x_1+\mathfrak p, x_2+\mathfrak p, \dots, x_n+\mathfrak p)$ lift uniquely to $X(\mathfrak o)$. This defines a bijection from $\mathfrak p^n$ to the residual neighborhood of $x$; moreover, $\omega$ can be written as a nowhere vanishing, integral multiple of $dx_1 \wedge \cdots \wedge dx_n$, hence $|\omega| = dx_1 \cdots dx_n$. Therefore, the volume of this neighborhood is $\int_{\mathfrak p^n} dx_1 \cdots dx_n = q^{-n}$.
+\end{proof}
+
 
 Now, we discuss volume forms on algebraic groups.
 
@@ -778,103 +870,291 @@ If $G$ is an algebraic group over a field $k$, then $G$ has a unique, up to scal
 If $G$ is reductive, unipotent, or projective (i.e., an abelian variety), then $\partial_G = 1$, i.e., left- and right-invariant volume forms coincide.
 \end{lemma}
 
+	
 \begin{proof}
- Take a volume form on the tangent space to the identity, and translate it by right- or left-multiplication.
+		Take a nonzero vector from $\wedge^{\dim(G)} \mathfrak{g}^*$ at the identity, and translate it by right- or left-multiplication. As such we obtain a left- (resp.\ right-)invariant nonvanishing global section $\omega_G^L$ (resp.\ $\omega_G^R$) trivializing the sheaf of volume forms:  $\wedge^{\dim(G)}\Omega_{G/k} =   \mathcal{O}_G\cdot \omega_G^L = \mathcal{O}_G\cdot \omega_G^R$. Immediate from this:
+		\begin{itemize}
+			\item The quotient $\omega_G^L/\omega_G^R$ is an invertible global function. 
+			\item The set of left-(right-) invariant differentials is a one dimensional $k$-subspace.
+		\end{itemize}
 
- The left translate of a right-invariant volume form is again a right-invariant volume form, so it must be a multiple of it. (More rigorously, $\partial_G$ is the character of the left coadjoint representation of $G$ on the one-dimensional space $\bigwedge^{\text{top}} \mathfrak g^*$.)
- 
- Unipotent and projective groups do not have non-trivial characters, so $\partial_G=1$. In the reductive case, because roots come in opposite pairs, the determinant of the coadjoint representation is trivial on semisimple elements, hence (by density of semisimple elements) on the entire group.
+		The action of $G$ by left translations on the one-dimensional space of right-invariant sections of $\wedge^{\dim(G)}\Omega_{G/k}$ defines the algebraic character $\partial_G: G\to \mathbb G_m$. It is easily checked that $\partial_G$ is the character of the left coadjoint representation of $G$ on the one-dimensional space $\bigwedge^{\text{top}} \mathfrak g^*$.
+		
+		Unipotent algebraic groups do not have nontrivial algebraic characters, by the Jordan decomposition. For an abelian variety there is no nontrivial character since it only has constant global functions. In the reductive case, because roots come in opposite pairs, the determinant of the coadjoint representation is trivial on semisimple elements, hence (by density of semisimple elements) on the entire group.
 \end{proof}
 
 \begin{definition}
 \label{definition-modular-character}
-A left- or right- invariant volume form on an algebraic group $G$ is called a (left- or right-) {\it Haar volume form}. The character $\partial_G$ of Lemma \ref{lemma-Haar-volume-form} (or its absolute value $\delta_G = |\partial_G|$, valued in $\mathbb R^\times_+$, on the points of $G$ over a local field) is called the {\it modular character} of $G$.\footnote{The convention in Bourbaki is the opposite one: left over right; however, right over left is the standard definition of the modular character in more recent literature.} 
+		A left- or right- invariant volume form on an algebraic group $G$ is called a (left- or right-) {\it Haar volume form}. The character $\partial_G$ of Lemma \ref{lemma-Haar-volume-form} (or, abusing the notation when $G$ is over $F$, its absolute value on $G(F)$, $\delta_G(g) = |\partial_G(g)|$) is called the {\it modular character} of $G$.\footnote{The convention in Bourbaki is the opposite one: left over right; however, right over left is the standard definition of the modular character in more recent literature.} The group $G(F)$ is {\it unimodular} if $\delta_G=1$.
 \end{definition}
+	
+	
+	
+\subsection{Definition of Tamagawa measure}
+\label{subsection-definition-tamagawa}
 
+An interesting feature of adelic groups is that they come with \emph{canonical} measures. The idea of the definition is as follows: Given an algebraic group $G$ over a global field $k$, a (left- or right-)invariant volume form $\omega$ gives rise to a measure $\mu_v = |\omega|_v$ at every place, and we will set $\mu=\prod_v \mu_v$ on $G(\mathbb{A})$, the Tamagawa measure. If the definition makes sense, it will be independent of the choice of $\omega$, because any other invariant volume form is of the form $a\omega$ with $a\in k^\times$, and $|a\omega|=|a|\cdot |\omega|=|\omega|$, by the product formula. Still, this definition needs some caution, because of the Euler product; we need to make sure that $\prod_v \mu_v$ is finite on compact subsets of $G(\mathbb{A})$. This amounts to making sense of the partial Euler product $\prod_{v\notin S} G(\mathfrak o_v)$, where $S$ is a finite number of places, including the Archimedean ones and we are fixing a model for $G$  over the $S$-integers $\mathfrak o_S$. Taking $S$ large enough, we may assume that $G$ is a reductive group scheme over $\mathfrak o_S$.
 
-
-An interesting feature of adelic groups is that they come with \emph{canonical} measures. To define them, we first need to discuss volumes of unit groups, $G(\mathfrak o_v)$, when $G$ is a reductive group scheme over the ring of integers of a local non-Archimedean field $v$. The answer is expressed in terms of the \emph{motive of $G$}, see \cite{Gross-motive}:
-
+If $G$ is a reductive group scheme over $\mathfrak o_v$, the volume of $G(\mathfrak o_v)$ is expressed in terms of the \emph{motive of $G$},\footnote{For everything that follows, the reader can interpret ``motive'' as ``$\ell$-adic Galois representation'', for the decomposition group at a non-Archimedean place of residual degree $q=p^r$, $p\ne \ell$. The Tate motive $\mathbb Z(1)$ corresponds to the module $\lim_{\underset{n}\leftarrow} \mu_{\ell^n}$ on which the Frobenius morphism acts as multiplication by $q$}  see \cite{Gross-motive}:
+	
 \begin{definition}
- \label{definition-motive-G}
-Let $G$ be a connected reductive group defined over a field $k$. Let $T$ be the universal Cartan of $G$ (Definition \ref{algebraicgroups-definition-universal-Cartan}), , with absolute Galois group $\Gamma$, with absolute Weyl group $W$ and absolute cocharacter group $X_{*,k^s}(T)$. Set $\mathfrak c = \mathfrak t\sslash W$, where $\mathfrak t = X_{*,k^s}(T) \otimes \mathbb Q$, where $T$ is a maximal torus, and ; notice that it contains a distinguished point $0\in \mathfrak c$, the image of $0\in \mathfrak t$. 
-
-We define $M_G^\vee(1) = $ the tangent space $V=T_0\mathfrak c$ as a vector space, considered as a graded $\mathbb Q$-vector space with the grading descending from the $\mathbb G_{m, \mathbb Q}$-action on $\mathfrak t^*$, and as a $\Gamma$-module by $M_G^\vee(1)  = \bigoplus_d V_d(d)$, i.e., the twist of the natural $\Gamma$-action on $V$ by the $d$-th power of the Tate motive on the $d$-th graded piece. We define the {\it motive of $G$} to be the motive $M_G$, defined as the notation suggests, i.e., $M_G = (M_G^\vee(1))^\vee(1) = \bigoplus_d V_d^\vee(1-d)$.
+\label{definition-motive-G}
+		Let $G$ be a connected reductive group defined over a field $k$, with absolute Galois group $\Gamma$. Let $T$ be the universal Cartan of $G$ (Definition \ref{algebraicgroups-definition-universal-Cartan}), with absolute Weyl group $W$ and absolute cocharacter group $X_{*,k^s}(T)$. Set $\mathfrak c = \mathfrak t\sslash W$, where $\mathfrak t = X_{*,k^s}(T) \otimes \mathbb Q$, where $T$ is a maximal torus, and notice that it contains a distinguished point $0\in \mathfrak c$, the image of $0\in \mathfrak t$. 
+		
+		We define $M_G^\vee(1) = $ the tangent space $V=T_0\mathfrak c$ as a vector space, considered as a graded $\mathbb Q$-vector space with the grading descending from the $\mathbb G_{m, \mathbb Q}$-action on $\mathfrak t^*$, and as a $\Gamma$-module by $M_G^\vee(1)  = \bigoplus_d V_d(d)$, i.e., the twist of the natural $\Gamma$-action on $V$ by the $d$-th power of the Tate motive on the $d$-th graded piece. We define the {\it motive of $G$} to be the motive $M_G$, defined as the notation suggests, i.e., $M_G = (M_G^\vee(1))^\vee(1) = \bigoplus_d V_d^\vee(1-d)$.
 \end{definition}
-
-
+	
+	
 \begin{proposition}
- \label{proposition-measure-integers}
-Let $G$ be a reductive group scheme over the integers $\mathfrak o$ of a local non-Archimedean field $F$ which is unramified over the base field; fix the measure $dx$ on $G$ with $dx(\mathfrak o)=1$, and let $\omega$ be an invariant volume form on $G$, defined over $\mathfrak o$ and residually non-vanishing. Then,
-\begin{equation}
- \label{equation-measure-integers}
- \int_{G(\mathfrak o)} |\omega| = L(M_G^\vee(1))^{-1} = \det(I-\mathcal F|M^\vee(1)^I), 
-\end{equation}
-where $I$ is the inertia group, and $\mathcal F$ is the geometric Frobenius morphism (acting by $q^{-1} on \mathbb Q(1)$, where $q$ is the residual degree). 
+\label{proposition-measure-integers}
+		Let $G$ be a reductive group scheme over the valuation ring $\mathfrak o$ of a local non-Archimedean field $F$ with residue field $\mathbb F_q$, and let $\omega$ be an invariant volume form on $G$, defined over $\mathfrak o$ and residually non-vanishing. Then,
+		\begin{equation}
+		\label{equation-measure-integers}
+		\int_{G(\mathfrak o)} |\omega| = |G(\mathbb F_q)|/q^{\dim(G)} = L(M_G^\vee(1))^{-1} = \det(I-\mathcal F|M^\vee(1)), 
+		\end{equation}
+		where $\mathcal F$ is the geometric Frobenius morphism (acting by $q^{-1} \text{ on } \mathbb Q(1)$).
 \end{proposition}
+	
+Note that, under the assumption that $G$ is reductive over $\mathfrak o$, the action of $\Gamma$ on $M^\vee(1)$ is unramified.	
 
 \begin{proof}
- 
- ...
+	The equality of the integral with $|G(\mathbb F_q)|/q^{\dim(G)}$ is Lemma \ref{lemma-integral-pointcounting},  and the number of points over the finite field is a result of Steinberg \cite[p79]{Steinberg-endomorphism}. [This is an important result with number-theoretic consequences; its proof should be added.]
 \end{proof}
-
-
-
+	
+	
 \begin{proposition}
- \label{proposition-Tamagawa-canonical}
-Let $G$ be a connected, reductive group over the global field $k$, and let $\omega$ be a nonzero right-invariant volume form on $G$ over $k$. Fix a finite set $S$ of places, including the Archimedean ones, and a model for $G$ over the $S$-integers $\mathfrak o_S$, such that $G$ is connected reductive over $\mathfrak o_S$ and the form $\omega$ is integral and residually nonvanishing. Then:
-\begin{enumerate}
- \item The partial $L$-function 
- $$ L^S(M^\vee(1), s)= \prod_{v\in S} \det(I- q_v^{-s} \mathcal F_v|M^\vee(1))^{-1}$$
- admits a meromorphic continuation to $s=0$, with pole of order equal to the $k$-character group of $G$.
- \item The Haar measure $\mu_{Tam}$ on $G(\mathbb A)$, which assigns to an open neighborhood $U= \prod_v U_v$ of the identity, with $U_v = G(\mathfrak o_v)$ for $v\notin S$ (which we can assume for any such neighborhood, by enlarging $S$ if necessary) the value 
- $$ \mu_{Tam}(U) = \frac{\prod_{v\in S} |\omega_v|(U_v)}{L^S(M^\vee(1))^* },$$
- where $L^S(M^\vee(1))^*$ is the leading coefficient of the Laurent expansion of $L^S(M^\vee(1),s)$ at $s=0$, is independent of the volume form $\omega$, the set of places $S$, or the integral model of $G$ over $\mathfrak o_S$.
-\end{enumerate}
-
+\label{proposition-Tamagawa-canonical}
+		Let $G$ be a connected, reductive group over the global field $k$, and let $\omega$ be a nonzero right-invariant volume form on $G$ over $k$. Fix a finite set $S$ of places, including the Archimedean ones, a reductive model for $G$ over the $S$-integers $\mathfrak o_S$, such that the form $\omega$ is integral and residually nonvanishing, and a factorization $dx = \prod_v dx_v$ of the standard Haar measures on $\mathbb A$ (Definition \ref{definition-standard-Haar}) such that $dx_v(\mathfrak o_v) = 1$ for $v\notin S$. Then:
+		\begin{enumerate}
+			\item The partial $L$-function 
+			$$ L^S(M^\vee(1), s)= \prod_{v\notin S} \det(I- q_v^{-s} \mathcal F_v|M^\vee(1))^{-1}$$
+			admits a meromorphic continuation to $s=0$, with pole of order equal to the $k$-character group of $G$.
+			\item The Haar measure $\mu_{Tam}$ on $G(\mathbb A)$, which assigns to an open neighborhood $U= \prod_v U_v$ of the identity, with $U_v = G(\mathfrak o_v)$ for $v\notin S$ the value 
+			$$ \mu_{Tam}(U) = \frac{\prod_{v\in S} |\omega|_v(U_v)}{L^S(M^\vee(1))^* },$$
+			where $L^S(M^\vee(1))^*$ is the leading coefficient of the Laurent expansion of $L^S(M^\vee(1),s)$ at $s=0$, is independent of the volume form $\omega$, the set of places $S$, or the integral model of $G$ over $\mathfrak o_S$.
+		\end{enumerate}
+		
 \end{proposition}
-
-
+	
+	
 \begin{proof}
- ...
+	By the definition of $M^\vee(1)$, the $L$-function 	$L(M^\vee(1), s)$ is a product of Artin $L$-functions evaluated at the points $s+d$, where $d$ varies over the fundamental invariants of the group; thus, $s=0$ corresponds to a point in the domain of convergence of the Euler product, except for the factor with $d=1$, which corresponds to the linear invariants $\mathfrak z \hookrightarrow \mathfrak c$, where $\mathfrak z\subset\mathfrak t$ is spanned by the cocharacters into the center of $G$. The order of pole is equal to the multiplicity of the trivial representation in $\mathfrak z$, which is equal to the order of the $k$-character group of $G$.
+		
+	The second statement follows from Proposition \ref{proposition-measure-integers} and the product formula: adding more places to the set $S$ will multiply the numerator and the denominator by the same factor; this depends only on the reductivity of the integral model away from $S$; and, any other invariant volume form is equal to $c\cdot \omega$ for some $c\in k^\times$; for it to be also integral and residually nonvanishing over $\mathfrak o_S$, we must have $c\in \mathfrak o_S^\times$, and then the product formula shows that $\prod_{v\in S} |c\omega|_v = \prod_{v\in S} |\omega|_v$. 
 \end{proof}
-
-
-
-
-
+	
+	
+	
+	
+	
 \begin{definition}
- \label{definition-Tamagawa-measure-number}
+\label{definition-Tamagawa-measure-number}
 The {\it Tamagawa measure} on $G(\mathbb A)$ (or on $[G]$) is the measure $\mu_{Tam}$ of Proposition \ref{proposition-Tamagawa-canonical} (resp., its descent to $[G]$).  
-
+		
 The {\it Tamagawa number} of $G$ is the number
 \begin{equation}
- \label{equation-Tamagawa-number}
+\label{equation-Tamagawa-number}
 \tau(G) = \text{AvgVol}([G],\mu_{Tam}) = \lim_{c\to\infty} \frac{\mu_{Tam}(\log^{-1}(cB))}{\text{Vol}(cB)},
 \end{equation}
 where $\log: [G] \to \mathfrak a_G = \Hom(G, \mathbb G_m)^\vee \otimes \mathbb R$ is the logarithmic map defined as in \eqref{equation-logmap}, $B$ is the unit ball of any norm on the real vector space $\mathfrak a_G$, and $\text{Vol}(cB)$ is taken with respect to the measure on $\mathfrak a_G$ which assigns covolume $1$ to the lattice $\Hom(G, \mathbb G_m)^\vee$. 
 \end{definition}
-
-
+	
+	
 \begin{remark}
- \label{remark-Tamagawa-measure}
- This definition is usually expressed in terms of the volume of $[G]^1=\{g\in [G]| \forall \chi\in \Hom(G, \mathbb G_m), |\chi(g)|=1\}$, which one endows with the Haar measure $\mu_{Tam}'$ such that the measure $\mu_{Tam}$ on $[G]$ factorizes as
- $$ \int_{[G]} \mu_{Tam} = \int_{\mathfrak a_G} (\int_{[G]^1} \mu_{Tam}') dx,$$
- with $dx$ the same measure on $\mathfrak a_G$ as in the definition. [TO DOUBLE-CHECK THE CONVENTIONS FOR $dx$.] In the case of the function field of a curve over a finite field with $q$ elements, the image of $[G]$ in $\mathfrak a_G$ is not the entire space, but just the lattice $\log q \cdot \Hom(G, \mathbb G_m)^\vee$, and the above integral over $\mathfrak a_G$ should be replaced with a sum over that lattice, multiplied by $\log q$. The definition with ``average volume'' unifies the number field and function field cases, and provides a more conceptual way to understand the regularization procedure, whereby the infinite $L^S(M^\vee(1),0)$ is replaced by its leading coefficient $L^S(M^\vee(1))^*$: formally, we are computing the volume of \emph{the entire space} $[G]$ with respect to a measure defined using the infinite quantity $L^S(M^\vee(1),0)$. The ``infinities'' of the space $[G]$ and this quantity are ``of the same order'', and cancel each other.
+\label{remark-Tamagawa-measure}
+		This definition is usually expressed in terms of the volume of $[G]^1=\{g\in [G]| \forall \chi\in \Hom(G, \mathbb G_m), |\chi(g)|=1\}$, which one endows with the Haar measure $\mu_{Tam}'$ such that the measure $\mu_{Tam}$ on $[G]$ factorizes as
+		$$ \int_{[G]} \mu_{Tam} = \int_{\mathfrak a_G} (\int_{[G]^1} \mu_{Tam}') dx,$$
+		with $dx$ the same measure on $\mathfrak a_G$ as in the definition, see \cite{Oesterle-Tamagawa}. In the case of the function field of a curve over a finite field with $q$ elements, the image of $[G]$ in $\mathfrak a_G$ is not the entire space, but just the lattice $\log q \cdot \Hom(G, \mathbb G_m)^\vee$, and the above integral over $\mathfrak a_G$ should be replaced with a sum over that lattice, multiplied by $\log q$. The definition with ``average volume'' unifies the number field and function field cases, and provides a more conceptual way to understand the regularization procedure, whereby the infinite $L^S(M^\vee(1),0)$ is replaced by its leading coefficient $L^S(M^\vee(1))^*$: formally, we are computing the volume of \emph{the entire space} $[G]$ with respect to a measure defined using the infinite quantity $L^S(M^\vee(1),0)$. The ``infinities'' of the space $[G]$ and this quantity are ``of the same order'', and cancel each other.
 \end{remark}
-
+ 
+	
+	
 \subsection{The Tamagawa number conjecture}
 \label{subsection-Tamagawa-conjecture}
+	\begin{theorem}[Conjecture of Weil, theorem of Langlands-Lai-Kottwitz]
+		\label{theorem-weil}
+		For any simply connected semisimple linear algebraic group $G$ over a global field, $\tau(G)=1$.
+	\end{theorem}
+
+\begin{proof}
+	The proof of Weil conjecture over number fields, to name the most prominent contributions, was started by Langlands using Eisenstein series, generalized by King Fai Lai, and completed by Kottwitz in \cite{Kottwitz-Tamagawa}. Strictly speaking, the proof was not fully finished by Kottwitz's Annals paper, as it relies on the the Hasse principle due to works of Kneser and Harder, who proved it only for groups without $E_8$ factors. Its complete resolution only came after Chernousov proved the Hasse principle for $E_8$ in his 1989 paper. Over function fields, a completely different proof was given by Gaitsgory and Lurie \cite{Gaitsgory-Lurie}. 
+\end{proof}
+	
+	
+	As a \emph{corollary}, we state the following.
+	
+\begin{theorem}[Ono-Sansuc]
+		\label{theorem-general-weil}
+		For any semisimple linear algebraic group $G$ over a global field $E$, let $\tilde{G}\to G$ be its simply connected cover over the same field and $M$ the kernel. Then
+		\[\tau(G) = \frac{|X^*(M)^{\Gamma_E}|}{|Sha(X^*(M))|} = \frac{|\mathrm{Pic}(G)|}{|Sha(G)|},\]
+		where for a $\Gamma_E$-module $A$ (where $\Gamma_E = \text{Gal}(\bar E/E)$ for a separable closure $\bar E$), $Sha(A)$ denotes the obstruction group $\ker(H^1(E,A)\to 
+		\prod_{v:\text{ places of }E} H^1(E_v,A))$, and $Sha(G) = Sha(G(\bar E))$.
+\end{theorem}
+
+\begin{proof}
+		That the first equality is a corollary of the Tamagawa number conjecture is proved by Ono in \cite{Ono-relative-Tamagawa}. The second equality is due to Sansuc in \cite{Sansuc-Brauer}. In Kottwitz's final paper \cite{Kottwitz-Tamagawa} the formula takes a slightly different form, and its relation to the formula of Sansuc is explained in \cite{Kottwitz-cuspidal-tempered}. Of course, we should also be able to specialize to \ref{theorem-weil}. And this follows from Sansuc's formula and
+		\begin{itemize}
+			\item $\mathrm{Pic}(G)=1$ if $G$ is simply connected \cite[Cor.~18.24]{Milne-algebraic-groups}.
+			\item The Hasse principle mentioned above, due to Kneser, Harder, Chernousov.
+		\end{itemize}
+\end{proof}
+	
 
 \subsection{Application: The Smith--Minkowski--Siegel mass formula for quadratic forms}
 \label{subsection-mass-formula}
 
+\begin{definition}
+\label{definition-quadratic-module}
+    Let $R$ be a commutative ring. A {\it quadratic module} over $R$ is an $R$-module $\Lambda$ equipped with a {\it quadratic form}, i.e., a map $q: \Lambda\rightarrow R$  such that 
+    \begin{enumerate}
+    \item The map $ \Lambda\times \Lambda \rightarrow  R$ given by $(\lambda,\lambda')\mapsto q(\lambda+\lambda')-q(\lambda)-q(\lambda')$ is $R$-bilinear. 
+    \item $q(r\lambda)=r^2q(\lambda)$ for any $\lambda\in \Lambda$ and $r\in R$.
+    \end{enumerate}
+    We will consider quadratic modules as a groupoid, that is, a morphism of quadratic modules $(\Lambda_1, q_1)$, $(\Lambda_2,q_2)$ is an isomorphism of $R$-modules $T:\Lambda_1\xrightarrow\sim \Lambda_2$ with $T^*q_2 = q_1$. The automorphism group of of $(\Lambda, q)$ is its {\it orthogonal group}, denoted by $\text{O}_q(R)$. 
+\end{definition}
 
-\section{Various incarnations of the automorphic space}
-\label{section-incarnations}
+\begin{remark}
+\label{remark-orthogonal-group}
+ The base change $\Lambda \otimes_R R'$ of a quadratic module $(\Lambda, q)$ to an $R$-algebra $R'$ is a quadratic module. When $R$ is finitely generated, the functor $R'\to \text{O}_q(R')$ is represented by a closed subgroup scheme of $\text{GL}_\Lambda$ over $R$.
 
-\subsection{Moduli of principal $G$-bundles}
-\label{subsection-BunG}
+  We will be writing $q_1 \overset{R'}\sim q_2$ to denote that two quadratic forms are isomorphic over an $R$-algebra $R'$.
+\end{remark}
+
+From now on we work, without extra mentioning, with quadratic forms on $\mathbb Z$-lattices, i.e., finitely generated free $\mathbb Z$-modules. The lattice will sometimes be implicit in the notation.
+
+\begin{definition}
+\label{definition-genus}
+	The \textit{genus} of a quadratic form  $q$ over $\mathbb Z$ is the class of all quadratic forms $q'$ that $q\overset{\mathbb{Z}_p}{\sim} q'$ for all primes $p$ and $q\overset{\mathbb{R}}{\sim} q'$. 
+\end{definition}
+
+We will consider the genus as a groupoid, as well, with respect to $\mathbb Z$-equivalence.
+
+\begin{theorem}[Hasse principle]
+\label{theorem-Hasse-principle}
+	Let $q$ and $q'$ be two quadratic forms over $\mathbb{Q}$, then $q$ is equivalent to $q'$ over $\mathbb{Q}$ if and only if $q$ and $q'$ are equivalent over $\mathbb{Q}_p$ for all primes $p$ and equivalent over $\mathbb{R}$.  
+\end{theorem}
+\begin{proof}
+	See \cite[p.44]{Serre-arithmetic}. Note that this is not a direct corollary of the general Hasse principle of Theorem \ref{galoiscohomology-theorem-Hasse-principle}, since 
+\end{proof}
+
+\begin{remark}
+\label{remark-genus-equivalent}
+	Suppose $q$ and  $q'$ are in the same genus. Notice that since $q$ and  $q'$ are equivalent over $\mathbb{Z}_p$, then they are also equivalent over $\mathbb{Q}_p$ through extension of scalars. Then by Hasse principle, they are also equivalent over $\mathbb{Q}$. 
+\end{remark}
+
+\begin{proposition}
+\label{proposition-bijection}
+	Fix an integral quadratic form $(\Lambda,q)$ and let $G=\text{O}_q$ be its orthogonal group. For any $(\Lambda',q')$ in the genus of $q$, there exists, by definition, $\alpha\in \text{Isom}_{\hat{\mathbb{Z}}\times\mathbb{R}} (\Lambda, \Lambda')$ such that $q=\alpha^* q$. By the Hasse principle, there also exists $\beta\in \text{Isom}_{\mathbb Q} (\Lambda, \Lambda')$ such that $q=\beta^* q'$. The composition $\gamma = \beta^{-1}\circ \alpha$ is then an element of $G(\mathbb{A})$. 
+	
+	The coset of $\gamma$ in $G(\mathbb{Q})\backslash G(\mathbb{A})/G(\hat{\mathbb{Z}}\times \mathbb{R})$ does not depend on choices, and the map $q'\mapsto [\beta^{-1}\circ \alpha]$ induces an equivalence of groupoids\footnote{In other words, a bijection between equivalence classes, and an identification of automorphism groups (up to inner automorphism).}
+    \begin{equation}\label{equation-bijection}
+	    \left \{\text{genus of }q\right \} \longleftrightarrow G(\mathbb{Q})\backslash G(\mathbb{A})/G(\hat{\mathbb{Z}}\times \mathbb{R}).
+    \end{equation}
+\end{proposition}
+
+\begin{proof}
+	Since $q=\alpha^* q'$ and $q= \beta^* q'$, we get $q=\gamma^* q$, so $\gamma\in G(\mathbb{A})$. Any other isomorphism between $q'$ and $q$ over $\hat{\mathbb{Z}}\times \mathbb{R}$, it is given by $\alpha\circ \sigma$ for some $\sigma\in G(\hat{\mathbb{Z}}\times\mathbb{R})$. Similarly, any isomorphism between $q'$ and $q$ over $\mathbb{Q}$ is given by $\beta\circ \sigma'$ for some $\sigma'\in G(\mathbb{Q})$. So, the class of $\beta^{-1}\alpha$ in $Y:=G(\mathbb{Q})\backslash G(\mathbb{A})/G(\hat{\mathbb{Z}}\times \mathbb{R})$ is well-defined, defining a map $m$ from the genus of $q$ to the set $Y$.
+
+    Let us prove that the map $m$ is a bijection of equivalence classes. For injectivity, suppose first that $m(\Lambda',q')$ is the coset of $1 \in G(\mathbb A)$. This means that, by choosing $\alpha$ and $\beta$ appropriately, we can ensure that $\alpha = \beta \in \text{Isom}_{\hat{\mathbb{Z}}\times\mathbb{R}} (\Lambda, \Lambda') \cap \text{Isom}_{\mathbb Q} (\Lambda, \Lambda') = \text{Isom}_{\mathbb{Z}}(\Lambda, \Lambda')$, hence $q' \overset{\mathbb Z}\sim q$. 
+        
+    The general injectivity statement reduces to this case, by noticing that an element $\beta$ as above gives rise to an isomorphism $\beta^*: G' \xrightarrow\sim G$ over $\mathbb Q$, where $G' = \text{O}_{q'}$, hence to a bijection (actually, equivalence of groupoids) between the corresponding double coset spaces $Y$ and $Y'$. Hence, for any two forms in the genus of $q$ with $m(\Lambda',q') = m(\Lambda'',q'')$, we can replace $q$ by $q'$ and apply the argument for $m(\Lambda'',q'')=1$.
+	
+    For surjectivity, any $\gamma \in G(\mathbb{A})$ defines a lattice $\Lambda_{\gamma}=\Lambda \otimes \mathbb{Q} \cap \gamma(\Lambda \otimes(\hat{\mathbb{Z}}\times \mathbb{R})) \subset \Lambda \otimes \mathbb{A}$. Note that $q|_{\Lambda_\gamma}$ takes values in $\mathbb Q\cap \hat{\mathbb{Z}}\times \mathbb{R}$, i.e., $(\Lambda_\gamma,q)$ is an integral quadratic lattice. Moreover, picking $\beta \in \text{GL}_{\Lambda}(\mathbb{Q})$ such that $\beta(\Lambda_\gamma)=\Lambda$, and setting $\alpha= \beta \gamma\in \text{GL}_{\Lambda}(\hat{\mathbb{Z}}\times \mathbb{R})$, we see that $(\Lambda_\gamma,q)$ corresponds to the class $[\gamma]\in Y$ under the above map --- hence, the map $m$ is surjective. 
+	
+	Finally, the automorphism group $G(\mathbb Z)$ of $(\Lambda,q)$ is the automorphism group of $1$ in the double coset space $Y$ (viewed now as a groupoid). By the same argument as above, using an element $\beta$ to replace $G$ by $G'$, the same applies to any form $(\Lambda',q')$ in the genus of $q$, i.e., $G'(\mathbb Z)$ is isomorphic (canonically up to inner automorphisms) to the stabilizer of a representative in the class $m(\Lambda',q')$.
+\end{proof}
+
+
+
+We now restrict our attention to (positive or negative) definite integral quadratic forms, so that the automorphism group $G(\mathbb Z)$ is finite (being a discrete subgroup in the compact Lie group $G(\mathbb R)$.
+
+\begin{definition}
+\label{definition-mass-quadratic-form}
+    Given a definite quadratic form $q$, the {\it mass} of the genus of $q$, denoted as  $m(q)$, is the weighted count of isomorphism classes of forms in the genus, considered as a stack, i.e., 
+    \[
+	    m(q)=\sum_{q'\in X_q} \frac{1}{|\text{Aut} q'|}=\sum_{q'\in X_q} \frac{1}{|\text{O}_{q'}(\mathbb{Z})|},
+    \]
+    where $X_q$ denotes the set of isomorphism classes of elements in the genus of $q$.
+\end{definition}
+
+
+The next proposition relates the mass of a genus to the Tamagawa number $\tau(\text{SO}_q)$ of the special orthogonal group. 
+
+\begin{remark}
+ \label{remark-special-orthogonal-group}
+For rings where $2$ is a unit, or in odd dimensions, the special orthogonal group is defined as the kernel of the determinant in $\text{O}_q$. In even dimensions and $2$ non-invertible, in order to obtain the correct definition (that is, the reductive group scheme corresponding to the appropriate root datum), one needs to define $\text{SO}_q$ as the kernel of the {\it Dickson morphism} $\text{O}_q\to \mathbb Z/2$, which in this case is surjective, even in characteristic $2$. The difference between the correct and the ``naive'' definition does not play any role in what follows, because the $\mathbb Z_2$-points of both are the same, but we will use the fact that $[\text{O}_q(\mathbb Z_2):\text{SO}_q(\mathbb Z_2)]=2$ in every case.
+\end{remark}
+
+
+
+\begin{proposition}
+\label{proposition-SMSmassformula}
+Let $q$ be a definite integral quadratic form in  $n$ variables, $n\geq 2$. The mass of the genus of $q$ is equal to 
+\[
+	m(q)=2^{-1}\frac{\tau(\text{SO}_q)}{\mu_{\text{Tam}}(\text{SO}_{q}(\hat{\mathbb{Z}}\times \mathbb{R}))}.
+\]  
+\end{proposition}
+\begin{proof}
+	Let $q'$ be any element in $X_q$, and let $\gamma\in Y:=G(\mathbb{Q})\backslash G(\mathbb{A})/G(\hat{\mathbb{Z}}\times \mathbb{R})$, where $G=\text{O}_q$, be the element corresponding to $q'$ under the bijection in Proposition \ref{proposition-bijection}. Then Proposition \ref{proposition-bijection} implies that $\text{O}_{q'}(\mathbb{Z})=G(\hat{\mathbb{Z}}\times \mathbb{R})\cap \gamma^{-1}G(\mathbb{Q})\gamma$ and thus we get 
+	\begin{equation*}
+		m(q)=\sum_{\gamma\in Y} \frac{1}{|G(\hat{\mathbb{Z}}\times \mathbb{R})\cap \gamma^{-1}G(\mathbb{Q})\gamma|}.
+	\end{equation*}
+	Let $\mu$ be any Haar measure on $G(\mathbb{A})$, then $\mu$ also induces a measure on $G(\mathbb{Q})\backslash G(\mathbb{A})$, which is invariant under the action of $G(\hat{\mathbb{Z}}\times\mathbb{R})$. Thus $G(\mathbb{Q})\backslash G(\mathbb{A})$ can be written as a union $\bigcup_{\gamma\in Y} O_{\gamma}$ where $O_{\gamma}$ is the orbit of $\gamma$ under the action of $G(\hat{\mathbb{Z}}\times\mathbb{R})$. Since each $O_{\gamma}$ can be identified with $(G(\hat{\mathbb{Z}}\times \mathbb{R})\cap \gamma^{-1}G(\mathbb{Q})\gamma)\backslash G(\hat{\mathbb{Z}}\times \mathbb{R})$, we get 
+	\begin{align}
+		\sum_{\gamma\in Y}\frac{1}{|G(\hat{\mathbb{Z}}\times \mathbb{R})\cap \gamma^{-1}G(\mathbb{Q})\gamma|} &= \sum_{\gamma\in Y}\frac{\mu(O_{\gamma})}{\mu(G(\hat{\mathbb{Z}}\times \mathbb{R}))}\\
+											      &= \frac{\mu(G(\mathbb{Q})\backslash G(\mathbb{A}))}{\mu(G(\hat{\mathbb{Z}}\times \mathbb{R}))}.\label{equation-Oqformula}
+	\end{align}
+	To compute (\ref{equation-Oqformula}), let us first consider the analogue of it by substituting the group scheme $G$ by its subscheme $\text{SO}_q$ and compute 
+\begin{equation}\label{equation-SOqformula}
+	\frac{\mu'(\text{SO}_q(\mathbb{Q})\backslash \text{SO}_q(\mathbb{A}))}{\mu'(\text{SO}_q(\hat{\mathbb{Z}}\times\mathbb{R}))}
+\end{equation}
+for $\mu'$ a Haar measure. Moreover, if we take $\mu'=\mu_{\text{Tam}}$ to be the Tamagawa measure, then the numerator becomes the Tamagawa number of $\text{SO}_q$, which we denote by $\tau(\text{SO}_q)$. Now compute (\ref{equation-Oqformula}) by comparing it with (\ref{equation-SOqformula}). Let $U\subset \mathbb{A}^{\times}$ be the subgroup containing such elements $u\in \mathbb{A}^{\times}$ that $u^2=1$, we then obtain an exact sequence 
+\[
+	1\rightarrow \text{SO}_q(\mathbb{A})\rightarrow G(\mathbb{A})\rightarrow U\rightarrow 1
+\] 
+where the map from $G(\mathbb{A})$ to $U$ is the determinant map. Let $\mu_{\text{Tam}}$ be the Haar measure on $\text{SO}_q(\mathbb{A})$ and $\mu''$ be a Haar measure on $U$, then we can construct a Haar measure $\mu$ on  $G(\mathbb{A})$ using $\mu_{\text{Tam}}$ and  $\mu''$ by setting 
+\[
+	\mu(W)=\int_{u\in U} \mu_{\text{Tam}}(\text{SO}_q(\mathbb{A})\cap \overline{u}^{-1}W)d\mu''
+\] 
+for $W\subset G(\mathbb{A})$ and $\overline{u}\in G(\mathbb{A})$ any element lying over $u$.
+Then since $\mu$ is compatible with the other two Haar measures $\mu_{\text{Tam}}$ and $\mu''$, we get
+\[
+	\frac{\mu(G(\mathbb{Q})\backslash G(\mathbb{A}))}{\mu_{\text{Tam}}(\text{SO}_q(\mathbb{Q})\backslash\text{SO}_q(\mathbb{A}))}=\mu''(\{\pm 1\}\backslash U)=\frac{\mu''(U)}{2}. 
+\] 
+Similarly, let $V\subset U$ be the image of $\det|_{G(\hat{\mathbb{Z}}\times\mathbb{R})}$, then
+ \[
+	 \frac{\mu(G(\hat{\mathbb{Z}}\times \mathbb{R}))}{\mu_{\text{Tam}}(\text{SO}_q(\hat{\mathbb{Z}}\times \mathbb{R}))}=\mu''(V)=\frac{\mu''(U)}{|U/V|}.
+\] 
+Thus we get 
+\[
+	\frac{\mu(G(\mathbb{Q})\backslash G(\mathbb{A}))}{\mu(G(\hat{\mathbb{Z}})\times \mathbb{R})}= \frac{|U/V|\mu_{\text{Tam}}(\text{SO}_q(\mathbb{Q})\backslash \text{SO}_q(\mathbb{A}))}{2\mu_{\text{Tam}}(\text{SO}_q(\hat{\mathbb{Z}}\times \mathbb{R}))}= \frac{|U/V|\tau(\text{SO}_q)}{2\mu_{\text{Tam}}(\text{SO}_q(\hat{\mathbb{Z}}\times \mathbb{R}))}
+\] 
+Now, we have $|U/V| = 2^{k}$, where $k$ is the number of primes $p$ such that $\text{SO}_{q}(\mathbb{Z}_p)=\text{O}_{q}(\mathbb{Z}_p)$. Thus, we get
+\[
+	m(q)=\frac{\mu(G(\mathbb{Q})\backslash G(\mathbb{A}))}{\mu(G(\hat{\mathbb{Z}}\times \mathbb{R}))}=2^{k-1}\frac{\tau(\text{SO}_q)}{\mu_{\text{Tam}}(\text{SO}_q(\hat{\mathbb{Z}}\times \mathbb{R}))}.
+\] 
+Up to this point, the argument would apply, with obvious modifications, to any connected or disconnected reductive group $G$. Finally, we claim that for every prime $p$ we have $[\text{O}_q(\mathbb Z_2):\text{SO}_q(\mathbb Z_2)]=2$. This is immediate for $p\ne 3$ by the existence of an orthogonal basis for every quadratic lattice \cite[\S 92]{OMeara}. For $p=2$, see \cite[\S 93]{OMeara}, and also Remark \ref{remark-special-orthogonal-group}.
+\end{proof}
+
+\begin{remark}
+\label{remark-SMS-formula}
+The Smith--Minkowski--Siegel mass formula says that $\tau(\text{SO}_q)=2$, or, equivalently:
+\begin{equation}
+ \label{equation-SMSmassformula}
+		m(q)=\frac{1}{\mu_{\text{Tam}}(\text{SO}_q(\hat{\mathbb{Z}}\times \mathbb{R}))}.
+\end{equation}
+Ultimately, this is a special case of Theorem \ref{theorem-general-weil}.
+\end{remark}
+
+
+
+[To add: calculation of $p$-adic densities.]
+
+
+
+
+\section{Incarnations of the automorphic space: moduli of principal $G$-bundles}
+\label{section-BunG}
 
 
 Let $G$ be a (smooth) affine algebraic group over a field $\mathbb F$. 
@@ -923,7 +1203,7 @@ Finally, any class of $G(k)\backslash G(\mathbb A)/G(\mathcal O)$ can be represe
 
 \begin{remark}
 \label{remark-vanishing-cohomology}
-The condition $H^1(k,G)=1$ is satisfied if $\mathbb F$ is algebraically closed and $G$ is connected reductive, by results of Tsen, and Springer ($+\epsilon$); it is satisfied when $\mathbb F$ is finite and $G$ is semisimple, simply connected, by a result of Harder. The condition $H^1(\mathbb F',G)$ holds, trivially, when $\mathbb F = \mathbb C$, and by Lang's theorem \ref{galoiscohomology-theorem-Lang} when $\mathbb F$ is finite and $G$ is connected.
+The condition $H^1(k,G)=1$ is satisfied if $\mathbb F$ is algebraically closed and $G$ is connected reductive, by results of Tsen, and Springer ($+\epsilon$); it is satisfied when $\mathbb F$ is finite and $G$ is semisimple, simply connected, by Harder's proof of the Hasse principle \ref{galoiscohomology-theorem-Hasse-principle}. The condition $H^1(\mathbb F',G)$ holds, trivially, when $\mathbb F = \mathbb C$, and by Lang's theorem \ref{galoiscohomology-theorem-Lang} when $\mathbb F$ is finite and $G$ is connected.
 
 On the other hand, the $\mu_n$-torsor $\mathbb G_m\xrightarrow{~^n}\mathbb G_m$ is not locally trivial in the Zariski topology, for  any $n\ge 2$. Moreover, over higher-dimensional bases (e.g., surfaces), even for simply connected semisimple groups, there are \'etale torsors which are not locally trivial in the Zariski topology.
 \end{remark}
@@ -933,19 +1213,90 @@ On the other hand, the $\mu_n$-torsor $\mathbb G_m\xrightarrow{~^n}\mathbb G_m$ 
 Note that the $G$-automorphism group of a $G$-bundle makes sense as a group scheme $G'$ over the curve, and is an inner form of $G$ (compare with \ref{reductiveforms-definition-pure-inner-form}). The automorphisms appearing in Proposition \ref{proposition-BunG} are simply the \emph{global sections} of $G'$.
 \end{remark}
 
-It is interesting to discuss the isomorphism of Proposition \ref{proposition-BunG} in the case of $G= \text{GL}_n$, in which case the category of $G$-bundles is equivalent to the category of rank $n$ vector bundles by means of the functor $P\mapsto V=V_0\times^G P$, where $V_0$ is the standard representation of $\text{GL}_n$, with inverse $V\mapsto $the frame bundle of $V$. In particular, it is interesting to consider the vector bundles parametrized by points sufficiently close to the cusp, and their automorphisms. These are the \emph{unstable} vector bundles. [Later]
+It is interesting to discuss the isomorphism of Proposition \ref{proposition-BunG} in the case of $G= \mathrm{GL}_n$. In this case the category of $G$-bundles is equivalent to the category $\mathrm{Vect}_n(C)$ of rank $n$ vector bundles via the functor $P\mapsto E = V\times^G P$, where $V$ is the standard representation of $\mathrm{GL}_n$, with inverse $E \mapsto$ the frame bundle of $E$. In the rest of this subsection, we prove that points in a neighborhood of cusps corresponds to unstable vector bundles through this identification. [we ignore the automorphisms, at least for now.]
+In order to understand the asymptotic behavior of corresponding vector bundles, we would like to translate the situation to the boundary degeneration of $[G]$. For simplicity, we will restrict to the case $n=2$. For general $n$, while everything except Proposition \ref{proposition-unstable-cusp} holds mutatis mutandis, for the final result we will need to consider $P$-cusps for all conjugate class of parabolic subgroups, not only the Borel subgroup. First note the following:
+\begin{lemma}
+\label{lemma-vanishing-cohomology-borel-and-cartan}
+Let $\mathbb F = \mathbb F_q$, and let $H$ be one of $\mathrm{GL}_2$, its chosen Borel subrgoup $B$, its unipotent radical $\mathbb G_a$, or its universal Cartan group scheme $\mathbf A\cong (\mathbb G_m)^2$. 
+Then the conditions $H^1(k, H) = 1$ and $H^1(\mathbb F', H)=1$ (for $\mathbb F'$ any finite extension of $\mathbb F$) in Proposition \ref{proposition-BunG} are satisfied. 
+In particular, there are canonical isomorphisms $[H]/H(\mathcal O)\leftrightarrow \mathrm{Bun}_H(\mathbb F)$.
+\end{lemma}
+\begin{proof}
+Remark \ref{remark-vanishing-cohomology} applies directly to $H^1(\mathbb F', \mathrm{GL}_2)=1$. When $H=\mathbb G_a$ or $\mathbb G_m$, by Hilbert's theorem 90 we have $H^1(k, H)=1$. The cohomology long exact sequence (of pointed sets) for  $1\to \mathbb G_a\to B\to \mathbf A\to 1$ tells us that all the first cohomology sets in question are trivial.
+\end{proof}
+
+Since $B$ is the stabilizer of a complete flag $V_\bullet = (0=V_0\subset V_1\subset V_2=V)$, the category of $B$-bundles is equivalent to the category $\mathrm{Flag}_2(C)$ of rank $2$ complete flag bundles via $P\mapsto E_\bullet = V_\bullet \times^B P$. Similarly, since $\mathbf A\cong \mathbb G_m\times\mathbb G_m$, the category of $\mathbf A$-bundles is equivalent to the category $\mathrm{Vect}_1 (C)\times \mathrm{Vect}_1 (C)$. Note that the set of isomorphism classes of $\mathrm{Vect}_1 (C)$ is a group with respect to the tensor product, which is denoted by $\mathrm{Pic}(C)$. The following lemma relates these bundle interpretations of double-cosets:
+\begin{lemma}
+\label{lemma-flag-graded}
+Through the isomorphisms of Proposition \ref{proposition-BunG},
+\begin{enumerate}
+\item the map $f: [B] /B(\mathcal O)\to [G]/G(\mathcal O)$ induced by the inclusion $B\hookrightarrow G$ corresponds to the map $\mathrm{fgt}: \mathrm{Flag}_2(C) \simeq\mathrm{Bun}_B(\mathbb F) \to \mathrm{Bun}_G(\mathbb F)\simeq \mathrm{Vect}_2(C)$ which sends a flag bundle $E_\bullet$ to its top filtration $E=E_2$.
+\item the map $g: [B]/B(\mathcal O)\to [\mathbf A]/\mathbf A(\mathcal O)$ induced by the quotient $B\to \mathbf A$ corresponds to the map $\mathrm{gr}: \mathrm{Flag}_2(C)\simeq \mathrm{Bun}_B(\mathbb F)\to \mathrm{Bun}_{\mathbf A}(\mathbb F)\simeq \mathrm{Pic}(C)\times \mathrm{Pic}(C)$ which sends a flag bundle $E_\bullet = (0\subset E_1\subset E)$ to its associated graded bundle $\mathrm{gr}_\bullet(E_\bullet) = (E_1, E/E_1)$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+The isomorphism of Proposition \ref{proposition-BunG} is given by seeing a double-coset as gluing data for trivial bundles on a fixed covering. Therefore $f$ corresponds to the map $G\times^B (-): \mathrm{Bun}_B(C)\to \mathrm{Bun}_G(C)$. Passing to vector bundles, $V\times^G G\times^B P\cong V\times^B P$ is the top filtration of the flag bundle $V_\bullet\times^B P$. 
+Similarly, the map $B\to \mathbf A$ induces, on flag bundles, the map $E_\bullet = V_\bullet \times^B P\mapsto (\mathrm{gr}_\bullet V_\bullet) \times^B P \cong \mathrm{gr}_\bullet E_\bullet$. 
+\end{proof}
+
+For $\mathbb{G}_m = \mathrm{GL}_1$, we can write down the isomorphism more explicitly as follows: 
+Let $\mathrm{Div}(C)$ denote the divisor group of $C$, i.e., the free abelian group generated by the closed points of $C$. The normalized discrete valuation $\mathrm{val}_x: k_x^\times \to \mathbb{Z}$ with the kernel $\mathfrak o_x^\times$ induces the map $\mathrm{val}: \mathbb A^\times \to \mathrm{Div}(C)$ between their restricted products. 
+Dividing by the kernel we get a canonical isomorphism $\mathbb A^\times /\mathcal O^\times \xrightarrow{\cong} \mathrm{Div}(C)$. The elements in the image of $k^\times \subset \mathbb A^\times$ in $\mathrm{Div}(C)$ are called principal divisors, and we have an exact sequence $k^\times \to \mathrm{Div}(C)\twoheadrightarrow \mathrm{Pic}(C)\to 0$. So the valuation gives the isomorphism $[\mathrm{GL}_1]/\mathrm{GL}_1(\mathcal O)\cong \mathrm{Pic}(C)$.
+
+Now we introduce the notion of slope-stability for vector bundles over a curve. See \cite[Chapter 5]{LePotier} for more details.
+\begin{definition}
+\label{definition-slope-stability}
+\begin{enumerate}
+\item For any closed point $x\in C$ we define $\mathrm{deg}(x) = 1$, and linearly extend it to the {\it degree} homomorphism $\mathrm{deg}: \mathrm{Div}(C)\to \mathbb Z$ . By the product formula of valuations the degree of a principal divisor is $0$, so it factors through $\mathrm{Pic}(C)\to \mathbb Z$, which we also denote by $\deg$. 
+\item More generally, we define the {\it degree of a vector bundle} $E$ as the degree of its determinant line bundle: $\mathrm{deg} E = \mathrm{deg} \bigl(\bigwedge^{\mathrm{rk} E} E\bigr)$. 
+\item For a nonzero vector bundle $E$, we call the rational number $\mu(E) = \frac{\mathrm{deg} (E)}{\mathrm{rk} (E)}$ the {\it slope} of $E$.
+\item A vector bundle $E$ is said to be {\it semistable} if for any nonzero subbundle $F\subset E$, we have $\mu(F)\leq \mu(E)$, and {\it unstable} otherwise.
+\end{enumerate}
+\end{definition}
+
+\begin{remark}
+\label{remark-filtration}
+\begin{enumerate}
+\item If we have a short exact sequence $0\to E'\to E\to E''\to 0$, then the canonical isomorphism $\bigwedge^{\mathrm{rk} E} E\cong \bigl(\bigwedge^{\mathrm{rk} E'} E'\bigr)\otimes \bigl(\bigwedge^{\mathrm{rk} E''} E''\bigr)$ exhibits that $\mathrm{deg} E = \mathrm{deg} E'+\mathrm{deg} E''$.
+\item The slope can be defined more generally for a coherent sheaf $F$ on $C$ by decomposing it into a direct sum of a vector bundle and a sheaf with finite support. The definition of semi-stability remains equivalent if we replace `nonzero subbundle' by `nonzero coherent subsheaf.'
+\item For any subbundle $F\subset E$, consider the point $p_F = (\mathrm{rk} (F), \mathrm{deg} (F)) \in \mathbb Z^2$ on a plane. Then the slope $\mu(F)$ is literally the slope of the segment $0p_F$. By the additivity of $\mathrm{rk}$ and $\mathrm{deg}$ for short exact sequences, we see that the slope of the segment $p_Fp_E$ is the slope $\mu(E/F)$ of the quotient. Considering the convex hull of $\{p_F\mid F\subset E\}$ and taking the upper edges $0p_{F_1}$, $p_{F_1}p_{F_2}$,\ldots, $p_{F_{k-1}}p_{F_k}$, it can be proved that there exists a unique filtration $0\subset F_1\subset F_2\subset \cdots \subset F_k = E$ by subbundles that satisfies the following:
+\begin{enumerate}
+\item $\mathrm{gr}_i = F_i/F_{i-1}$ is semistable, 
+\item $\mu(\mathrm{gr}_1)> \mu(\mathrm{gr}_2)>\cdots >\mu(\mathrm{gr}_k)$. 
+\end{enumerate}
+This filtration is called the {\it Harder-Narasimhan filtration}. 
+\item %If $E$ and $F$ are two semi-stable bundles on $C$ and $\mathrm{Hom}(F, E)\neq 0$, then we have $\mu(E)\leq \mu(F)$. In particular, if 
+Let $\mu$ be a fixed rational number and consider the full subcategory $\mathcal C(\mu)$ of the abelian category $\mathrm{Coh}_C$ of coherent sheaves spanned by semistable vector bundles of slope $\mu$. Then $\mathcal C(\mu)$ is closed under kernel, cokernel, and extensions. In particular, in contrast with the category of all vector bundles, the category $\mathcal C(\mu)$ is abelian. 
+\end{enumerate}
+\end{remark}
+
+Now back to our context, note that the composition
+\[\mathbb A^\times \twoheadrightarrow [\mathrm{GL}_1]/\mathrm{GL}_1(\mathcal O)\xrightarrow{\mathrm{val}}\mathrm{Pic}(C)\xrightarrow{\mathrm{deg}} \mathbb Z\] is given by $-\log$ of the adelic absolute value function. 
+
+\begin{proposition}\label{proposition-unstable-cusp}
+The points in $[\mathrm{GL}_2]$ whose image in $[\mathrm{GL}_2]/\mathrm{GL}_2(\mathcal O)$ corresponds to an unstable vector bundles forms a neighborhood of the ($B$-)cusp. 
+\end{proposition}
+\begin{proof}
+The rank $2$ vector bundle $E$ is unstable iff there exists a complete flag $0\subset F\subset E$ such that $\mu(F)> \mu(E/F)$, or equivalently, $\mathrm{deg}(F)> \mathrm{deg}(E/F)$. Considering $\mathrm{Vect}_2(C)\xleftarrow{\mathrm{fgt}} \mathrm{Flag}_2(C)\xrightarrow{\mathrm{gr}} \mathrm{Pic}(C)^{\oplus 2}\xrightarrow{\mathrm{deg}^{\oplus 2}} \mathbb Z^{\oplus 2}$, the unstable loci of $\mathrm{Vect}_2(C)$ is $\mathrm{fgt}\bigl((\mathrm{deg}^{\oplus 2}\circ\mathrm{gr})^{-1}\{(a, b)\in \mathbb Z^{\oplus 2} \mid a>b \}\bigr)$. Interpreting through Lemma \ref{lemma-flag-graded}, this diagram is isomorphic to $[G]/G(\mathcal O)\xleftarrow{f} [B]/B(\mathcal O) \xrightarrow{g} [\mathbf A]/\mathbf A(\mathcal O) \xrightarrow{-\log \lvert-\rvert^{\oplus 2}} \mathbb Z^{\oplus 2}$. Therefore the preimage $U$ of $\{(a, b)\in \mathbb Z^{\oplus 2} \mid a>b \}$ in $[B]/B(\mathcal O)$ is the set of points represented by an upper-triangular matrix $(a_{ij})$ such that $-\log \lvert a_{11} \rvert> -\log \lvert a_{22}\rvert$. 
+Now recall from Theorem \ref{theorem-reduction-theory-split} that the map $B(k)\backslash G(\mathbb A) \xrightarrow{\pi_G} [G]$ is injective in a neighborhood of the cusp, and the sets $V_\epsilon = \{(a_{ij}) \mid -\log\lvert a_{11}/a_{22}\rvert > -\log \epsilon \}$ (in the same basis representation) forms a basis of neighborhoods of the cusp in $B(k)\backslash G(\mathbb A)$. By Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$, where $K= G(\mathcal O)$ in our case, the map $f$ factors into $[B]/B(\mathcal O)\xrightarrow{\cong} B(k)\backslash G(\mathbb A)/G(\mathcal O) \xrightarrow{\pi_G} [G]/G(\mathcal O)$. Now we conclude by observing that the above set of unstable locus $U$ is the image of $V_1$. 
+\end{proof}
+
+
+\section{Incarnations of the automorphic space: locally symmetric spaces and Shimura varieties}
+\label{section-locally-symmetric-Shimura}
 
 \subsection{Locally symmetric spaces}
 \label{subsection-locally-symmetric}
 
 \begin{definition}
  \label{definition-symmetric}
-A {\it symmetric space} is a pair $(M,g)$, where $M$ is a (connected)\footnote{``Connected'' is not always part of the definition, but we will include it, for convenience.} manifold, and $g$ is a Hermitian metric on $M$, with the property that for every $x\in M$ there is an isometry $s_x:M\to M$, having $x$ as an isolated fixed point, and acting by $-1$ on the tangent space of $x$. 
+A {\it Riemannian symmetric space} is a pair $(M,g)$, where $M$ is a (connected)\footnote{``Connected'' is not always part of the definition, but we will include it, for convenience.} manifold, and $g$ is a Riemannian metric on $M$, with the property that for every $x\in M$ there is an isometry $s_x:M\to M$, having $x$ as an isolated fixed point, and acting by $-1$ on the tangent space of $x$. 
 \end{definition}
+
 
 \begin{lemma}
  \label{lemma-symmetric-homogeneous}
-If $(M,g)$ is a connected symmetric space, then it is geodesically complete, the Lie group $G$ of isometries of $M$ acts transitively on $M$, and the stabilizer of any point $x\in M$ is a compact subgroup.
+If $(M,g)$ is a connected Riemannian symmetric space, then it is geodesically complete, the Lie group $G$ of isometries of $M$ acts transitively on $M$, and the stabilizer of any point $x\in M$ is a compact subgroup.
 \end{lemma}
 
 Notice that this implies that the identity component $G^0$ of the Lie group already acts transitively.
@@ -955,8 +1306,49 @@ Notice that this implies that the identity component $G^0$ of the Lie group alre
 \end{proof}
 
 
+Let $G$ be a real reductive algebraic group. By Theorem \ref{reductiveforms-theorem-Cartan-involution-exists}, the group $G(\mathbb R)$ admits a unique, up to conjugacy, Cartan involution.
+Let $X$ be the set of its Cartan involutions, considered as a homogeneous manifold under the action of $G(\mathbb R)$: $X\simeq G(\mathbb R)/K$, where $K$ is the fixed-point subgroup of a Cartan involution $\theta$. 
 
-\subsection{Locally Hermitian symmetric spaces}
+\begin{proposition}
+ \label{proposition-Riemannian-metric-GmodK}
+Assume that $G$ is real semisimple. The space $X$ of Cartan involutions of $G$ admits a canonical $G(\mathbb R)$-invariant Riemannian metric $g$, described as follows: Let $\theta\in X$ be a Cartan involution, with corresponding Cartan decomposition (Definition \ref{reductiveforms-definition-Cartan-decomposition-involution}), $\mathfrak g(\mathbb R)= \mathfrak k \oplus \mathfrak p$, identifying the tangent space $T_\theta X \simeq \mathfrak p$. Then, the restriction of $g$ to $T_\theta X$ is the Killing form of $\mathfrak g$, restricted to $\mathfrak p$. This Riemannian structure has negative sectional curvature. 
+\end{proposition}
+
+\begin{proof}
+See \cite[\S 5.4]{Paradan}.
+\end{proof}
+
+
+
+\begin{definition}
+ \label{definition-symmetric-space-of-reductive-group}
+The {\it symmetric space of a real reductive group} $G(\mathbb R)$ is the set $X$ of its Cartan involutions.
+\end{definition}
+
+The symmetric space of $G(\mathbb R)$ can be considered as a Riemannian symmetric space under any $G(\mathbb R)$-invariant Riemannian metric. Such a metric is the combination of a multiple of the Killing form of Proposition \ref{proposition-Riemannian-metric-GmodK} on each of the simple factors, and the Euclidean metric on the symmetric space of its center. 
+
+
+\begin{definition}
+ \label{definition-locally-symmetric-space}
+A {\it Riemannian locally symmetric space} is a Riemannian manifold whose universal cover is a symmetric space.
+\end{definition}
+
+
+\begin{remark}
+ \label{remark-locally-symmetric-of-G}
+Let $G$ be a reductive algebraic group over a number field $k$, $[G]$ its automorphic space, $K_f$ an open compact subgroup of the finite adeles, and $K_\infty$ a maximal compact subgroup of $G(k_\infty)$ (unique up to conjugation, by Theorem \ref{reductiveforms-theorem-Cartan-involution-exists}). 
+
+By Remark  \ref{remark-Ginfty-orbits}, the quotient $[G]/K_f K_\infty$ can be written as a finite disjoint union 
+ $$ \bigsqcup_i \Gamma_i\backslash X,$$
+ where $X$ is the symmetric space of $G(k_\infty)$, and the $\Gamma_i$'s are congruence subgroups. The subgroups $\Gamma_i$ act with finite stabilizers on $X$ (because they are discrete, and stabilizers of points on $X$ are compact), and taking $K_f$ small enough, they act properly discontinuously, so that $\Gamma_i\backslash X$ has the natural structure of a manifold with universal cover $X$. Thus, for $K_f$ small enough, $[G]/K_f K_\infty$ has a natural structure of locally symmetric space.
+\end{remark}
+
+
+
+
+
+
+\subsection{Hermitian locally symmetric spaces}
 \label{subsection-hermitian-symmetric}
 
 There are instances where the space $G_\infty/K_\infty$ of the previous subsection has more structure, that of a \emph{Hermitian symmetric space}. 
@@ -1013,7 +1405,7 @@ For our purposes, we want a realization of $G$ in terms of algebraic groups.
 
 \begin{lemma}
  \label{lemma-hermitian-automorphisms-algebraic}
-Let $(M,g)$ be a hermitian symmetric domain. Then, there is a unique connected semisimple algebraic group $G$ over $\mathbb R$ such that the identity component of the automorphism group of $M$ is equal to $G(\mathbb R)^0$.
+Let $(M,g)$ be a hermitian symmetric domain with automorphism (Lie) group $A$. Then, there is a unique connected, adjoint algebraic subgroup $G$ of $\text{GL}(\mathfrak a)$ over $\mathbb R$ such that $A^0 \xrightarrow\sim G(\mathbb R)^0$ under the adjoint representation.
 \end{lemma}
 
 \begin{proof}
@@ -1036,8 +1428,216 @@ Minuscule coweights are relatively rare, and so are Hermitian symmetric domains.
 \end{remark}
 
 
+\begin{theorem}
+ \label{theorem-classification-hermitian}
+The map that assigns to pointed, \emph{connected} Hermitian symmetric domain $(M,g,x)$ (i.e., a connected Hermitian symmetric domain $(M,g)$ and a point $x\in M$) the pair $(G,s_x)$, where $G$ is the real algebraic group such that $G(\mathbb R)^0 = \text{Aut}(M,g)$ (Lemma \ref{lemma-hermitian-automorphisms-algebraic}) and $s_x:U_1\to G$ is the $S^1$-symmetry fixing $x$ (Lemma \ref{lemma-S1-symmetry}), is an equivalence between the groupoids of pointed connected Hermitian symmetric domains and pairs $(G,s)$ consisting of a real adjoint algebraic group $G$ and a homomorphism $s: U_1\to G$ such that:
+\begin{itemize}
+ \item $s$ is minuscule, i.e., its complexification is a minuscule cocharacter;
+ \item $\text{Ad}(s(-1))$ is a Cartan involution for $G$;
+ \item no simple factor of $G$ is compact; equivalently, $\text{Ad}(s(-1))$ does not project to $1$ on any simple factor of $G$. 
+\end{itemize}
+The inverse functor assigns to such a pair $(G,s)$ the set $M$ of $G(\mathbb R)^0$-conjugates of $s$, which has a unique structure of a Hermitian symmetric domain such that $s$, as a homomorphism, is the $S^1$-symmetry at $s$, as a point of $M$.
+\end{theorem}
 
 
+\begin{proof}
+  \cite[Theorem 1.21]{Milne-Shimura}.
+\end{proof}
+
+
+\begin{definition}
+ \label{definition-hermitian-locally-symmetric-space}
+A {\it Hermitian locally symmetric space} is a Hermitian manifold whose universal cover is a Hermitian symmetric space.
+\end{definition}
+
+\begin{remark}
+  \label{remark-hermitian-locally-symmetric-of-G}
+Let $G$ be a reductive group over a number field. By Remark  \ref{remark-locally-symmetric-of-G}, the quotient $[G]/K_f K_\infty$  of the automorphic space is naturally a locally symmetric space (for $K_f$ small enough). If $G(k_\infty)$ admits a homomorphism $s:U_1\to G(k_\infty)$ satisfying the conditions of Theorem  \ref{theorem-classification-hermitian}, this quotient becomes a Hermitian locally symmetric space. {\it Shimura varieties} are (inverse) limits of such spaces, as $K_f\to 1$. Of course, one needs to justify the term ``varieties'', which is outside the current scope of these notes. 
+
+\end{remark}
+
+
+
+\subsection{Variation of Hodge structures}
+\label{subsection-variation-Hodge}
+
+In this subsection, we present a moduli description of Hermitian symmetric domains, following Milne \cite{Milne-Shimura}.
+
+\begin{definition}
+ \label{definition-Hodge}
+ A (pure) {\it Hodge decomposition} of a real vector space $V$ is a decomposition
+$$
+V(\mathbb C)= \bigoplus_{p,q\in \mathbb Z} V^{p,q}
+$$
+such that $V^{q,p}$ is the complex conjugate of $V_{p,q}$. A (pure) {\it Hodge structure} is a real vector space together with a Hodge decomposition. For each integer $n$, the subspace $\bigoplus_{p+q=n}V^{p,q}$ of $V(\mathbb C)$ is stable under complex conjugation, and so it is defined over $\mathbb R$, i.e., there is a subspace $V_n$ of $V$ such that
+$$
+V_n(\mathbb C)=\bigoplus_{p+q=n}V^{p,q}.
+$$
+Then $V=\bigoplus_n V_n$ is called the {\it weight decomposition} of $V$. If $V=V_n$, then $V$ is said to have weight $n$. Let $V,W$ be two Hodge structures. A {\it morphism of Hodge structures} is a linear map $V \to W$, sending $V^{p,q}$ to $W^{p,q}$.
+\end{definition}
+
+\begin{remark}
+ \label{remark-Hodge-structures}
+ This definition comes from the fact that for a compact complex manifold admitting a K$\rm \ddot a$hler metric, we can always factor its cohomology group as
+$$
+H^n(X, \mathbb C)= \bigoplus _{ p+q=n}H^q(X, \Omega^p_X).
+$$
+Note that given a Hodge structure $V$, if we let $d(p,q)= \text{dim}_\mathbb C V^{p,q}$, then $V^{p,q}$ naturally corresponds to a point in the Grassmannian $G_{d(p,q)}(V(\mathbb C))$. Hence $V$ corresponds to a point in $\prod_{p,q:d(p,q)\ne 0} G_{d(p,q)}(V(\mathbb C))$.
+\end{remark}
+
+There are two other ways to give a Hodge structure to a real vector space. Given a Hodge structure $V$ of weight $n$, we can assign to $V(\mathbb  C)$ the {\it Hodge filtration}
+$$
+F^ \bullet : \cdots \supseteq F^p \supseteq F^{p+1} \supseteq \cdots,
+$$
+where $F^p = \bigoplus _{r \geq p} V^{r,n-r}$. Then, the Hodge structure can be recovered as $V^{p,q}=F^p \cap \overline{F^q}$. The Hodge filtration satisfies the axioms $F^p \cap \overline{F^{n+1-p}} = 0$ and $F^p \oplus \overline{F^{n+1-p}} = V(\mathbb C)$; vice versa, these axioms ensure that the filtration comes from a pure Hodge structure.
+
+The Hodge filtration is, in some sense, a more natural object to consider, as it generalizes to a description of \emph{mixed Hodge structures}, which can also be associated to singular or non-proper varieties.
+
+In this way, a Hodge structure on $V$ with $d(p,q)= \text{dim}_\mathbb C V^{p,q}$ corresponds to a flag $F^\bullet$ of $V(\mathbb C)$ satisfying $d_p=\text{dim}_\mathbb C F^p= \sum_{r \ge p} d(r,n-r)$.  Equivalently, it corresponds to a point in the flag variety $G_ \mathfrak d(V(\mathbb C)) $, where $\mathfrak d= (d_1,\cdots,d_p,\cdots)$.
+
+Another way to give a Hodge structure is related to the represention of the {\it Deligne torus} $\mathbb S$, which is defined to be the restriction of scalars $\rm Res_{\mathbb C/ \mathbb R} \mathbb G_m$, as a linear algebraic group over $\mathbb R$.
+
+\begin{lemma}
+ \label{lemma-Deligne-torus}
+  For any $\mathbb R-$ algebra $A$, $\mathbb S(A)\cong \{(a,b)\in A \times A| a^2+b^2 \ne 0\} $, with multiplication given by $(a,b)\cdot (a',b')=(aa'-bb',ab'+a'b)$.
+\end{lemma} 
+
+\begin{proof}
+We can construct the following isomorphism, 
+$$
+\begin{align*}
+f:\{(a,b)\in A \times A| a^2+b^2 \ne 0\} &\to (A \otimes _\mathbb R \mathbb C)^ \times=\mathbb S(A) \\
+(a,b) &\mapsto a \otimes 1+b\otimes i
+\end{align*}
+$$
+The verification is obvious.
+\end{proof}
+
+Let's consider characters of $\mathbb S(\mathbb C)$. Using the isomorphism $ \{(a,b)\in \mathbb C \times \mathbb C|a^2+b^2 \ne0\} \ni (x,y) \mapsto (x+yi,x-yi) \in \mathbb C ^\times \times \mathbb C ^\times $, we may identify $\mathbb S(\mathbb C)$ as $\mathbb C ^\times \times \mathbb C ^\times $, hence its character group is $\mathbb Z \times \mathbb Z$. For each pair $(a,b)\in \mathbb Z \times \mathbb Z$, let $\sigma_{a,b}$ be the character such that $\sigma_{a,b}(z,w)=z^aw^b$. Restricting $\sigma_{a,b}$ to $\mathbb S(\mathbb R)=\mathbb C^\times$ gives $\chi_{a,b}(z)=z^a\bar z^b$ for $z\in \mathbb C^ \times$.
+
+Now, given a Hodge structure on a real vector space $V$, we can construct a representation $h$ of $\mathbb S(\mathbb R)$ on $V(\mathbb C)$ as follows: let $z\in \mathbb S(\mathbb R)$ act on $V^{p,q}$ by the character $\chi_{-p,-q}$. Conversely, given a representation $h:\mathbb S(\mathbb R) \to GL(V)$, we can define $V^{p,q}$ to be the subspace of $V(\mathbb C)$ with $\mathbb S(\mathbb R)$ action given by $h(z)v=\chi_{-p,-q}(z)v=z^{-p}\bar z^{-q} v$. It is clear that $V^{p,q}=\overline{V^{q,p}}$. Therefore, we also use $(V,h)$ to denote a Hodge structure.
+
+The morphism between Hodge structures $f:(V,h_v)\to (W,h_w)$ can also be interpreted as a linear map satisfying $f(h_v(z)v)=h_w(z)f(v)$ for all $v \in V, z\in \mathbb S(\mathbb R) $, or, in other words, a morphism between representations $h_v$ and $h_w$. 
+
+We often want to consider the variation of Hodge structures. Let $S$ be a connected complex manifold and $V$ a real vector space. Given weight $n$, suppose that, for each $s\in S$, we have a Hodge structure on $V$, denoted by $(V_s,h_s)$, with Hodge filtration given by $F_s^\bullet$. 
+
+\begin{definition}
+ \label{definition-continuity-and-holomorphicity}
+\begin{enumerate}
+ \item  A {\it continuous family of Hodge structures} on a topological space $S$ is a family $(h_s)_{s \in S}$ of Hodge structures on a fixed real vector space $V$, parametrized by the points of $S$, such that the dimension $d(p,q)$ of $V_s^{p,q}$ is locally constant in $s\in S$, and the map from $S$ to the product of Grassmannians defined by
+$$
+S \ni s  \mapsto (V_s^{p,q})_{p,q:d(p,q)\ne 0} \in \prod_{p,q:d(p,q)\ne0}G_{d(p,q)}(V(\mathbb C))
+$$
+is continuous.
+
+\item A {\it holomorphic family of Hodge structures} on a connected complex manifold $S$ is a continuous family of Hodge structures $(h_s)_{s \in S}$ on a real vector space $V$, such hat the map $\phi$ froms $S$ to flag varieties defined by
+$$
+S \ni s \mapsto F_s ^\bullet \in G_\mathfrak d (V(\mathbb C))
+$$
+is holomorphic, where $\mathfrak d= (d_1,\cdots,d_p,\cdots)$ and $d_p=\text{dim}_\mathbb C F^p_s $. Note that continuity implies that $d_p$ does not vary with $s\in S$.
+\end{enumerate}
+
+\end{definition}
+
+Note that it would not make sense to require the spaces $V^{p,q}$ to vary holomorphically, since the operation of taking the conjugate of a subspace does not preserve this property.
+
+
+Some differential geometry shows that $\text{T}_{F_s^\bullet}(G_\mathfrak d (V(\mathbb C)))$, the tangent space of $G_\mathfrak d (V(\mathbb C))$ at $F_s^\bullet$, is naturally realized as a subspace of $\bigoplus _p \text{Hom}(F_s^p ,V(\mathbb C)/F_s^p)$. We will make a strong restriction and give the following definition:
+
+\begin{definition}
+ \label{definition-variation-of-Hodge-structures}
+ A {\it variation of Hodge structures} is a holomorphic family of Hodge structures $(h_s)_{s \in S}$ such that the differential of the map $\phi:S \to G_\mathfrak d (V(\mathbb C))$ has its image in $\bigoplus _p \text{Hom}(F_s^p ,F_s^{p-1}/F_s^p)$. This condition is known as {\it Griffiths transversality}.
+\end{definition}
+
+In order to give the classification theorem, we are going to define polarizations.
+
+\begin{definition}
+ \label{definition-tensor-product}
+ The {\it tensor product of Hodge structures} $V$ and $W$ of weights $m$ and $n$ is $V \otimes W$, a Hodge structure of weight $m+n$, satisfying 
+$$
+(V\otimes W)^{p,q}=\bigoplus_{r+r'=p \\ s+s'=q} V^{r,s} \otimes W^{r',s'}.
+$$
+In terms of representations of $\mathbb S(\mathbb R)$, $(V,h_v)\otimes (W,h_w)=(V \otimes W, h_v \otimes h_w)$.
+\end{definition}
+
+\begin{definition}
+ \label{definition-weight-homomorphism}
+ The {\it weight homomorphism} of $\mathbb S(\mathbb R)$ is the homomorphism $w:\mathbb R ^+ \to \mathbb S(\mathbb R)$, defined by $w(t)=t^{-1}$.
+ \end{definition}
+ 
+ We observe that a Hodge structure $V$ has weight $n$  if and only if its associated representation $h:\mathbb S(\mathbb R) \to GL(V(\mathbb C))$ satisfies $h(w(t))v=t^{-n} v$ for every $t\in \mathbb R^+, v\in V$.
+
+One important example is the unique one-dimensional real vector space of weight $-2n$: $V=\mathbb R(n)$, whose underlying vector space is $\mathbb R$, and whose Hodge structure is given by $V(\mathbb C)=V^{-n,-n}=\mathbb C$, or equivalently, given by a representation $h:\mathbb S(\mathbb R) \to \mathbb C^ \times$ satisfying $h(w(t))=t^{2n}$ for all $t \in \mathbb R^+$ .
+
+It is time to define Hodge tensors. 
+
+\begin{definition}
+ \label{definition-Hodge-tensors}
+ A multilinear form  $t:V^r \to \mathbb R$ on a Hodge structure $V$ of weight $n$ is called a {\it Hodge tensor} if the map
+$$
+\underbrace{V\otimes V \otimes \cdots \otimes V}_{r \text{ copies}} \to \mathbb R(-nr/2)
+$$
+it defines is a morphism of Hodge structures. In other words, $t$ is a Hodge tensor if 
+$$
+t(h(z)v_1,\cdots,h(z)v_r)=(z \bar z)^{-nr/2}t(v_1,\cdots,v_r)
+$$
+for all $z \in \mathbb C^\times$ and $v_i \in V$.
+\end{definition}
+
+We can now move on to the heart of our definitions:
+
+\begin{definition}
+\label{definition-polarization}
+A {\it polarization of a Hodge structure} $(V,h)$ of weight $n$ is a Hodge tensor $\psi:V \times V \to \mathbb R(-n)$, such that the map $\psi_{h(i)}$ defined by $V \times V \ni (v,w) \mapsto \psi(v,h(i)w) \in \mathbb R$ is symmetric and positive definite. 
+\end{definition}
+
+\subsection{Hermitian symmetric domains as parameter spaces for Hodge structures}
+ \label{subsection-Hermitian-for-Hodge}
+Now we explain and sketch a proof of Deligne's realization of hermitian symmetric domains as parameter spaces for Hodge structures. Let $V$ be a real vector space and $T$ be a family of tensors on $V$ including a nondegenerate bilinear form $t_0$, and let $d: \mathbb Z \times \mathbb Z \to \mathbb N$ be a function such that 
+$$
+\begin{cases}
+d(p,q)=0 \text{ for almost all p,q };\\ d(q,p)=d(p,q);\\ d(p,q) =0  \text{ if } p+q \ne n.
+\end{cases}
+$$
+Define $S(d,T)$ to be the set of Hodge structures $h$ on $V$ such that 
+
+(1) $\text{dim} V_h^{p,q} =d(p,q)$ for all $p,q$;
+
+(2) each $t\in T$ is a Hodge tensor for $h$;
+
+(3) $t_0$ is a polarization for $h$.
+
+By Remark \ref{remark-Hodge-structures}, we can endow $S(d,T)$ with the subset topology of  $\prod_{p,q:d(p,q)\ne 0} G_{d(p,q)}(V(\mathbb C))$.  
+
+Our main theorem is the following:
+
+\begin{theorem}
+ \label{theorem-Hermitian-for-Hodge}
+ Let $S^+$ be a connected component of $S(d,T)$.
+
+(1) The space $S^+$ has a unique complex structure for which $(h_s)_{s\in S}$ is a holomorphic family of Hodge structures.
+
+(2) With this complex structure, $S^+$ is a hermitian symmetric domain if $(h_s)_{s\in S}$ is a variation of Hodge structures.
+
+(3) Every irreducible hermitian symmetric domain is of the form $S^+$ for a suitable choice of $V,d, T$.
+\end{theorem}
+
+
+\begin{proof}
+
+(Sketch)
+
+(1) Let $G$ be the smallest algebraic subgroup of $GL(V)$ such that $h(\mathbb S) \subseteq G$ for all $h \in S^+$.  Take any $h_0 \in S^+$, then for all $g \in G(\mathbb R)^0$, $gh_0g^{-1}\in S^+$. It was proven by Deligne \cite{Deligne-Shimura} that the map $G(\mathbb R)^0 \ni g\mapsto gh_0g^{-1} \in S^+$ is surjective. Let $K$ be the subgroup of $G(\mathbb R)^0$ fixing $h_0$, then $S^+ \cong G(\mathbb R)^0/K$. And since $K$ is closed, $S^+$ now admits a smooth manifold structure. Therefore we may consider its tangent space $T$ at $h_0$, which is the quotient of Lie algebras $\mathfrak g / \mathfrak k$. It suffices to show that, under the embedding $S^+\hookrightarrow G_ \mathfrak d(V(\mathbb C))$ coming from the Hodge filtration (notation as in Definition \ref{definition-continuity-and-holomorphicity}), $\mathfrak g / \mathfrak k$ is a complex subspace of the tangent space of the Grassmannian.
+
+Note that $V$ has a Hodge structure $h_0$, which induces a Hodge structure on $W:=V\otimes V ^* =\text{End}V = \mathfrak{gl}(V)$. What is more, $W$ has weight 0, and its Hodge structure restricts to a Hodge structure on the subspace $\mathfrak g$ (which, in terms of the action of the Deligne torus $\mathbb S$, is simply the composition of $h_0:\mathbb S\to G$ with the adjoint representation).
+It is a general fact that, if $W$ is a Hodge structure of weight 0, setting $W^{00}=W^{0,0} \cap W$ we have $W/W^{00}=W(\mathbb C)/ F^0$. Indeed, $W^{00}=F^0 \cap \overline{F^0} \cap W =$ the kernel of the surjective map $W \to W(\mathbb C)/F^0$.
+
+Since $K$ is the stabilizer of $h_0$, we have $\mathfrak g^{00}=\mathfrak k$, and  therefore $T=\mathfrak g /\mathfrak g ^{00} = \mathfrak g(\mathbb C)/F^0_{\mathfrak g}$, a complex subspace of  $W/W^{00} = W(\mathbb C)/F_W^0$. The latter space is none other than the tangent space of $G_ \mathfrak d(V(\mathbb C))$ at $h_0$. This shows that $S^+$ can be identified as a complex submanifold of $G_ \mathfrak d(V(\mathbb C))$, hence admits a complex structure, as desired.
+
+(2) Let $G_{\text{ad}}$ be the adjoint group of $G$. We want to apply Theorem \ref{theorem-classification-hermitian} to $G_{\text{ad}}$. For all $r\in \mathbb R^\times$, $h(r)$ acts as $r^{-n}$ on $V$, therefore belongs to the center of $\text{GL}(V)$. Therefore, we can define a homomorphism $s_0:S^1 \ni z\mapsto h_0(\sqrt z) \in G_{\text{ad}}$. Let $C=h_0(i)$.  Consider the faithful representation $G \to GL(V)$. Since $t_0$ is a Hodge tensor for $h$, $t_0$ is invariant under $h(z)$, for any $h\in S^+$ and $z\in \mathbb C^ \times$; therefore, $t_0$ is $G$-invariant.  The form $(v,w)\mapsto t_0(v, Cw)$ is symmetric and positive definite, defining a Cartan involution $g\mapsto g^{-t}$ (transpose under this inner product) on $\text{GL}(V)$, by Example \ref{reductiveforms-example-Cartan-decomposition-GL}, which leaves $G$ stable; therefore, $\text{Ad}C=\text{Ad}(s_0(-1))$ is a Cartan involution of $G$. Griffiths transversality of $h_0$ ensures that $s_0$ is minuscule condition (a); condition (c) is clear. Hence, by Theorem \ref{theorem-classification-hermitian}, the set of all conjugates $u$ of $s_0$ by $G_{\text{ad}}(\mathbb R)^0$ admits the structure of a hermitian symmetric domain.  Since for each $u$, we can obtain an $h\in S^+$ as follows: $\mathbb S(\mathbb R) \ni z  \mapsto u(z/\bar z)\in GL(V)$, this set can be identified with $S^+$.
+
+(3) Let $D$ be an irreducible symmetric domain.  Let $G$ be the connected adjoint group such that $G(\mathbb R)^0$ is the identity component of the holomorphic automorphisms of $D$ (Lemma \ref{lemma-hermitian-automorphisms-algebraic}). Choose a faithful representation $G \to GL(V)$, and let $t_0$ be a nondegenerate $G$-invariant bilinear form on $V$. We can find a set of tensors $T$ containing $t_0$ such that $G$ is the subgroup of $GL(V)$ fixing each $t \in T$. Fix a point $x\in D$, let $s_0:U_1\to G$ be the corresponding homomorphism (Lemma \ref{lemma-S1-symmetry}), and let $h_0$ be a Hodge structure on $V$ obtained from $s_0$ using (2). Then all $t \in T$ are Hodge tensors for $h_0$ and $t_0$ is a polarization. Now we can check that $D$ is naturally identified with the component of $S(d,T)^+$ containing this Hodge structure. 
+\end{proof}
 
 
 

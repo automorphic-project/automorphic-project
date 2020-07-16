@@ -14,10 +14,432 @@
 
 \tableofcontents
 
+\section{Representations of adelic groups}
+\label{section-representations-adelic}
 
-\section{Overview}
-\label{section-overview}
+Let $G$ be a linear algebraic group over a global field $k$, with ring of adeles $\mathbb A$. For this chapter, a \emph{representation} $\pi$ of $G(\mathbb A)$ will always be a smooth representation of the finite adeles $G(\mathbb A_f)$, and topologized as the strict direct limit 
+$$\lim_{\underset{K_f}\to} \pi^{K_f}$$
+over a basis of open compact neighborhoods of the identity in $K_f$. Any property of representations of groups over local fields will be applied to representations of $G(\mathbb A)$, by restricting it to the spaces of $K^S$-invariants, considered as a $G(k_S)$-representation, where $S$ is a finite set of places including the Archimedean ones, and $K^S$ is any compact open subgroup of the adeles away from $S$. For example, $\pi$ is an SF-representation, or smooth representation of moderate growth, if $\pi^{K^S}$ is such a representation of $G(k_S)$ (Definition \ref{representations-local-definition-smooth-representation}), for any such $K^S$.
 
+If $k$ has Archimedean places, we will denote by $\mathfrak g$ the \emph{complexified} Lie algebra $\mathfrak g(k_\infty)\otimes_{\mathbb R}\mathbb C$, by $U(\mathfrak g)$ its universal enveloping algebra, and by $Z(\mathfrak g)$ the (Harish-Chandra) center of $U(\mathfrak g)$. 
+
+\section{The space of automorphic forms}
+\label{section-space-automorphic-forms}
+
+
+\begin{definition}
+ \label{definition-moderate-growth}
+A continuous function $f$ on the automorphic space $[G]$ is of \emph{moderate growth} if on one, equivalently any, Siegel fundamental set  $\Omega A_\epsilon K$ (in the language and notation of Definitions \ref{automorphicspace-definition-fundamental-set-domain}, \ref{automorphicspace-definition-Siegel-set}), and a norm on the space $\mathfrak a = \text{Hom}(\mathbb G_m, A)\otimes \mathbb R$, the function satisfies a bound of the form
+$$ |f(\omega a k)| \ll e^{s|\log(a)|}$$
+for some $s>0$, where $\log: A(\mathbb A)\to \mathfrak a$ is the logarithmic map of \eqref{automorphicspace-equation-logmap}. 
+
+For fixed $s$ and norm, the functions above form a Banach space with norm $\sup (|f(\omega a k)| e^{-s|\log(a)|})$. The space $C_{mg}([G])$ of moderate growth functions is the direct limit of these spaces. 
+
+A function is of \emph{uniform moderate growth} if it belongs to the space $C_{mg}([G])^\infty$ of smooth vectors in this space. Equivalently, if it is fixed under an open compact subgroup $K_f$ of the finite adeles $G(\mathbb A_f)$, and for every $D\in U(\mathfrak g(k_\infty))$, the function $Df$ satisfies a bound as above, for the same $s$.
+\end{definition}
+
+
+\begin{remark}
+ \label{remark-moderate-growth-definitions}
+Equivalent  definitions of moderate growth are the following: 
+
+First, fix a closed embedding of $G$ into an affine space with coordinates $(x_1, \dots, x_n)$, and define $\Vert g\Vert = \max_i |x_i(g)|$. Then, a continuous function $f$ on $[G]$ is of moderate growth iff $|f(g)|\ll \Vert g\Vert^s$ for some $s>0$. \marginpar{Explain why they are equivalent!}
+
+Another, more geometric, equivalent definition is the following: Consider any equivariant toroidal (full) compactification $\overline{[G]}$ (Definition \ref{automorphicspace-definition-equivariant-toroidal-compactification}). Recall that the comlement of $[G]$ is the union of $P$-cusps, as $P$ ranges over all conjugacy classes of parabolics, and that the $P$-cusp has a neighborhood which maps, with compact fibers (see \eqref{automorphicspace-equation-leftright}), to a neighborhood of the closed orbit in a ``standard embedding'' (Definition \ref{automorphicspace-definition-standard-embedding}) such as $\overline{A_P}(k_\infty) \times^{A_P(k_\infty)} [G]_P$. Now, fix a compact subset $U$ of the $P$-cusp; it has a neighborhood of the form $U\times V$, where $V$ is a neighborhood of the closed $A_P(k_\infty)$-orbit in $\overline{A_P}(k_\infty)$; use $\mathring V$ to denote its intersection with the open $A_P(k_\infty)$-orbit. Then, ``moderate growth'' means that for any cover of the boundary of $\overline{[G]}$ by such compact sets, the function is bounded on $U\times \mathring V$ by a multiple of $\epsilon^{-s}$, where $\epsilon$ is an ``algebraic distance function'' from the closed orbit in $V$, that is, if the closed orbit is given by the vanishing of algebraic coordinates $x_1, \dots, x_n$, then $\epsilon \sim \max_i |x_i|$. 
+
+\end{remark}
+
+
+\begin{proposition}
+ \label{proposition-moderate-growth}
+Let $\pi$ be a Fr\'echet representation of moderate growth of $G(\mathbb A)$. (See Section \ref{section-representations-adelic}.) Any morphism $l:\pi\to C([G])$ factors through a continuous map to $C_{mg}([G])$. If it is a smooth Fr\'echet representation of moderate growth, it factors through a continuous map to $C_{mg}([G])^\infty$.
+\end{proposition}
+
+\begin{proof}
+ We will use the first equivalent characterization of moderate growth of Remark \ref{remark-moderate-growth-definitions}: Since the map $l:\pi\to C([G])$ is continuous (the space on the right considered as a Fr\'echet space), for every $K^S$: compact open subgroup of $G(\mathbb A^S)$ there is a continuous seminorm $q$ on $\pi^{K^S}$ such that $|l(v)(1)| \le q(v)$. With $\pi$ being an $F$-representation, we may assume that $q$ is $G(k_S)$-continuous, and then by \eqref{representationtheory-equation-moderate-growth} we have that $|l(v)(g)| = |l(\pi(g)v)(1)| \le q(\pi(g)v) \le \Vert g\Vert^s q(v)$ for some $s>0$. Thus, the map factors continuously through $C_{mg}([G])$. Passing to smooth vectors, we get a continuous map $\pi^\infty \to C_{mg}([G])^\infty$.
+\end{proof}
+
+If, in addition, $\pi$ is admissible, elements in its image have the following properties:
+
+\begin{proposition}
+ \label{proposition-admissible-moderate-growth}
+Let $\pi$ be an admissible smooth Fr\'echet representation of moderate growth of $G(\mathbb A)$, and $l:\pi \to C^\infty([G])$ a morphism. Fix a maximal compact subgroup $K_\infty$ of $G(k_\infty)$. Elements $f$ in the image of $\pi^{K_\infty}$ have the following properties:
+\begin{enumerate}
+ \item $f$ is of uniform moderate growth;
+ \item $f$ is $K_f$-finite, for every compact open subgroup of $G(\mathbb A_f)$;
+ \item $f$ is $K_\infty$-finite;
+ \item $f$ is $Z(\mathfrak g)$-finite, if $k$ has Archimedean places. In the function field case, $f$ is finite under the Bernstein center of $G(k_\infty)$, for some chosen place $\infty$.
+\end{enumerate}
+Conversely, every such function $f$ generates an admissible SF-subrepresentation of $C_{mg}([G])^\infty$.
+\end{proposition}
+
+\begin{proof}
+ The first property is contained in Proposition \ref{proposition-moderate-growth}, the second and third are obvious, and the fourth follows from the fact that $Z(\mathfrak g)$ preserves the finite-dimensional $K_fK_\infty$-isotypic space of $f$. 
+ 
+ Vice versa, if $f$ satisfies these properties, the statement to prove is admissibility. This follows from Harish-Chandra's theorem, which says that the space of functions as above with fixed $K_fK_\infty$-type, and annihilated by a fixed ideal of finite codimension in $Z(\mathfrak g)$, is finite-dimensional. [Not included yet in the notes.]
+\end{proof}
+
+\begin{definition}
+ \label{definition-automorphic-representation}
+The space $\mathcal A([G])$ of {\it automorphic forms} on $[G]$ is the sum of all admissible subrepresentations of $C_{mg}([G])^\infty$ that are generated (in the sense of closure of the $G(\mathbb A)$-translates) by their $K_\infty$-finite vectors. An {\it automorphic representation} is any irreducible subquotient of the space of automorphic forms. 
+\end{definition}
+
+\begin{remark}
+ \label{remark-automorphic-representation}
+The definition of automorphic forms given above is not standard. Usually, all the conditions of Proposition \ref{proposition-admissible-moderate-growth} are imposed on automorphic forms, while we omitted $K_\infty$-finiteness. The problem with the standard definition is that it depends on the choice of $K_\infty$ (only up to translation by $G(k_\infty)$-though, since all $K_\infty$ are conjugate), and it doesn't produce a representation of $G(k_\infty)$, but a $(\mathfrak g, K_\infty)$-module. On the other hand, the definition that we gave contains the clumsy requirement that the representation is generated by its $K_\infty$-finite vectors (a condition, though, that clearly does not depend on the choice of $K_\infty$). This condition is equivalent to a \emph{finite length} condition (for the $K^S$-invariants of the representation, where $K^S$ is an open subgroup away from a finite number of places $S$), i.e., we do not allow for ``automorphic forms'' to be approximable by vectors belonging to an increasing sum of finite-length representations, without belonging to a finite-length subsum.
+
+At this point, it is not clear from the definition that the subrepresentation of $C_{mg}([G])^\infty$ generated by an automorphic form has bounded growth. However, it is true, and follows from the existence of exponents [also behind Harish-Chandra's finiteness theorem, not included yet].
+\end{remark}
+
+
+
+
+
+
+
+\section{Modular and cusp forms (analytic theory)}
+\label{section-modular-forms-analytic}
+	Let $G = \text{GL}_{2}(\mathbb{R})^0$, acting on the complex upper half plane $\mathcal H$ on the left by M\"obius transformations. Let $\Gamma$ be a discrete subgroup, so  that $\Gamma\backslash\mathcal{H}$ has finite volume. We may assume $-I \in \Gamma$ and $\Gamma\subset \text{SL}_{2}(\mathbb{R})$.  Let $k \in \mathbb{Z}_{>0}$ and let $\chi: \Gamma \to S^{1}$ be a character satisfying $\chi(-I) = (-1)^{k}$. 
+\begin{definition}
+	\label{modular-forms}
+	Define $\mathcal{M}_{k}(\Gamma, \chi)$ to be the set of all holomorphic functions $f$ on $\mathcal{H}$ satisying the following two conditions: $f(\gamma z) = \chi(\gamma) (cz + d)^{k}f(z)$ for $\gamma = \begin{pmatrix}  a & b \\ c& d \end{pmatrix} \in \Gamma$; and $f$ is holomorphic at the cusps of $\Gamma$. Let $\mathcal{S}_{k}(\Gamma, \chi) := \{ f \in \mathcal{M}_{k}(\Gamma, \chi) |$ $f$ vanishes at the cusps\}.
+	Elements of $\mathcal{M}_{k}(\Gamma, \chi)$ are called \textit{modular forms}, while those of $\mathcal{S}_{k}(\Gamma, \chi)$ are called \textit{cusp forms}.
+\end{definition}
+
+
+
+Now, we present modular and cusp forms as sections of some line bundles, following Deligne \cite{Deligne-formes-modulaires}. Towards this purpose, we construct a line bundle on $\mathcal{H}$ by presenting it as a space equipped with a universal elliptic curve and pushing forward the sheaf of differentials. We will demonstrate an action of $G$ on the sections of the sheaf, and then explain the relationship of modular forms and cusp forms to this line bundle. 
+
+
+
+Let $\text{Isom}(\mathbb R^2,\mathbb C)$ be the set of  isomorphisms of $\mathbb R^2$ and $\mathbb C$, as $\mathbb R$-vector spaces, and $\text{Hom}^-(\mathbb R^2,\mathbb C)$ the subset of orientation-reversing ones.\footnote{That's unfortunate, and contrary to the convention of Deligne, but reproduces the usual action on $\mathcal H$} The structure of a complex vector space on $\mathbb C$ endows it with a natural structure of a two-dimensional complex submanifold of $\mathbb C^2$, with a free action of $\mathbb C^\times$. Moreover, it has a left action of $\text{GL}_2(\mathbb R)^0$, induced from its right action on $\mathbb R^2$, whose elements we think of as row vectors: $g\cdot T (v):= T(vg)$. The quotient $\text{Hom}^-(\mathbb R^2,\mathbb C)/\mathbb C^\times$ is thus a one-dimensional complex manifold with a $\text{GL}_2(\mathbb R)^0$-action, which parametrizes orientation-reversing complex structures on $\mathbb R^2$. We identify this quotient with the complex upper half plane $\mathcal{H}$, by sending the class of a homomorphism $T$ to $\frac{T(1,0)}{T(0,1)} \in \mathcal H$, and then $\text{GL}_2(\mathbb R)^0$ acts on the left by M\"obius transformations $\gamma \cdot z = \frac{az+b}{cz+d}$ for $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$. 
+
+
+By construction, the space $\mathcal H$ comes equipped with a complex line bundle $\omega^{-1}$, whose pullback to $\text{Hom}^-(\mathbb R^2,\mathbb C)$ is the structure sheaf $\mathcal O$ of holomorphic functions. Equivalently, sections of $\omega^{-1}$ are real analytic functions $\sigma:\mathcal H\to \mathbb R^2$, such that for one, equivalently any, complex analytic lift $\mathcal H\ni z \mapsto T_z\in \text{Hom}^-(\mathbb R^2,\mathbb C)$, the composition $z\mapsto T_z(\sigma(z))$ is holomorphic. (Note that such lifts $T$ exist, for example by fixing that $T(0,1)=1$, otherwise we would need to make the same statements locally.) The action of $\text{GL}_2(\mathbb R)^0$ induces a $\text{GL}_2(\mathbb R)^0$-equivariant structure on $\omega^{-1}$; we define this as a \emph{right} action on sections, by 
+$$ \sigma|_1\gamma (z) = \sigma(\gamma z)^\gamma,$$
+where the exponent denotes the right action of $\gamma$ on $\mathbb R^2$ (and the number ``1'' stands for the first power of $\omega^{-1}$).
+
+
+Notice that, by construction we have an isomorphism of the associated real analytic vector bundle $\omega^{-1}_{\mathbb R}$ with the constant real analytic vector bundle with fiber $\mathbb R^2$, such that constant sections of $\mathbb R^2$ correspond to holomorphic sections. (Such a structure is called a {\it variation of complex structure} on $\mathbb{R}^{2}$ over $\mathcal H$.) This gives rise to a $\text{GL}_2(\mathbb R)^0$-equivariant surjection
+\begin{equation}
+ \label{equation-surjection-to-omega}
+\mathcal O \otimes \underline{\mathbb C^2} \to \omega^{-1}
+\end{equation}
+of complex vector bundles on $\mathcal H$ (where $\underline{\mathbb C^2}$ denotes the constant sheaf).
+
+Note that $\omega^{-1}$ can be trivialized as a complex vector bundle (after all, $\mathcal H$ is simply connected), \emph{but not $\text{GL}_2(\mathbb R)^0$-equivariantly so}. In fact:
+
+\begin{lemma}
+ \label{lemma-trivialization-omega}
+The section $\mathcal H \ni z \mapsto T_z \in \text{Hom}^-(\mathbb R^2,\mathbb C)$ determined by $T_z(0,1)=1$ (hence $T_z(1,0)=z$) induces a trivialization of $\omega^{-1}$, such that the (right) action of  $\gamma = \begin{pmatrix}  a & b \\ c& d \end{pmatrix} \in \text{GL}_2(\mathbb R)^0$ on sections of $\omega^k$ is given by 
+\begin{equation}
+ \label{equation-action-omegak}
+f|_k\gamma (z) = (cz + d)^{-k}f(\gamma z).
+\end{equation}
+
+ 
+Moreover, there is an equivariant isomorphism of complex line bundles, $\omega^2 = \Omega^1$ (the bundle of holomorphic $1$-forms) on $\mathcal H$.
+\end{lemma}
+
+
+\begin{proof}
+ For the first statement, if $\sigma = (\sigma_1, \sigma_2)$ is a section of $\omega^{-1}$, and $f$ is the corresponding section of the trivial line bundle induced by this trivialization, then $f$ is given by $f(z) = T_z\circ \sigma(z) =  z\sigma_1(z)+\sigma_2(z)$. 
+ 
+ The action of an element $\gamma$ as above is hence given by $f|_1\gamma (z) = T_z \circ (\sigma|_1\gamma)(z) = T_z(\sigma(\gamma z)^\gamma) = (az+b) \sigma_1(\gamma z) + (cz+d)\sigma_2(\gamma_z) = (cz+d) f(\gamma z)$, and the case of a general power of $\omega$ is immediate.
+ 
+ The sheaf $\Omega^1$ of differential one-forms can be trivialized by the global section $dz$ on $\mathcal H$, and then it is immediate to check that the right action of $\gamma$ sends the form $f(z) dz$ to $f|_2\gamma(z) dz$, identifying the trivializations of $\Omega^1$ and $\omega^2$ equivariantly.
+\end{proof}
+
+
+Now let $\Gamma$ be as above, and assume additionally that $\Gamma$ is torsion free. The latter assumption ensures that it acts properly discontinuously on $\mathcal{H}$ and $\Gamma \backslash \mathcal{H} =: Y_{\Gamma}$ has a unique complex manifold structure making $\mathcal{H} \to \Gamma \backslash \mathcal{H}$ a local analytic isomorphism. If $Y_\Gamma$ is not compact, we let $X_\Gamma$ be the compactification that is obtained by adding cusps. [Cusps and their comparison to adelic reduction theory need to be added.]
+
+The sheaves $\omega^{-1}, \Omega^1$ being equivariant, they extend to the quotient $Y_\Gamma$, and they admit a natural extension to $X_\Gamma$, to be denoted by the same symbols: the sheaf $\Omega^1$ as the sheaf of one-forms; for the sheaf $\omega^{-1}$, we may assume (by applying a M\"obious transformation) that the cusp of interest is the one-point compactification of $\Gamma_\infty\backslash \mathcal H$ at $i\infty$, where $\Gamma_\infty$ is a discrete subgroup of upper triangular unipotent matrices; then we declare the $\Gamma_\infty$-invariant section $\sigma: \mathcal H\to \mathbb R^2$, $\sigma(z) = (0,1)$ of $\omega^{-1}$ to extend to a non-zero section at the cusp. The comparison of Lemma \ref{lemma-trivialization-omega} extends to the cusps as follows:
+
+\begin{lemma}
+ \label{lemma-omega-Omega}
+In a neighborhood of a cusp $\infty$, we have 
+\begin{equation}
+\label{equation-isomorphism-omega-Omega}
+ \Omega = \omega^2(\infty).
+\end{equation}
+\end{lemma}
+
+\begin{proof}
+ Identifying a neighborhood of the cusp with a neighborhood of $i\infty$ in $\Gamma_\infty\backslash \mathcal H$, as above, and using the trivialization of Lemma \ref{lemma-trivialization-omega}, the non-zero section $\sigma(z) = (0,1)$ of $\omega^{-1}$ corresponds to the constant function $f_{-1}(z) = 1$, and therefore the function $f_2 = f_{-1}^{-2}= 1$ corresponds to a non-zero section of $\omega^2$ in a neighborhood of the cusp. If $\begin{pmatrix} 1 & \alpha \\ & 1\end{pmatrix}$ is a generator for $\Gamma_\infty$, a holomorphic coordinate at the cusp is given by $q_\alpha = e^{\frac{2\pi i z}{\alpha}}$, so $dz = \frac{\alpha}{2\pi i} \frac{dq_\alpha}{q_\alpha}$, and we see that the corresponding differential form $f_2 dz=dz$ has a pole of order $1$ at $q_\alpha = 0$.
+\end{proof}
+
+Now we are ready to express modular forms and cusp forms in terms of these line bundles; the proposition below could also have been taken as the definition.
+
+
+\begin{proposition}
+\label{proposition-modular-sections}
+Under the trivializations of Lemma \ref{lemma-trivialization-omega}, $\mathcal{M}_k(\Gamma, 1)$ is the image of $H^{0}(X_{\Gamma}, \omega^{\otimes k}) \to H^{0}(Y_{\Gamma}, \omega^{\otimes k})$, and $\mathcal{S}_k(\Gamma, 1)$ is the image of $H^{0}(X_{\Gamma}, \omega^{\otimes k}(-D)) \to H^{0}(Y_{\Gamma}, \omega^{\otimes k})$, where 
+	$D$ denotes the divisor corresponding to the cusps of $X_\Gamma$. 
+\end{proposition}
+
+\begin{proof}
+This is immediate from Lemma \ref{lemma-trivialization-omega}, except for the behavior at the cusps. We have seen that, by definition, the constant function corresponds under the above trivialization to a section of $\omega^k$ over $\Gamma_\infty\backslash \mathcal H$, hence modular forms of weight $k$ extend to sections of $\omega^k$ at the cusps, and cusp forms extend to sections vanishing at the cusps. 
+\end{proof}
+
+Now let $\mathcal F_{\mathbb R}$ be the \emph{dual} of the constant sheaf $\underline{\mathbb R^2}$ over $\mathcal H$. By using the standard symplectic form on $\mathbb R^2$, we can and will identify it with $\underline{\mathbb R^2} \otimes \text{det}^{-1}$, equivariantly under the $\text{GL}_2(\mathbb R)^0$-action. Let $\mathcal F = \mathcal F_{\mathbb R}\otimes_{\mathbb R} \mathbb C$. The surjection \eqref{equation-surjection-to-omega} induces, dually, an injection $\omega \hookrightarrow \mathcal O\otimes \mathcal F \otimes \text{det}^{-1}$ which, for every non-negative integer $k$, gives rise to an injection 
+\begin{equation}
+ \label{equation-omegak-injection} 
+\omega^k \hookrightarrow \mathcal O\otimes \text{Sym}^k\mathcal F \otimes \text{det}^{-k}.
+\end{equation}
+
+In particular, the restriction to $\text{SL}_2(\mathbb R)$ is an equivariant injection to $\mathcal O\otimes \text{Sym}^k\mathcal F$, and both sheaves descend to $Y_\Gamma$. 
+
+From these maps, \eqref{equation-isomorphism-omega-Omega}, and de Rham cohomology, we obtain: 
+\begin{equation}
+\label{equation-omega-to-symk}
+H^{0}(Y_{\Gamma}, \omega^{\otimes k}) \xrightarrow\sim H^{0}(Y_{\Gamma}, \omega^{\otimes k-2} \otimes \Omega^{1}_{Y_{\Gamma}}) \to H^{1}(Y_{\Gamma}, Sym^{k-2}\mathcal{F})
+\end{equation}
+
+\begin{theorem}[Shimura isomorphism]
+\label{theorem-Shimura-isomorphism}
+	The map \eqref{equation-omega-to-symk} carries $\mathcal{S}_{k}(\Gamma, 1)$ \emph{into} $H^{1}(Y_{\Gamma}, Sym^{k-2}\mathcal{F})$ and induces an isomorphism 
+\begin{equation}
+\label{equation-shimura-isomorphism}	 
+\mathcal{S}_{k}(\Gamma, 1) \oplus \overline{\mathcal{S}_{k}(\Gamma, 1)} \xrightarrow\sim \tilde{H}^{1}(Y_{\Gamma}, Sym^{k-2}\mathcal{F}),\end{equation}
+where $\tilde{H}^\bullet$ denotes the image of $H_c^\bullet \to H^\bullet$ (cohomology with compact supports to cohomology without supports).
+\end{theorem}
+
+\begin{proof}
+ See \cite{Deligne-formes-modulaires} for references and further discussion.
+\end{proof}
+
+\medskip
+
+Now we describe the above sheaves and constructions in terms of moduli of elliptic curves. The benefit of doing so is that it allows to endow the spaces $Y_\Gamma, X_\Gamma$, and the above sheaves, with algebro-geometric structure over the rational numbers or appropriate rings of integers. 
+
+\begin{definition}
+ \label{definition-elliptic-curve-analytic}
+An {\it elliptic curve} in the category of complex manifolds is a pair $(E,e)$ consisting of a compact Riemann surface of genus one, and a point on it. More generally, an {\it elliptic curve over a complex manifold $S$} is a smooth (submersive) morphism of complex manifolds $E\to S$, whose fibers are elliptic curves, equipped with a section $e:S\to E$.
+\end{definition}
+
+Equivalent definitions mention the abelian group structure on the elliptic curve, which arises by identifying it with its Jacobian, by sending a point $x$ to the divisor $(x)-(e)$. 
+
+The space $S=\text{Isom}(\mathbb R^2,\mathbb C)$ comes equipped with an elliptic curve $E_0$, defined by the following short exact sequence of sheaves:
+$$ 0 \to \underline{\mathbb Z^2} \to \omega^{-1} \to E_0 \to 0.$$
+Moreover, this elliptic curve comes equipped with the following structure:
+\begin{itemize}
+ \item an identification of its fundamental group with $\mathbb Z^2$; equivalently, an identification of the local system of homology groups $(R^1 f_* \underline{\mathbb Z})^\vee$ (where $R^1 f_*$ denotes the first derived functor of pushforward, i.e., fiberwise cohomology), or cohomology groups $R^1 f_* \underline{\mathbb Z}$, with the constant sheaf $\underline{\mathbb Z^2}$;
+ \item an identification of the analytic sheaf $e^*\Omega_{E_0/S}^1 = f_*\Omega_{E_0/S}^1$ with the sheaf $\omega$. 
+\end{itemize}
+
+
+
+
+
+\begin{proposition}
+ \label{proposition-moduli}
+\begin{enumerate}
+ \item The functor which associates to each complex manifold $S$ the set of isomorphism classes of elliptic curves ($f:E\to S$, $e:S\to E$), 
+ equipped with isomorphisms $e^*\Omega^1_E \simeq \mathcal O$ and
+$R^1 f_* \underline{\mathbb Z} \simeq \underline{\mathbb Z^2}$ is representable by the complex manifold $\text{Isom}(\mathbb R^2 , \mathbb C)$,
+equipped with a universal elliptic curve $E_0$.
+ \item The functor which associates to each analytic space $S$ the set of isomorphism classes of
+elliptic curves over $S$, equipped with an isomorphism $R^1 f_* \underline{\mathbb Z} \simeq \underline{\mathbb Z^2}$ is represented
+by the complex manifold $\text{Isom}(\mathbb R^2, \mathbb C)/\mathbb C^\times$.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+ Omitted.
+\end{proof}
+
+The exterior square $\wedge^2 R^1 f_* \underline{\mathbb Z}$ is canonically trivialized by the fundamental class corresponding to the complex orientation, and $\mathcal H = \text{Hom}^-(\mathbb R^2, \mathbb C)/\mathbb C^\times$ represents those isomorphisms for which the induced isomorphism $\wedge^2 R^1 f_* \underline{\mathbb Z} \xrightarrow\sim \wedge^2 \underline{\mathbb Z^2}$ sends this class to $e_2\wedge e_1$, in the standard basis. 
+
+The map \eqref{equation-surjection-to-omega}, now, and its dual \eqref{equation-omegak-injection} corresponds to the Hodge filtration
+\begin{equation}
+ \label{equation-Hodge-filtration}
+0 \to \omega = R^0 f_*\Omega^1_{E_0/S}  \to \mathcal O \otimes R^1 f_* \underline{\mathbb R} \to \omega^{-1} = (R^0 f_* \Omega^1_{E_0/S})^\vee = R^1 f_* \mathcal O_{E_0} \to 0.
+\end{equation}
+
+(Note that in this discussion we have been ignoring determinant factors when identifying the constant sheaf with its dual, since the factors above do not carry an action of $\text{GL}_2(\mathbb R)^0$, but only of its subgroup $\text{SL}_2(\mathbb Z)$.)
+
+
+\section{Maa{\ss} forms}
+\label{section-Maass-forms}
+
+
+\begin{definition}
+\label{definition-Maass-differential-operators}
+
+For fixed $k$ (``weight'') $\in \mathbb{Z}$, define \textit{Maa{\ss} differential operators} on $C^{\infty}(\mathcal{H})$ as follows: \\
+$R_{k} := iy \frac{\partial}{\partial x} + y \frac{\partial}{\partial y} + \frac{k}{2}$ \\
+$L_{k} := -iy \frac{\partial}{\partial x} + y \frac{\partial}{\partial y} - \frac{k}{2}$ \\
+$\Delta_{k} := -y^{2} (\frac{\partial^{2}}{\partial x^{2}} + \frac{\partial^{2}}{\partial y^{2}}) + iky \frac{\partial}{\partial x}  = -R_{k-2}L_{k} + \frac{k}{2}(1 - \frac{k}{2})$
+\end{definition}
+
+Let $G = \text{GL}_2(\mathbb{R})^0$ act on $C^{\infty}(\mathcal{H})$ by
+$(f|_{k} g) (z) = \left(\frac{c\overline{z} + d}{|cz + d|}\right)^{k} f(gz)$, $g = \begin{pmatrix}  a & b \\ c& d \end{pmatrix} \in G$. Let $\Gamma$ be a discontinuous subgroup of $\text{SL}_2(\mathbb{R}) \subset G$ containing $-I$ with $\Gamma \backslash \mathcal{H}$ of finite volume, and let $\chi$ be a unitary character of $\Gamma$. We take $C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k)$ to denote the set of functions, $f$, $\in C^{\infty}(\mathcal{H})$ satisfying $\chi(\gamma)f(z) = (f|_k \gamma)(z)$, for $\gamma \in \Gamma$. (Note that this forces $\chi(-I) = (-1)^{k}$). A short calculation gives us the following lemma:
+
+\begin{lemma}
+\label{lemma-level-raising-lowering}
+$R_k$ and $L_k$ act as weight raising and lowering operators respectively, namely:
+	$R_k: C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k) \to C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k+2)$;
+	$L_k: C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k) \to C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k-2)$;
+	$\Delta_k: C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k) \to C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k)$.
+\end{lemma}
+
+\begin{proof}
+ Left to the reader.
+\end{proof}
+
+
+
+\begin{definition}
+\label{definition-Maass-form}
+	A \textit{Maa{\ss} form} of weight $k$ for $\Gamma$ is a smooth complex valued function $f$ on $\mathcal{H}$ that satisfies:
+	\begin{enumerate}
+		\item $f \in C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k)$, for some $\chi$;
+		\item $\Delta_k f = \lambda f$, some $\lambda \in \mathbb{C}$;
+		\item $f$ has moderate growth at cusps of $\Gamma$.
+	\end{enumerate}
+Here, moderate growth at $\infty$ means that $f(x+iy)$ is bounded by a polynomial in $y$ as $y \to \infty$. For a general cusp of $\Gamma$, $a \in \mathbb{R} \cup \infty$, let $\xi \in \text{SL}_{2}(\mathbb{R})$ be such that $\xi(\infty) = a$. Then $f$ is said to be of moderate growth at $a$ if $f|_{k} \xi \in C^{\infty}(\xi^{-1} \Gamma \xi \backslash \mathcal{H}, \xi \chi \xi ^{-1}, k)$ is of moderate growth at $\infty$.
+\end{definition}
+
+
+
+\begin{remark}
+\label{remark-modular-forms-to-maass-forms}
+	Observe that the vanishing of a Maa{\ss} form $f$ under the operator $L_k$ is equivalent to $y^{-k/2} f$ satisfying the Cauchy--Riemann equations. This defines an embedding
+\begin{equation}
+ \label{equation-holomorphic-to-Maass}
+ \mathcal{M}_k(\Gamma, \chi) \hookrightarrow C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k). 
+\end{equation}
+As $y^{k/2}f' \in \ker(L_k)$, it is $\Delta_k$-eigenfunction with eigenvalue $ \frac{k}{2}(1 - \frac{k}{2})$. Moderate growth is automatic, hence the embedding above identifies holomorphic modular forms with a subspace of the Maa{\ss} forms, determined by the vanishing of the weight-lowering operators. 
+
+When we pass to $G = \text{GL}_2(\mathbb R)^0$-representations in the next section, it will turn out that the vanishing of the weight-lowering operator places the image of holomorphic modular forms in the \emph{discrete series} representation with a certain eigenvalue for the Casimir operator corresponding to $k$.
+\end{remark}
+
+\section{Classical automorphic forms}
+\label{section-classical-automorphic-forms}
+
+With notation as in the previous section, namely $G=\text{GL}_2(\mathbb R)^0$ and $\chi$ a character of the lattice $\Gamma\subset \text{SL}_2(\mathbb R)$, let $C^{\infty}(\Gamma \backslash G, \chi)$ denote the space of complex-valued smooth functions $F$ on $G$ satisfying $F(\gamma g) = \chi (\gamma) F(g)$ for $\gamma \in \Gamma$, $g \in G$. $G$ acts on this space by right translation. Let $C^{\infty}(\Gamma \backslash G, \chi, k) \subset C^{\infty}(\Gamma \backslash G, \chi)$ be the set of functions, $F$, additionally satisfying $F(gk_\theta) = e^{ik\theta} F(g)$, for $\kappa_\theta \in SO_2(\mathbb{R})$ that gives clockwise rotation by $\theta$.
+
+
+\begin{proposition}
+	\label{proposition-functions-on-upper-half-plane-to-group-quotient}
+	There exists an inclusion $\sigma_{k}: C^{\infty}(\Gamma \backslash \mathcal{H}, \chi, k) \to C^{\infty}(\Gamma \backslash G, \chi, k)$ given by $f \mapsto (F: g \mapsto (f|_k g)(i))$. Furthermore, there exist elements $R$, $L$ and $\Delta$ of $U(\mathfrak{g}_\mathbb{C})$ acting on $C^{\infty}(\Gamma \backslash G, \chi, k)$, that commute with the action of $R_k$, $L_k$ and $\Delta_k$ respectively. $\Delta$ is (up to a scalar) the Casimir element of $U(\mathfrak{g})$.
+\end{proposition}
+
+\begin{proof}
+That the image $F$ of $f$ belongs to $C^{\infty}(\Gamma \backslash G, \chi, k)$ is quickly checked. For the rest of the statements, notice first that every element $g \in G$ can be uniquely written as $ \begin{pmatrix}  u & 0 \\ 0& u \end{pmatrix}  \begin{pmatrix}  y^{1/2} & xy^{-1/2} \\ 0& y^{-1/2} \end{pmatrix} \kappa_{\theta}$. Here, $x$, $y$ and $u$ are uniquely determined, while $\theta$ is uniquely determined mod $2\pi$. Define the following elements of $U(\mathfrak{g}_\mathbb{C})$: $R := \frac{1}{2} \begin{pmatrix}  1 & i \\ i& -1 \end{pmatrix}$ and $L := \frac{1}{2} \begin{pmatrix}  1 & -i \\ -i & -1 \end{pmatrix}$.\\
+
+Computing the action of $R$, $L$ and the Casimir element $\Delta$ in terms of $x$, $y$, $u$ and $\theta$, we get that
+$dR = e^{2i\theta} (iy \frac{\partial}{\partial x} + y\frac{\partial}{\partial y} + \frac{1}{2i} \frac{\partial}{\partial \theta})$, $dL = e^{2i\theta} (-iy \frac{\partial}{\partial x} + y\frac{\partial}{\partial y} - \frac{1}{2i} \frac{\partial}{\partial \theta})$ and $d\Delta = -y^{2}(\frac{\partial^{2}}{\partial x^{2}} + \frac{\partial^{2}}{\partial y^{2}}) + y\frac{\partial ^{2}}{\partial x \partial \theta} $. One checks that these operators commute with the action of $R_k$, $L_k$ and $\Delta_k$ in the desired fashion.
+
+For details of the calculation, refer to \cite[Theorem 2.2.5]{Bump}.
+\end{proof}
+
+
+Let $\omega$ be a (unitary) character of the center $Z(G)$ of $G$, agreeing with $\chi$ on $-I$. Consider  $C^{\infty}(\Gamma \backslash G, \chi, \omega) \subset C^{\infty}(\Gamma \backslash G, \chi)$ denoting functions, $F$, that additionally satisfy $F(zg) = \omega(z)F(g)$.
+
+\begin{definition}
+\label{definition-classical-automorphic-forms}
+	$\mathcal{A}(\Gamma \backslash G, \chi, \omega)$ is the subspace of those elements of $C^{\infty}(\Gamma \backslash G, \chi, \omega)$ that are $Z(U(\mathfrak{g}_\mathbb{C}))$-finite, $K$-finite, and satisfy the condition of moderate growth below. Elements of $\mathcal{A}(\Gamma \backslash G, \chi, \omega)$ are called \textit{automorphic forms}.
+	
+	Moderate growth here means that $\exists k > 0$ such that $\forall D \in U(\mathfrak{g}_\mathbb{C})$, $|Df(g)|$ has order of growth less than $\lVert g \rVert^{k}$ where $\lVert g \rVert$ can be defined to be a height function obtained by pulling back the maximum function along the embedding $G = \text{GL}_2({\mathbb{R}})^0 \hookrightarrow \mathbb{R}^{5}$. This is the embedding which sends a matrix to its $4$ coordinates and the determinant. Observe that since $\omega$ is a unitary character,  $|Df(g)|$ is infact a well defined function on $\Gamma\backslash \text{SL}_2(\mathbb{R})$. 
+\end{definition} 
+
+
+
+Below, we explain the relationship between Maa{\ss} forms and Classical automorphic forms.
+\begin{remark}
+\label{remark-also-holomorphic}
+	Notice that this will also cover the relationship between modular forms and classical automorphic forms since modular forms give rise to certain Maa{\ss} forms (kernels of $L_k$ operators) (Remark \ref{remark-modular-forms-to-maass-forms}).
+\end{remark}
+
+Let $f$ be a Maa{\ss} form of weight $k$, for character $\chi$. Let $F(g) := (f|_k g)(i) = \left(\frac{-ci + d}{|ci + d|}\right)^{k} f(gi)$, $g = \begin{pmatrix}  a & b \\ c& d \end{pmatrix} \in G$.
+
+\begin{proposition}
+\label{proposition-Maass-automorphic}
+	The above map $f \mapsto F$ identifies Maa{\ss} forms of weight $k$ for character $\chi$ with $\mathcal{A}(\Gamma \backslash G, \chi, \omega) \cap C^{\infty}(\Gamma \backslash G, \chi, k)$, where $\omega$ is the character which is trivial on the identity component of $\mathbb{R}^{\times}$ and equal to $(-1)^{k}$ on $-1$.
+\end{proposition}
+
+\begin{proof}
+Let $z = \begin{pmatrix} r &  \\ & r \end{pmatrix} \in Z(G)$.
+	
+$F(zg) = ((f|_k z)|_k g)(i) = (\frac{-ci + d}{|ci + d|})^{k}(f|_k z)(gi) 
+	= (\frac{r}{|r|})^{k}(\frac{-ci + d}{|ci + d|})^{k}f(gi) = \omega(r) F(g)$
+	
+Now, let $\gamma = \begin{pmatrix}  a & b \\ c& d \end{pmatrix} \in \Gamma$.
+	$F(\gamma g) = ((f|_k \gamma)|_k g)(i) = \chi(\gamma)(f|_k g)(i) = \chi(\gamma) F(g)$.
+
+Therefore, $F \in \mathcal{A}(\Gamma \backslash G, \chi, \omega)$.
+
+By Proposition \ref{proposition-functions-on-upper-half-plane-to-group-quotient}, as $f$ is an eigenvector of $\Delta_k$, so is $F = \sigma_{k}(f)$ of $\Delta$. Therefore, $F$ is $Z(U(\mathfrak{g}_\mathbb{C}))$-finite, as the latter is generated by $\Delta$ (by  Theorem \ref{vermamodules-theorem-HC-isomorphism}, Theorem \ref{vermamodules-theorem-invariants-polynomial} and Definition \ref{vermamodules-definition-fundamental-invariants}). Additionally, being an element of $C^{\infty}(\Gamma \backslash G, \chi, k)$, $F$ is also $K = SO_{2}(\mathbb{R})$-finite.
+Finally, the moderate growth conditions for $f$ and $F$ turn out to be equivalent, as in Remark \ref{remark-moderate-growth-definitions}. 
+\end{proof}
+
+\section{Classical and adelic automorphic forms}
+\label{section-classical-adelic-forms}
+Let $K_{0}(N) = \prod_{p} \{ \begin{pmatrix}  a & b \\ c& d \end{pmatrix} \in \text{GL}_{2}(\mathbb{Z}_{p}) | c \equiv 0$  mod $N \}$, and $K_{1}(N) = \prod_{p} \{ \begin{pmatrix}  a & b \\ c& d \end{pmatrix} \in \text{GL}_{2}(\mathbb{Z}_{p}) | c \equiv 0, d \equiv 1$  mod $N \}$. $\mathbb{A}$ refers to the ring of adeles of $\mathbb{Q}$.
+
+
+Our objective now is to present a classical automorphic form (which is, in particular, a function on $\Gamma_{0}(N) \backslash \text{GL}_{2}(\mathbb{R})^0$) as an automorphic form on $\text{GL}_2(\mathbb{A})$. We will first construct an isomorphism between $\Gamma_{0}(N) \backslash \text{GL}_{2}(\mathbb{R})^0$ and a quotient of $\text{GL}_2(\mathbb{A})$, and then demonstrate a way to pull back elements of $\mathcal{A}(\Gamma \backslash G, \chi, \omega)$ to automorphic forms on $\text{GL}_2(\mathbb{A})$ with suitably defined characters of $K_{0}(N)$ and $Z(\text{GL}_2(\mathbb{A}))$, where $Z$ denotes the center of $\text{GL}_2$.
+
+
+
+\begin{lemma}
+\label{lemma-GR-orbit}
+	\begin{enumerate}
+	\item For $i = 0, 1$, $\Gamma_{i}(N) \backslash \text{GL}_{2}(\mathbb{R})^0$ and $\text{GL}_{2}(\mathbb{Q}) \backslash \text{GL}_{2}(\mathbb{A})/K_0(N)$ are isomorphic as $\text{GL}_2(\mathbb R)^0$-spaces, under the map induced by $\text{GL}_{2}(\mathbb{R})^0 \hookrightarrow \text{GL}_{2}(\mathbb{A})$. 
+	\item The above induces an isomorphism of $\text{SL}_2(\mathbb R)$-spaces $\Gamma_{0}(N) \backslash \text{SL}_{2}(\mathbb{R})$ and $Z(\mathbb{A})\text{GL}_{2}(\mathbb{Q}) \backslash \text{GL}_{2}(\mathbb{A})/K_{0}(N)$
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	
+	Consider the determinant map $\text{GL}_{2}(\mathbb{Q})\backslash \text{GL}_2(\mathbb A)\to \mathbb Q^\times\backslash \mathbb A^\times$. Every fiber is represented by an element of $\text{GL}_{2}(\mathbb{R})$, and by the strong approximation Theorem \ref{automorphicspace-theorem-strong-approximation}, applied to the group $\text{SL}_2$, each fiber is acted upon transitively by $\text{SL}_2(\mathbb R) S$, for any open subgroup $S$ of $\text{SL}_2(\mathbb A_f)$. Therefore, the map of double coset spaces
+$$\text{GL}_{2}(\mathbb{Q}) \backslash \text{GL}_{2}(\mathbb{A})/K_{i}(N)\text{GL}_{2}(\mathbb{R})^0 \to \mathbb Q^\times \backslash \mathbb A^\times/\det(K_{i}(N))\mathbb R^\times_+$$
+is a bijection. The right hand side represents the narrow class group of $\mathbb Q$, hence has only one element. Therefore, $\text{GL}_{2}(\mathbb{A}) = \text{GL}_{2}(\mathbb{Q}) \text{GL}_{2}(\mathbb{R})^0 K_{i}(N)$.
+	
+	We obtain a surjection $f: \text{GL}_{2}(\mathbb{R})^0 \twoheadrightarrow \text{GL}_{2}(\mathbb{Q}) \backslash \text{GL}_{2}(\mathbb{A})/K_{i}(N)$. Suppose $f(g) = f(g')$. Then, $g = \gamma g' k$ for some $\gamma \in \text{GL}_{2}(\mathbb{Q})$, $k \in K_{i}(N)$. Writing $\gamma = \gamma_{f} \gamma_{\infty}$ (where $\gamma_{f}$ corresponds to the part in finite adeles and $\gamma_{\infty}$ is the part corresponding to archimedean places), $g = \gamma_{f} k \gamma_{\infty} g' = \gamma_{\infty} g'$. Therefore, $\gamma_{f} = k^{-1} \in K_{i}(N)$ and $\gamma_{\infty} = g' g^{-1}$ has positive determinant. So, $\gamma = \gamma_{f} \gamma_{\infty} \in \text{GL}_{2}(\mathbb{Q}) \cap \text{GL}_{2}(\mathbb{R})^0 K_{i}(N) = \Gamma_{i}(N) \Rightarrow g \in \Gamma_{i}(N) g'$. We get the first isomorphism in the statement of the proposition. 
+	
+Taking quotients by $Z(\mathbb{R}^{+})$ on both sides, and using the fact that $Z(\mathbb{A})  = Z(\mathbb{R}^{+}) Z(\mathbb{Q}) (Z(\mathbb{A}) \cap K_{0}(N))$ (again by the triviality of the narrow class group), we get the second statement of the proposition.
+\end{proof}
+
+
+Next, we explain how to produce from $\chi$ and $\omega$ characters $\lambda$ and $\tilde{\omega}$ of $K_{0}(N)$ and $Z(\text{GL}_2(\mathbb{A}))$ respectively. For this, we use again the fact that 	
+$$\mathbb{A}^{\times}/\mathbb{Q}^{\times} \cong  \mathbb{R}^{\times}_{+} \prod_{p < \infty} \mathbb{Z}_{p}^{\times},$$
+as in the proof of Lemma \ref{lemma-GR-orbit}.
+
+
+To construct a character $\lambda: K_{0}(N) \to \mathbb{C}^{\times}$, we proceed as follows. Projection to the places dividing $N$ and the chinese remainder theorem gives us $ \mathbb{A}^{\times}/\mathbb{Q}^{\times} \cong  \mathbb{R}^{\times}_{+} \prod_{p < \infty} \mathbb{Z}_{p}^{\times} \twoheadrightarrow \prod_{p|N} \mathbb{Z}_{p}^{\times} \twoheadrightarrow (\mathbb{Z}/N\mathbb{Z})^{\times}$. Composing this projection with $\chi$, we get a character $\tilde{\chi}: \mathbb{A}^{\times}/\mathbb{Q}^{\times} \to \mathbb{C}^{\times}$. 
+Let $\rho: K_{0}(N) \to \mathbb{A}^{\times}/\mathbb{Q}^{\times}$ be the map given by sending $(\begin{pmatrix} a_{p} & b_{p} \\ c_{p} & d_{p} \end{pmatrix})_{p}$ to $(d_p)_p$. Define the character $\lambda$ to be $\tilde{\chi}^{-1} \circ \rho$. Observe that if $l$ is a prime not dividing $N$, $l = (l)_{p \leq \infty} \equiv (1, (a_p)_p) \in  \mathbb{R}^{\times}_{+} \prod \mathbb{Z}_{p}^{\times}$, where for $p \neq l$, $a_p = l^{-1}$ and $a_l = 1$. Therefore, $l$ projects to $\overline{l}^{-1} \in (\mathbb{Z}/N\mathbb{Z})^{\times}$. By multiplicativity, any $d$ coprime to $N$ projects to $\overline{d}^{-1} \in (\mathbb{Z}/N\mathbb{Z})^{\times}$. Composing this map with $\chi$, we observe that $\tilde{\chi}(d) = \chi^{-1}(\overline{d})$. If $\gamma = (\begin{pmatrix} a & b \\ c & d \end{pmatrix})_{p<\infty} \in K_{0}(N)$ such that $a, b, c, d \in \mathbb{Z}$, then the above discussion shows that $\lambda(\gamma^{-1}) = \tilde{\chi}^{-1} (\rho(\gamma^{-1})) = \chi(\overline{d})$.
+
+The central character $\tilde{\omega}$ is given as follows:
+$Z(\text{GL}_{2}(\mathbb{A})) \cong \mathbb{A}^{\times} \twoheadrightarrow \mathbb{A}^{\times}/\mathbb{Q}^{\times} \cong \mathbb{R}^{\times}_{+} \prod_{p < \infty} \mathbb{Z}_{p}^{\times} \overset{\mu}\rightarrow \mathbb{C}^{\times}$. Here $\mu$ is the map sending $(a_p)_{p \leq \infty} \mapsto \omega(a_{\infty}) \tilde{\chi}^{-1}((a_p))$.
+
+\begin{proposition}
+\label{proposition-classical-adelic-forms}
+	Let $\tilde{\omega}$ be as defined above. The isomorphisms of Lemma \ref{lemma-GR-orbit} give rise to an inclusion of $\mathcal{A}(\Gamma \backslash G, \chi, \omega)$ into the set of automorphic forms on $\text{GL}_2(\mathbb{A})$ with central quasi-character $\tilde{\omega}$.
+\end{proposition}
+
+\begin{proof}
+Let $\lambda: K_{0}(N) \to \mathbb{C}^{\times}$ be as defined above. Let $F \in \mathcal{A}(\Gamma \backslash G, \chi, \omega)$. 
+Let $g \in \text{GL}_2(\mathbb{A})$. We have then that $g = \gamma g_{\infty} k$ for some $\gamma \in \text{GL}_2(\mathbb{Q})$, and $k \in K_0(N)$. Consider the function $\phi: g \mapsto F(g_{\infty})\lambda(k)$. To show this is well-defined, we need to show that if $g'_{\infty} = \gamma g_{\infty} k$ then $F(g'_{\infty}) = F(g_{\infty}) \lambda(k)$. 
+
+Notice that $g'_{\infty} = \gamma g_{\infty} k \Rightarrow g'_{\infty} = \gamma_{f} \gamma_{\infty} g_{\infty} k $ (writing $\gamma$ as a product of the finite part and the archimedean part). Let $\gamma = \begin{pmatrix} a & b \\ c & d \end{pmatrix}$. Therefore, $g'_{\infty} = \begin{pmatrix} a & b \\ c & d \end{pmatrix}_{\infty} g_{\infty}$ and $k = \gamma_{f}^{-1} = (\begin{pmatrix} a & b \\ c & d \end{pmatrix})_{p < \infty}^{-1}$. This implies that $F(g'_{\infty}) = F(g_{\infty})\chi(d)$, and now all we have to show is that $\chi(d) = \lambda((\begin{pmatrix} a & b \\ c & d \end{pmatrix})_{p < \infty})^{-1}$. But this follows from the construction $\lambda$.
+
+$Z(\text{GL}_2(\mathbb{A})) \simeq \mathbb{A}^{\times} = \mathbb{Q}^{\times}\mathbb{R}_{+}^{\times}\prod_{p}\mathbb{Z}_p^{\times}$ can be verified to be acting via the quasicharacter $\tilde{\omega}$ by computing separately the action of $\mathbb{Q}^{\times}$,  $\mathbb{R}_{+}^{\times}$ and $\prod_{p}\mathbb{Z}_p^{\times}$. Let $g$ again be equal to $g = \gamma g_{\infty} k$ for some $\gamma \in \text{GL}_2(\mathbb{Q})$, and $k \in K_0(N)$. For $z = (z)_{p \leq \infty} \in \mathbb{Q}^{\times}$, $\phi(zg) = F(g_{\infty})\lambda(k) = \tilde{\omega}(z)\phi(g)$. For $z_{\infty} \in \mathbb{R}_{+}$, $\phi(z_{\infty} g) = F(z_{\infty} g_{\infty})\lambda(k) = \omega(z_\infty)F(g_{\infty})\lambda(k) = \tilde{\omega}(z)\phi(g)$. For $z = (z_p)_p \in \prod_{p}\mathbb{Z}_p^{\times}$, $\phi(zg) = F(g_\infty)\lambda(k)\lambda((\begin{pmatrix} z_p &  \\  & z_p \end{pmatrix})_{p < \infty}) = \phi(g)\tilde{\chi}^{-1}((z_p)) =  \tilde{\omega}(z)\phi(g)$.
+\end{proof}
+
+
+
+\begin{proposition}
+\label{proposition-Hecke-operators}
+Suppose $p \nmid N$. If $F \in \mathcal{A}(\Gamma \backslash G, \chi, \omega)$ is an eigenfunction of the classical Hecke operator $T_p$, then it is an eigenfunction of the measure given by the charasteristic function of $\text{GL}_2(\mathbb{Z}_p) \begin{pmatrix}  p &  \\ & 1 \end{pmatrix} \text{GL}_2(\mathbb{Z}_p)$, with the same eigenvalue. Furthermore, $F$ is an eigenfunction of (the characteristic function of) $\text{GL}_2(\mathbb{Z}_p) \begin{pmatrix}  p &  \\ & p \end{pmatrix} \text{GL}_2(\mathbb{Z}_p)$ with eigenvalue $\chi(p)$.
+\end{proposition}
+
+
+\begin{proof}
+ 
+ [Discussion of classical Hecke operators to be added.]
+\end{proof}
 
 
 

@@ -42,7 +42,7 @@ The {\it space of smooth vectors} of a representation $(\pi, V)$ is denoted by $
  
 A {\it smooth representation} $(\pi, V)$ is a representation such that $V = V^\infty$ as topological vector spaces. 
 
-An {\it SF-representation}, or {\it smooth representation of moderate growth} of a real group $G$ is a smooth F-representation. 
+An {\it SF-representation}, or {\it smooth representation of moderate growth} of a real or $p$-adic group $G$ is a smooth F-representation. 
 \end{definition}
 
 \begin{lemma}
@@ -268,7 +268,7 @@ For the additive group $G=\mathbb G_a(F)$, we have $\mathcal S_{nat}(G)=$ the Sc
 
 \begin{remark}
  \label{remark-almost-smooth}
-There is some clumsiness in trying to deal with the real and $p$-adic cases at the same time, which is due to the fact that the notion of ``smooth'' in the $p$-adic case is not quite analogous to that of ``smooth'' in the real case; for example, smooth vectors in an F-representation of a $p$-adic group do not produce Fr\'echet spaces. There is a notion of ``almost smooth'' vectors in the $p$-adic case, which is a better analogy to ``smooth'' in the real case, see \cite{}, but it is not very useful in practice. Because of the strong definition of smoothness (=local constancy), and because we tend to forget about the topology on spaces of smooth vectors of representations of $p$-adic groups, the ``rapid decay'' Schwartz spaces that we are defining here are not suitable for $p$-adic groups; in the next subsection, we will discuss algebraically defined Schwartz spaces using compactifications, where the definitions in the real and $p$-adic cases coincide, and produce compactly supported functions/measures in the $p$-adic case. [But, note for the future: Maybe we can expand the notion of SF-representation to the $p$-adic case, to include the LF-spaces of smooth vectors in an F-representation; or, include a full discussion of ``almost smooth'' vectors, for the sake of uniformity.]
+There is some clumsiness in trying to deal with the real and $p$-adic cases at the same time, which is due to the fact that the notion of ``smooth'' in the $p$-adic case is not quite analogous to that of ``smooth'' in the real case; for example, smooth vectors in an F-representation of a $p$-adic group do not produce Fr\'echet spaces. There is a notion of ``almost smooth'' vectors in the $p$-adic case, which is a better analogy to ``smooth'' in the real case, see \cite{Sakellaridis-beyond1}, but it is not very useful in practice. Because of the strong definition of smoothness (=local constancy), and because we tend to forget about the topology on spaces of smooth vectors of representations of $p$-adic groups, the ``rapid decay'' Schwartz spaces that we are defining here are not suitable for $p$-adic groups; in the next subsection, we will discuss algebraically defined Schwartz spaces using compactifications, where the definitions in the real and $p$-adic cases coincide, and produce compactly supported functions/measures in the $p$-adic case. [But, note for the future: Maybe we can expand the notion of SF-representation to the $p$-adic case, to include the LF-spaces of smooth vectors in an F-representation; or, include a full discussion of ``almost smooth'' vectors, for the sake of uniformity.]
 \end{remark}
 
 
@@ -803,7 +803,52 @@ This implies that $1_{K t_{-\lambda} K} \cdot \delta_0 = \delta_\lambda + \sum_{
  
 \end{proof}
 
+\section{Langlands parameters}
+\label{section-Langlands-parameters}
 
+Let $G$ be a (connected) reductive group over a local field $F$. We will write $G$ for $G(F)$. The $L$-group and the $C$-group of $G$ have been defined in Section \ref{reductiveforms-section-Lgroups}. We denote by $\Gamma_F$ the Galois group of $F$ (of a fixed separable extension\footnote{See Remark \ref{reductiveforms-remark-Lgroup-sheaf}: it is better not to fix a separable extension, and to translate these definitions to sheaves over the \'etale site of $F$.}), and by $\mathcal W_F$ its Weil group. For definitions, see \cite{Tate-Corvallis}. We only remind here that the Weil group comes with isomorphisms $\mathcal W_F/\mathcal W_E = \Gamma_F/\Gamma_E = \Hom(E,F^s)$ for every separable extension $E$ of $F$, and $\mathcal W_F^{ab}\xrightarrow\sim F^\times$, compatible with the isomorphism $\Gamma_F \xrightarrow\sim \widehat{F^\times}$ (profinite completion) of class field theory. As in \cite{Tate-Corvallis}, we will normalize the isomorphism of class field theory so that a Frobenius element maps to the \text{inverse} of a uniformizer, i.e., a \emph{geometric Frobenius} element maps to a uniformizer. In particular, we have a norm map $|\bullet|: \mathcal W_F \to  F^\times \to \mathbb R_+^\times$, sending a Frobenius element to $q$: the degree of the residue field.
+
+We also remind of the modification of the Weil group that is needed in order to pass from $l$-adic to complex representations:
+
+\begin{definition}
+ \label{definition-Weil-Deligne}
+Let $F$ be a non-Archimedean field. The {\it Weil--Deligne group} $\mathcal W_F'$ is the semidirect product $\mathcal W_F\ltimes \mathbb G_a$, with $w x w^{-1} = |w| x$ for $w\in \mathcal W_F$ and $x\in \mathbb G_a$. A {\it representation of the Weil--Deligne group} over a field $E$ of characteristic zero is a pair $(\rho, N)$ consisting of a representation of $\mathcal W_F$ \emph{with open kernel} on a finite-dimensional vector space $V$ over $E$, and a nilpotent endomorphism $N$ of $V$, satisfying $\rho(w)N\rho(w)^{-1} = |w|\dot N$. 
+\end{definition}
+
+The ``open kernel'' condition is the important one here; it makes irrelevant the topology of $\text{GL}_E(V)$. The Weil--Deligne group is a convenient way to de-topologize the $l$-adic representations of the Weil group that show up ``in nature'' (in \'etale cohomology), and translate them among different $l$'s, or to the complex numbers:
+
+\begin{proposition}
+ \label{proposition-Weil-Deligne-representations}
+Let $l$ be a prime different from the residual characteristic $p$ of (a non-Archimedean field) $F$, and let $E$ be a finite extension of $\mathbb Q_l$. There is a canonical bijection between isomorphism classes of (continuous) finite-dimensional $E$-representations $\phi:\mathcal W_F \to \text{GL}(V)$ and representations $(\rho, N)$ of the Weil--Deligne group over $E$ (Definition \ref{definition-Weil-Deligne}), characterized by the property that 
+\begin{equation}
+ \label{equation-Weil-Deligne-representations}
+\phi(\Phi\sigma) = \rho(\Phi\sigma) \exp(t_l(\sigma) N),
+\end{equation}
+for some Frobenius element $\Phi\in \mathcal W_F$, any element $\sigma$ of the inertia subgroup, and $t_l$ a choice of isomorphism of the pro-$l$-quotient of (tame) inertia with $\mathbb Z_l$.
+\end{proposition}
+
+Recall that the tame inertia quotient is generated by $n$-th roots of a uniformizer, for $(n,p)=1$, and is isomorphic (up to a choice of topological generator) to $\widehat{\mathbb Z}^p = \prod_{l\ne p} \mathbb Z_l$.
+
+\begin{proof}
+ See \cite[\S 4.2]{Tate-Corvallis} for references.
+\end{proof}
+
+
+
+
+
+
+\begin{definition}
+ \label{definition-Langlands-parameter}
+A {\it Langlands parameter} into the $L$-group of $G$ is a morphism $\mathcal W_F'\to{^LG}$ over $\Gamma$.
+\end{definition}
+
+
+
+
+The local Langlands conjecture posits the existence of a canonical finite-to-one map:
+
+$$\{\mbox{irreducible admissible representations of }G\}/\sim \to \{\mbox{Langlands parameters into }{^LG}\}/\sim.$$
 
 
 %**************************************************************************************

@@ -105,7 +105,7 @@ In particular, for the group $G=\mathbb Z$, its group algebra is $k[T,T^{-1}]$, 
 We assume throughout that the continuous dual $V^*$ of $V$ separates points. Then, the extension that we seek will be characterized by the property
 \begin{equation}
 \label{equation-action-measures}
-\left<\pi(\mu)(v), v^*\right> = \int_G \left<\pi(g)v, v^*\right> \mu(g),
+\left <\pi(\mu)(v), v^*\right> = \int_G \left <\pi(g)v, v^*\right> \mu(g),
 \end{equation}
 for every $\mu\in A$, $v\in V$, $v^*\in V^*$. 
 
@@ -122,7 +122,7 @@ Notice that by \cite[Theorem 3.20]{Rudin}, Fr\'echet spaces satisfy the conditio
 
 \begin{proof}
 By \cite[Theorem 3.27]{Rudin}, for a finite Borel measure $\mu$ on a compact Hausdorff space $K$, and a continuous function $f:K\to V$ to a topological vector space $V$ satisfying the conditions of the proposition, the integral $\int_K f \cdot \mu$, characterized by 
-$$ \left< \int_K f \cdot \mu, v^*\right> = \int_K \left< f , v^*\right> \cdot \mu$$ for every $v^*\in V^*$, is defined. (The argument, in brief: First, reduce to the case of positive probability measures. Then, show that the subsets of the closed convex hull of $f(K)$ cut out by a finite number of conditions of the form $\left< v, v^*\right> = \int_K \left< f , v^*\right> \cdot \mu$ are nonempty. By compactness, it follows that their intersection is nonempty.) 
+$$ \left < \int_K f \cdot \mu, v^*\right> = \int_K \left < f , v^*\right> \cdot \mu$$ for every $v^*\in V^*$, is defined. (The argument, in brief: First, reduce to the case of positive probability measures. Then, show that the subsets of the closed convex hull of $f(K)$ cut out by a finite number of conditions of the form $\left < v, v^*\right> = \int_K \left < f , v^*\right> \cdot \mu$ are nonempty. By compactness, it follows that their intersection is nonempty.) 
 
 Here, we take $K \subset G$ to be the support of a given measure, and $f(g) = \pi(g)(v)$, and set $\pi(\mu)(v):= \int_{G} \pi(g)(v) \mu(g)$.
 
@@ -138,7 +138,7 @@ $$ \{ v_1- v_2| v_1, v_2 \in \overline{\text{co}}(\pi(K_i)(U'))\} \subset \frac{
 
 There is a partition of unity $1_K=\sum_i f_i$, subordinate to the cover $(K_i)_i$, where the $f_i$'s are continuous functions and $0\le f_i\le 1$. 
 Let $\mu_1, \mu_2$ be positive measures on $K$, with $\Vert \mu_i\Vert\le 1$, whose difference is contained in the weak-* neighborhood determined by the conditions
-$$ |\left< \mu_1-\mu_2, f_i \right>| <\epsilon,$$
+$$ |\left < \mu_1-\mu_2, f_i \right>| <\epsilon,$$
 for given $\epsilon >0$ (to be determined). Let $m_i^j = \int_K f_i \mu_j$ for $j=1,2$.
 Then, for $v\in U'$
 $$ \pi(\mu_1)(v) - \pi(\mu_2) (v) = \sum_i \int_K f_i(g) \pi(g)(v) (\mu_1-\mu_2)(g).$$
@@ -168,7 +168,7 @@ The dual of a topological representation is defined as follows:
 \begin{definition}
 \label{definition-dual-representation}
 Given a representation $(\pi, V)$ of a topological group on a locally convex topological vector space $V$, the dual representation $(\pi^*,V^*)$ on the dual space of continuous functionals on $V$ is defined by the property
- $$ \left< \pi^*(g)(v^*), v\right> = \left< v^*, \pi(g^{-1}) v\right>.$$
+ $$ \left < \pi^*(g)(v^*), v\right> = \left < v^*, \pi(g^{-1}) v\right>.$$
 \end{definition}
 
 Here, $V^*$ must be endowed with a suitable topology making the action continuous. For example, if $G$ is locally compact, then one can consider the topology of uniform convergence on compact sets:
@@ -184,12 +184,12 @@ if we fix $U$ and a neighborhood $V_1$ of zero in $V$, we can find a compact nei
  $$U_K=\{\pi(g)(v)-v| g\in K, v\in U\}\subset V.$$
 (These facts follow directly from the continuity of the action of $G$ on $V$.)
  
- Fix $U$, $\epsilon>0$, and a vector $w\in V^*$, and let $V_1 = \{ v\in V| \left< w, v\right> <\epsilon\}$. Choose a compact neighborhood $K$ of $1\in G$ such that $U_K\subset V_1$. Let $W\subset V^*$ be the neighborhood of $w$, in the compact-open topology, of all vectors $w'$ with
- $$ |\left< w-w', \pi(K)U\right>|<\epsilon.$$
+ Fix $U$, $\epsilon>0$, and a vector $w\in V^*$, and let $V_1 = \{ v\in V| \left < w, v\right> <\epsilon\}$. Choose a compact neighborhood $K$ of $1\in G$ such that $U_K\subset V_1$. Let $W\subset V^*$ be the neighborhood of $w$, in the compact-open topology, of all vectors $w'$ with
+ $$ |\left < w-w', \pi(K)U\right>|<\epsilon.$$
  
  Then, for all $g\in K$ and $w'\in W$, we have 
- $$ | \left< \pi^*(g^{-1}) (w')-w, U\right> | \le |\left< \pi^*(g^{-1}) (w'-w), U\right> | + | \left< \pi^*(g^{-1}) (w)-w, U\right> | =$$
- $$ = |\left< (w'-w), \pi(g) U\right> | + | \left< w, (\pi(g) - 1) U\right> | < \epsilon + \epsilon.$$
+ $$ | \left < \pi^*(g^{-1}) (w')-w, U\right> | \le |\left < \pi^*(g^{-1}) (w'-w), U\right> | + | \left < \pi^*(g^{-1}) (w)-w, U\right> | =$$
+ $$ = |\left < (w'-w), \pi(g) U\right> | + | \left < w, (\pi(g) - 1) U\right> | < \epsilon + \epsilon.$$
 
 This shows continuity in the compact-open topology on $V^*$.
 
@@ -205,9 +205,9 @@ When $V$ is a Banach space, it is not true, in general, that the action is conti
 \begin{remark}
 \label{remark-spaces-induality}
  For two spaces $X$ and $Y$, not necessarily linear, which are in some sort of duality, in the sense that they come with a map 
- $$\left< \,\, , \,\, \right> : X\times Y\to Z,$$ 
+ $$\left < \,\, , \,\, \right> : X\times Y\to Z,$$ 
  where $Z$ is another space, a \emph{right} action of a group $G$ on $X$ naturally induces a \emph{left} action on $Y$ (when $G$ is assumed to act trivially on the target $Z$), and vice versa:
- $$  \left< x\cdot g, y \right> = \left< x, g\cdot y \right>.$$
+ $$  \left < x\cdot g, y \right> = \left < x, g\cdot y \right>.$$
  Therefore, we need to replace $g$ by $g^{-1}$ on $X$, if we want left actions on both spaces.
 \end{remark}
 
@@ -227,7 +227,7 @@ The right and left regular representations are a special case of Example \ref{ex
 Given a representation $(\pi, V)$ of a topological group $G$, the {\it matrix coefficient} map is the $G\times G$-equivariant map 
 $$M_\pi: \pi^* \otimes \pi \to F(G)$$
 given by 
-$$ v^*\otimes v \mapsto \left(g \mapsto \left< v^*, \pi(g) v\right> \right).$$
+$$ v^*\otimes v \mapsto \left(g \mapsto \left < v^*, \pi(g) v\right> \right).$$
 \end{definition}
 
 \begin{lemma}
@@ -250,14 +250,14 @@ $$ M_c(G) \otimes C(G) \to \mathbb C.$$
 Given a topological representation $(\pi, V)$ of  a locally compact topological group $G$ on a space satisfying the conditions of \ref{proposition-integral-lcs} (e.g., a Fr\'echet space), we have, for every $\mu\in M_c(G)$, $v\in V$, $v^*\in V^*$,
 \begin{equation}
  \label{equation-mc-dualto-operator}
-\left< \mu , M_\pi (v^*\otimes v)\right> = \left< v^*, \pi(\mu) v \right>,
+\left < \mu , M_\pi (v^*\otimes v)\right> = \left < v^*, \pi(\mu) v \right>,
 \end{equation}
 where the first pairing is between measures and continuous functions, while the second is between $V$ and its dual.
 \end{lemma}
 
 \begin{proof}
  Just an unfolding of the definitions:
-$$\left< \mu , M_\pi (v^*\otimes v)\right> =  \int_G \left< v^*, \pi(g) v\right>  \mu(g) = \left< v^*, \int_G \pi(g) v \mu(g) \right> = \left< v^* , \pi(\mu) v\right>.$$
+$$\left < \mu , M_\pi (v^*\otimes v)\right> =  \int_G \left < v^*, \pi(g) v\right>  \mu(g) = \left < v^*, \int_G \pi(g) v \mu(g) \right> = \left < v^* , \pi(\mu) v\right>.$$
 \end{proof}
 
 
@@ -359,8 +359,8 @@ f \otimes v^*\mapsto \pi^*(fdg)(v^*).
 If we fix $v^*$ and a compact $K\subset G$, this becomes a continuous map
 $$ C(K)\to V^*$$
 with respect to the norm topology on $V^*$; indeed, we have
-$$ \Vert \pi^*(fdg)(v^*) \Vert = \sup_{\Vert v\Vert = 1} |\left< v, \pi^*(fdg)(v^*)\right> | = $$
-$$ = \sup_{\Vert v\Vert = 1} |\left< \pi(f^*dg) (v), (v^*)\right> | \ll_K \Vert f\Vert \cdot \Vert v^*\Vert,$$
+$$ \Vert \pi^*(fdg)(v^*) \Vert = \sup_{\Vert v\Vert = 1} |\left < v, \pi^*(fdg)(v^*)\right> | = $$
+$$ = \sup_{\Vert v\Vert = 1} |\left < \pi(f^*dg) (v), (v^*)\right> | \ll_K \Vert f\Vert \cdot \Vert v^*\Vert,$$
 by an application of Proposition \ref{proposition-integral-Banach}, where we have set $f^*(g) = f(g^{-1})$, and the symbol $\ll_K a$ means $< c\cdot a$, for a constant $c$ depending on $K$. But the map \eqref{equation-C-to-Vstar}, for a fixed $v^*$, is equivariant with respect to the left regular action of $G$ on $C_c(G)$, which is continuous. Therefore, the image of this map belongs to $W$.
 
 
@@ -404,33 +404,6 @@ If $G$ is a compact group, and $V=L^1(G)$ under the regular representation, then
 
 
 
-\section{Unitary representations}
-\label{section-unitary-representations}
-
-We continue assuming that the coefficient field is $\mathbb C$, and that the topological group $G$ is locally compact.
-
-
-\begin{definition}
-\label{definition-unitary-representation}
-A {\it unitary} representation of $G$ is a representation of $G$ on a Hilbert space\footnote{We will assume throughout that Hilbert spaces are separable.} $V$ (over $\mathbb C$) which preserves the norm (i.e.\ $\pi$ has image in the subgroup of unitary transformations, $U(V)\subset \text{Aut}(V)$). 
-
-A representation $(\pi,V)$ of $G$ on a topological vector space $V$ is {\it unitarizable} if $V$ admits a (continuous, positive definite) inner product such that the corresponding Hilbert space completion is unitary.
-\end{definition}
-
-If $V$ is a Hilbert space, the algebra $B(V)$ of bounded operators on $V$ is a {\it $C^*$-algebra}: a Banach algebra, with an involution $T\mapsto T^*$ (the adjoint of an operator), and the property that $\Vert T^*T\Vert = \Vert T\Vert^2$.
-
-$C^*$-algebras play an important role in the analysis of unitary representations of a group. 
-The map $M_c(G)\to B(V)$ defines, by pullback, a seminorm on $M_c(G)$. Assume that $G$ is a locally compact group, with right Haar measure $dg$. The restriction of all those seminorms to $C_c(G)dg\subset M_c(G)$ defines a norm:
-$$ \Vert fdg \Vert_{C^*} = \sup_{(\pi,V)} \Vert \pi(fdg)\Vert,$$
-where $(\pi,V)$ ranges over all unitary representations of $G$. 
-
-Considering just the right regular representation $R$ of $G$ on $L^2(G,dg)$, we obtain another norm
-$$ \Vert fdg \Vert_{C_r^*} = \Vert R(fdg)\Vert.$$
-
-\begin{definition}
-\label{definition-Cstar}
-The completion of $C_c(G) dg$ with respect to the norm $\Vert\bullet\Vert_{C^*}$ is the {\it $C^*$-algebra of $G$}. Its completion with respect to $\Vert\bullet \Vert_{C_r^*}$ is the {\it reduced $C^*$-algebra of $G$}.
-\end{definition}
 
 \section{Fr\'echet representations of moderate growth}
 \label{section-Frepresentations}
@@ -510,23 +483,225 @@ The contragredient representation does not depend on the chosen fundamental syst
 [To be added: a discussion of the concept of \emph{distinction} of a Fr\'echet space, i.e., the property that the inductive limit dual coincides with the ``strong dual'' of uniform convergence on bounded sets. True for reflexive Fr\'echet spaces, which includes nuclear spaces and, more generally, limits of Hilbert spaces.]
 
 
-\section{The $C^*$-algebra of a group, and Plancherel decomposition of unitary representations}
+\section{Unitary representations}
+\label{section-unitary-representations}
+
+We continue assuming that the coefficient field is $\mathbb C$, and that the topological group $G$ is locally compact.
+
+
+\begin{definition}
+\label{definition-unitary-representation}
+A {\it unitary} representation of $G$ is a representation of $G$ on a Hilbert space\footnote{We will assume throughout that Hilbert spaces are separable.} $V$ (over $\mathbb C$) which preserves the norm (i.e.\ $\pi$ has image in the subgroup of unitary transformations, $U(V)\subset \text{Aut}(V)$). 
+
+A representation $(\pi,V)$ of $G$ on a topological vector space $V$ is {\it unitarizable} if $V$ admits a (continuous, positive definite) inner product such that the corresponding Hilbert space completion is unitary.
+\end{definition}
+
+If $V$ is a Hilbert space, the algebra $B(V)$ of bounded operators on $V$ is a $C^*$-algebra, with the hermitian adjoint corresponding to the $*$-operation. Before we proceed, let us recall the relevant definitions.
+
+\begin{definition}
+ \label{definition-Cstar-algebra}
+A {\it $C^*$-algebra} is a Banach *-algebra, that is, a Banach algebra with a conjugate-linear anti-involution $T\mapsto T^*$, which has the property that $\Vert T^*T\Vert = \Vert T\Vert^2$. A {\it morphism of $C^*$-algebras} is a continuous algebra map that commutes with the $*$ operation.
+(Note that we are not requiring the norm be preserved; it is only used for the continuity.)
+
+A \textit{representation of a $C^*$-algebra} (or, more generally, of a Banach *-algebra; sometimes called a *-representation for emphasis) $A$ on a Hilbert space $V$ is a morphism of $C^*$-algebras $\pi:A\to B(V)$. Morphisms of representations are morphisms of Hilbert spaces commuting with the action of $A$. The representation is called {\it nondegenerate} if the closure of the image, $\overline{\pi(A)V}$, is equal to $V$, and {\it irreducible} if the only closed, invariant subspaces are $0$ and $V$.
+\end{definition}
+
+
+$C^*$-algebras play an important role in the analysis of unitary representations of a group. 
+The map $M_c(G)\to B(V)$ defines, by pullback, a seminorm on $M_c(G)$. Moreover, this is a *-morphism, with the $*$-operation on $M_c(G)$ given by:
+\begin{equation}
+ \label{equation-star-on-measures}
+\mu^*(g) = \overline{\mu(g^{-1})}.
+\end{equation}
+
+
+Assume that $G$ is a locally compact group, with right Haar measure $dg$. The restriction of all those seminorms to $C_c(G)dg\subset M_c(G)$ defines a norm:
+$$ \Vert fdg \Vert_{C^*} = \sup_{(\pi,V)} \Vert \pi(fdg)\Vert,$$
+where $(\pi,V)$ ranges over all unitary representations of $G$. 
+
+Considering just the right regular representation $R$ of $G$ on $L^2(G,dg)$, we obtain another norm
+$$ \Vert fdg \Vert_{C_r^*} = \Vert R(fdg)\Vert.$$
+
+\begin{definition}
+\label{definition-Cstar}
+The completion of $C_c(G) dg$ with respect to the norm $\Vert\bullet\Vert_{C^*}$ is the {\it $C^*$-algebra of $G$}. Its completion with respect to $\Vert\bullet \Vert_{C_r^*}$ is the {\it reduced $C^*$-algebra of $G$}.
+\end{definition}
+
+
+
+\begin{proposition}
+\label{proposition-equivalence-unitary-Cstar}
+Let $G$ be a locally compact group. Given a unitary representation $\pi$ of $G$, the restriction to $C_c(G) dg$ of the induced action of $M_c(G)$ (Proposition \ref{proposition-integral-lcs}) extends continuously to a representation of $C^*(G)$, and gives rise to an equivalence of categories between unitary representations of $G$, on one hand, and non-degenerate representations of $C^*(G)$, on the other. 
+\end{proposition}
+
+\begin{proof}
+Let $\pi$ be a unitary representation of $G$, and denote by the same symbol the induced action of $M_c(G)$, and its restriction to $C_c(G)dg$. Notice that, by the definition of the norm $\Vert\bullet\Vert_{C^*}$, we must have $\Vert \pi(\mu)\Vert\leq \Vert\mu\Vert$ for any $\mu\in C_c(G)dg$. Since $V$ is complete and Hausdorff, it follows that we get a unique continuous extension of $\pi$ to $C^*(G)$, which is immediately seen to be a *-representation. Choosing an approximation of the identity $(\mu_n)_n \in C_c(G)dg$, by the weak-* convergence statement of Proposition \ref{proposition-integral-lcs}, we see that $\pi(\mu_n) v \to v$ for every $v\in V$, therefore the representation is nondegenerate. 
+
+To show the reverse direction, we start with a nondegenerate representation $(\pi, V)$ of $C^*(G)$, and let $V' =\pi(C_c(G)dg)V$, a dense subspace of $V$. Choose an approximation $(\mu_n)_n \in C_c(G)dg$ of the identity, and let $\delta_g$ denote the delta measure at $g\in G$. Then, for every $g\in G$ and $v\in V'$, the limit $\pi(g):=\lim_n \pi(\mu_n\star \delta_g) v$ exists, since $v$ can be written as $\pi(f)v'$, and $\pi(\mu_n\star \delta_g) \pi(f) = \pi(\mu_n\star \delta_g \star f)$, and $\mu_n\star \delta_g \star f \to \delta_g \star f$ in $L^1(G)$, hence also in $C^*(G)$. Since $\Vert \pi(\mu_n\star \delta_g)\Vert \le \Vert \mu_n\star \delta_g\Vert_{L^1(G)} = 1$, the resulting operator $\pi(g)$ on $V'$ has bounded norm, hence extends to an element of $B(V)$.  Finally, for any fixed $n$ and any net $g_i\to g \in G$, we have that $\mu_n\star \delta_{g_i} \to \mu_n\star \delta_g$ in $L^1(G)$, and this shows continuity of the resulting map $G\times V\to V$. 
+
+We have $(\mu_n\star \delta_g)^* = \delta_{g^{-1}} \star \mu_n^*$, which is an approximation of $\delta_{g^{-1}}$, and this shows that $\pi(g^{-1}) = \pi(g)$, i.e., the representation is unitary. It is easy to see that we have constructed two inverse functors between unitary representations of $G$ and nondegenerate representations of $C^*(G)$, and that they are faithful, hence give rise to an equivalence of categories.
+\end{proof}
+
+
+
+\section{The Plancherel decomposition}
 \label{section-Plancherel}
 
-In this section, we collect results from the theory of $C^*$-algebras (which, in turn, rely on results on the theory of Von Neumann-, or $W^*$-, algebras. We point the reader to \cite{Dixmier-Cstar} for complete definitions and proofs.
+In this section, we collect results from the theory of $C^*$-algebras (which, in turn, rely on results on the theory of Von Neumann-, or $W^*$-, algebras). We point the reader to \cite{Dixmier-Cstar} for complete definitions and proofs. 
 
+
+%Define equivalence? Or is it obvious?
+\noindent
+\begin{definition}
+\label{definition-spectrum}
+The {\it spectrum} $\hat A$ of a $C^*$-algebra $A$ is the set of isomorphism classes of irreducible representations of $A$. The {\it unitary dual} $\hat G$ a locally compact group $G$ is the spectrum of $C^*(G)$, or equivalently (by Proposition \ref{proposition-equivalence-unitary-Cstar}), the set of isomorphism classes of its irreducible unitary representations.
+\end{definition}
 
 \begin{definition}
- \label{definition-direct-integral}
-(Define direct integral of Hilbert spaces.)
+ \label{definition-state}
+A linear form $\phi$ on a $C^*$-algebra $A$ is called {\it positive} if $\phi(aa^*)\geq 0$ for all $a\in A$. A {\it state} of $A$ is a positive linear functional $\phi$ such that $\Vert \phi\Vert =1$.
+
+For a representation $(\pi, V)$ of a $C^*$-algebra $A$, the diagonal matrix coefficients $\omega_v:A\ni a\mapsto \left <\pi(a) v, v\right>$ (where $v\in V$) are called the {\it positive forms associated to the representation}, and the {\it states associated to the representation} if $\Vert \omega_v\Vert =1$.
 \end{definition}
 
 
+
+States can be used to describe a topology on the spectrum:
+
 \begin{definition}
- \label{definition-pointwise-defined}
-Let $H=\int H_z \mu(z)$ be a direct integral of Hilbert spaces, and $V$ another topological vector space. A morphism $T: V\to H$ is {\it pointwise defined} if there is a family of morphisms $T_z: V\to H_z$ such that, for every $v\in V$, the section $z\mapsto T_z(v)$ represents the vector $T(v)\in H$. 
+\label{definition-Fell-topology}
+Let $\pi$ be a representation of a $C^*$-algebra $A$, and $S$ a set of representations of $A$. We say that $\pi$ is {\it weakly contained} in $S$ if every positive form (or every state) associated to $S$ is a weak-* limit of linear combinations of positive forms associated to elements of $S$. 
+
+We endow the spectrum $\hat A$ with the topology where $\pi \subset \overline{S} \iff \pi$ is weakly contained in $S$. In the case of $\hat A = \hat G$, the unitary dual of a locally compact group $G$, this is called the {\it Fell topology}, and convergence $\pi_i \to \pi$  is equivalently described by the requirement that, for all $v\in \pi$, there exists a collection $(v_i)_i, v_i\in\pi_i$ such that
+\[\left <v_i,\pi_i(g)v_i\right >\;\to\; \left <v,\pi(g)v\right >,\]
+uniformly on compact subsets of $G$. 
 \end{definition}
 
+For the equivalence of this definition with other definitions of the topology on $\hat A$, see \cite[Theorem 3.4.10]{Dixmier-Cstar}. For this description of the Fell topology, notice that it is enough to check weak-* convergence of bounded functionals on $C^*(G)$ on elements of the dense subspace $L^1(G)$, and if these are positive-definite functionals represented by continuous functions $\phi_i$ with $\phi_i(1)=1$, by \cite[Theorem 13.5.2]{Dixmier-Cstar} weak-* convergence is equivalent to locally uniform convergence of the $\phi_i$'s. 
+
+The Fell topology is not a very nice topology; for example, it is not Hausdorff, in general. In any case,  notice, for later use, that it allows us to view $\hat{G}$ as a Borel space.
+
+
+
+
+We will now define direct integrals of Hilbert spaces. The rough idea is to bring these spaces together as a bundle sitting over some parameter space, and then to take a collection of measurable sections of this bundle. Of course, in order to discuss measurability, we will need some assumptions.
+
+\begin{definition}
+\label{definition-direct-integral}
+Let $X$ be a Borel space with a positive measure $\mu$. For each point $x\in X$, let $V_x$ be a Hilbert space. A section will refer to a collection of elements $(v_x)_{x\in X}$, such that $v_x\in V_x$. Assume we are given a subset $F$ of all of the sections, which we will call the {\it measurable sections}. $F$ is required to have two properties:
+\begin{enumerate}
+\item A section $(v_x)_x$ is in $F$ iff $\left <v_x,u_x\right >$ is a measurable function for every section $(u_x)_x\in F$.
+\item There is a countable subset of $F$ so that their restrictions to each $V_x$ are dense.
+\end{enumerate}
+Two measurable sections are considered equivalent if they are the same almost everywhere.
+
+On the set of equivalence classes of measurable sections, define the inner product
+$$\left <u,v\right > = \int_X \left <u_x,v_x\right > d\mu (x).$$
+The {\it direct integral} $\int_X^{\oplus} V_x d\mu (x)$ is the Hilbert space of equivalence classes of measurable square-integrable sections. 
+\end{definition}
+When referring to a direct integral of Hilbert spaces, we will often suppress $F$ in the notation and leave it implicit that such an $F$ has been chosen.
+
+\begin{example}
+\label{example-measurable-Hilbert}
+Assume that we may partition $X=\bigsqcup_{n=1}^{\omega} X_n$ as a union of measurable subsets, such that if $x\in X_n$, then we have an identification of $V_x$ with the standard complex Hilbert space of dimension $n$. Then, a natural choice of $F$ is to let a section be measurable iff its restriction to each $X_n$ is measurable.
+\end{example}
+
+
+
+
+\begin{definition} 
+\label{definition-integral-operators}
+Continue to let $V$ be the direct integral of the Hilbert spaces $(V_x)_{x\in X}$. Assume we are given a family of operators $(T_x)_{x\in X}$ that essentially bounded norms (that is, bounded except possibly on a set of measure zero). Furthermore, assume this family is measurable in the sense that if $(v_x)_x$ is a measurable section then so is the pointwise image $(T_xv_x)_x$. Then, we form the {\it direct integral of operators}, which will be a bounded linear operator that acts on the direct integral Hilbert space. In particular, let the action be defined pointwise:
+\[\left(\int_x^{\oplus}T_x d\mu (x)\right)\left(\int_x^{\oplus}v_x d\mu (x)\right) = \int_x^{\oplus}T_x(v_x) d\mu (x)\]
+\end{definition}
+
+The measurability of the family $(T_x)_x$ ensures that we get a well defined action on $V$. The linearity and boundedness then follow easily from the definitions.
+
+
+\begin{remark}
+ \label{remark-equivalent-measures}
+In the context of Definition \eqref{definition-direct-integral}, if $\mu' = f \cdot \mu$ is another measure, where $f$ is a measurable function that is $\mu$-almost-everywhere positive, there is a canonical isomorphism $\int_X^{\oplus} V_x d\mu' (x) \simeq \int_X^{\oplus} V_x d\mu (x)$ given by the operators $T_x = \sqrt{f(x)} I$. We will say that $\mu$ and $\mu'$ are {\it equivalent measures}.
+\end{remark}
+
+
+
+
+Definition \ref{definition-integral-operators} will be applied to families of representations, as follows: 
+Let $A$ be a $C^*$-algebra and let $((\pi_x,V_x))_{x\in X}$ be a family of representations of $A$. Assume that the Hilbert spaces $(V_x)_x$ are endowed with a measurable structure as in Definition \ref{definition-direct-integral}, and that for every element $a\in A$ the family of operators $(\pi_x(a))_{x\in X}$ is measurable. In this case, we can form the {\it direct integral representation} $(\pi,V)$. It is given by
+\[V = \int_X^\oplus V_x d\mu (x)\;\;\;\;\;\pi(a) = \int_X^{\oplus} \pi_x(a) d\mu (x)\]
+The only concern with the above definition is whether the family $(\pi_x(a))_x$ is essentially bounded in norm. The following lemma assures us that this is the case.
+
+\begin{lemma}
+\label{lemma-norm-bounded}
+Let $A$ and $B$ be $C^*$-algebras, and $\pi:A\to B$ a morphism. Then, for all $a\in A$, $\Vert\pi(a)\Vert\leq \Vert a\Vert$.
+ \end{lemma}
+
+\begin{proof}
+See [Dix77, 1.3.7]. Although we will not need so much generality, we note that this lemma still holds when $A$ is merely an involutive Banach algebra.
+\end{proof}
+
+
+We now come to the Plancherel decomposition for unitary representations. Although fairly general, one must place an important restriction on the group, that $C^*(G)$ be {\it postliminal}. Defining postliminal would take us a bit afield, so instead we will state as fact that as long as $G$ is a reductive group, then $C^*(G)$ is postliminal. For our purposes, a reductive group means any group of two types. The first type is a reductive real Lie group. For the second type, let $F$ be a $p$-adic field. Then, $G$ can be the group of $F$ points of a reductive algebraic group over $F$. See \cite[18.9.4]{Dixmier-Cstar}, \cite[4.7.11]{Dixmier-Cstar} for how to show reductive implies liminal, and \cite[4.2.4]{Dixmier-Cstar} for liminal implies postliminal.
+
+\begin{proposition}
+ \label{proposition-bundle-representations}
+If $A$ is a postliminal $C^*$-algebra, there is a decomposition $\hat A = \bigsqcup_{n=1}^{\omega} \hat A_n$ and, for every $\pi\in A_n$, an identification of the standard $n$-dimensional Hilbert space with the Hilbert space of $\pi$, so that, with respect to the standard measurable structure of Example \ref{example-measurable-Hilbert}, the sections of operators $A\ni \pi\mapsto \pi(a)$ are measurable.
+\end{proposition}
+
+\begin{proof}
+ See \cite[Lemma 8.6.2]{Dixmier-Cstar}.
+\end{proof}
+
+
+
+
+\begin{theorem}[Plancherel Decomposition] 
+\label{theorem-Plancherel-decomposition}
+Let $G$ be a reductive, separable, locally compact group, and $(\rho, V)$ a unitary representation of $G$. Then, on the unitary dual $\hat{G}$, there exists a mutually singular\footnote{Two measures $\mu_1$ and $\mu_2$ on a space $X$ are mutually singular if we can partition $X=X_1 \cup X_2$, so that $\mu_1$ is $0$ on subsets of $X_2$, and $\mu_2$ is $0$ on subsets of $X_1$. This may be symbolically denoted by $\mu_1 \perp \mu_2$.} family of measures $(\mu_n)_{1\leq n\leq \omega}$ such that we can form a decomposition
+\begin{equation}
+\label{equation-Plancherel}
+V \simeq \bigoplus_{n=1}^\omega \int_{\pi\in\hat{G}}^{\oplus} \pi^{n} d\mu_n (\pi)
+\end{equation}
+This decomposition is unique in the sense that if another such family of measures $(\mu_n')_x$ exists, then $\mu_n$ and $\mu_n'$ are equivalent for all $n$. (See Remark \ref{remark-equivalent-measures}.)
+\end{theorem}
+
+\begin{proof}
+Consider \cite[8.6.6]{Dixmier-Cstar} in light of \cite[18.7.6]{Dixmier-Cstar}.
+\end{proof}
+
+%Above: What does equivalent mean?
+
+%Below: I was supposed to show how Plancherel -> spectral thm of commutative C* algebras. However, I don't believe it follows from Plancherel. Should I just discuss the spectral thm as an example, and then show how they both imply the bottom result?
+\noindent
+\begin{example}
+\label{example-Plancherel-abelian}
+In the case that $G$ is abelian, all of the irreducible representations are 1-dimensional, so $\hat G$ can be identified with the set of unitary characters of $G$. Letting $\mathbb{C}_\chi$ be the one dimensional representation where the group acts by $\chi$, we see that the Plancherel Decomposition just becomes "simultaneous diagonalization":
+\[V = \bigoplus_{n=1}^\omega \int_{\chi\in\hat{G}}^{\oplus} \mathbb{C}_\chi^{n} d\mu_n,\]
+where $\mathbb C_\chi^n$ denotes an $n$-dimensional Hilbert space where the group acts by $\chi$.
+\end{example}
+
+In practice, the isomorphism \eqref{equation-Plancherel} of the Plancherel decomposition is often described by identifying the integrands $\pi^n$ as Hilbert completions of certain dense subspaces of $V$. [Also related to the construction of the bundle of representations in Proposition \ref{proposition-bundle-representations} --- to be added.] For this, we need the following notion:
+
+
+\begin{definition} 
+\label{definition-pointwise-defined}
+Let $V$ be the direct integral of the Hilbert spaces $(V_x)_{x\in X}$, and let $U$ be a topological vector space. A morphism $T:U\to V$ is called {\it pointwise defined} if there exists a family of morphisms $T_x:U\to V_x$ such that for each $u\in U$, the section $(T_x(u))_{x\in X}$ is equivalent to $T(u)$.
+\end{definition}
+
+A basic example is the following:
+
+\begin{proposition}
+ \label{proposition-pointwise-defined-Ccinfty}
+Let $G$ be a Lie or $p$-adic group, and $X= H\backslash G$ a homogeneous space for $G$. Assume, for simplicity, that $X$ has a $G$-invariant measure $dx$, that we fix, or else replace functions by half-densities in what follows. Let $S=C_c^\infty(X)$, with its natural topology. Then, for any direct integral decomposition 
+$$ L^2(X) = \int_{\hat G} V_\pi \mu(\pi),$$
+the embedding $S\to L^2(X)$ is pointwise defined.
+\end{proposition}
+
+\begin{proof}
+ See \cite[2.3]{Bernstein-Plancherel} for the ``natural topology'' and the proof.
+\end{proof}
+
+Since $S$ is also dense in $L^2(X)$, and by assumption (Definition \ref{definition-direct-integral}) the sections corresponding to elements of $L^2(X)$ are dense in (almost) every $V_\pi$, this means that the image of $T_\pi: S\to V_\pi$ is dense for (almost) every $\pi$. Hence, $V_\pi$ is equal to the \emph{Hilbert space completion} of $S$ with respect to the seminorm $\Vert\bullet\Vert_\pi$ on $S$ pulled back from $V_\pi$. Since $V_\pi\simeq \pi^n$ for some $n\le \omega$, this seminorm factors through the {\it $\pi$-coinvariants}, or \emph{maximal $\pi$-isotypic quotient} of $S$, that is, the quotient $S_\pi: S/\bigcap_{l} \text{Ker}(l)$, where $l$ ranges over all morphisms $S\to \pi$. If $(H_\pi)_\pi$ denotes the corresponding family of Hermitian forms on $S$, the product $H_\pi \mu(\pi)$ can be thought of as a measure valued in positive semi-definite Hermitian forms on $S$, with the property that for (almost) every $\pi$, the corresponding form factors through $S_\pi$. In the context of Theorem \ref{theorem-Plancherel-decomposition}, this Hermitian-form-valued-measure on $\hat G$ is unique, and specifying this measure is equivalent to describing the Plancherel decomposition \eqref{equation-Plancherel}.
 
 
 

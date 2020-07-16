@@ -5,9 +5,10 @@
 # Master list of stems of tex files in the project.
 # This should be in order.
 LIJST = introduction representationtheory representations-compact \
-	liegroups-general liestructure algebraicgroups reductiveforms vermamodules \
+	liegroups-general liestructure vermamodules \
+    algebraicgroups reductiveforms galoiscohomology \
     representations-local plancherel discreteseries \
-    galoiscohomology automorphicspace
+    automorphicspace automorphicforms
 
 # Add index and fdl to get index and license latexed as well.
 LIJST_FDL = $(LIJST) fdl index

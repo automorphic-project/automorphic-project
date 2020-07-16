@@ -1,9 +1,5 @@
 \input{preamble}
 
- \DeclareFontFamily{U}{wncy}{}
-    \DeclareFontShape{U}{wncy}{m}{n}{<->wncyr10}{}
-    \DeclareSymbolFont{mcy}{U}{wncy}{m}{n}
-    \DeclareMathSymbol{\Sha}{\mathord}{mcy}{"58} 
 
 % OK, start here.
 %
@@ -21,19 +17,109 @@
 
 [This chapter needs a lot of work. For now, we only summarize the results needed in other sections.]
 
-A good reference for this section is Chapter 6 of \cite{Platonov-Rapinchuk}
+Let $G$ be a linear algebraic group over a field $k$ and $k^{s}$ be a separable closure of $k$. There is a natural action of $Gal (k^{s}/k)$ on the $k^{s}$-points of $G$, and we can define the Galois cohomology group $H^{1}(k, G)$. In this chapter, we discuss this cohomology group for $k$ is finite, local, or number field. A good reference for this chapter is Chapter 6 of \cite{Platonov-Rapinchuk}.
 
 \section{Galois cohomology over a finite field}
 \label{section-finite-field}
 
+
+In this section, $k$ is a finite field. The absolute Galois group $Gal(k^{s}/k)\cong \hat{\mathbb{Z}}$ is a procyclic group. Let $\varphi$ be the arithmetic Frobenius in $Gal(k^{s}/k)$. Then $\varphi$ is a topological generator of $Gal(k^{s}/k)$ and it induces a $k$-scheme endomorphism $\varphi_{G}:=id_{G}\times \varphi$ of $G_{k^{s}}$.
 \begin{theorem}[Lang's theorem]
  \label{theorem-Lang}
-If $G$ is a connected algebraic group over a finite field $k$, then $H^1(k, G)=1$. 
+If $G$ is a connected algebraic group over $k$, then $H^1(k, G)=1$. 
 \end{theorem}
 
 \begin{proof}
- 
+We define a $k$-scheme morphism $f: G\rightarrow G$ by  
+\[
+f(g)=g^{-1}\varphi (g).
+\]
+To prove Lang's theorem, it suffices to prove that $f$ is surjective. 
+
+Considering the action of $G$ on itself by $g.a=g^{-1}a\varphi(g)$. If we fix $a$, this define a $k$-scheme endomorphism of $G$ denoted by $f_{a}$. In particular, $f_{e}=f$. We claim that the map $f_{a}$ is separable and its image is open and closed for any $a$. Then $f$ is surjective since $G$ is connected. This would complete the proof of Lang's theorem.
+
+Let me prove the claim. We have 
+\[
+d_{e}f_{a}(X)=-Xa +d_{e}\varphi_{G}(X)=-Xa
+\]
+for $X\in T_{e}(G)$. So the differential map $d_{e}f_{a}: T_{e}(G)\rightarrow T_{a}(G)$ is an isomorphism of the tangent spaces. As a consequence, $f_{a}$ is dominant and separable. In particular, the orbit $f_{a}(G)$ contains a nonempty open subset of $G$, hence is open by homogeneity. Since this holds for any $a$, $f_{a}(G)$ are also closed. We are done.
 \end{proof}
+
+
+Lang's theorem has several important corollaries.
+\begin{proposition}
+ \label{proposition-quasisplit}
+If $G$ is a connected reductive group over $k$, then $G$ is quasisplit.
+\end{proposition}
+\begin{proof}
+ Let $B$ be a Borel subgroup of $G_{k^{s}}$, and let $B^{\varphi}$ be the Borel subgroup obtained by applying $\varphi$. Then $aB^{\varphi}a^{-1}=B$ for some $a$ in $G(k^{s})$. By the proof of Theorem \ref{theorem-Lang}, $a=g^{-1}\varphi (g)$ for some $g$ in $G(k^{s})$. Now, we consider the Borel subgroup $H=gBg^{-1}$. We can check that $H$ is defined over $k$ by the following computation.
+\[
+H^{\varphi}=\varphi(g)B^{\varphi} \varphi(g)^{-1}=gaB^{\varphi}a^{-1}g^{-1}=H.
+\]
+This completes the proof of this proposition.
+
+\end{proof}
+
+\begin{proposition}[Lang's isogeny theorem]
+ \label{proposition-Lang-isogeny}
+If $G$ and $H$ are connected $k$-groups and $f: G\rightarrow H$ is a $k$-isogeny, then $|G(k)|=|H(k)|$.
+\end{proposition}
+
+\begin{proof}
+Let $F$ be the kernel of $f $. We have a short exact sequence
+\[
+1\rightarrow F(k^{s})\rightarrow G(k^{s})\rightarrow H(k^{s})\rightarrow 1
+\]
+of groups. This exact sequence is compatible with the natural Galois action. Then we obtain an exact sequence 
+\[
+\{\ast\}\rightarrow F(k)\rightarrow G(k)\rightarrow H(k)\rightarrow H^{1}(k, F)\rightarrow H^{1}(k, G)
+\]
+of pointed set. By Theorem \ref{theorem-Lang}, we have 
+\[
+\frac{|H(k)|}{|G(k)|}=\frac{|H^{1}(k, F)|}{|F(k)|}.  
+\]
+So it suffices to show that $|H^{1}(k, F)|=|F(k)|$. Note that 
+\[
+|H^{1}(k, F)|=\varinjlim H^1(Gal (k_{n}/k), F(k_{n}))
+\]
+where $k_n$ is the degree $n$ extension of $k$. So it is enough to prove that, for each $n$, $|H^1(Gal (k_{n}/k), F(k_{n}))|=|F(k)|$. This is a property of Herbrand quotient (see \cite[Proposition 11]{Atiyah-Wall}). This completes the proof.
+\end{proof}
+
+\begin{remark}
+ \label{remark-classify-group-finite}
+Lang's theorem can also be used to classify connected reductive groups over a finite field. Let $G$ be a split connected reductive group over $k$.  We fix a based root system $\Psi^{+}$ of $G$. By Theorem \ref{theorem-Lang}, we have $H^{1}(k, Aut (G_{k^{s}}))\cong H^{1}(k, Aut (\Psi^{+}))$. So the $k$-forms of $G$ are classified by the elements of $H^{1}(k, Aut(\Psi^{+}))$. We have the following conclusions.
+\begin{enumerate}
+\item[(1)] Any $k$-group of type $B_n$, $C_n$, $E_7$, $E_8$, $F_4$ or $G_2$ is split.
+\item[(2)] There are exactly two nonisomorphic $k$-groups of type $A_n$ (where $n>1$) and $D_n$ (where $n>4$). The nonsplit one is split over a quadratic extension of $k$. 
+\item[(3)] There are exactly three nonisomorphic $k$-groups. The two non-split ones become split over a quadratic and a cubic extension of $k$ respectively.
+\end{enumerate}
+\end{remark}
+
+
+\begin{theorem}
+ \label{theorem-almost-quasisplit}
+If $G$ is a connected algebraic group over a number field $K$, then $G_{K_{v}}$ is quasisplit for almost all finite places $v$ of $K$.
+\end{theorem}
+
+\begin{proof}
+See \cite[Theorem 6.7]{Platonov-Rapinchuk}.
+\end{proof}
+
+Using Lang's theorem we can also deduce a result on Galois cohomology of groups over the ring of integers of a local field. Let $K$ be a local field with ring of integers $\mathcal{O}_{K}$. Let $G_{\mathcal{O}_{K}}$ be an algebraic group defined over $\mathcal{O}_{K}$ and let $L$ be a finite Galois extension of $K$. The Galois group $Gal(L/K)$ acts naturally on the $\mathcal{O}_{L}$-point of $G_{\mathcal{O}_{K}}$. We can define the Galois cohomology group $H^{1}(L/K, G_{\mathcal{O}_{K}})$.
+\begin{theorem}
+ \label{theorem-unramified-cohomology}
+If a connected group $G_{\mathcal{O}_{K}}$ has a connected smooth reduction $\underline{G_{\mathcal{O}_{K}}}$ and the extension $L/K$ is unramified, then $H^{1}(L/K, G_{\mathcal{O}_{K}})=1$.
+\end{theorem}
+
+\begin{proof}
+See \cite[Theorem 6.8]{Platonov-Rapinchuk}.
+\end{proof}
+
+\begin{remark}
+\label{remark-trivial-almost-everywhere}
+Let $L$ be a finite extension of a number field $K$. By the above theorem, if $G$ is a connected algebraic group over $K$, then for almost all finite places $v$ of $K$ and any $w$ a place of $L$ above $v$, we have $H^{1}(L_{w}/K_{v}, G_{\mathcal{O}_{K_{v}}})=1$. 
+\end{remark}
+
 
 
 \section{Tate--Nakayama duality for tori}
@@ -67,14 +153,14 @@ If $G$ is a (connected) simply connected, semisimple group over a non-Archimedea
 
 \begin{definition}
  \label{definition-Sha-Hasse}
-Let $G$ be an algebraic group over a global field $k$. The kernel of the natural map $H^1(k,G)\to \prod_v H^1(k_v, G)$ is the {\it Tate--Shafarevich group} of $G$, denoted $\Sha(G)$. We say that $G$ satisfies the {\it Hasse principle} if $\Sha(G)=1$.
+Let $G$ be an algebraic group over a global field $k$. The kernel of the natural map $H^1(k,G)\to \prod_v H^1(k_v, G)$ is the {\it Tate--Shafarevich group} of $G$, denoted $\text{Sha}(G)$. We say that $G$ satisfies the {\it Hasse principle} if $\text{Sha}(G)=1$.
 \end{definition}
 
 
 
 \begin{theorem}
  \label{theorem-Sha-finite}
- If $G$ is an algebraic group over a number field, then $\Sha(G)$ is finite.
+ If $G$ is an algebraic group over a number field, then $\text{Sha}(G)$ is finite.
 \end{theorem}
 
 \begin{proof}
@@ -82,16 +168,21 @@ Let $G$ be an algebraic group over a global field $k$. The kernel of the natural
 \end{proof}
 
 
-The following is the Hasse principle for algebraic groups:
+The following is the Hasse principle for algebraic groups, due to Kneser, Harder (who proved it for groups without $E_8$ factors)  and Chernousov (who completed the $E_8$ case) over number fields, and to Harder over function fields.
 
 \begin{theorem}
  \label{theorem-Hasse-principle}
-If $G$ is (connected and) simply connected or adjoint, over a global field, then $\Sha(G) =1$.
+If $G$ is (connected and) simply connected or adjoint over a global field, then $\text{Sha}(G) =1$.
 \end{theorem}
+
+
+\begin{proof}
+ See \cite[Theorems 6.6]{Platonov-Rapinchuk} for the number field case, and \cite[Theorems 6.22]{Platonov-Rapinchuk} for the reduction of the adjoint case to the simply connected case. The proof for number fields involves a difficult case-to-case analysis. For function fields, there is a general proof due to Harder, \cite{Harder-Galoiskohomologie}.
+\end{proof}
 
 \begin{proposition}
  \label{proposition-H1-surjects}
-If $G$ is a connected algebraic group over a number field $k$, then $H^1(k,G) \to \prod_{v|\infty} H^1(k_v, G)$ is surjective.
+If $G$ is a connected algebraic group over a global field $k$, then $H^1(k,G) \to \prod_{v|\infty} H^1(k_v, G)$ is surjective.
 \end{proposition}
 
 
