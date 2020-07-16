@@ -1,4 +1,6 @@
-[HAS TO BE UPDATED TO GERBY]
+[./tex/ stands for the latex folder, e.g., automorphic-project/]
+
+
 
 For a new chapter:
 
@@ -18,12 +20,4 @@ LIJST = [..] filename
 
 \externaldocument[newchapter-]{newchapter}
 
-6) ./tex/tags/tags:
-
-Create tags such as:
-
-0150,newchapter-section-phantom
-0151,newchapter-section-overview
-
-7) Add parts, accordingly, in ./index.php
 
