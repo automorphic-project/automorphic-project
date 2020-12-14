@@ -76,7 +76,7 @@ Therefore:
 \begin{lemma}
 \label{lemma-properties-Verma}
  \begin{enumerate}
-  \item $M_\lambda$ is $\mathfrak h$-locally finite and semisimple. The ($\mathfrak h$-)weights of $M_\lambda$ are of the form $\lambda - \sum_i c_i\alpha_i$, where $\alpha_i$ range over simple positive roots (we will denote their set by $\Delta$) and $c_i\in \mathbb Z$. The weight spaces are finite-dimensional, and the $\lambda$-weight space $M_\lambda^\lambda$ is one-dimensional.
+  \item $M_\lambda$ is $\mathfrak h$-locally finite and semisimple. The ($\mathfrak h$-)weights of $M_\lambda$ are of the form $\lambda - \sum_i c_i\alpha_i$, where $\alpha_i$ range over simple positive roots (we will denote their set by $\Delta$) and $c_i\in \mathbb Z_{\ge 0}$. The weight spaces are finite-dimensional, and the $\lambda$-weight space $M_\lambda^\lambda$ is one-dimensional.
  \item $M_\lambda$ is $\mathfrak n$-locally finite.
  \end{enumerate}
 \end{lemma}
@@ -499,7 +499,7 @@ Finally, we are ready to prove the \emph{Weyl character formula}:
 \begin{theorem}
 \label{theorem-Weyl-character}
 The character of the irreducible representation with heighest weight $\lambda$ is given by the \emph{Schur polynomial}:
-$$ \text{ch}_{V_\lambda} = \frac{\sum_{w\in W} \text{sgn}(w) e^{w(\lambda+\rho)}}{L}$$
+$$ \text{ch}_{V_\lambda} = \frac{\sum_{w\in W} \text{sgn}(w) e^{w(\lambda+\rho)}}{\Delta}$$
 \end{theorem}
 
 \begin{proof}
@@ -745,8 +745,10 @@ Consequently, the map $\sigma$ is injective away from the fiber of zero, does no
  
 \end{proof}
 
+\section{The Kazhdan--Lusztig conjectures}
+\label{section-Kazhdan-Lusztig}
 
-
+[TBA]
 
 \input{chapters}
 

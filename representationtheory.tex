@@ -423,7 +423,7 @@ where the $V_n$'s are Banach representations of $G$.
  
 Note that this is {\it stronger} than just a Fr\'echet representation of $G$: In a Fr\'echet representation, for every (continuous) seminorm $p$, and for every compact $K\subset G$, there is a seminorm $q$ such that 
 $$ p(\pi(g) (v)) \le q(v)$$
-for $g\in K$, $v\in V$. For an F-representation, there is a complete system of seminorms $p_n$ such that we can take $q_n=c_{K,n}\cdot p$, where $c_{K,n}$ is a scalar that depends on $K$ and $n$.
+for $g\in K$, $v\in V$. For an F-representation, there is a complete system of seminorms $p_n$ such that we can take $q_n=c_{K,n}\cdot p_n$, where $c_{K,n}$ is a scalar that depends on $K$ and $n$.
 
 Note that by Proposition \ref{proposition-rapiddecay-Banach}, the action of $M_c(G)$ on $V$ extends to the measures $M_{rd}(G)$ of rapid decay. 
 
@@ -539,7 +539,7 @@ Let $\pi$ be a unitary representation of $G$, and denote by the same symbol the 
 
 To show the reverse direction, we start with a nondegenerate representation $(\pi, V)$ of $C^*(G)$, and let $V' =\pi(C_c(G)dg)V$, a dense subspace of $V$. Choose an approximation $(\mu_n)_n \in C_c(G)dg$ of the identity, and let $\delta_g$ denote the delta measure at $g\in G$. Then, for every $g\in G$ and $v\in V'$, the limit $\pi(g):=\lim_n \pi(\mu_n\star \delta_g) v$ exists, since $v$ can be written as $\pi(f)v'$, and $\pi(\mu_n\star \delta_g) \pi(f) = \pi(\mu_n\star \delta_g \star f)$, and $\mu_n\star \delta_g \star f \to \delta_g \star f$ in $L^1(G)$, hence also in $C^*(G)$. Since $\Vert \pi(\mu_n\star \delta_g)\Vert \le \Vert \mu_n\star \delta_g\Vert_{L^1(G)} = 1$, the resulting operator $\pi(g)$ on $V'$ has bounded norm, hence extends to an element of $B(V)$.  Finally, for any fixed $n$ and any net $g_i\to g \in G$, we have that $\mu_n\star \delta_{g_i} \to \mu_n\star \delta_g$ in $L^1(G)$, and this shows continuity of the resulting map $G\times V\to V$. 
 
-We have $(\mu_n\star \delta_g)^* = \delta_{g^{-1}} \star \mu_n^*$, which is an approximation of $\delta_{g^{-1}}$, and this shows that $\pi(g^{-1}) = \pi(g)$, i.e., the representation is unitary. It is easy to see that we have constructed two inverse functors between unitary representations of $G$ and nondegenerate representations of $C^*(G)$, and that they are faithful, hence give rise to an equivalence of categories.
+We have $(\mu_n\star \delta_g)^* = \delta_{g^{-1}} \star \mu_n^*$, which is an approximation of $\delta_{g^{-1}}$, and this shows that $\pi(g^{-1}) = \pi(g)^*$, i.e., the representation is unitary. It is easy to see that we have constructed two inverse functors between unitary representations of $G$ and nondegenerate representations of $C^*(G)$, and that they are faithful, hence give rise to an equivalence of categories.
 \end{proof}
 
 

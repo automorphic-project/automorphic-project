@@ -22,12 +22,12 @@
 We pass to the study of linear algebraic groups, over a general field $k$. [The rest of this chapter is quite incomplete; it strives to become complete some day, though, so if you notice any omissions/gaps in the arguments, that are not noted, please notify!]
 
 
-The definitions will follow a different order than in the case of Lie algebras, because we want to distinguish between the additive group $\mathbf G_a = \text{Spec} k[T]$ and the multiplicative group $\mathbf G_m = \text{Spec} k[T,T^{-1}]$, whose Lie algebras are the same. It is easy to see that \emph{there are no non-trivial morphisms between these two groups}. 
+The definitions will follow a different order than in the case of Lie algebras, because we want to distinguish between the additive group $\mathbb G_a = \text{Spec} k[T]$ and the multiplicative group $\mathbb G_m = \text{Spec} k[T,T^{-1}]$, whose Lie algebras are the same. It is easy to see that \emph{there are no non-trivial morphisms between these two groups}. 
 
 
 \begin{definition}
 \label{definition-characters-diagonalizable-group} 
-The {\it character group} $X^\bullet(G)$ of a linear algebraic group $G$ is the group of morphisms $G\to \mathbf G_m$. 
+The {\it character group} $X^\bullet(G)$ of a linear algebraic group $G$ is the group of morphisms $G\to \mathbb G_m$. 
 A linear algebraic group $G$ over an field $k$ is called \emph{diagonalizable} if $\bar k[G]$ is spanned, as a vector space, by the $\bar k$-rational characters: $\bar k[G] = \bar k[X_\bullet(G_{\bar k})]$. A {\it torus} is a connected diagonalizable group. A diagonalizable group $G$ is said to be {\it split} if $X^\bullet(G) = X^\bullet(G_{\bar k})$.
 \end{definition}
 
@@ -129,7 +129,7 @@ If we consider any faithful representation $G\to \text{End}(\mathfrak g)$, the i
 
 \begin{definition}
 \label{definition-split-solvable}
- A solvable algebraic group over a field $k$ is said to be {\it split} if it has a filtration over $k$ whose graded pieces are isomorphic to $\mathbf G_m$ or $\mathbf G_a$.
+ A solvable algebraic group over a field $k$ is said to be {\it split} if it has a filtration over $k$ whose graded pieces are isomorphic to $\mathbb G_m$ or $\mathbb G_a$.
 \end{definition}
 
 \begin{lemma}
@@ -143,7 +143,7 @@ If we consider any faithful representation $G\to \text{End}(\mathfrak g)$, the i
 
 \begin{proposition}
  \label{proposition-Levi-solvable}
-If $G$ is a split solvable linear algebraic group over a field $k$, all maximal tori in $G$ are $G(k)$-conjugate. If $T$ is a maximal torus, then $G$ is the semidirect product $G=T\mathcal U(G)$, and any semisimple element in $G$ is conjugate to an element of $T$. 
+If $G$ is a split solvable linear algebraic group over a field $k$, all maximal tori in $G$ are $G(k)$-conjugate. If $T$ is a maximal torus, then $G$ is the semidirect product $G=T\mathcal R_u(G)$, and any semisimple element in $G$ is conjugate to an element of $T$. 
 \end{proposition}
 
 \begin{proof}
@@ -163,7 +163,7 @@ The analog of Lie's theorem \ref{liestructure-theorem-Lie} is
 The reason that this is the analog of Lie's theorem is that, if $G$ acts on a vector space $V$, and $X$ is the flag variety classifying full flags in $G$, then the fixed point corresponds to a flag fixed by $G$. Notice that, unlike the Lie algebra version, there is not requirement of characteristic zero here.
 
 \begin{proof}
- By induction on the dimension $d$ of $G$, the case $d=0$ being trivial. Let $G'\subset G$ be normal of codimension one with $G/G'\simeq \mathbf G_m$ or $\mathbf G_a$, then, by induction, the fixed-point subvariety $X^{G'}$ has a nonempty set of $k$-points, so we may replace $X$ by $X^{G'}$ and $G$ by $G/G'$, reducing us to the case where $G=\mathbf G_m$ or $\mathbf G_a$. Choose $x\in X(k)$, obtaining an orbit map $G\ni g\mapsto gx\in X$.  Then, thinking of $G$ as embedded inside of $\mathbf P^1$, by the valuative criterion for properness the map extends to a map $\varphi:\mathbf P^1\to X$. This extension is $G$-equivariant, because $X$ is proper, hence separated, hence ``limits are unique'', i.e., writing $\lim \gamma$ for specialization of the extension to the spectrum of a valuation ring $\mathfrak o$ of a map $\gamma$ from the spectrum of its quotient field $K$, if $\gamma: \text{Spec K} \to G$ then $\varphi(\lim \gamma) = \lim (\varphi \circ \gamma)$. Therefore, for every $g\in G$ we have $g\cdot \varphi(\lim \gamma) = g\cdot \lim (\varphi\circ\gamma) = \lim( g\cdot \varphi\circ\gamma) = \lim(\varphi(g\cdot \gamma))$ (because $\varphi$ is equivariant on $G$) $= \varphi(\lim (g\cdot\gamma))$. 
+ By induction on the dimension $d$ of $G$, the case $d=0$ being trivial. Let $G'\subset G$ be normal of codimension one with $G/G'\simeq \mathbb G_m$ or $\mathbb G_a$, then, by induction, the fixed-point subvariety $X^{G'}$ has a nonempty set of $k$-points, so we may replace $X$ by $X^{G'}$ and $G$ by $G/G'$, reducing us to the case where $G=\mathbb G_m$ or $\mathbb G_a$. Choose $x\in X(k)$, obtaining an orbit map $G\ni g\mapsto gx\in X$.  Then, thinking of $G$ as embedded inside of $\mathbf P^1$, by the valuative criterion for properness the map extends to a map $\varphi:\mathbf P^1\to X$. This extension is $G$-equivariant, because $X$ is proper, hence separated, hence ``limits are unique'', i.e., writing $\lim \gamma$ for specialization of the extension to the spectrum of a valuation ring $\mathfrak o$ of a map $\gamma$ from the spectrum of its quotient field $K$, if $\gamma: \text{Spec K} \to G$ then $\varphi(\lim \gamma) = \lim (\varphi \circ \gamma)$. Therefore, for every $g\in G$ we have $g\cdot \varphi(\lim \gamma) = g\cdot \lim (\varphi\circ\gamma) = \lim( g\cdot \varphi\circ\gamma) = \lim(\varphi(g\cdot \gamma))$ (because $\varphi$ is equivariant on $G$) $= \varphi(\lim (g\cdot\gamma))$. 
  
  The image of $\infty\in \mathbf P^1$ will be the desired $G$-fixed point on $X(k)$.
 \end{proof}
@@ -173,12 +173,12 @@ The reason that this is the analog of Lie's theorem is that, if $G$ acts on a ve
 
 \begin{definition}
 \label{definition-reductive}
-The {\it radical} $\mathcal R(G)$ of an algebraic group $G$ is its maximal connected solvable normal subgroup. The {\it unipotent radical} $\mathcal U(G)$ of a linear algebraic group $G$ is its maximal connected unipotent normal subgroup. A group is {\it reductive} if its unipotent radical over the algebraic closure, $\mathcal U(G_{\bar k})$, is trivial, and {\it semisimple} if $\mathcal R(G)=1$.
+The {\it radical} $\mathcal R(G)$ of an algebraic group $G$ is its maximal connected solvable normal subgroup. The {\it unipotent radical} $\mathcal R_u(G)$ of a linear algebraic group $G$ is its maximal connected unipotent normal subgroup. A group is {\it reductive} if its unipotent radical over the algebraic closure, $\mathcal R_u(G_{\bar k})$, is trivial, and {\it semisimple} if $\mathcal R(G)=1$.
 \end{definition}
 
 \begin{remark}
  \label{remark-unipotent-radical}
-If $k$ is perfect, then $\mathcal U(G_{\bar k}) = \mathcal U(G)_{\bar k}$. However, for non-perfect fields, the absolute unipotent radical could be larger; for example, consider a purely inseparable extension $k'/k$, and let $G = \text{Res}_{k'/k}\text{GL}_1$. Its $k$-unipotent radical is trivial, but its $k'$-unipotent radical is not. [Exercise!]
+If $k$ is perfect, then $\mathcal R_u(G_{\bar k}) = \mathcal R_u(G)_{\bar k}$. However, for non-perfect fields, the absolute unipotent radical could be larger; for example, consider a (nontrivial) finite, purely inseparable extension $k'/k$, and let $G = \text{Res}_{k'/k}\text{GL}_1$. Its $k$-unipotent radical is trivial, but its $k'$-unipotent radical is not. [Exercise!]
 \end{remark}
 
 
@@ -186,12 +186,12 @@ If $k$ is perfect, then $\mathcal U(G_{\bar k}) = \mathcal U(G)_{\bar k}$. Howev
 \section{One-parameter subgroups and the associated parabolics}
 \label{section-one-parameter}
 
-Let $\lambda:\mathbf{G}_m \to G$ be a cocharacter --- also called a ``one-parameter subgroup''. We let it $\mathbf G_m$ act on $G$ by conjugation via this character: $^{\lambda(a)}g:= \lambda(a) g \lambda(a)^{-1}$.
+Let $\lambda:\mathbf{G}_m \to G$ be a cocharacter --- also called a ``one-parameter subgroup''. We let it $\mathbb G_m$ act on $G$ by conjugation via this character: $^{\lambda(a)}g:= \lambda(a) g \lambda(a)^{-1}$.
 
 We let 
 $$P(\lambda)=\{g\in G| \lim_{t\to 0} {^{\lambda(t)}g} \mbox{ exists}\},$$  
 $$U(\lambda)=\{g\in G| \lim_{t\to 0} {^{\lambda(t)}g} =1\},$$
-$$L(\lambda)= G^{\lambda(\mathbf G_m)},\mbox{ the centralizer of }\lambda.$$
+$$L(\lambda)= G^{\lambda(\mathbb G_m)},\mbox{ the centralizer of }\lambda.$$
 
 A priori, these groups could be non-reduced, but the following proposition states that this is not the case:
 
@@ -207,17 +207,6 @@ is an open immersion (embedding).
 \end{proof}
 
 
-\begin{definition}
- \label{definition-Levi-decomposition}
-The decomposition $P(\lambda)=L(\lambda)U(\lambda)$ of Proposition \ref{proposition-cocharacters-parabolics} is called a \emph{Levi decomposition} of the parabolic $P(\lambda)$. 
-\end{definition}
-
-\begin{remark}
- \label{remark-general-Levi}
- More generally, a Levi decomposition of a connected linear group $G$ is a semidirect decomposition $G=L\cdot \mathcal U(G)$, where $\mathcal U(G)$ is the unipotent radical of $G$. Levi decompositions always exist in characteristic zero, but not in positive characteristic.
-\end{remark}
-
-
 
 
 This implies:
@@ -228,8 +217,33 @@ This implies:
 \end{proposition}
 
 \begin{proof}
- We may assume that $k=\bar k$. If $T=T_1T_2$, where the $T_i$'s are tori of smaller dimension, then the centralizer of $T$ in $G$ is equal to the centralizer of $T_1$ inside of the centralizer of $T_2$. This way, the problem reduces to $\text{dim}(T)=1$. Let $\lambda:\mathbf G_m\to G$ be a nontrivial cocharacter, whose image is $T$. Then the claim follows from Proposition \ref{proposition-cocharacters-parabolics}.
+ We may assume that $k=\bar k$. If $T=T_1T_2$, where the $T_i$'s are tori of smaller dimension, then the centralizer of $T$ in $G$ is equal to the centralizer of $T_1$ inside of the centralizer of $T_2$. This way, the problem reduces to $\text{dim}(T)=1$. Let $\lambda:\mathbb G_m\to G$ be a nontrivial cocharacter, whose image is $T$. Then the claim follows from Proposition \ref{proposition-cocharacters-parabolics}.
 \end{proof}
+
+
+\begin{definition}
+ \label{definition-parabolic}
+A subgroup $P$ of a linear algebraic group $G$ is called {\it parabolic} if the quotient $G/P$ is proper (equivalently: projective). 
+\end{definition}
+
+
+
+\begin{definition}
+ \label{definition-Levi-decomposition}
+A {\it Levi decomposition} of a connected linear group $G$ is a semidirect decomposition $G=L\cdot \mathcal R_u(G)$, where $\mathcal R_u(G)$ is the unipotent radical of $G$. 
+\end{definition}
+
+Levi decompositions always exist in characteristic zero, but not in positive characteristic.
+
+\begin{theorem}
+ \label{theorem-parabolics-in-reductive}
+If $G$ is a connected reductive group, the parabolics are precisely the subgroups of the form $P(\lambda)$, and the decomposition $P(\lambda)=L(\lambda)U(\lambda)$ is a Levi decomposition.
+\end{theorem}
+
+\begin{proof}
+ ~ [Omitted, for now.]
+\end{proof}
+
 
 
 
@@ -244,7 +258,7 @@ For the definitions that follow, there are slight variants in the literature, e.
 
 \begin{definition}
 \label{definition-Cartan-Borel-subgroup}
-A {\it Borel subgroup} of a linear algebraic group over an algebraically closed field is a maximal connected solvable subgroup. A {\it Cartan subgroup} is the identity component of the centralizer of a maximal torus. 
+A {\it Borel subgroup} of a linear algebraic group $G$ over a field $k$ is a subgroup $B\subset G$ over $k$ such that, over an algebraic closure $\bar k$, $B_{\bar k}$ is a maximal connected solvable subgroup of $G_{\bar k}$. A {\it Cartan subgroup} is the identity component of the centralizer of a maximal torus. 
 \end{definition}
 
 \begin{remark}
@@ -256,10 +270,10 @@ If $G$ is connected then, by Proposition \ref{proposition-centralizers-tori-conn
 
 \begin{theorem}
 \label{theorem-Borel-subgroups-conjugate}
-A connected solvable subgroup is Borel (i.e., maximal) if and only if the quotient $G/B$ is projective. All Borel subgroups are conjugate over the algebraic closure.
+A connected solvable subgroup is Borel if and only if the quotient $G/B$ is projective. All Borel subgroups are conjugate over the algebraic closure.
 \end{theorem}
 
-We will eventually see that all Borel subgroups defined over the base field $k$ (if there are any) are conjugate under $G(k)$.
+We will eventually see that, in any connected reductive group $G$, all Borel subgroups defined over the base field $k$ (if there are any) are conjugate under $G(k)$. (The statement remains true without the assumption of reductivity, but is  harder to show if $k$ is not perfect, because it requires structure theory for pseudo-reductive groups.)
 
 \begin{proof}
  
@@ -325,7 +339,7 @@ If $G$ is a connected linear algebraic group over a field $k$, then maximal $k$-
 \end{theorem}
 
 \begin{proof}
- [Omitted, for now]
+~ [Omitted, for now]
 \end{proof}
 
 
@@ -362,7 +376,7 @@ Let $B$ be a Borel subgroup of a reductive group $G$ over a field $k$. The norma
   
 The commutator map $t\mapsto g t g^{-1} t^{-1}$ is a homomorphism $T\to T$. There are two cases:
 \begin{enumerate}
- \item The kernel of this map, i.e., the fixed-point set $S=T^g$, is finite. Then, for dimension reasons, the commutator map is surjective. In particular, if $B'$ is the group generated by $B$ and $g$, any character $B'\to \mathbf G_m$ is trivial on $B$ (because $B=TU$, where $U$ is its unipotent radical, and characters are trivial on unipotent groups and commutators). By \ref{liegroups-general-theorem-quotients}, there is a representation $G\to \text{GL}(V)$ where $B'$ is the stabilizer of a line, acting it via a character $B'\to \mathbf G_m$. Since that character is trivial on $B$, we obtain a map $G/B\to V$, which has to be constant because $G/B$ is projective (Theorem \ref{theorem-Borel-subgroups-conjugate}). Therefore, $G\subset B'$, which means that $g\in G = B$. 
+ \item The kernel of this map, i.e., the fixed-point set $S=T^g$, is finite. Then, for dimension reasons, the commutator map is surjective. In particular, if $B'$ is the group generated by $B$ and $g$, any character $B'\to \mathbb G_m$ is trivial on $B$ (because $B=TU$, where $U$ is its unipotent radical, and characters are trivial on unipotent groups and commutators). By \ref{liegroups-general-theorem-quotients}, there is a representation $G\to \text{GL}(V)$ where $B'$ is the stabilizer of a line, acting it via a character $B'\to \mathbb G_m$. Since that character is trivial on $B$, we obtain a map $G/B\to V$, which has to be constant because $G/B$ is projective (Theorem \ref{theorem-Borel-subgroups-conjugate}). Therefore, $G\subset B'$, which means that $g\in G = B$. 
  
  \item The fixed-point set $S=T^g$ is infinite. Then we can replace $G$ by a group of smaller dimension, which is either $G/S^\circ$ (if $S^\circ$ is central) or the centralizer of $S^\circ$ (if $S^\circ$ is not central), which is connected by Proposition \ref{proposition-centralizers-tori-connected}. By an inductive argument, the proof is complete.
 \end{enumerate}

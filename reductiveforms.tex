@@ -27,7 +27,7 @@ We saw in Theorem \ref{algebraicgroups-theorem-diagonalizable-equivalence} a sim
 
 Let $G$ be reductive (over $k$), and let $T$ be a maximal torus in $G$. Let $X^\bullet(T)$, $X_\bullet(T)$ be the character and cocharacter groups of $T$. The adjoint action of $T$ on $\mathfrak g$ is semisimple, and we have a decomposition 
 $$\mathfrak g = \mathfrak g_0 \oplus \bigoplus_{\alpha\in\Phi} \mathfrak g_\alpha,$$
-where the $\alpha$'s, here, are eigencharacters $\alpha: T\to \mathbf G_m$. 
+where the $\alpha$'s, here, are eigencharacters $\alpha: T\to \mathbb G_m$. 
 
 By Proposition \ref{algebraicgroups-proposition-Cartan-reductive}, $\mathfrak g_0$ is just the Lie algebra of $T$, however, \emph{to accommodate the case of positive characteristic}, we will not be using $\mathfrak t$ to denote this Lie algebra, but the real vector space
 $$ \mathfrak t = X_\bullet(T)\otimes \mathbb R$$
@@ -73,7 +73,7 @@ We now define the appropriate notion of morphisms between root data.
 
 \begin{proposition}
 \label{proposition-simple-reflections}
- Given a connected reductive group $G$ and a maximal torus $T$ with set of roots $\Phi\subset X^*(T)$, and given $\alpha\in \Phi$, consider the subtorus $T_\alpha=\text{ker}(\alpha)^\circ\subset T$. Let $L_\alpha$ be the centralizer of $T_\alpha$ (which is connected by Proposition \ref{algebraicgroups-proposition-centralizers-tori-connected}, and $L_\alpha'$ its derived subgroup. Then $L_\alpha'$ is isomorphic to $\text{SL}_2$ or $\text{PGL}_2$, and therefore there is a unique cocharacter $\check\alpha:\mathbf G_m\to T\cap L_{\alpha}'$ with $\left< \alpha, \check\alpha\right>=2$. If $w_\alpha$ is the nontrivial element of the Weyl group of $T$ inside of $L_\alpha'$, then the elements $w_\alpha$ generate the full Weyl group of $T$ in $G$, $W = \mathcal N_G(T)/T$.
+ Given a connected reductive group $G$ and a maximal torus $T$ with set of roots $\Phi\subset X^*(T)$, and given $\alpha\in \Phi$, consider the subtorus $T_\alpha=\text{ker}(\alpha)^\circ\subset T$. Let $L_\alpha$ be the centralizer of $T_\alpha$ (which is connected by Proposition \ref{algebraicgroups-proposition-centralizers-tori-connected}, and $L_\alpha'$ its derived subgroup. Then $L_\alpha'$ is isomorphic to $\text{SL}_2$ or $\text{PGL}_2$, and therefore there is a unique cocharacter $\check\alpha:\mathbb G_m\to T\cap L_{\alpha}'$ with $\left< \alpha, \check\alpha\right>=2$. If $w_\alpha$ is the nontrivial element of the Weyl group of $T$ inside of $L_\alpha'$, then the elements $w_\alpha$ generate the full Weyl group of $T$ in $G$, $W = \mathcal N_G(T)/T$.
 \end{proposition}
 
 \begin{proof}
@@ -88,12 +88,13 @@ In the notation of Proposition \ref{proposition-simple-reflections}, the element
 
 \begin{definition}
 \label{definition-central-isogeny}
- Let $(G,T)$, $(G',T')$ be two pairs consisting of a connected reductive group and a maximal torus. A {\it central isogeny} $(G',T')\to (G,T)$ is a morphism $G'\to G$ sending $T'\to T$, surjective, with finite kernel, and inducing isomorphisms between the root spaces of $T'$ and $T$ in $\mathfrak g'$, resp.\ $\mathfrak g$. A central isogeny $G'\to G$ is a morphism  which induces a central isogeny $(G',T')\to (G,T)$ for some maximal tori $T', T$ (or, equivalently, for any maximal torus $T'$, and $T$ the image of $T'$). 
+ Let $(G,T)$, $(G',T')$ be two pairs consisting of a connected reductive group and a maximal torus. A {\it central isogeny} $(G',T')\to (G,T)$ is a morphism $G'\to G$ sending $T'\to T$, surjective, whose kernel is a finite central group scheme. A central isogeny $G'\to G$ is a morphism  which induces a central isogeny $(G',T')\to (G,T)$ for some maximal tori $T', T$ (or, equivalently, for any maximal torus $T'$, and $T$ the image of $T'$). 
 \end{definition}
 
 \begin{remark}
  \label{remark-on-central-isogenies}
-A surjective morphism $(G',T')\to (G,T)$ with finite kernel gives rise to an injective map $X^*(T)\to X^*(T')$ with finite cokernel, and a bijection between the roots of $T$ on $G$ and the roots of $T'$ on $G'$. The requirement that the map induce an isomorphism between root spaces: $\mathfrak g_\alpha'\to \mathfrak g_\alpha$ is automatically satisfied in characteristic zero, but not in positive characteristic. For example, if $G$ is defined over a finite field with $q$ elements, the Frobenius morphism $F_q$ (see the proof of Theorem \ref{algebraicgroups-theorem-maximal-tori-exist}) restricts to the Frobenius morphism on the subgroups $\mathfrak g_\alpha\simeq \mathbf G_a$, which is not an isomorphism.
+A surjective morphism $(G',T')\to (G,T)$ with finite kernel gives rise to an injective map $X^*(T)\to X^*(T')$ with finite cokernel, and a bijection between the roots of $T$ on $G$ and the roots of $T'$ on $G'$. The requirement that the kernel be a central group scheme can be reformulated as follows: the map induces isomorphisms between the corresponding root spaces of $T'$ and $T$ in $\mathfrak g'$, resp.\ $\mathfrak g$.
+This requirement is automatically satisfied in characteristic zero, but not in positive characteristic. For example, if $G$ is defined over a finite field with $q$ elements, the Frobenius morphism $F_q$ (see the proof of Theorem \ref{algebraicgroups-theorem-maximal-tori-exist}) restricts to the Frobenius morphism on the subgroups $\mathfrak g_\alpha\simeq \mathbb G_a$, which is not an isomorphism. The kernel of Frobenius on $\mathfrak g_\alpha$ does not have any nontrivial points over the finite field, but it is not a central group scheme. 
 \end{remark}
 
 
@@ -101,7 +102,7 @@ Now we define some categories of reductive groups with extra data that will be u
 
 \begin{definition}
  \label{definition-reductive-categories}
-We let $Red$ be the category whose objects are reductive groups $G$ over $k$, and whose morphisms are central isogenies $G'\to G$. We let $Red_T$ be the category whose objects are pairs $(G\supset T)$ of reductive groups with maximal tori, and whose morphisms are central isogenies of pairs $(G',T')\to (G,T)$. We let $Red_{B,T}$ be the category whose objects are triples $(G\supset B\supset T)$ of reductive groups with Borel subgroups and maximal tori thereof, and whose morphisms are central isogenies of pairs $(G',T')\to (G,T)$ sending $B'$ to $B$.
+We let $Red$ be the category whose objects are connected reductive groups $G$ over $k$, and whose morphisms are central isogenies $G'\to G$. We let $Red_T$ be the category whose objects are pairs $(G\supset T)$ of reductive groups with maximal tori, and whose morphisms are central isogenies of pairs $(G',T')\to (G,T)$. We let $Red_{B,T}$ be the category whose objects are triples $(G\supset B\supset T)$ of reductive groups with Borel subgroups and maximal tori thereof, and whose morphisms are central isogenies of pairs $(G',T')\to (G,T)$ sending $B'$ to $B$.
 
 We let $RD$ be the category whose objects are root data $(X,\Phi, \check X,\check\Phi)$ and whose morphisms are central isogenies. We let $RD^+$ be the category whose objects are root data, together with a choice $\Phi^+\subset \Phi$ of positive roots.
 \end{definition}
@@ -138,9 +139,9 @@ If, in the context of Theorem \ref{theorem-classification-reductive}, we choose 
 
 \begin{definition}
  \label{definition-pinning}
-A {\it pinning} of a triple $(G, B, T)$ consisting of a connected reductive group $G$, a Borel subgroup,  and a maximal torus $T$ is a choice of isomorphisms $p_\alpha:\mathfrak g_\alpha \simeq \mathbf G_a$, for every simple root $\alpha\in \Delta$.
+A {\it pinning} of a triple $(G, B, T)$ consisting of a connected reductive group $G$, a Borel subgroup,  and a maximal torus $T$ is a choice of isomorphisms $p_\alpha:\mathfrak g_\alpha \simeq \mathbb G_a$, for every simple root $\alpha\in \Delta$.
 
-Given a pair $(G,B)$ of a connected reductive group and a Borel subgroup, whose unipotent radical we will denote by $N$, an {\it algebraic Whittaker datum} is a homomorphism $\ell:N\to \mathbf G_a$ whose differential is nontrivial on every simple root subspace $\mathfrak g_\alpha$. (In particular, its differential induces a pinning; vice versa, given a pinning as above, there is a unique such $\ell$ with $d\ell|_{\mathfrak g_\alpha} = p_\alpha$.)
+Given a pair $(G,B)$ of a connected reductive group and a Borel subgroup, whose unipotent radical we will denote by $N$, an {\it algebraic Whittaker datum} is a homomorphism $\ell:N\to \mathbb G_a$ which restricts to a nontrivial linear map on the one-parameter subgroup $G_\alpha\simeq \mathbb G_a$ associated to every simple root $\alpha$. (In particular, its differential induces a pinning; vice versa, given a pinning as above, there is a unique such $\ell$ with $d\ell|_{\mathfrak g_\alpha} = p_\alpha$.)
 
 We let $Red_{\text{PIN}}$ denote the category whose objects are pinned reductive groups, and whose morphisms are central isogenies preserving the Borel, the torus, and the pinning.
 \end{definition}
@@ -170,7 +171,7 @@ The association $G\to \mathbb A^G$ is functorial in the category $Red$ of reduct
 
 \begin{theorem}
 \label{theorem-classification-with-universal-Cartan}
-The assignment $G \to \Psi^+(\mathbb A^G)$ is a functor $Red\to (RD^+)^{\text{op}}$, in the notation of Definition \ref{definition-reductive-categories}. It induces a bijection on isomorphism classes of objects, and for any morphism $\Psi^+(\mathbb A^{G}) \to \Psi^+(\mathbb A^{G'})$ there is a morphism $G'\to G$, unique up to inner automorphisms.
+The assignment $G \mapsto \Psi^+(\mathbb A^G)$ is a functor $Red\to (RD^+)^{\text{op}}$, in the notation of Definition \ref{definition-reductive-categories}. It induces a bijection on isomorphism classes of objects, and for any morphism $\Psi^+(\mathbb A^{G}) \to \Psi^+(\mathbb A^{G'})$ there is a morphism $G'\to G$, unique up to inner automorphisms.
 \end{theorem}
 
 \begin{proof}
@@ -195,17 +196,23 @@ Assume this to be the case, so that we have containments with finite quotients $
 
 \begin{definition}
  \label{definition-sc-adjoint-group}
-A reductive group is {\it adjoint} if it has trivial center, and {\it simply connected} if it admits no (connected) central isogenies.
+A reductive group is {\it adjoint} if it has trivial center, and {\it simply connected} if it admits no nontrivial central isogeny from a connected smooth group over $k$.
 \end{definition}
 
 The relationship between this notion of being simply connected, and the algebrogeometric one, will become clear in Proposition  \ref{proposition-sc-adjoint-group} and Remark \ref{remark-sc}.
+
+\begin{remark}
+ \label{remark-central-groupscheme}
+The ``center'' mentioned in Definition \ref{definition-sc-adjoint-group} needs to be understood as a group scheme. For example, the center of $\text{SL}_p$ in characteristic $p$ is the nontrivial group scheme $\mu_p$ of $p$-th roots of unity (which has only one point over $\overline{\mathbb F_p}$).
+\end{remark}
+
 
 
 
 
 \begin{proposition}
  \label{proposition-sc-adjoint-group}
-Let $(G,T)$ be a connected reductive group with a maximal torus over a field $k$, and let $\Psi(G,T)$ be the associated root datum.
+Let $(G,T)$ be a connected reductive group with a maximal torus over $k$, and let $\Psi(G,T)$ be the associated root datum.
 \begin{enumerate}
 \item $G$ is semisimple iff $\Psi(G,T)$ is semisimple.
 \item $G$ is adjoint iff $\Psi(G,T)$ is adjoint.
@@ -247,6 +254,8 @@ In positive characteristic, the \'etale fundamental group is always infinite, fo
 Given an automorphism $f:X\to X$ of an affine variety $X$ over a field $k$, its defining homomorphism $f^*:k[X]\to k[X]$ restricts to an automorphism $V\to V$ on a generating, finite-dimensional subspace $V$ of $k[X]$. Therefore, the automorphism group $\text{Aut}(X)$ has a natural structure as the ind-algebraic group
 $$ \underset{\underset{V}\to}\lim \text{Aut}(X,V),$$
 where $V$ runs over all finite-dimensional, generating subspaces of $k[X]$, and $\text{Aut}(X,V)\subset \text{GL}(V)$ is the subgroup of those automorphisms of $V$ (as a vector space) which induce an automorphism of $X$ (as an algebraic variety).
+
+%Todo: Introduce the automorphism group as a functor.
 
 \begin{definition}
  \label{definition-automorphism-group}
@@ -291,15 +300,15 @@ Let $G$ be a linear algebraic group over a field $k$ or over an extension $L/k$.
 
 The goal of this section is to explain how isomorphism classes of forms of $G$ are described by the Galois cohomology set $H^1(\Gamma, \text{Aut}(G_{k^s}))$, where $\Gamma = \text{Gal}(k^s/k)$, the Galois group of the separable closure of $k$. There is nothing special about classification of linear algebraic groups here --- the same arguments apply to any category of objects that satisfy \emph{effective descent}. We introduce these notions in some generality, but not the full generality of faithfully flat descent (see \cite[Tag 0238]{stacks-project}).
 
-Let $Aff_k$ be the category of affine schemes over the field $k$. A \emph{k-groupoid} is a category with a functor $\mathcal F\to Aff_k$ satisfying two axioms, which can be summarized as ``base change exists'', and ``fiber categories are groupoids''. To formulate them, denote by $\mathcal F_U$ the full subcategory living over an object $U\in Aff_k$. The axioms are:
+Let $\text{Aff}_k$ be the category of affine schemes over the field $k$. A \emph{k-groupoid} is a category with a functor $\mathcal F\to \text{Aff}_k$ satisfying two axioms, which can be summarized as ``base change exists'', and ``fiber categories are groupoids''. To formulate them, denote by $\mathcal F_U$ the full subcategory living over an object $U\in \text{Aff}_k$. The axioms are:
 \begin{enumerate}
- \item Given $U\in Aff_k$, $u\in \mathcal F_U$, and $f:V\to U$ a morphism, there exists a morphism $\tilde f:v\to u$ in $\mathcal F$ lying over $f$.
- \item For any pair of morphisms $\tilde f: u\to z$, $\tilde g: v\to z$ in $\mathcal F$, lying over $f:U\to Z$ and $g:V\to Z$ in $Aff_k$, and any $h: U\to V$ with $f = g\circ h$, there exists a unique lift $\tilde h: u\to v$ with $\tilde f = \tilde g \circ \tilde h$.
+ \item Given $U\in \text{Aff}_k$, $u\in \mathcal F_U$, and $f:V\to U$ a morphism, there exists a morphism $\tilde f:v\to u$ in $\mathcal F$ lying over $f$.
+ \item For any pair of morphisms $\tilde f: u\to z$, $\tilde g: v\to z$ in $\mathcal F$, lying over $f:U\to Z$ and $g:V\to Z$ in $\text{Aff}_k$, and any $h: U\to V$ with $f = g\circ h$, there exists a unique lift $\tilde h: u\to v$ with $\tilde f = \tilde g \circ \tilde h$.
 \end{enumerate}
 
 If $v$ is as in the first axiom, we will feel free to write $v=u_V$, i.e., as a base change of $u$. Notice that, for every other choice $v'$, the second axiom provides a canonical isomorphism $v'\to v$, corresponding to the identity map on $V$. For $f: V\to U$ and $u\in \mathcal F_U$, one has a unique morphism $u_V\to u'_V$ over any morphism $\phi: u\to u'$; we will be denoting that by $f^*\phi$. For a composition $W\to V\to U$, we will feel free to identify $(u_V)_W$ with $u_W$ --- see \cite[Tag 02XN]{stacks-project} for a clarification of these issues. 
 
-Now consider a Grothendieck topology on $Aff_k$, turning it into a site. For notational simplicity, we will represent every cover as a single morphism $U\to X$, instead of a family of morphisms. The groupoid $\mathcal F \to Aff_k$ is called a \emph{prestack} (of groupoids) if, for any $U\in Aff_k$, and any $x,y \in \mathcal F_U$, the presheaf $V\mapsto \text{Mor}(x_V,y_V)$ is a sheaf on the site $Aff_U$, and it is called a \emph{stack} (of groupoids) if \emph{descent data are effective}. 
+Now consider a Grothendieck topology on $\text{Aff}_k$, turning it into a site. For notational simplicity, we will represent every cover as a single morphism $U\to X$, instead of a family of morphisms. The groupoid $\mathcal F \to \text{Aff}_k$ is called a \emph{prestack} (of groupoids) if, for any $U\in \text{Aff}_k$, and any $x,y \in \mathcal F_U$, the presheaf $V\mapsto \text{Mor}(x_V,y_V)$ is a sheaf on the site $\text{Aff}_U$, and it is called a \emph{stack} (of groupoids) if \emph{descent data are effective}. 
 
 These are two conditions that need to be formulated for arbitrary covers, but we just explain their meaning for the case of covers corresponding to finite Galois extensions $L/k$ with Galois group $\Gamma$; the generalization to arbitrary $U$ and arbitrary covers is straightforward, see \cite[Tag 0268]{stacks-project}. 
 
@@ -484,8 +493,8 @@ Let $G$ be a connected reductive group, $\mathcal B$ its flag variety of Borel s
 We recall that ``linearization'' means an action of the group on the bundle, i.e., on its sheaf of sections, compatible with its action on the base, i.e., an isomorphism of the two pullbacks under the projection and action maps $G_{sc} \times \mathcal B \rightrightarrows \mathcal B$ which is compatible with the group structure.
 
 \begin{proof}
-By Galois descent and the uniqueness of the square root with this property, it is enough to assume that the field is algebraically closed. If $B\in \mathcal B$ is a Borel subgroup, $2\rho$ is the sum of positive roots of $G$, and we use exponential notation when thinking about the corresponding character $e^{2\rho}:B\to \mathbb G_m$, then $\Omega$ is a $G$-linear bundle under the right action of $G$ on $\mathcal B$, and $B$ acts by the character $e^{2\rho}$ on its fiber [exercise!]. In other words, $\Omega$ is induced from the character $e^{2\rho}$ of $B$; its total space is $\mathbb Ga_{2\rho} \times^B G$,
-where $\mathbb Ga_{2\rho}$ is the line with an action of $B$ by this character.
+By Galois descent and the uniqueness of the square root with this property, it is enough to assume that the field is algebraically closed. If $B\in \mathcal B$ is a Borel subgroup, $2\rho$ is the sum of positive roots of $G$, and we use exponential notation when thinking about the corresponding character $e^{2\rho}:B\to \mathbb G_m$, then $\Omega$ is a $G$-linear bundle under the right action of $G$ on $\mathcal B$, and $B$ acts by the character $e^{2\rho}$ on its fiber [exercise!]. In other words, $\Omega$ is induced from the character $e^{2\rho}$ of $B$; its total space is $\mathbb G_{a,2\rho} \times^B G$,
+where $\mathbb G_{a,2\rho}$ is the line with an action of $B$ by this character.
 
 If $B_{sc}$ is the corresponding Borel of $G_{sc}$, then $\mathcal B = B\backslash G=B_{sc}\backslash G_{sc}$, and the restriction of $2\rho$ to $B_{sc}$ admits a unique square root, namely $\rho$. Thus, there is a unique $G_{sc}$-linear bundle $\Omega^{\frac{1}{2}}$ over $\mathcal B$ whose square is $\Omega$.
 \end{proof}
@@ -608,7 +617,7 @@ Any semisimple Lie algebra $\mathfrak g$ over $\mathbb C$ has a unique split rea
 \begin{proof}
  Let $\mathfrak h \subset \mathfrak g$ be a Cartan subalgebra, and let $\mathfrak h_0$ be the real subspace spanned by the images of $\mathbb R$ under the cocharacters $\check\Phi\ni \check\alpha: \mathbf{G}_a\to \mathfrak h$. The Chevalley construction (omitted) shows that it extends to a real form $\mathfrak g_0$ of $\mathfrak g$, such that, for every root $\alpha$, $\mathfrak g_{\alpha,0}:= \mathfrak g_0 \cap \mathfrak g_\alpha$ is a real form of the root space $\mathfrak g_\alpha$. Those real forms, for $\alpha$ in a basis $\Delta$ of the root system, determine the form, and in turn are determined by a pinning (Definition \ref{definition-pinning}) relative to $\Delta$. All such pinnings are conjugate under the image of $\text{exp}(\mathfrak h)$ in $\text{Inn}(\mathfrak g)$, hence by the conjugacy of Cartan subalgebras we conclude that all split forms are conjugate. 
 
- Starting now with such a split form, and a pinning $\mathfrak g_\alpha\simeq\mathbf G_a$ for $\alpha\in\Delta$, let $X_\alpha \in \mathfrak g_\alpha$ be the element corresponding to $1\in\mathbf G_a$, and let $X_{-\alpha}\in \mathfrak g_{-\alpha}$ be the element forming an $\mathfrak{sl}_2$-triple $(h_\alpha, X_\alpha, X_{-\alpha})$, with $h_\alpha\in\mathfrak h$ the coroot. We can similarly choose elements $X_\alpha\in\mathfrak g_\alpha$ for all roots, such that $[X_\alpha, X_\beta] = N_{\alpha, \beta} X_{\alpha+\beta}$ whenever $\alpha+\beta$ is also a root, with constants $N_{\alpha,\beta}$ satisfying $N_{\alpha,\beta} = N_{\beta,\alpha}$. (This is part of the Chevalley construction, see \cite[Ch.\ VIII \S 2]{Bourbaki-Lie}.) Then, we define another real form of $\mathfrak g$ by 
+ Starting now with such a split form, and a pinning $\mathfrak g_\alpha\simeq\mathbb G_a$ for $\alpha\in\Delta$, let $X_\alpha \in \mathfrak g_\alpha$ be the element corresponding to $1\in\mathbb G_a$, and let $X_{-\alpha}\in \mathfrak g_{-\alpha}$ be the element forming an $\mathfrak{sl}_2$-triple $(h_\alpha, X_\alpha, X_{-\alpha})$, with $h_\alpha\in\mathfrak h$ the coroot. We can similarly choose elements $X_\alpha\in\mathfrak g_\alpha$ for all roots, such that $[X_\alpha, X_\beta] = N_{\alpha, \beta} X_{\alpha+\beta}$ whenever $\alpha+\beta$ is also a root, with constants $N_{\alpha,\beta}$ satisfying $N_{\alpha,\beta} = N_{\beta,\alpha}$. (This is part of the Chevalley construction, see \cite[Ch.\ VIII \S 2]{Bourbaki-Lie}.) Then, we define another real form of $\mathfrak g$ by 
  $$ \mathfrak g_c = i \mathfrak h_0 \oplus \bigoplus_{\{\pm \alpha\}\in \Phi/\{\pm 1\}} \left( \mathbb R(X_\alpha+X_{-\alpha}) \oplus  i \mathbb R(X_\alpha - X_{-\alpha})\right ).$$
  
  One checks that this is a compact form, \cite[Ch.\ IX \S 3.2]{Bourbaki-Lie}.  Obviously, this depends only on the pinning, not on the choices of $X_\alpha$ for $\alpha$ not simple, and is generated by the summands corresponding to simple roots $\alpha$. 
