@@ -62,17 +62,11 @@ every open compact $K\subset \mathbb A_f$, the group $k_\infty$ acts with a uniq
 \end{proposition}
 
 \begin{proof}
- For an idele $a = (a_v)_v$, let $\lambda(a)$ be the number of $\alpha\in k$ with $|\alpha|_v\le  |a_v|$ for all $v$. Then, there are constants $c_1, c_2$, depending only on $k$, such that 
- $$ c_1 \le \frac{\lambda(a)}{|a|} \le c_2$$
- for any $a$. Indeed, by restriction of scalars for $\mathbb G_a$, the problem reduces to the base field $\mathbb Q$ or $\mathbb F_q(t)$, where it is straightforward.
+ Recall that for an idele $a = (a_v)_v$, the absolute value $|a|$ is the scalar by which it acts on a Haar measure on $\mathbb A$. Fix that Haar measure $\mu$ for which the quotient measure on $[\mathbb G_a]$ is $1$. (This makes sense by compactness of $[\mathbb G_a]$.) For every $c>0$, if $|a|>c^{-1}$ and $C$ is a compact subset of $\mathbb A$ with $\mu(C) >c$, then $\mu(aC)>1$, therefore the map $aC\to [\mathbb G_a]$ is not injective, which means that there exist $c_1, c_2\in C$ and $q\in k^\times$ with $a(c_1-c_2) =q$. Equivalently, $qa^{-1}$ belongs to the compact set $C-C \subset \mathbb A$ of differences of elements of $C$. Similarly, if $|a|<c$ then $q' \cdot a \in (C-C)$, for some $q'\in k^\times$. Note, also, that $q\cdot q' = qa^{-1} \cdot q'a  \in (C-C)\cdot (C-C)$, which is also a compact set, hence meets the discrete set $k^\times $ in a finite set of elements $\gamma_1, \gamma_2, \dots, \gamma_n$. Therefore, $q' = \gamma_i q^{-1}$ for some $i$, and we get that under the closed embedding
+ \[ \mathbb A^\times \ni z \mapsto (z, z^{-1}) \in \mathbb A^2,\]
+ the element $q'a$ maps into the compact set $(C-C) \times \sqcup_i \gamma_i^{-1}(C-C)$.
  
- In particular, for $|a| > c_1^{-1}$, there will be an $\alpha\in k^\times$ with $|\alpha a_v|_v \ge 1$ for all $v$. On the other hand, $|\alpha a_v|_v = \frac{\prod_w |\alpha a_w|_w}{\prod_{w\ne v} |\alpha a_w|_w} \le |a|$. 
- 
- Let $r = |a| > c_1^{-1}$, and let $[G]^r$ be the set of idele classes of norm $r$. We conclude that $[G]^r$ is contained in the image of the set
- $$ U=\prod_v k_v^{[1,r]},$$
- where $k_v^{[1,r]}$ denotes the elements of $k_v$ of absolute value in the interval $[1,r]$. For all but a finite number of $v$'s, this is the same as $k_v^{[1,1]}=\mathfrak o_v^\times$, since the valuation is discrete and the residual degree is $> r$ (for almost all $v$).
- 
- Thus, the set $U$ is compact in $G(\mathbb A)$, and so is $[G]^r$. But $[G]^r$ is a torsor for $[G]^1$, therefore $[G]^1$ is compact.
+ Thus, the closed subset $[G]^{[c^{-1}, c]}$ of idele classes whose absolute value belongs to the interval $[c^{-1},c]$ is compact, and therefore the same is true for the kernel $[G]^1$ of the absolute value map.
  
  The rest are left to the reader.
 \end{proof}
@@ -207,6 +201,11 @@ A {\it standard embedding} of the space $[G]_P$ is either of the following space
 \end{itemize}
 \end{definition}
 
+\begin{remark}
+ \label{remark-RBS-Satake}
+The ``reductive Borel--Serre compactification'', although defined in a different way, is closely related to the compactification of Satake \cite{Satake-compactifications}, which is constructed starting from compactifications of the symmetric space $G(\mathbb R)/K_\infty$ (when $k=\mathbb Q$). There are some comments to that extent in \cite{Borel-Ji}, who also give another description of essentially the same compactification, following Furstenberg and Satake, which illuminates the role of the degenerations $[G]_P$ in harmonic analysis. This is the ``closed subgroups'' compactification: namely (in classical language now, with a lattice $\Gamma\subset G(\mathbb R)$, under the mild assumption that $\Gamma$ is self-normalizing in $G(\mathbb R)$, one can think of the quotient $\Gamma\backslash G(\mathbb R$) as embedded in the space of closed subgroups of $G(\mathbb R)$, which has a natural, compact, Hausdorff topology (see Proposition 5.2 in that paper). Then, one can take the closure; the boundary components, i.e., the ``limits'' of the conjugacy class of $\Gamma$, are the stabilizers for the boundary degenerations $[G]_P$. 
+\end{remark}
+
 
 \begin{lemma}
  \label{lemma-manifold-corners}
@@ -297,7 +296,7 @@ Obviously, the factors of the product are almost all equal to $1$ if $x\in (V\sm
  \label{lemma-height-functions}
 Adelic height functions (Definition \ref{definition-adelic-height}) on a vector space $V$ have the following properties:
 \begin{enumerate}
- \item For any two height functions $\Vert \bullet \Vert'$, $\Vert\bullet\Vert''$, the quotient $\frac{\Vert\bullet\Vert'}{\Vert\bullet\Vert''}$ is bounded in $\mathbb R_{>0}^\times$.
+ \item For any two height functions $\Vert \bullet \Vert'$, $\Vert\bullet\Vert''$, the quotient $\frac{\Vert\bullet\Vert'}{\Vert\bullet\Vert''}$ is bounded above and below by positive numbers.
  \item For all $a\in \mathbb A^\times$, $x\in V(\mathbb A)$, we have $\Vert a x \Vert = |a|\cdot \Vert x \Vert$; in particular, $\Vert \bullet \Vert$ is invariant under $k^\times$-multiplication.
  \item The restriction of $\Vert\bullet\Vert$ to the quotient space $k^\times \backslash V(k)\cdot \text{GL}_V(\mathbb A) = k^\times\backslash (V^*(\mathbb A)\cup \{0\})$, where $V^*$ denotes the complement of zero, defines a basis of neighborhoods of zero.
  \item For every $g\in \text{GL}_V(\mathbb A)$ and any $c>0$, there is only a finite number of classes $[y]\in k^\times \backslash V(k)$ such that $\Vert y\Vert <c$; in particular, the set $\Vert V^*(k)g\Vert$ has a minimum.
@@ -432,9 +431,9 @@ Having addressed the case of split tori in Proposition \ref{proposition-automorp
 
 
 
-The proof of (I) relies on Proposition \ref{proposition-horocycle-closures}.  Fix the base point $y_0\in Y(k)$, and let $B$ be the stabilizer of its $A$-orbit. Fix a maximal compact subgroup satisfying the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A) K$. We use this, together with the logarithmic maps $B(\mathbb A)\to \mathfrak a$, defined as in \eqref{equation-logmap}, to define a ``height'' function  on $[G]_B = A(k)\backslash y_0 G(\mathbb A)$:
-$$h(g) = \log(b)\in \mathfrak a.$$ 
-This is similar to the height functions of Definition \ref{definition-adelic-height}, except that it does not use an affine embedding of $Y$; rather, the sets $V_\epsilon = \{ [g] \in [G]_B| \left < \alpha, h(g) \right > > -\log \epsilon \,\, \mbox{ for all positive roots } \alpha\}$ form a basis of neighborhoods for the cusp. (See Remarks  \ref{remark-cusp-Iwasawa} and \ref{remark-basic-affine}.)
+The proof of (I) relies on Proposition \ref{proposition-horocycle-closures}.  Fix the base point $y_0\in Y(k)$, and let $B$ be the stabilizer of its $A$-orbit. Fix a maximal compact subgroup satisfying the Iwasawa decomposition $G(\mathbb A) = B(\mathbb A) K$. We use this, together with the logarithmic maps $B(\mathbb A)\to \mathfrak a$, defined as in \eqref{equation-logmap}, to define a {\it Harish-Chandra function}  on $[G]_B = A(k)\backslash y_0 G(\mathbb A)$:
+$$H(g) = \log(b)\in \mathfrak a.$$ 
+This is similar to the height functions of Definition \ref{definition-adelic-height}, except that it does not use an affine embedding of $Y$; rather, the sets $V_\epsilon = \{ [g] \in [G]_B| \left < \alpha, H(g) \right > > -\log \epsilon \,\, \mbox{ for all positive roots } \alpha\}$ form a basis of neighborhoods for the cusp. (See Remarks  \ref{remark-cusp-Iwasawa} and \ref{remark-basic-affine}.)
 
 We claim that the statement of Proposition \ref{proposition-horocycle-closures} about the closure of $y_0 \tilde w N$ implies the following:
 
@@ -442,7 +441,7 @@ We claim that the statement of Proposition \ref{proposition-horocycle-closures} 
  \item There is a compact $C_0\subset \mathfrak a$ such that 
 \begin{equation}
  \label{equation-bound-height}
-h(y_0 \tilde w N(\mathbb A)) \subset C_0 - R(w^{-1})^+.
+H(y_0 \tilde w N(\mathbb A)) \subset C_0 - R(w^{-1})^+.
 \end{equation}
 \end{itemize}
 [We leave it to the reader to check this corollary, for now. We remark only that the embedding of $N\backslash G$ which corresponds to the cone $R(w^{-1})^+$ is the one where, for a cocharacter $\lambda\in R(w^{-1})^+$ into the torus $A$, and a point $y\in N\backslash G$, the limit of $\lambda(t)\cdot y$ exists \emph{as $t\to 0$}; the logarithm of such an element $\lambda(t)$, for $t$ close to zero, belongs to the \emph{negative} of the cone $R(w^{-1})^+$, hence the negative sign above.]
@@ -455,9 +454,9 @@ for any parabolic $P\supset B$. Fix a compact $\Omega\subset [G]_P$, and conside
  \item There is a countable basis of neighborhoods in $[G]_P$ of the subset $A_P\backslash \Omega$ of the $P$-cusp which, for any $\lambda_0\in \mathfrak a_P$, is eventually contained in  the image of a set of the form $h^{-1} (C+\lambda_0 + \mathfrak a_P^+)\subset B(k)\backslash G(\mathbb A)$ under the map $\pi^B_P$ above, where $C$ is a fixed compact subset depending on $\Omega$. 
 \end{itemize}
 
-Thus, to prove (I), it suffices to show that, if $\lambda_0$ is sufficiently dominant (i.e., sufficiently deep in the relative interior of $\mathfrak a_P^+$), any two elements $g, g'\in B(k)\backslash G(\mathbb A)$ with $h(g), h(g')\in C+\lambda_0 + \mathfrak a_P^+$ and the same image in $[G]$, have the same image in $P(k)\backslash G(\mathbb A)$. In other words, we need to show that if $y = y_0 \tilde w \nu$ for $\tilde w\in \mathcal N(T)(k)$ and $\nu\in N(k)$, and $y g = y_0 g'$ for two elements as above, then $y \in  y_0 L(k)$. 
+Thus, to prove (I), it suffices to show that, if $\lambda_0$ is sufficiently dominant (i.e., sufficiently deep in the relative interior of $\mathfrak a_P^+$), any two elements $g, g'\in B(k)\backslash G(\mathbb A)$ with $H(g), H(g')\in C+\lambda_0 + \mathfrak a_P^+$ and the same image in $[G]$, have the same image in $P(k)\backslash G(\mathbb A)$. In other words, we need to show that if $y = y_0 \tilde w \nu$ for $\tilde w\in \mathcal N(T)(k)$ and $\nu\in N(k)$, and $y g = y_0 g'$ for two elements as above, then $y \in  y_0 L(k)$. 
 
-Now, on one hand, $h(y_0g) = h(g)$ and $h(y g) = h(y_0 g') =  h(g')$ belong to $C+\lambda_0 + \mathfrak a_P^+$, by assumption. On the other, writing $g = n t k$ according to the Iwasawa decomposition, we have $h(y_0g) = h(t)$ and $h(yg) = h(y_0 \tilde w \nu ntk) \in h(y_0 {^wt} \tilde w N(\mathbb A))$. By \eqref{equation-bound-height}, which translates in the obvious way under the action of $A$, we obtain $h(y_0 {^wt} \tilde w N(\mathbb A)) \subset C_0 + h({^wt}) - R(w^{-1})^+ \subset C_0 + wC+ w\lambda_0 + w\mathfrak a_P^+ + w R(w)^+$. 
+Now, on one hand, $H(y_0g) = H(g)$ and $H(y g) = H(y_0 g') =  H(g')$ belong to $C+\lambda_0 + \mathfrak a_P^+$, by assumption. On the other, writing $g = n t k$ according to the Iwasawa decomposition, we have $H(y_0g) = H(t)$ and $H(yg) = H(y_0 \tilde w \nu ntk) \in H(y_0 {^wt} \tilde w N(\mathbb A))$. By \eqref{equation-bound-height}, which translates in the obvious way under the action of $A$, we obtain $H(y_0 {^wt} \tilde w N(\mathbb A)) \subset C_0 + H({^wt}) - R(w^{-1})^+ \subset C_0 + wC+ w\lambda_0 + w\mathfrak a_P^+ + w R(w)^+$. 
 Thus, it suffices to show that the intersection
 \begin{equation}
 \label{equation-intersection-cones}
@@ -484,9 +483,9 @@ Now we come to the proof of (S). It is enough to prove it for the minimal parabo
  $$ \Omega = \{g \in B(k)\backslash G(\mathbb A) | \forall i \ge 1, \forall \gamma \in P_{i-1}(k), \Vert v_i \gamma g \Vert \ge \Vert  v_i g\Vert\}.$$
  Then, by the properties of heights (Lemma \ref{lemma-height-functions}), $G(k)\Omega = G(\mathbb A)$. 
  
- We may fix again a good maximal compact subgroup $K$ with Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$, and assume that $V$ is $K$-invariant. Writing an element of $[G]_B$ as $g=bk$, accordingly, and defining a ``height'' function (nothing to do with the adelic height functions defined previously, but this is a standard name) $h(g) = \log(b)\in \mathfrak a$, it is enough to show that $h(\Omega)$ lies in a translate of $\mathfrak a^+$. Such a translate is defined by equations $\left < \lambda, \alpha_i\right> \ge T_i$ for some scalars $T_i$ and any $i=1,\dots ,r$, i.e., we need to show that $\left< h(\Omega), \alpha_i\right>$ is bounded below, for all $i$. 
+ We may fix again a good maximal compact subgroup $K$ with Iwasawa decomposition $G(\mathbb A) = B(\mathbb A)K$, and assume that $V$ is $K$-invariant. Writing an element of $[G]_B$ as $g=bk$, accordingly, and defining a Harish-Chandra function $H(g) = \log(b)\in \mathfrak a$, it is enough to show that $H(\Omega)$ lies in a translate of $\mathfrak a^+$. Such a translate is defined by equations $\left < \lambda, \alpha_i\right> \ge T_i$ for some scalars $T_i$ and any $i=1,\dots ,r$, i.e., we need to show that $\left< H(\Omega), \alpha_i\right>$ is bounded below, for all $i$. 
  
- By induction on $r$, we may assume this to be the case for $i \ge 2$. But then, to show it for $\alpha_1$, we may replace $G$ by the group $G'=$the Levi quotient of the parabolic $Q$ generated by $P$ and the root spaces proportional to $\alpha_1$. Indeed, the condition $\Vert v_1 \gamma g \Vert \ge \Vert v_1 g\Vert$ holds a fortiori for $\gamma \in Q (k)$, and $Q$ acts on $v_1$ through its Levi quotient. Thus, we are reduced to the case of $G$ being of \emph{semisimple rank one}, which we now assume. We may keep assuming that $G$ is semisimple, since the center evidently plays no role. But then we are in the case of $G = \text{SL}_2$, covered in Theorem \ref{theorem-reduction-SL2}, or $\text{PGL}_2$, which is similar. Thus, the theorem is proven. 
+ By induction on $r$, we may assume this to be the case for $i \ge 2$. But then, to show it for $\alpha_1$, we may replace $G$ by the group $G'=$the Levi quotient of the parabolic $Q$ generated by $B$ and the root spaces proportional to $\alpha_1$. Indeed, the condition $\Vert v_1 \gamma g \Vert \ge \Vert v_1 g\Vert$ holds a fortiori for $\gamma \in Q (k)$, and $Q$ acts on $v_1$ through its Levi quotient. Thus, we are reduced to the case of $G$ being of \emph{semisimple rank one}, which we now assume. We may keep assuming that $G$ is semisimple, since the center evidently plays no role. But then we are in the case of $G = \text{SL}_2$, covered in Theorem \ref{theorem-reduction-SL2}, or $\text{PGL}_2$, which is similar. Thus, the theorem is proven. 
 \end{proof}
 
 We will now use Theorem \ref{theorem-reduction-theory-split} to construct a compactification of $[G]$. Set-theoretically, the compactification is
@@ -593,7 +592,7 @@ We start with (C):  Let $k\hookrightarrow l$ be a Galois extension, with Galois 
 For (I), there is nothing to prove, since by embedding again $[G_k]\hookrightarrow [G_l]$, the statement follows from the corresponding statement for split groups, contained in Theorem \ref{theorem-reduction-theory-split}.
 
  
-Now we pass to (S). The same argument as in the split case reduces us to the case of split semisimple rank one. Thus, we assume that $G$ has a unique class of proper parabolics $P$ over $k$.  Since $P$ is minimal, by the statement (C) applied to its Levi quotient $L$, its cusp will be compact, and therefore the neighborhoods of the $P$-cusp coincide with the neighborhoods of the degenerate $P$-cusp. If, again, $l$ is a splitting field as above, and $V$ is any small neighborhood of the $P$-cusp in $[G_l]_P$ satisfying the conclusion of Proposition \ref{proposition-Gk-in-Gl}, the proposition shows that, on one hand, $[G_k]\smallsetminus \pi_G(\tilde V)$ is relatively compact, and on the other $P(k)\backslash G(\mathbb A)\cap \tilde V$ surjects onto $[G_k]\cap  \pi_G(\tilde V)$. Thus, there is an $A_P(\mathbb A)$-scaling $V'$ of $V\cap [G_k]_P$ such that $\pi_G(\tilde V') = [G_k]$. 
+Now we pass to (S). The same argument as in the split case reduces us to the case of split semisimple rank one. Thus, we assume that $G$ has a unique class of proper parabolics $P$ over $k$.  Since $P$ is minimal, by the statement (C) applied to its Levi quotient $L$, its cusp will be compact, and therefore the neighborhoods of the $P$-cusp in $[G_k]$ coincide with the neighborhoods of the degenerate $P$-cusp. If, again, $l$ is a splitting field as above, and $V$ is any small neighborhood of the $P$-cusp in $[G_l]_P$ satisfying the conclusion of Proposition \ref{proposition-Gk-in-Gl}, the proposition shows that, on one hand, $[G_k]\smallsetminus \pi_G(\tilde V)$ is relatively compact, and on the other $P(k)\backslash G(\mathbb A)\cap \tilde V$ surjects onto $[G_k]\cap  \pi_G(\tilde V)$. Thus, there is an $A_P(\mathbb A)$-scaling $V'$ of $V\cap [G_k]_P$ such that $\pi_G(\tilde V') = [G_k]$. 
 \end{proof}
 
 Now we draw some corollaries from Theorem \ref{theorem-reduction-theory-general}: the finiteness of class numbers, and a more classical formulation, saying that $[G]$ can be covered by domains of a particular form, called \emph{Siegel sets}.
@@ -1422,7 +1421,7 @@ Let $\mathfrak g$ be a semisimple Lie algebra over an algebraically closed field
 
 \begin{remark}
  \label{remark-minuscule-coweight}
-Minuscule weights have the following representation-theoretic interpretation: An integral, dominant (with respect to some base of the root system --- can always assume by Weyl translation) weight $\mu$ is minuscule if and only if the only weights appearing in the associated irreducible heighest weight module $V_\mu$ are Weyl group-translates of $\mu$, and zero. This follows directly from the Weyl character formula.
+Minuscule weights have the following representation-theoretic interpretation: An integral, dominant (with respect to some base of the root system --- can always assume by Weyl translation) weight $\mu$ is minuscule if and only if the only weights appearing in the associated irreducible highest weight module $V_\mu$ are Weyl group-translates of $\mu$, and zero. This follows directly from the Weyl character formula.
 
 Minuscule coweights are relatively rare, and so are Hermitian symmetric domains. In the Langlands program, certain general constructions over function fields (Drinfeld's shtukas) that depend on an irreducible representation/dominant weight for the dual group (= coweight for $G$), only have known (partial) analogs (Shimura varieties) over number fields when the weight is minuscule.
 \end{remark}
