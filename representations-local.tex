@@ -17,11 +17,13 @@
 
 [This chapter, especially the theory of asymptotics, is under construction and has not been proofread. Some statements may be slightly imprecise.]
 
-In this chapter, we discuss representations of a group of the form $G(F)$, when $F$ is a local (locally compact) field, and $G$ is a reductive algebraic group over $F$. We treat the Archimedean and non-Archimedean cases in parallel, highlighting similarities. For economy of language, such a group will be called a ``real or $p$-adic reductive group'' --- the $p$-adic case including non-Archimedean local fields in equal characteristic, $F=\mathbb F_q((t))$. The ``real'' case includes the case when $F=\mathbb C$ --- notice that the complex structure plays no role in the representation theory, and we can think instead of $G(\mathbb C)$ as $\text{Res}_{\mathbb C/\mathbb R} G(\mathbb R)$. Everything in this chapter also applies to finite central extensions of reductive groups of the form $G(F)$, like the \emph{metaplectic group}, which are not necessarily algebraic; however, the notation is mostly adapted to the algebraic case.  When it is clear from the context, the group $G(F)$ will simply be denoted by $G$. If the word ``reductive'' is omitted, a ``real group'' will be a Lie group, and a ``$p$-adic group'' will be a $p$-adic analytic group (although most statements will be true for arbitrary totally disconnected, locally compact groups, in this case).
+In this chapter, we discuss representations of a group of the form $G(F)$, when $F$ is a local (locally compact) field, and $G$ is a reductive algebraic group over $F$. We treat the Archimedean and non-Archimedean cases in parallel, highlighting similarities. For economy of language, such a group will be called a ``real or $p$-adic reductive group'' --- the $p$-adic case including non-Archimedean local fields in equal characteristic, $F=\mathbb F_q((t))$. Everything in this chapter also applies to finite central extensions of reductive groups of the form $G(F)$, like the \emph{metaplectic group}, which are not necessarily algebraic; however, the notation is mostly adapted to the algebraic case.  When it is clear from the context, the group $G(F)$ will simply be denoted by $G$. If the word ``reductive'' is omitted, a ``real group'' will be a Lie group, and a ``$p$-adic group'' will be a $p$-adic analytic group (although most statements will be true for arbitrary totally disconnected, locally compact groups, in this case).
 
 \begin{remark}
  \label{remark-complexification-Lie-algebra}
-A common misunderstanding, when $G=G(\mathbb C)$ is a complex group, and $(\pi,V)$ is a smooth complex representation of $G$, is that the (complex) Lie algebra $\mathfrak g$ acts by complex-linear endomorphisms on $V$; it does not! Instead, $G$ should be treated as a real Lie group; for any smooth, complex representation of a real Lie group, we have an action of the complexified Lie algebra $\mathfrak g\otimes_{\mathbb R} \mathbb C$ on $V$ by complex-linear automorphisms.
+The ``real'' case includes the case when $F=\mathbb C$ --- notice that the complex structure plays no role in setting up the representation-theoretic problems, and we can think instead of $G(\mathbb C)$ as $\text{Res}_{\mathbb C/\mathbb R} G(\mathbb R)$. A common misunderstanding, when $G=G(\mathbb C)$ is a complex group, and $(\pi,V)$ is a smooth complex representation of $G$, is that the (complex) Lie algebra $\mathfrak g$ acts by complex-linear endomorphisms on $V$; it does not! Instead, $G$ should be treated as a real Lie group; for any smooth, complex representation of a real Lie group, we have an action of the complexified Lie algebra $\mathfrak g\otimes_{\mathbb R} \mathbb C$ on $V$ by complex-linear automorphisms. Since $\mathfrak g\otimes_{\mathbb R} \mathbb C \simeq \mathfrak g \oplus \mathfrak g$, what in the literature of representations of real reductive groups is a $\mathfrak g$-module, when one specializes to complex reductive groups it becomes a $\mathfrak g$-bimodule. 
+
+To avoid confusion, in this chapter we will replace every complex group by its restriction of scalars over $\mathbb R$. Also, as is customary, we will often write $\mathfrak g$ (but will say so) for the \emph{complexification} of the Lie algebra $\mathfrak g_{\mathbb R}$ of any real Lie group $G$, i.e., $\mathfrak g := \mathfrak g_{\mathbb R}\otimes_{\mathbb R} \mathbb C$. 
 \end{remark}
 
 
@@ -36,7 +38,7 @@ The notion of a continuous, in particular of a Banach representation of a topolo
 
 \begin{definition}
  \label{definition-smooth-representation}
-A {\it smooth vector} in a representation $(\pi, V)$ of a real or $p$-adic group, resp.\ an {\it analytic vector}, in the real case, is a vector $v\in V$ such that the action map $G\ni g \mapsto \pi(g) v \in V$ is smooth (resp., analytic).\footnote{In the $p$-adic case, ``smooth'' means locally constant, so the definition is equivalent to requiring that $v$ have an open stabilizer.} In particular, in the real case, for a smooth vector $v$ and any element $D$ of the universal enveloping algebra $U(\mathfrak g_{\mathbb C})$, the element $\pi(D) v$ is defined.
+A {\it smooth vector} in a Banach or Fr\'echet representation $(\pi, V)$ of a real or $p$-adic group, resp.\ an {\it analytic vector}, in the real case, is a vector $v\in V$ such that the action map $G\ni g \mapsto \pi(g) v \in V$ is smooth (resp., analytic).\footnote{In the $p$-adic case, ``smooth'' means locally constant, so the definition is equivalent to requiring that $v$ have an open stabilizer.} In particular, in the real case, for a smooth vector $v$ and any element $D$ of the universal enveloping algebra $U(\mathfrak g_{\mathbb C})$, the element $\pi(D) v$ is defined.
 
 The {\it space of smooth vectors} of a representation $(\pi, V)$ is denoted by $V^\infty$, and considered as a topological space, in the $p$-adic case with the direct limit topology over the subspaces $V^J$ as $J$ varies over open compact subgroups, and in the real case with the topology of convergence of all $\pi(D)v$, where $D$ ranges over elements of the universal enveloping algebra $U(\mathfrak g_{\mathbb C})$. 
  
@@ -85,7 +87,7 @@ If $V$ is an F-representation of a real group, then $V^\infty$ is an SF-represen
 First of all, notice that the topology on $V^\infty$ is also given by a countable set of $G$-continuous seminorms: If $\rho_n$ is a sequence of $G$-continuous seminorms on $V$, definining its topology, and we fix, for every $d\ge 0$, a basis $(D_{d,i})_i$ of the $d$-th filtered part of the universal enveloping algebra $U(\mathfrak g_{\mathbb C})$, then the seminorms $\rho_{d,n}(v) = \max_i \rho_n (D_{d,i}v)$ define the topology on $V^\infty$ as $n$ and $d$ vary, and are $G$-continuous, because $\rho_{d,n}(gv) = \max_i \rho_n (g \cdot \text{Ad}(g^{-1})(D_{d,i}) v) \ll \rho_{d,n}(v)$ (locally uniformly in $G$), since the adjoint representation preserves the filtration. 
 
 
-The content of the lemma, then, is that the topological vector space $V^\infty$ is complete. One shows that the action map $g\mapsto \pi(g) v$ gives rise to a morphism $V^\infty \to C^\infty(G, V)$, where $G$ acts by the right regular representation on $C^\infty(G, V)$, and that this is an isomorphism onto the closed subspace $C^\infty(G, V)^G$ of functions that are invariant under the simultaneous action: $g\cdot f (x) := \pi(g) f(g^{-1} x)$. 
+The content of the lemma, then, is that the topological vector space $V^\infty$ is complete. One shows\footnote{\label{footnote-smooth}We will be abusing notation and writing $C^\infty(G, V)$ for $C(G, V)^\infty$, the space of smooth vectors in the space of continuous functions from $G$ to $V$. For example, in the $p$-adic case, these are not just locally constant functions but \emph{uniformly} locally constant, in the sense that they are fixed by a compact open subgroup.} that the action map $g\mapsto \pi(g) v$ gives rise to a morphism $V^\infty \to C^\infty(G, V)$, where $G$ acts by the right regular representation on $C^\infty(G, V)$, and that this is an isomorphism onto the closed subspace $C^\infty(G, V)^G$ of functions that are invariant under the simultaneous action: $g\cdot f (x) := \pi(g) f(g^{-1} x)$. 
 \end{proof}
 
 \subsection{Unitary representations}
@@ -101,7 +103,7 @@ Topological representations of Lie groups do not form an abelian category. This 
 
 \begin{definition}
  \label{definition-g-K-module}
-Let $\mathfrak g$ be a complex Lie algebra, and $H$ a Lie group, with an embedding $\mathfrak h_{\mathbb C}\hookrightarrow \mathfrak g$, and a representation $\text{Ad}:H \to \text{GL}(\mathfrak g)$, extending the adjoint action on $\mathfrak h_{\mathbb C}$, whose differential coincides with the adjoint action of $\mathfrak h\subset\mathfrak g$. (For example, $\mathfrak g$ is the complexified Lie algebra of a Lie group containing $H$.) A {\it $(\mathfrak g, K)$-module} is a vector space $V$ with actions of both $\mathfrak g$ and $H$, such that:
+Let $\mathfrak g$ be a complex Lie algebra, and $H$ a Lie group, with an embedding $\mathfrak h_{\mathbb C}\hookrightarrow \mathfrak g$, and a representation $\text{Ad}:H \to \text{GL}(\mathfrak g)$, extending the adjoint action on $\mathfrak h_{\mathbb C}$, whose differential coincides with the adjoint action of $\mathfrak h\subset\mathfrak g$. (For example, $\mathfrak g$ is the complexified Lie algebra of a Lie group containing $H$.) A {\it $(\mathfrak g, H)$-module} is a vector space $V$ with actions of both $\mathfrak g$ and $H$, such that:
 \begin{enumerate}
  \item the action of $H$ is locally finite;
  \item the differential of the action of $H$ coincides with the action of $\mathfrak h$, considered as a subalgebra of $\mathfrak g$;
@@ -109,8 +111,10 @@ Let $\mathfrak g$ be a complex Lie algebra, and $H$ a Lie group, with an embeddi
 \end{enumerate}
 \end{definition}
 
-This notion is most often (but not exclusively!) used when $H=K$ is a maximal compact subgroup of a Lie group $G$ (with complexified Lie algebra $\mathfrak g$). 
-
+\begin{remark}
+ \label{remark-gK-algebraic}
+This notion is most often (but not exclusively!) used when $H=K$ is a maximal compact subgroup of a Lie group $G$ (with complexified Lie algebra $\mathfrak g$). In that case, by Theorems \ref{liegroups-general-theorem-Weyl}, \ref{reductiveforms-theorem-functor-compactgroups}, $K=\mathbf K(\mathbb R)$ for an anisotropic reductive algebraic group $\mathbf K$, and there is no difference between locally finite $K$-modules and locally algebraic $\mathbf K$-modules. Thus, in that case, the notion of a $(\mathfrak g, K)$-module can be defined in a completely algebraic way, using the complex pair $(\mathfrak g, \mathbf K)$, and without any explicit reference to the real structure. 
+\end{remark}
 
 \begin{lemma}
  \label{lemma-gK-of-representation}
@@ -121,7 +125,10 @@ Let $(\pi, V)$ be a representation of a Lie group $G$, and $H\subset G$ a subgro
  For every $v\in V_{H\text{-fin}}$, the image of the action map $\mathfrak g \otimes \text{span}(Hv) \to V$ is finite-dimensional, and contains the element $h\cdot X\cdot v$ for all $X\in \mathfrak g$ and $h\in H$, since $h\cdot X\cdot v = \text{Ad}(h)(X)\cdot h\cdot v$.
 \end{proof}
 
-Recall also from Theorem \ref{representations-compact-theorem-PeterWeyl-general} that if $H=K$ is compact, and the representation is Fr\'echet, the space of $K$-finite vectors is dense.
+
+Recall also from Theorem \ref{representations-compact-theorem-PeterWeyl-general} that if $H=K$ is compact, and the representation is Fr\'echet, the space of $K$-finite vectors is dense. 
+
+
 
 \begin{definition}
  \label{definition-gK-of-representation}
@@ -153,6 +160,7 @@ The converse is true in the category of \emph{admissible} representations (Theor
 \subsection{Admissibility}
 \label{subsection-admissibility}
 
+Let $G$ be a real or $p$-adic reductive group. In the real case, let $K\subset G$ be a maximal compact subgroup, and denote by $\mathfrak g$ the complexification of the Lie algebra.
 
 \begin{definition}
  \label{definition-admissible}
@@ -189,13 +197,15 @@ The {\it contragredient} of a $(\mathfrak g,K)$-module $V$, in the real case, or
 
 \begin{lemma}
  \label{lemma-admissible-gK}
-Assume that $V$ is an admissible $(\mathfrak g,K)$-module $V$, in the real case, or an admissible smooth $G$-representation, in the $p$-adic case. Then, $\tilde{\tilde V} = V$.
+A $(\mathfrak g,K)$-module $V$, in the real case, or a smooth $G$-representation $V$, in the $p$-adic case, is admissible if and only if the natural embedding $V\hookrightarrow \tilde{\tilde V}$ is an isomorphism.
 
-If $V$ is irreducible, any automorphism of $V$ (as a $(\mathfrak g,K)$-module, resp.\ as a $G$-representation) is scalar.
+If $V$ is admissible and irreducible, any automorphism of $V$ (as a $(\mathfrak g,K)$-module, resp.\ as a $G$-representation) is scalar.
 \end{lemma}
 
 \begin{proof}
- The module is a direct sum over its $K$-types, and those are finite-dimensional. The contragredient, as a representation of $K$, will be the direct sum of the duals, and any automorphism preserves the isotypic spaces. The result, now, follows easily from the finite-dimensional case.
+ The module is a direct sum over its $K$-types, $V = \bigoplus_\tau V_{K,\tau}$, where $V_{K,\tau}$ denotes the $\tau$-isotypic subspace, and $\tau$ ranges over all irreducible representations of $K$. The contragredient is then $\tilde V = \bigoplus_\tau V_{K,\tau}^*$, and the first claim follows from linear algebra. 
+ 
+ Any automorphism preserves the isotypic spaces. If those are finite-dimensional, then the automorphism will have an eigenvector, and since this eigenvector generates the entire $(\mathfrak g, K)$-module, it immediately follows that the automorphism is scalar.
 \end{proof}
 
 The converse to Lemma \ref{lemma-gK-dense} holds, for admissible representations: 
@@ -421,11 +431,11 @@ When $X = H\backslash G$ is a homogeneous $G$-space, and $\pi$ a smooth represen
 
 There are similarities, but also differences, between the real and $p$-adic cases. The main difference, in the real case, is that we need to restrict to admissible modules. (A general theory of asymptotics for smooth representations would be very desirable, but has not yet been developed! The naive tranlation of statements from the $p$-adic to the real case does not hold, in general.)
 
-For the remainder of this section, $G$ is a real or $p$-adic reductive group, and $K$ is a maximal compact subgroup, if $G$ is real. We compare generalized matrix coefficients on $X$ and $X_\Theta$ by choosing some reasonable (but noncanonical) identification of the spaces ``close to infinity'':
+For the remainder of this section, $G$ is a real or $p$-adic reductive group, and $K$ is a maximal compact subgroup, if $G$ is real. We compare generalized matrix coefficients on $X$ and $X_\Theta$ by choosing some reasonable (but noncanonical) identification of the spaces ``close to infinity''. We write $X=X(F)$, etc.
 
 \begin{definition}
  \label{definition-approximate-exponential}
-Let $Z$ be the closure of a $G$-orbit in a toroidal embedding $\bar X$ of $X$. An {\it approximate exponential map} is an analytic map $\phi: U_Z\to \bar X(F),$ where $U_Z$ is a neighborhood of $Z$ in the $F$-points of the normal bundle $N_Z \bar X$,  with the property that the partial differential of $\phi$ induces the identity between on the normal bundle, and $\phi$ maps the intersection of every $G$-orbit with $U_Z$ to the corresponding $G$-orbit on $\bar X$. The {\it exponential bundle} $\text{Exp}_Z \bar X$ over $Z$ is the fiber bundle of germs, over $Z$, of approximate exponential maps. 
+Let $Z$ be the closure of a $G$-orbit in a smooth toroidal embedding $\bar X$ of $X$. An {\it approximate exponential map} is an analytic map $\phi: U_Z\to \bar X,$ where $U_Z$ is a neighborhood of $Z$ in the $F$-points of the normal bundle $N_Z \bar X$,  with the property that the partial differential of $\phi$ induces the identity on $N_Z \bar X$, and $\phi$ maps the intersection of every $G$-orbit with $U_Z$ to the corresponding $G$-orbit on $\bar X$. The {\it exponential bundle} $\text{Exp}_Z \bar X$ over $Z$ is the fiber bundle of germs, over $Z$, of approximate exponential maps, i.e., approximate exponential maps defined in some neighborhood of $Z$, modulo the equivalence relation of being equal in a smaller neighborhood. 
 \end{definition}
 
 Note that $\text{Exp}_Z \bar X$ is a torsor for the group bundle $\text{Exp}_Z N_Z\bar X$ of germs of approximate exponential maps from the normal bundle to itself (defined the same way). 
@@ -447,7 +457,7 @@ Now, the normal bundle to $Z$ contains some open $G$-orbit, which we have called
 Assume that $F$ is non-Archimedean. Let $X$ be a spherical variety, and $X_\Theta$ an asymptotic cone thereof, obtained as the open $G$-orbit in the normal bundle of some orbit $Z$ in a toroidal embedding. If $f\in C^\infty(X)$, $f_\Theta\in C^\infty(X_\Theta)$, we say that $f$ is {\it asymptotically equal} to $f_\Theta$, written $f\sim f_\Theta$, if there is an approximate exponential map $\phi: U_Z\to \bar X(F)$ (Definition \ref{definition-approximate-exponential}), where $U_Z$ is a neighborhood of $Z$, such that, after possibly replacing $U_Z$ by a smaller neighborhood, $\phi^* f|_{U_Z} = f_\Theta|_{U_Z}$.
 \end{definition}
 
-Notice that, by Proposition \ref{proposition-exponential-p-adic}, this notion does not depend on the choice of approximate exponential.
+Notice that, by Proposition \ref{proposition-exponential-p-adic}, this notion does not depend on the choice of approximate exponential, i.e., if the statement is true for one such map, then it is true for all.
 
 In the real case, things are finer, since smooth functions are not locally constant. Therefore, any such attempt to identify $f$ and $f_\Theta$ will depend on the choice of approximate exponential. Instead of looking at arbitrary smooth functions, here, we will restrict our attention to ``functions that look like generalized characters'' (of the tori $A_\Theta$) at infinity---we will call such functions ``asymptotically finite''. The following baby example captures the essence of such functions:
 
@@ -567,7 +577,7 @@ In particular, if $\ell:\pi\to C^\infty(X)$ is any morphism of smooth representa
 \begin{definition}
  \label{definition-asymptotic-matrix-coefficient}
 Let $\tau$ be an arbitrary smooth representation of a $p$-adic reductive group $H$, or an admissible smooth representation of moderate growth of a real reductive group $H$. For every class $P$ of parabolics in $H$, let $H_P$ be the corresponding boundary degeneration. The {\it asymptotic matrix coefficient} morphism associated to $P$ is the morphism 
-$$m_P: \tau\hat\otimes\tau \to C^\infty(H_P),$$
+$$m_P: \tau\hat\otimes\tilde\tau \to C^\infty(H_P),$$
 where $m_P = \ell_P$ in the notation of Theorem \ref{theorem-asymptotics-real}, in the real case, and $m_P = e_P^*\circ m$, where $m$ is the matrix coefficient map, and $e_P^*: C^\infty(H)\to C^\infty(H_P)$ is the asymptotics map of Theorem \ref{theorem-asymptotics-nonarchimedean}, in the $p$-adic case.
 \end{definition}
 
@@ -650,6 +660,640 @@ The Langlands quotient theorem reduces the classification of irreducible represe
 For example, the Langlands parameter (or rather, its projection to $\check G$) of the trivial representation of a quasisplit group is given by $\Gamma \to \mathbb C^\times \to \check G$, where $\Gamma \to \mathbb C^\times$ is the ``cyclotomic''/absolute value character, and $\mathbb C^\times \to \check G$ is given by $e^{2\rho}: \mathbb G_m\to \check A\subset\check G$ (where $\check A$ is the dual of the universal Cartan).
 \end{remark}
 
+\section{Algebraic theory for general totally disconnected groups; the Hecke algebra}
+\label{section-td}
+
+In this section, we discuss properties of smooth representations of a general totally disconnected, locally compact group $G$. The category of smooth representations of $G$ will be denoted by $\mathcal M(G)$. We mostly follow the notes from Bernstein's Harvard course \cite{Bernstein-padic}.
+
+
+\subsection{The Hecke algebra}
+\label{subsection-Hecke-algebra}
+
+\begin{definition}
+	\label{definition-Hecke-algebra}
+The {\it Hecke algebra} $\mathcal H(G)$ of a totally disconnected, locally compact group $G$ is the convolution algebra of compactly supported, complex-valued, smooth measures on $G$ (where ``smooth'' is defined with respect to the left or, equivalently, the right action of $G$ on itself). The Hecke algebra has a natural rational structure $\mathcal H(G)_{\mathbb Q}$, consisting of measures of the form $f dg$, where $f$ is a rational-valued element of $C_c^\infty(G)$, and $G$ is a Haar measure assigning rational volumes to open compact subgroups.
+
+More generally, assume that $G$ is unimodular, and fix a compact open subgroup $J\subset G$. Let $\Lambda$ be a commutative ring. The {\it Hecke algebra of level $J$ with coefficients in $\Lambda$}, $\mathcal H(G,J)_\Lambda$, is the convolution algebra of $\Lambda$-valued, $J$-biinvariant, compactly supported functions on $G$, with convolution defined by assigning Haar measure $1$ on $J$. 
+\end{definition}
+
+The Hecke algebra is not unital (unless the group is discrete), but it is idempotented. We recall the what this means. 
+
+\begin{definition}
+	\label{definition-idempotented-algebra}
+An algebra $A$ is an {\it idempotented algebra} if for every finite collection $\{f_i\}_{i\in I}$ of elements there is an idempotent $e\in A$ with $ef_i = f_ie$ for all $i\in I$. A module $M$ for an idempotented algebra is called {\it nondegenerate} if the natural map 
+\begin{equation}
+\label{equation-tensor-action}
+A\otimes_A M \to M
+\end{equation}	
+is a surjection (and hence\footnote{The ``hence'' statement uses the property of being idempotented!} an isomorphism); equivalently, if for every $m\in M$ there is an idempotent $e$ with $e\cdot m = m$. 
+\end{definition}
+
+We will denote by $\mathcal M(A)$ the category of nondegenerate modules of an idempotented algebra $A$.
+The Hecke algebra acts on any smooth $G$-module (see Section \ref{representationtheory-section-measures}), and we have the following.
+
+\begin{proposition}
+	\label{proposition-equivalence-Hecke}
+	The natural functor gives rise to an equivalence between the categories $\mathcal M(G)$ of smooth $G$-representations and $\mathcal M(\mathcal H(G))$ of nondegenerate $\mathcal H(G)$-modules.
+\end{proposition}
+
+\begin{proof}
+	When $A=\mathcal H(G)$, the inverse functor is given by the left action of $G$ on $A$ under the isomorphism \eqref{equation-tensor-action}.
+\end{proof}
+
+\begin{theorem}
+	\label{theorem-smooth-abelian}
+ The category $\mathcal M(G)$ of smooth $G$-representations is abelian, and has enough projectives.
+\end{theorem}
+
+\begin{proof}
+By Proposition \eqref{proposition-equivalence-Hecke}, it is identified with the category of nondegenerate modules for the Hecke algebra. The category of nondegenerate modules for any idempotented algebra is abelian with enough projectives (e.g., we have an epimorphism $\bigoplus_{m\in M} Ae_m\to M$, where $e_m$ is an idempotent fixing $m$. The map sends $e_m$ to $m$, and note that $Ae_m$ is a projective $A$-module, since it represents the exact functor $M\mapsto M^{e_m}=e_m M$.  
+\end{proof}
+
+We will show later, using the contragredient (Definition \ref{definition-contragredient}), that -- at least when $G$ is a $p$-adic reductive group -- the category also has enough injectives. For this, we need to know that irreducibles are admissible. 
+
+We have a version of Schur's lemma for irreducible representations of second countable totally disconnected groups.
+
+\begin{proposition}
+	\label{proposition-Schur}
+If $G$ is a totally disconnected, locally compact, second countable group, and $V \in \mathcal M(G)$ is irreducible, then $\rm{End}_G(V) = \mathbb C$.
+\end{proposition}
+
+\begin{proof}
+	Since $G$ is second countable, the Hecke algebra has (at most -- we will omit ``at most'' from the rest of the proof) countable dimension, therefore $V=\mathcal H(G)v$ (where $v$ is any nonzero vector) has countable dimension. Therefore, its vector space endomorphisms and therefore its $G$-endomorphisms have countable dimension. Let $T\in \rm{End}_G(V)$. By irreducibility, the operators $(T-\lambda I)$, $\lambda\in \mathbb C$, are either zero or isomorphisms. If one of them is zero, we are done. Otherwise, for dimension reasons, their inverses are linearly dependent, i.e., there is a relation of the form 
+	\[ \sum_{i=1}^n c_i(T-\lambda_i I)^{-1}=0 \iff p(T)\prod_{i=1}^n (T-\lambda_i I)^{-1}=0\]
+	for some nonzero polynomial $p$. Therefore, $T$ has an eigenvalue $\lambda$, and by irreducibility $T-\lambda I=0$.
+\end{proof}
+
+\begin{remark}
+ \label{remark-proof-uncountable}
+As is obvious from the proof, the analog of the theorem holds when $\mathbb C$ is replaced by any uncountable algebraically closed field $k$ in characteristic zero (for modules of the $k$-rational form of the Hecke algebra over $k$). But we really need the size of the field to play against the size of the group for the conclusion to be true in this generality, for otherwise, an inclusion $k\subset K$ of countable fields would provide a counterexample, with the discrete group $G=K^\times$ acting on the irreducible $k$-vector space $K$, with $G$-endomorphism ring equal to $K$. 
+\end{remark}
+
+\subsection{Compact representations}
+\label{subsection-compact-representations}
+
+The most important and involved notion that we will encounter in the general theory of totally disconnected groups is that of a compact representation.
+
+\begin{definition}
+	\label{definition-compact-representation}
+A smooth representation $V\in \mathcal M(G)$ is {\it compact} if its smooth matrix coefficients\footnote{We use $\boxtimes$ to signify that we have a $G\times G$-action on the tensor product; the matrix coefficient map is $G\times G$-equivariant.}
+\begin{equation}
+	\label{equation-matrix-coefficient}
+\tilde V\boxtimes V\to C^\infty(G),
+\end{equation}
+$\tilde v\otimes v \mapsto (g\mapsto \langle gv, \tilde v\rangle)$, are compactly supported. It is said to be {\it compact modulo center} if the support of (smooth) matrix coefficients is compact modulo the center of $G$.
+\end{definition}
+
+Note that, at this point, we do not require the representation to be irreducible, or even finitely generated.
+
+\begin{proposition}
+	\label{proposition-compact-admissible}
+	An equivalent characterization of compact (resp.\ compact modulo center) representations is that, for any $h\in \mathcal H(G)$ and any $v\in V$, the map $G\ni g\mapsto hgv\in V$ is compactly supported (resp.\ compactly supported modulo center). 
+	
+	A finitely generated compact representation is admissible.
+\end{proposition}
+
+\begin{proof}
+	Assume the condition of the proposition, and choose $\tilde v\in\tilde V$, as well as an idempotent $e$ fixing it, then 
+	\[\langle gv, \tilde v\rangle = \langle gv, e\tilde v\rangle = \langle e^\vee g v,\tilde v \rangle\]
+	 is compactly supported (where by $h\mapsto h^\vee$ we denote the anti-involution $h^\vee(g)=h(g^{-1})$). Vice versa, if there is a pair $(h,v)$ and sequence $g_i \in G$ without compact closure such that $hg_i v\ne 0$, then we can find a linear functional $l\in V^*$ that does not vanish on any of the countably many vectors $hg_i v$. Then the smooth matrix coefficient $\langle g v,  h^\vee l\rangle$ is not compactly supported.
+	 
+	 If $V$ is generated by a finite set $\{v_i\}_{i\in I}$ of vectors, $J$ is open compact and $e_J$ is the corresponding idempotent (the probability Haar measure on $J$), then $V^J$ is spanned by the vectors $e_J g v_i$ ($g\in G$, $i\in I$), and, by what we just proved, there are finitely distinct such vectors.
+\end{proof}
+
+
+\begin{theorem}
+	\label{theorem-compact-splits}
+  Assume $G$ to be unimodular (i.e., left Haar measures are also right Haar measures), and let $V$ be a finitely generated, compact representation. If $I_V=\mathcal H(G)_V$ denotes the anti-involution $h\mapsto h^\vee$ applied to the image of the matrix coefficient map \eqref{equation-matrix-coefficient} multiplied by a Haar measure, then $I_V$ is an idempotented two-sided ideal in the Hecke, which admits a complementary idemptotented two-sided ideal $J_V$. This gives rise to a product decomposition $\mathcal M(G)=\mathcal M(I_V)\times \mathcal M(J_V)$ of the category of smooth $G$-representations, i.e., every object $W$ decomposes as $I_VW \oplus J_V W$, and there are no nonzero morphisms between $I_VW$ and $J_V W$.
+  
+  If $V$ is irreducible, then every object in $\mathcal M(I_V)$ is totally decomposable (into a direct sum of copies of $V$).
+\end{theorem}
+
+\begin{proof}
+	We will fix a Haar measure in order to consider $\mathcal H(G)$ as a subspace of $L^2(G)$. We claim that orthogonal projection onto the closed span of $I_V$ restricts to a map $\mathcal H(G)\to I_V$. Indeed, this is a $G\times G$-equivariant map, and it is enough to check this claim on $K\times K$-invariants, for any compact open subgroup $K$. But, by Proposition \ref{proposition-compact-admissible}, $V$ is admissible, so $I_V^{K\times K}$ is a finite-dimensional subspace of $L^2(G)^{K\times K}$, hence closed. Therefore, orthogonal projection indeed lands onto $I_V^{K\times K}$. 
+	
+	Thus, if $J_V$ is the kernel of the orthogonal projection, then $\mathcal H(G)=I_V\oplus J_V$. Both summands are $G\times G$-invariant, hence ideals (since the matrix coefficient map and the orthogonal projection are $G\times G$-equivariant), and if $\{f_i\}{i=1}^n$ is a finite collection of elements in $I_V$, and $e \in \mathcal H(G)$ is an idempotent fixing them under left and right multiplication, with decomposition $e=e_I\oplus e_J$ under the above direct sum, then it is immediate to check that $e_I$ is also an idempotent which fixes them; hence, $I_V$ is idempotented (and similarly for $J_V$). The decomposition of the category is now straightforward.
+	
+	If $V$ is irreducible, and $W\in \mathcal H(I_V)$ is any module in the $V$-subcategory, then we need to prove that $W$ is generated by the irreducible copies of $V$ inside of it. But, by irreducibility, the matrix coefficient map is an embedding in this case, so, up to the choice of Haar measure, and because of the involution applied, $I_V=V\boxtimes\tilde V$. This is a direct sum of copies of $V$ (as a $G$-module under left multiplication), and therefore $W=I_VW$ is generated by its irreducibles.
+\end{proof}
+
+\begin{remark}
+	\label{remark-rationality-Hecke}
+	At least when $V$ is irreducible, Theorem \ref{theorem-compact-splits} can be proven without recourse to an inner product, hence over other fields $k$ of coefficients. Indeed, the matrix coefficient map (composed with the anti-involution $g\mapsto g^{-1}$) multiplied by a Haar measure and composed with the action of the Hecke algebra gives
+	\[V\boxtimes\tilde V\twoheadrightarrow I_V \hookrightarrow \mathcal H(G)\to V\boxtimes\tilde V = (\rm{End}_k V)^\infty,\]
+	where the exponent ``infinity'' means smooth under the $G\times G$-action, and the last isomorphism follows from admissibility (Proposition \ref{proposition-compact-admissible}). Now, the composition of these maps cannot be zero (because $V$ is the only irreducible where elements of $I_V$ can act nontrivially), and the codoimain is an irreducible smooth $G\times G$-representation, hence the composition has to be surjective. But then, for every compact open subgroup $K$, the identity of $\rm{End}_k V^K$ is represented by a $K\times K$-fixed element $f_K\in I_V^{K\times K}$, and $J_V^{K\times K}$ can be constructed as the kernel of the action of $f_K$ (on the left or right) on $\mathcal H(G)^{K\times K}$. For more details, see \cite[I.5]{Bernstein-padic}.
+\end{remark}
+
+\subsection{Restriction and induction}
+\label{subsection-restriction-induction}
+
+We finish this section with generalities regarding induction and restriction.
+
+\begin{definition}
+	\label{definition-restriction-induction}
+If $H\subset G$ is a closed subgroup of a totally disconnected group, we define the {\it restriction} functor $\rm{Res}^G_H:\mathcal M(G)\to \mathcal M(H)$ in the obvious way, and the (smooth) {\it induction} functor $\rm{Ind}_H^G:\mathcal M(H)\to \mathcal M(G)$ as its right adjoint.
+\end{definition}	
+
+Whenever obvious from the context, we will be omitting the exponent $G$ from the notation for induction.
+
+\begin{proposition}
+    \label{proposition-induction-exists}
+The induction functor is well-defined, and $\rm{Ind}_H^G(V)$ is represented by the space of smooth\footnote{``Smooth'' means in the sense of smooth representations, i.e., any such function is invariant by some compact open subgroup; see Footnote \ref{footnote-smooth}.} functions $f:G\to V$ with the property that $f(hg) = hf(g)$ for every $g\in G$, $h\in H$, with the isomorphism
+$$ \Hom_{\mathcal M(G)} (W,\rm{Ind}_H^G(V)) \xrightarrow{\sim}  \Hom_{\mathcal M(H)} (\rm{Res}_H^G(W),V)$$
+given by composition with evaluation of such a function $f$ at $1$.
+\end{proposition}
+
+\begin{proof}
+	The standard proof of Frobenius reciprocity.
+\end{proof}
+
+\begin{definition}
+	\label{definition-compact-induction}
+If $H\subset G$ is a closed subgroup, we define the {\it compact induction} functor $\rm{cInd}_H^G: \mathcal M(H)\to \mathcal M(G)$ as $V\mapsto $ the space of smooth functions $f:G\to V$, with compact support modulo $H$ on the left, and with the property that $f(hg) = hf(g)$ for every $g\in G$, $h\in H$.
+\end{definition}
+
+\begin{proposition}
+	\label{proposition-induction-restriction-exact}
+	All functors $\rm{Res}$, $\rm{Ind}$, $\rm{cInd}$ are exact. If $H\subset G$ is (closed and) open, then $\rm{cInd}_H^G$ is left adjoint to restriction. 
+\end{proposition}
+
+\begin{proof}
+   Exactness is obvious from the explicit models of these functors. 
+   
+   If $H\subset G$ is open, then the Hecke algebra of $H$ is a subalgebra of the Hecke algebra of $G$, and one can easily check that $\rm{cInd}_H^G(V)=\mathcal H(G)\otimes_{\mathcal H(H)} V$, so adjunction follows from the equivalence of smooth representations with nondegenerate modules for Hecke algebras (Proposition \ref{proposition-equivalence-Hecke}) and the universal property of tensor products.
+\end{proof}
+
+The following two lemmas are best understood in the context of reductive groups, which possess parabolic subgroups $P=LU$ with $P\backslash G$ compact and $U$ (the unipotent radical of $P$) unipotent.
+
+\begin{lemma}
+	\label{lemma-compact-induction}
+	If $H\subset G$ is a closed subgroup with $H\backslash G$ compact, then the induction functor $\rm{cInd}_H^G = \rm{Ind}_H^G$ preserves admissibility. 
+\end{lemma}
+
+\begin{proof}
+ For any compact open subgroup $K$, the set of $H\backslash G/K$ double cosets is finite, and for any $K$-invariant $f\in \rm{Ind}_H^G(V)$ and $g\in G$ the evaluation $f(g)$ has to be $H\cap gKg^{-1}$-invariant. Since $H\cap gKg^{-1}$ is open in $H$, the result follows.
+\end{proof}
+	
+
+\begin{lemma}
+	\label{lemma-compact-coinvariants}	
+	If $G$ is the union of an increasing sequence of compact open subgroups, $G = \bigcup_{i=1}^\infty G_i$, then the coinvariant functor $\mathcal M(G)\to \rm{Vect}$ sending $V$ to $V_G=$ the quotient of $V$ by the span of vectors of the form $v-gv$, $v\in V$, $g\in G$, is exact.
+\end{lemma}
+
+\begin{proof}
+	The coinvariant functor is always right exact, for any closed subgroup $H$. If $G$ is compact, it is also left exact, since it can be identified with the invariant functor by integration, $V_G\to V^G$, 
+	$$v\mapsto \int_G gv \, dg$$
+	(where $g$ is the probability Haar measure on $G$). In particular, in that case, the kernel of the coinvariant map is the kernel of this integral. If $G$ is filtered by compact open subgroups, and $v\in V$ is in the kernel of the coinvariant map, then it will be in the kernel of the coinvariant map $V\to V_{G_i}$ for one of these compact subgroups, which means that its integral over $G_i$ is zero. Applying this to a short exact sequence $0\to A\to B\to C\to 0$, it follows that if $v\in A$ is in the kernel of the coinvariant map for $B$, it is already in the kernel for $A$.
+\end{proof}
+
+\section{Algebraic theory for reductive $p$-adic groups; the Bernstein center}
+\label{section-padic-reductive}
+
+In this section, $G$ is the set of points over a local, non-Archimedean field $F$, of a connected reductive group $\mathbf G$ defined over $F$. 
+
+\subsection{Parabolic induction and restriction (Jacquet functor)}
+\label{subsection-parabolic-induction-restriction}
+
+Recall that a parabolic subgroup $\mathbf P$ of $\mathbf G$ is an algebraic subgroup such that the quotient $\mathbf P\backslash\mathbf G$ is proper. Hence, at the level of $F$-points, $P\backslash G$ is compact. (We also have that $P\backslash G = (\mathbf P\backslash\mathbf G)(F)$.) The quotient of $\mathbf P$ by its unipotent radical is called a \emph{Levi} (subquotient) of $\mathbf G$. 
+
+\begin{definition}
+	\label{definition-parabolic-induction-restriction}
+	Given a parabolic $P\subset G$ with unipotent radical $U$ and Levi quotient $L$, the {\it parabolic induction} functor $i_P^G:\mathcal M(L)\to \mathcal M(G)$ sends the inflation to $P$ of a representation of $L$ to its induction from $P$ to $G$,
+	$$ i_P^G(V) = \rm{Ind}_P^G(\rm{Infl}_L^P(V)).$$
+	(Inflation simply means that we consider $V$ as a representation of $P$ via the quotient map to $L$.)
+	
+	The {\it parabolic restriction} or {\it Jacquet functor} $r^G_P(V)$ sends $V\mapsto V_U$, the $U$-coinvariants, considered as a module for $L$.
+\end{definition}
+
+
+\begin{proposition}
+	\label{proposition-Jacquet-exact}
+	Parabolic restriction and induction form an adjoint pair of exact functors.
+\end{proposition}
+
+\begin{proof}
+	Adjunction follows from Proposition \ref{proposition-induction-exists}. Exactness follows from Proposition \ref{proposition-induction-restriction-exact} and, for parabolic restriction, Lemma \ref{lemma-compact-coinvariants}, given the fact that every unipotent subgroup has a filtration by open compact subgroups.
+\end{proof}
+
+
+For the more analytic part of the story it is convenient to define normalized versions of parabolic induction and restriction, where the representation on the Levi is twisted by the square root of the modular character. 
+
+\begin{definition}
+	\label{definition-modular-character}
+	The {\it modular character} $\delta_P$ of a parabolic subgroup $P$ is the absolute value of its \emph{algebraic modular character}, which is the character $\mathbf L\to \mathbb G_m$ by which the Levi quotient acts on the determinant of the Lie algebra $\mathfrak u$ of its unipotent radical under the \emph{left} adjoint representation. 
+\end{definition}
+
+\begin{proposition}
+	\label{proposition-modular-character}
+	If $d_Lp$ is a left Haar measure on a parabolic subgroup $P$, then $\delta(p)d_Lp$ is a right Haar measure. 
+	
+	There are identifications (depending on the same choice of positive scalar) of the space $M^\infty(P\backslash G)$ of smooth measures on the flag variety $P\backslash G$ with the induced representation $i_P^G(\delta)$, and of the space $D^\infty(P\backslash G)$ of smooth half-densities on $P\backslash G$ with the induced representation $i_P^G(\delta^\frac{1}{2})$, where $\delta^\frac{1}{2}$ is the positive square root of the modular character.		
+\end{proposition}
+
+\begin{proof}
+	Measures on $P\backslash G$ are, locally, smooth functions multiplied by the absolute value of a volume form, and there is an identification, up to scalar, of the line bundle of volume forms on $\mathbf P\backslash \mathbf G$ with the algebraic induction of the algebraic modular character. 
+\end{proof}
+
+\begin{definition}
+	\label{definition-normalized-parabolic-induction-restriction}
+	Given a parabolic $P\subset G$ with unipotent radical $U$ and Levi quotient $L$, the {\it normalized parabolic induction} functor $I_P^G:\mathcal M(L)\to \mathcal M(G)$ sends the inflation to $P$ of a representation $V$ of $L$ to the half-density version of its induction from $P$ to $G$, that is, to the space of smooth half-densities $f$ on $P\backslash G$ values in $V$ and with the property that $f(hg) = hf(g)$ for every $g\in G$, $h\in H$. 
+	
+	The {\it normalized parabolic restriction} or {\it normalized Jacquet functor} $R^G_P(V)$ sends $V\mapsto V_U \otimes D_P^*$, where $D_P = |\det(\mathfrak p\backslash\mathfrak g)^*|^\frac{1}{2}$ (a complex line) denotes the ``fiber'' of the half-density bundle at the point $P1$ of the flag variety $P\backslash G$.
+\end{definition}
+
+These definitions are, up to a choice of scalar as in Proposition \ref{proposition-modular-character}, the same as the definitions
+$$ I_P^G(V)= i_P^G(V\otimes\delta_P^\frac{1}{2}),$$
+$$ R_P^G(V)= r_P^G(V)\otimes\delta_P^{-\frac{1}{2}}$$
+more commonly found in the literature. The benefit of the definitions as given above is that they perform the main function of normalized induction indepenently of choices, namely:
+
+\begin{lemma}
+	\label{lemma-normalized-induction-unitary}
+	Normalized restriction and induction form an adjoint pair of exact functors, and if $V\in \mathcal M(L)$ is unitary, i.e., endowed with an $L$-invariant Hilbert space (semi)norm, then $I_P^G(V)$ is unitary, with (semi)norm
+	$$\Vert f\Vert =  \left(\int_{P\backslash G} \Vert f(g)\Vert \right)^\frac{1}{2}.$$
+\end{lemma}
+
+Note that the integral defining $\Vert f\Vert$ makes sense precisely because $f$ is a half-density (valued in $V$).
+
+\begin{proof}
+	The first statement follows from Proposition \ref{proposition-Jacquet-exact}, and the fact that the norm is well-defined and $G$-invariant is immediate.
+\end{proof}
+
+
+\subsection{Compact and cuspidal representations}
+\label{subsection-compact-cuspidal}
+
+Now we will characterize compact-mod-center representations (Definition \ref{definition-compact-representation}), for reductive $p$-adic groups, in terms of their Jacquet functors.
+
+
+\begin{definition}
+	\label{definition-cuspidal}
+A smooth representation $V\in \mathcal M(G)$ is called {\it quasicuspidal} if its Jacquet functors $R_P V$ are zero for all proper parabolic subgroups $P\subset G$, {\it cuspidal} if it is quasicuspidal and finitely generated, and {\it supercuspidal} if it is (quasi)cuspidal and of finite length.
+\end{definition}
+
+Please note that there are slightly different preferences in the literature as to how to distinguish among the three terms.
+
+Our main result will be that a smooth representation $V\in \mathcal M(G)$ is quasicuspidal if and only if it is compact modulo center (Theorem \ref{theorem-compact-cuspidal}), but we need some preparation. First, we need the following two results about $p$-adic reductive groups [whose proof should be added sometime!]. Let $P_0\subset G$ be a minimal parabolic subgroup (i.e., the $F$-points of a minimal $F$-rational parabolic), with $A=$ the maximal split torus in the center of a Levi subgroup $L_0$ of $P_0$. (In particular, $L_0$ is the centralizer of $A$, and the choice of $L_0$ determines an opposite parabolic $P_0^-$ with $P_0^-\cap P_0=L_0$.) We let $\Lambda$ denote the cocharacter (weight) lattice of $A$, $\Lambda^+\subset \Lambda$ the submonoid of $P_0$-dominant weights, and will use the notation $a^\lambda$ to denote the image of an element $a\in F^\times$ under $\lambda\in \Lambda$. For $\lambda\in \Lambda^+$, we denote by $L_\lambda$ the centralizer of $\lambda$ (= a Levi subgroup containing $L_0$), and by $P_\lambda$, $U_\lambda$ (resp.\ $P_\lambda^-$, $U_\lambda^-$) the parabolic and unipotent radical with Levi $L_\lambda$ containing $P_0$ (resp.\ $P_0^-$).
+
+\begin{description}
+	\item[Weak Cartan decomposition] There is a compact subset $K\subset G$ such that $G = K \varpi^{\Lambda^+} K$, where $\varpi$ is any uniformizer in $F$.
+	\item[Basis of Iwahori-type subgroups] There is a sequence of open compact subgroups $J$ which form a basis of neighborhoods of the identity, and possess Iwahori factorization with respect to any standard parabolic $P_\lambda$, that is, $J$ is the product of its subgroups $J_\lambda^0:=J\cap L_\lambda$, $J_\lambda^+=J\cap U_\lambda^+$, and $J_\lambda^-=J\cap U_\lambda^-$, in any order. 
+\end{description}
+
+
+
+\begin{proposition}
+	\label{proposition-Hecke-subalgebra}
+Given an subgroup $J$ with Iwahori factorization, there is an embedding of the monoid algebra $\mathbb C[\Lambda^+]$ into the Hecke algebra $\mathcal H(G,J)$, 
+\begin{equation}
+	\label{equation-Hecke-subalgebra}
+	\mathbb C[\Lambda^+]\hookrightarrow \mathcal H(G,J),
+\end{equation}
+sending the basis element indexed by $\lambda\in \Lambda^+$ to a scalar multiple of the characteristic measure of the double coset $J\varpi^\lambda J$.
+\end{proposition}
+
+The precise normalization of this embedding, of course, depends on how one chooses the scalar multiple on generators of the monoid.
+
+\begin{proof}
+	This follows immediately from the following calculation of products of double cosets, when $\lambda_1,\lambda_2\in \Lambda^+$.
+	$$ J\varpi^{\lambda_1}J \cdot J\varpi^{\lambda_2}J = J\varpi^{\lambda_1}J_0^+ J_0^0  J_0^- \varpi^{\lambda_2}J = J\varpi^{\lambda_1+\lambda_2}J,$$
+	since for dominant $\lambda$ we have $\varpi^\lambda J_0^+ \varpi^{-\lambda} \subset J_0^+$ and $\varpi^{-\lambda} J_0^- \varpi^{\lambda} \subset J_0^-$ (and $J_0^0 $ commutes with $\varpi^\lambda$).
+\end{proof}
+
+\begin{remark}
+	\label{remark-Up-operator}
+   For $G=\rm{GL}_2$ over $\mathbb Q$, $J$ the usual Iwahori subgroup $\begin{pmatrix} \mathbb Z_p^\times & \mathbb Z_p \\ p\mathbb Z_p & \mathbb Z_p^\times\end{pmatrix}$ and $\varpi^\lambda = p^\lambda = \begin{pmatrix} p \\ & 1 \end{pmatrix}$, the corresponding element of the Hecke algebra is the well-known {\it $U_p$ operator}.
+\end{remark}
+
+
+\begin{theorem}
+	\label{theorem-compact-cuspidal}
+ A smooth representation $V\in \mathcal M(G)$ is quasicuspidal if and only if it is compact modulo center. 
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{proposition-compact-admissible} and the weak Cartan decomposition, it is enough to show that for any $v\in V$, any open compact subgroup $J$, and $k_1,k_2$ in a fixed compact subset $K\subset G$, the function $\lambda\mapsto J k_1 \varpi^\lambda k_2 v$ is compactly supported modulo center on $\Lambda^+$. (Here and later, by the action of a compact group on a vector we mean the averaging operator, i.e., the action of its probability Haar measure.)
+
+
+Obviously, $k_2$ can be ignored since it just changes $v$. Moreover, the subset $JK$ is compact open and hence a finite union of right cosets of some (other) compact subgroup $J'$, so, by replacing $J$ with $J'$ we are reduced to showing that the function $\lambda\mapsto J\varpi^\lambda v$ is compactly supported modulo center. Finally, we could have chosen $J$ small enough that $v$ is $J$-invariant, and therefore $J\varpi^\lambda  v = J\varpi^\lambda J v$, i.e., we are considering the action of the subalgebra $\mathbb C[\Lambda^+]$ of Proposition \ref{proposition-Hecke-subalgebra} on $V^J$.
+
+The basic observation, in that case, is the following: The kernel of the Hecke operator $J\varpi^\lambda J$ acting on $V^J$ is equal to the kernel of $\varpi^{-\lambda} J_\lambda^+ \varpi^\lambda$ (on $V^J$). Indeed, this follows from the calculation 
+$$J\varpi^\lambda J = \varpi^\lambda \left(\varpi^{-\lambda} J_\lambda^+ \varpi^\lambda\right) J,$$ 
+and the fact that $\varpi^\lambda$ acts invertibly. 
+
+As $\Lambda$ varies in $\Lambda^+$, the parabolics $P_\lambda$ vary over the finite set of ``standard'' parabolics containing $P_0$; number them $P_0, \dots, P_N$, with $P_N=G$. If $v\in V^J$ is in the kernel the Jacquet module (coinvariant) map with respect to all $P_i$'s other than $G$, then for each $i<N$ there is a compact open subgroup $U_i^0$ of the corresponding unipotent radical $U_i$ which annihilates $v$ -- fix such a subgroup for every $i$. Then, for $\lambda\in \Lambda^+$ outside of a compact (=finite) subset modulo  the center, $\varpi^\lambda J_\lambda^+ \varpi^{-\lambda}$ contains one of the $U_i^0$'s, which means that $v$ is in the kernel of the Hecke operator $J \varpi^\lambda J$. Thus, if $V$ is quasicuspidal, it is compactly supported modulo the center.
+
+Vice versa, if $v \in V^J$ being in the kernel of $J \varpi^\lambda J$ and hence of $\varpi^{-\lambda} J_\lambda^+ \varpi^\lambda$ implies that $v$ is in the kernel of the Jacquet module for $P_\lambda$. If this happens for all large enough non-central $\lambda$, it is in the kernel of the Jacquet modules for all proper parabolics. Thus, if $V$ is compact modulo center, it is quasicuspidal.
+\end{proof}
+
+
+\subsection{Cuspidal components}
+\label{subsection-cuspidal-components}
+
+We will now see that the equivalence class of an irreducible supercuspidal representation modulo appropriate twists splits a very simple component off the category $\mathcal M(G)$ of smooth representations of $G$. The ``twists'' are characters of the discrete abelian group $G/G_0$, where $G_0$ is the subgroup of $G$ generated by all compact subgroups. 
+
+We will give a more algebraic definition of $G_0$. If $\mathbf A^G$ is the maximal split torus quotient of $\mathbf G$, we let $G_0$ be the kernel of the map $G\to \mathbf A^G(F)/\mathbf A^G(\mathfrak o)$. The quotient $G/G_0$ is a (full rank) sublattice of $\mathbf A^G(F)/\mathbf A^G(\mathfrak o)$, although not necessarily equal to it, and we let $\Psi_G$ be the complex algebraic group whose character group is $G/G_0$. We will also abuse notation and write $\Psi_G$ for its group of complex points, which can be identified with the characters $G/G_0\to \mathbb C^\times$. 
+
+\begin{remark}
+	\label{remark-unramified-characters}
+Bernstein's notes \cite{Bernstein-padic} call $\Psi_G$ the set of unramified characters, but there can be more unramified characters in the number-theoretic sense. For example, if $\chi:F^\times/\mathfrak o^\times\to \{\pm 1\}$ is the quadratic unramified character of $F^\times$, then $\chi\circ\det$ deserves to be called an unramified character of the group $\rm{PGL}_2(F)=\rm{GL}_2(F)/F^\times$, despite the fact that $G=G_0$ for $\rm{PGL}_2$. 
+\end{remark}
+
+Consider the set $\rm{Irr}(G)$ of isomorphism classes of irreducible smooth representations of $G$; a priori, this is just the set, but we will see that it admits a finite-to-one map to a certain complex algebraic variety. The group $\Psi_G$ acts on $\rm{Irr}(G)$.
+
+\begin{lemma}
+	\label{lemma-finite-stabilizer}
+The stabilizer of every $\pi\in \rm{Irr}(G)$ under the $\Psi_G$-action is finite.	
+\end{lemma}
+
+\begin{proof}
+	If $\mathbf A_G$ denotes the maximal split torus in the center of $\mathbf G$, the map $\mathbf A_G\to \mathbf A^G$ has finite cokernel (and kernel). For $\eta\in \Psi_G$, a necessary condition for $\pi$ and $\pi\otimes\eta$ to be isomorphic is that they have the same central character, which means that $\eta$ can only belong to the finite group of characters of $G/G_0$ which are trivial in the image of $A_G$. 
+\end{proof}
+
+\begin{lemma}
+	\label{lemma-restriction-G0}
+	If $\pi$ is an irreducible representation of $\pi$ then its restriction to $G_0$ is semisimple of finite length. The restrictions of two such representations $\pi$ and $\pi'$ share an irreducible summand iff they belong to the same $\Psi_G$-orbit (in which case the restrictions coincide). 
+\end{lemma}
+
+\begin{proof}
+	By Schur's lemma (Proposition \ref{proposition-Schur}), the center and, in particular, its maximal split torus $A_G$ acts by a character on $\pi$. The product $H=A_GG_0$ has finite index in $G$, and the induction of the restriction of $\pi$ to $H$ is the direct sum of copies of $\pi$ twisted by characters of $G/H$. From this, it follows that the restriction is semisimple of finite length. (Finite length, because the length can only go up by induction; semisimple, because every $H$-equivariant quotient of $\rm{Res}_H^G(\pi)$ induces a $G$-equivariant quotient of $\rm{Ind}_H^G \rm{Res}_H^G(\pi)$, and the splitting of the latter implies, by projection to the identity component of $G/H$, a splitting of the former.)
+	
+	Regarding the case where $\pi|_{G_0}$ and $\pi'|_{G_0}$ share an irreducible summand, we can view the space $\Hom_{G_0}(\pi,\pi')$ as a representation of the abelian group $G/G_0$. By finite length, it is finite-dimensional, and therefore has an eigenvector with some eigencharacter $\eta$. But this means that $\pi' = \eta\pi$.
+\end{proof}
+
+
+\begin{definition}
+	\label{definition-cuspidal-component}
+A {\it cuspidal component} of $\rm{Irr}(G)$ is the $\Psi_G$-orbit of a supercuspidal representation.
+\end{definition}
+
+Note that we do not, a priori, know if any cuspidal representations exist at all. But this is not a question that we will address here.
+
+
+
+\begin{theorem}
+	\label{theorem-cuspidal-component}
+Every cuspidal component $D$ splits the category $\mathcal M(G)$ of smooth representations as 
+$$\mathcal M(G)=\mathcal M(G)_D \times \mathcal M(G)_{nD},$$
+where all irreducible subquotients of $\mathcal M(G)_D$ and no irreducible subquotients of $\mathcal M_{nD}$ belong to $D$.
+
+More generally, we have a decomposition 
+\begin{equation}
+	\label{equation-cuspidal-decomposition}
+	\mathcal M(G)=\prod_D\mathcal M(G)_D \times \mathcal M(G)_{nc},
+\end{equation}
+where $D$ runs over the set of all cuspidal components, and $\mathcal M(G)_{nc}$ has no supercuspidal subquotients. The product over $D$ corresponds to the subcategory of quasicuspidal representations, and the equivalence (from right to left) is given by the functor of direct sum.
+\end{theorem}
+
+
+\begin{proof}
+The restriction of (any) $\pi\in D$ to $G_0$ is a finite direct sum of irreducibles by Lemma \ref{lemma-restriction-G0}, which are cuspidal, since Jacquet modules do not see the difference between $G$ and $G_0$. Therefore, they are compact by Theorem \ref{theorem-compact-cuspidal} (and the fact that $G_0$ has compact center), and each of them splits the category of $G_0$-modules by Theorem \ref{theorem-compact-splits}. Putting the components corresponding to all summands together, the first claim follows.
+
+The second claim will also follow if we prove that, for every compact open subgroup $K$ of $G$, there is only a finite number of cuspidal components $D$ containing $V\in \mathcal M(D)$ with $V^K\ne 0$; indeed, this would allow us to perform the decomposition on the submodules of $V\in \mathcal M(G)$ generated by $V^K$, for all $K$. This follows from the \emph{uniform admissibility theorem} [to be added].
+\end{proof}
+
+We will now describe the category $\mathcal M(G)_D$ explicitly as a module category for a finite algebra over the coordinate ring $\mathbb C[D]$. For this, we need some general algebraic preliminaries. Let $\mathcal C$ be an abelian category with arbitrary coproducts. A {\it progenerator} is a \emph{compact, projetive generator} of the category, that is, an object $P\in \mathcal C$ such that the functor 
+$$ N\mapsto \Hom(P,N)$$
+is \emph{exact, faithful, and commutes with arbitrary coproducts}. Under the projective assumption, ``faithful'' simply translates to the condition that $\Hom(P,N)\ne 0$ for all nonzero objects $N\in \mathcal C$. This functor lands in abelian groups, but since we can precompose any homomorphism with an endomorphism of $P$, it can be upgraded to a functor
+\begin{equation}
+	\label{equation-Morita-functor}
+\mathcal C\to \rm{End}(P)^\circ\text{-modules}.
+\end{equation}
+
+\begin{theorem}
+	\label{theorem-Morita}
+Under the assumptions above, the functor \eqref{equation-Morita-functor} is an equivalence of abelian categories.
+\end{theorem}
+
+\begin{proof}
+	Omitted. This is often referred to as the {\it Gabriel--Mitchell theorem}. See \cite[Theorem II.1.3]{Bass-Ktheory}.
+\end{proof}
+
+Note that there can be many projective generators in such a category; their endomorphism rings are then {\it Morita equivalent}, i.e., their module categories are equivalent. 
+
+One example of a projective generator for $\mathcal M(G)_D$ is 
+\begin{equation}
+	\label{equation-progenerator-cuspidal}	
+	\Pi_D= \rm{cInd}_{G_0}^G \rm{Res}_{G_0}^G \pi,
+\end{equation}
+where $\pi$ is any element of $D$. (Obviously, all have equal restrictions.) Equivalently,
+\[\Pi_D = \pi\otimes \mathbb C[G/G_0],\]
+and recall that the group ring $\mathbb C[G/G_0]$ is the coordinate ring of $\Psi_G$. 
+
+Fixing a base point $\pi\in D$, we can identify $D$ with $\Psi_G/\Gamma$, where $\Gamma$ is the (finite, by Lemma \ref{lemma-finite-stabilizer}) stabilizer of the isomorphism class of $\pi$ in $\Psi_G$. We will now define a $2$-cocycle $\sharp:\Gamma \times \Gamma\to \mathbb C^\times$, as follows. For each $\gamma\in\Gamma$, choose an isomorphism $\alpha_\gamma: \pi\xrightarrow\sim \pi\otimes\gamma$. By tensoring with any $\chi\in \Psi_G$ we can also consider $\alpha_\gamma$ as am isomorphism $\pi\otimes\chi\to \pi\otimes\chi\gamma$, and by Schur's lemma these isomorphisms need to satisfy a relation of the form $\alpha_{\gamma_1}\circ \alpha_{\gamma_2} = \sharp(\gamma_1,\gamma_2) \alpha_{\gamma_1\gamma_2}$ for all $\gamma_1, \gamma_2 \in \Gamma$. This is our $2$-cocycle, whose cohomology class does not depend on the isomorphisms chosen.
+
+Given such a $2$-cocycle, we can define a {\it twisted group algebra} $\mathbb C[\Gamma, \sharp]$ with basis $T_\gamma$, $\gamma\in \Gamma$ and relations $T_{\gamma_1}T_{\gamma_2} = \sharp(\gamma_1,\gamma_2) T_{\gamma_1\gamma_2}$. The {\it crossed product}
+\begin{equation}
+	\label{equation-crossed-product}
+\mathbb C[\Psi_G]\ltimes \mathbb C[\Gamma,\sharp]
+\end{equation}
+is the tensor product of the two factors, as a vector space, with multiplication
+$$ (f_1\otimes T_{\gamma_1})(f_2\otimes T_{\gamma_2}) = (f_1 \cdot {^{\gamma_1}f_2})\otimes \sharp(\gamma_1,\gamma_2) T_{\gamma_1\gamma_2}.$$
+Here, $f^\gamma$ denotes the action of $\gamma$ on $f$ by translation. 
+
+\begin{proposition}
+	\label{proposition-endomorphism-cuspidal}
+The endomorphism algebra of the progenerator \eqref{equation-progenerator-cuspidal} is the crossed product \eqref{equation-crossed-product}. Its center is the coordinate ring $\mathbb C[D] = \mathbb C[\Psi_G]^\Gamma$.
+\end{proposition}
+
+\begin{proof}
+	Left as exercise.
+\end{proof}
+
+\begin{remark}
+	The crossed product algebra is an Azumaya algebra, and is Morita equivalent to its center $\mathbb C[D]$ iff the cohomology class of the cocycle $\sharp$ is trivial; see \cite[Theorem A.15]{Auslander-Goldman}.
+\end{remark}
+
+
+\subsection{Cuspidal support}
+
+We will now extend the decomposition of the category of smooth representations given in Theorem \ref{theorem-cuspidal-component} to a decomposition indexed by cuspidal components of Levi subgroups.
+
+\begin{definition}
+	\label{definition-cuspidal-datum}
+A {\it cuspidal datum} is a pair $(L,\sigma)$ consisting of a Levi subgroup $L$ of $G$ and an irreducible supercuspidal representation $\sigma$ of $L$. 
+
+Two cuspidal data $(L,\sigma)$ and $(M,\tau)$ are said to be {\it associate cuspidal data} if there is a $g\in G$ such that $gMg^{-1}=L$ and $\sigma(g\bullet g^{-1})$ is isomorphic to $\tau$. Two cuspidal components for Levi subgroups, $(L,D)$ and $(M,D')$ are said to be {\it associate cuspidal components} if one (equivalently, all) elements of the former is associate to an element of the latter.
+
+A {\it Bernstein component} is the following complex variety whose complex points parametrize equivalence classes of cuspidal data: Given a Levi subgroup $L$ and a cuspidal component (Definition \ref{definition-cuspidal-component}) $D$ of $L$ (considered as a complex affine variety), its Bernstein component $\Omega(L,D)$ is the quotient variety $\Omega\sslash W(L,D) = \rm{Spec} \mathbb C[D]^{W(L,D)}$, where $W(L,D)$ is the subgroup of the (finite) group $\mathcal N_G(L)/L$ which maps the component $D$ to itself (i.e., such that precomposition with a representative in $\mathcal N_G(L)$ preserves the component of a cuspidal representation $\sigma\in D$). This is identified with $\Omega(M,D')$ for any associate cuspidal component $(M,D')$ in the natural way (i.e., via conjugation by any element $g\in G$ giving rise to the associate relation). The disjoint union of all Bernstein components is the {\it Bernstein variety} $\Omega_G$.
+\end{definition}
+
+There is a countable number of Bernstein components, and therefore the Bernstein variety is a countable union of affine irreducible varieties. This means that its coordinate ring $\mathbb C[G]$ is the \emph{product} of the coordinate rings of its irreducible components. 
+
+
+We will now start studying parabolically induced cuspidal blocks. It will sometimes be convenient to work with the normalized induction and restriction functors $I_P=I_P^G$, $R_P=R_P^G$ of Definition \ref{definition-normalized-parabolic-induction-restriction}, rather than the unnormalized ones $i_P$, $r_P$ (although for many statements the difference plays no role). Our basic tool will be the {\it Geometric Lemma}, which is the proposition that follows.
+
+\begin{proposition}[Geometric Lemma]
+	\label{proposition-geometric-lemma}
+Let $P$ and $Q$ be parabolics in $G$ with Levi quotients $L$, $M$, respectively. The functor
+$$\Gamma: \mathcal M(L) \to \mathcal M(M)$$
+given by $\Gamma = R_Q \circ I_P$ has a finite filtration of by subfunctors indexed by the poset of double cosets $w\in P\backslash G/Q$ (with the opposite to the closure relation order), with quotients naturally isomorphic (up to a scalar) to
+$$ \Gamma_w = I^M_{M\cap w^{-1}Pw} \circ w \circ R^L_{L\cap wQw^{-1}}.$$
+Here, by abuse of notation, we identify a double coset with a representative in $G$, and the operator ``$w$'' appearing in the formula is simply conjugation by $w$, which turns modules for the Levi quotient of $L\cap wQw^{-1}$ into modules for the Levi quotient of $M\cap w^{-1}Pw$.
+\end{proposition}
+
+Note that, for any two parabolics $P$ and $Q$, the interesection $P\cap Q$ projects to parabolic subgroups modulo the unipotent radical of each. An easy way to see this is to remember that the intersection contains a maximal split torus of $G$, and that these parabolics are then of the form $P_\lambda$, for some cocharacters $\lambda$ into that torus, in the notation used at the beginning of Subsection \ref{subsection-compact-cuspidal}. Also, to write intersections such as $M\cap w^{-1}Pw$, we have chosen a spliting of the Levi quotient of $Q$ into $Q$, but this intersection does not depend on the choice of splitting.
+
+\begin{proof}
+	Using the explicit description of induction $I_P^G V$ in terms of smooth half-densities on $P\backslash G$ valued in $V$, every $Q$-invariant open subset of $P\backslash G$ gives rise to a filtered piece $F^w I_P^GV$, of half-densities (compactly) supported in that subset. Every $w\in P\backslash G/Q$ defines such an open subset $S_w$, by taking the union of double cosets which contain it in their closure. Moreover -- and this is something particular about totally disconnected spaces -- every such section that vanishes on the $w$-orbit is supported in its (open) complement in $S_w$. Therefore, the quotient $F^w V/\sum_{w'<w} F^{w'} V$ is identified with sections over the $w$-orbit of the sheaf of half-densities on $P\backslash G$, valued in $V$. \emph{For notational simplicity, now, we assume that $w$ is represented by the identity in $G$, as we may by replacing $P$ by $w^{-1}Pw$.}	
+
+	If we choose an identification of the sheaf of half-densities with the induction of $\delta_P^{\frac{1}{2}}$, as a $Q$-module this graded piece is isomorphic to 
+	$$ \rm{cInd}_{P\cap Q}^Q \delta_P^{\frac{1}{2}} V.$$
+	We can write the unipotent radical $U_Q$ of $Q$ as a product of subgroups $U_Q = (U_Q\cap P) \times  U_Q'$, with the first factor being the stabilizer of the point $P1$ in $P\backslash G$, and the second acting freely on its $Q$-orbit. (Indeed, think of roots with respect to a maximal split torus, as in the comment preceding this proof.) The (unnormalized) $Q$-Jacquet module of this graded piece will then be the composition of averaging over $U_Q'$-orbits, followed by coinvariants with respect to $U_Q\cap P$. The latter, after projection modulo $U_P$, is precisely the unipotent radical of the parabolic $L\cap Q$ of $L$. Similarly, $P\cap Q\backslash Q/U_Q$ is the parabolic $M\cap P$ of $M$. Therefore, for the normalized Jacquet module (again choosing an identification of the sheaf of half-densities on $Q\backslash G$ with the induction of $\delta_Q^{\frac{1}{2}}$), we get a graded piece 
+	$$ \Gamma_1 V =  \delta_Q^{-\frac{1}{2}}  i^M_{M\cap P}  r^{L}_{L\cap Q} \delta_{U_Q'} \delta_P^{\frac{1}{2}} V,$$
+	where the factor $\delta_{U_Q'} :=$ the modular character for the action of $L\cap Q$ on $U_Q'$ appears because of the $U_Q'$-integration. One now checks that $\delta_P \delta_{U_Q'} = \delta_{M\cap P}$ and $\delta_Q \delta_{U_Q'}^{-1} = \delta_{L\cap Q}$, hence this becomes 
+	$$  i^M_{M\cap P} \delta_{M\cap P}^{\frac{1}{2}}  \delta_{L\cap Q}^{-\frac{1}{2}}  r^{L}_{L\cap Q}   V = I^M_{M\cap P} R^L_{L\cap Q} V.$$
+\end{proof}
+
+A corollary of the geometric lemma is the following.
+
+\begin{proposition}
+	\label{proposition-irreducible-induction}
+	Let $\sigma$ be an irreducible, admissible, unitarizable representation of a Levi subgroup $L$. There is an open dense $U\subset \Psi_L$ such that, for $\eta\in U$ and $P$, $Q$ two parabolic subgroups with Levi $L$, the representations $I_P(\sigma\otimes\eta)$ and $I_Q(\sigma\otimes\eta)$ are irreducible and isomorphic.
+\end{proposition}
+
+\begin{proof}
+Irreducibility is an open condition: Parabolic induction preserves admissibility, and irreducibility of an admissible representation $V$ is equivalent to the statement that the action map $\mathcal H(G,J)\to \rm{End}(V^J)$ is surjective for every $J$. We can choose a compact open subgroup $K$ such that $G=PK$, and then the restrictions of all $V=I_P(\sigma\otimes\eta)$ to $K$ are identified (with the induction of the restriction to $P\cap K$ of $\sigma$). Hence, for all $J\subset K$, the vector spaces $\rm{End}(V^J)$ are identified, and the action of $\mathcal H(G,J)$ gives a map 
+$$ \mathcal H(G,J) \to \mathbb C[\Psi_L]\otimes \rm{End}(V^J).$$
+Therefore, this map being surjective is an open condition. [For the conclusion, it is enough to restrict to a $J$ of Iwahori type such that these modules are generated by their $J$-invariants -- to be added.]
+
+Therefore, it is enough to prove irreducibility for a single element in the family. If $\eta$ is a unitary character, then $I_P(\sigma\otimes\eta)$ is unitarizable and admissible, which by a standard argument (projection to the orthogonal complement) implies that it is completely reducible. Therefore, it is enough to show that, for some unitary $\eta$, the $G$-endomorphism ring of $I_P(\sigma\otimes\eta)$ is scalar. 
+
+But $\Hom_G(I_P(\sigma\otimes\eta), I_P(\sigma\otimes\eta))= \Hom_L(R_P I_P(\sigma\otimes\eta), \sigma\otimes\eta)$, and, by Proposition \ref{proposition-geometric-lemma}, the functor $R_P I_P$ has a filtration with graded quotients $I^L_{L\cap w^{-1}Pw} \circ w \circ R^L_{L\cap wLw^{-1}}$, with $w$ ranging over $P\backslash G/P$. The point now is that, for $w\ne 1$ and $\eta$ generic in $\Psi_L$ (and hence in its unitary subset), the Jordan--H\"older components of these graded pieces have different central characters than $\sigma\otimes\eta$, and therefore this endomorphism ring is scalar. This proves the first claim. 
+
+[Proof of second claim to be added.]
+ 
+\end{proof}
+
+
+
+\begin{proposition}
+	\label{proposition-cuspidal-data-equivalences}
+Given a Bernstein component $\Omega$ represented by a cuspidal component $D$ of a Levi subgroup $L$, the following are equivalent for a smooth representation $V\in \mathcal M(G)$.
+\begin{enumerate}
+	\item \label{item:one} $V$ injects into a direct sum, indexed by parabolics $P$ with Levi subgroup $L$, of representations $i_P(W_P)$, with $W_P\in \mathcal M(L)_D$.
+	\item $V$ is a subquotient of representations as in \eqref{item:one}.
+	\item If $(M,D')$ is any cuspidal datum that is \emph{not} associate to $(L,D)$, and $Q$ a parabolic with Levi $M$, the Jacquet module $r_Q(V)$ has zero component in $\mathcal M(M)_{D'}$.
+	\item For a parabolic $P$ with Levi $L$, the Jacquet module $r_P(V)$ belongs to the product of $\mathcal M(L)_{D'}$ with $(L,D')$ associate to $(L,D)$, and if we denote by the index $D$ the projetion to the $D$-cuspidal block, the map $V\mapsto \bigoplus_P i_P(r_P V)_D$, with $P$ ranging over all parabolics with Levi $L$, is injective.
+\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+This follows relatively easily from the Geometric Lemma \ref{proposition-geometric-lemma}. See \cite[Proposition-definition 2.8]{Bernstein-centre} for details.
+\end{proof}
+
+
+
+
+
+\begin{definition}
+	\label{definition-Bernstein-block}
+Given a Bernstein component $\Omega\subset \Omega_G$, in the sense of Definition \ref{definition-cuspidal-datum}, the corresponding {\it Bernstein block} of the category $\mathcal M(G)$ is the full subcategory $\mathcal M(G)_\Omega$ of all representations $V\in \mathcal M(G)$ satisfying the equivalent conditions of Proposition \ref{proposition-cuspidal-data-equivalences}. 
+\end{definition}
+
+
+
+\begin{theorem}
+	\label{theorem-Bernstein-decomposition}
+The category $\mathcal M(G)$ is the product of its Bernstein blocks $\mathcal M(G)_\Omega$, with the equivalence given by direct sums.
+\end{theorem}
+
+That means that every object decomposes into a direct sum of objects belonging to the various blocks, and morphisms between two objects are products of the morphisms between their components. 
+
+\begin{proof}
+ For every representation $V$ adjunction gives rise to a map 
+ $$ V\to \prod_{(L,P,D)} I_P (R_PV)_D,$$
+ where $(L,D)$ ranges over a set of representatives for all Bernstein components, and $P$ ranges over all parabolics with Levi $L$; the index $D$ means projection to the corresponding cuspidal component for the Levi. 
+ 
+ The kernel of this map is a submodule with the property that the cuspidal projections of all its Jacquet modules (including for $P=G$) vanish. Such a representation is clearly zero. 
+ 
+ The image lies in the direct sum, by Theorem \ref{theorem-cuspidal-component}.
+\end{proof}
+
+\subsection{The Bernstein center}
+   \label{subsection-Bernstein-center}
+
+\begin{definition}
+	\label{definition-Bernstein-center}
+The {\it center of an abelian category} $\mathcal C$ is the ring of endomorphisms of its identity functor. The {\it Bernstein center} $\mathfrak Z(G)$ of a reductive $p$-adic group $G$ is the center of the category $\mathcal M(G)$ of its smooth representations.
+\end{definition}
+
+Explicitly, an element $z$ of the Bernstein center consists of a collection $z_V$ of ($G$-)endomorphisms of its various smooth representations $V$, which is functorial, in the sense that for every morphism $V\to W$ the following diagram commutes.
+$$ \xymatrix{V \ar[r] \ar[d]_{z_V} &W \ar[d]^{z_W} \\ V \ar[r]& W}.$$
+We will ignore general set-theoretic questions, which are pretty easy to settle in module categories; for example:
+
+\begin{example}
+	\label{example-center-modulecategory}
+	If $A$ is a unital algebra, and $\mathcal C = \rm{Mod}(A)$, the category of $A$-modules, its center is the center of $A$. Indeed, the category is generated by the free object $A$, and any $A$-endomorphism of $A$ is determined by the image of its identity element, which has to be central. This clearly induces functorial $A$-endomorphisms of all modules $N$, through presentations of the form $\bigoplus_I A\to N$.
+\end{example}
+
+In our case, $\mathcal M(G)$ is equivalent to the category $\mathcal M(\mathcal H(G))$ of nondegenerate modules of its Hecke algebra (Proposition \ref{proposition-equivalence-Hecke}), which however is only idempotented, not unital. We can build a unital ``completed'' Hecke algebra out of it.
+
+\begin{definition}
+   \label{definition-completed-Hecke}
+The {\it completed Hecke algebra} $\widehat{\mathcal H(G)}$ is the convolution algebra of {\it essentially compactly supported} distributions on $G$, that is, linear functionals $\mathcal C_c^\infty(G)\to \mathbb C$ whose restriction to $J\times J$-invariants, for every compact open subgroup $G$, is represented by an element in the $J$-Hecke algebra $\mathcal H(G,J)$. 
+\end{definition}
+
+In other words, 
+\begin{equation}
+   \label{equation-completed-Hecke}
+	\widehat{\mathcal H(G)} = \underset{\leftarrow}{\lim} \mathcal H(G,J),
+\end{equation}
+where the limit is taken over a basis of open compact subgroups, and the transition maps are given by averaging. The completed Hecke algebra is unital, with identity element $\delta_1=$ the delta measure at the identity.
+
+
+\begin{proposition}
+	\label{proposition-center-Hecke}
+	The Bernstein center $\mathfrak Z(G)$ is naturally identified with the ring of linear endomorphisms of $\mathcal H(G)$ which commute with right and left multiplication; also, with the center of the completed Hecke algebra $\widehat{\mathcal H(G)}$.
+\end{proposition}
+
+The ``natural'' identification is the one induced by viewing $\mathcal H(G)$ as a left $G$-module (equivalently, a right $G$-module; ), so the map from $\mathfrak Z(G)$ to 
+
+
+\begin{proof}
+	It is easy to see that the functor $V\mapsto V^J = e_J V$ (where $e_J$ is the identity element in $\mathcal H(G,J)$) from $\mathcal M(G)$ to $\mathcal H(G,J)$-modules induces a homomorphism from the center of the former category to that of the latter. But $\mathcal H(G,J)$ is a unital algebra, so, by Example \ref{example-center-modulecategory}, $\mathfrak Z(G)$ lands in its center. The center commutes with projections (averaging) $V^{J'}\to V^J$ for $J'\subset J$, so the collection of these maps defines a homomorphism from $\mathfrak Z(G)$ to linear endomorphisms of $\mathcal H(G)$ which commute with left and right multiplication. Taking the inverse limit over $J$, we obtain similar endomorphisms of the completed Hecke algebra; but this is unital, so the ring of such endomorphisms is identified with its center. 
+	
+	Vice versa, every element $z$ in the center of $\widehat{\mathcal H(G)}$ projects to central elements $z_J$ in the centers of $\mathcal H(G,J)$ for all $J$, and induces functorial endomorphisms on all smooth representations $V$, by letting it act on $V^J$ as $z_J$. 
+\end{proof}
+
+The block decomposition of the category $\mathcal M(G)$ (Theorem \ref{theorem-Bernstein-decomposition}) induces a decomposition of its center,
+\begin{equation}
+	\label{equation-decomposition-Bernstein-center}
+	\mathfrak Z(G) = \prod_\Omega \mathfrak Z(G)_\Omega,
+\end{equation}
+where $\Omega$ runs over all the Bernstein components, and $\mathfrak Z(G)_\Omega$ is the center of the corresponding Bernstein block $\mathfrak M(G)_\Omega$. Recall that every such component is the associate class of a pair $(L,D)$, with $L$ a Levi of $G$ and $D$ a cuspidal component of $L$, and that such a component is, as a variety, isomorphic to $D\sslash W(L,D)$.
+
+\begin{theorem}
+   \label{theorem-Bernstein-center}	
+The center of the Bernstein block $\mathcal M(G)_\Omega$ is isomorphic to the ring $\mathbb C[\Omega]$ of regular functions on $\Omega$. The isomorphism is uniquely determined by the requirement that, if $\Omega$ is represented by a cuspidal component $D$ of a Levi subgroup $L$, and $P$ is a parabolic with Levi $L$, an element $z$ in the center acts on the normalized parabolic induction (Definition \ref{definition-normalized-parabolic-induction-restriction}) of a supercuspidal $\sigma\in D$ by evaluation of the corresponding regular function at the image of $\sigma$ in $\Omega = D\sslash W(L,D)$.
+\end{theorem}
+
+\begin{proof}
+We follow the proof of the original paper \cite{Bernstein-centre}; a slightly different proof is contained in Bernstein's notes \cite{Bernstein-padic}, using the (imporant but heavier) machinery of {\it second adjointness}. We use normalized parabolic induction and restriction throughout. 
+
+Firstly, the case $L=G$ was treated in Proposition \ref{proposition-endomorphism-cuspidal}.
+
+Secondly, by Proposition \ref{proposition-cuspidal-data-equivalences}, every representation in $\mathcal M(G)_\Omega$ embeds into a sum of representations of the form $I_P(\sigma)$, for $P$ varying over parabolics with Levi $L$ and $\sigma\in \mathcal M(L)_D$, so an element of the center is determined by its action on representations of the form $I_P(\sigma)$. 
+
+Thirdly, we can replace an arbitrary $\sigma$ with a progenerator $\Pi_D$ of the category $\mathcal M(L)_D$, for example, $	\Pi_D= \rm{cInd}_{M_0}^M \rm{Res}_{M_0}^M \pi$, as in Equation \ref{equation-progenerator-cuspidal}. We have an action of the group algebra $\mathbb C[M/M_0]=\mathbb C[\Psi_M]$ on $I_P^G(\Pi_D)$ by $G$-automorphisms (induced from its action on $\Pi_D$), and by definition the action of the Bernstein center has to commute with it. For every compact open subgroup $K$ of $G$, the space $I_P^G(\Pi_D)^K$ is a projective $\mathbb C[\Psi_M]$-module of finite rank; the action of any $z\in \mathfrak Z(G)$ on it must be given by a section of its sheaf of $\mathbb C[\Psi_M]$-linear endomorphisms. On the other hand, by Proposition \ref{proposition-irreducible-induction} for a Zariski open set of $\eta\in\Psi_G$, the specialization at $\eta$, i.e., the representation $I_P^G(\pi\otimes\eta)$, is irreducible. (Note that a supercuspidal representation with unitary central character is always unitarizable, as we can form an inviant inner product by integrating matrix coefficients on $G/Z(G)$.) It follows from Schur's lemma that $z$ must act by a scalar on this quotient. These facts combined imply that $z$ acts as an element of $\mathbb C[\Psi_M]$. Finally, if $\pi$ and $\pi\otimes\eta$ are isomorphic, then a choice of isomorphism induces an $L$-endomorphism of $\Pi_D$ (as in Proposition \ref{proposition-endomorphism-cuspidal}), hence this element should be invariant under the stabilizer $\Gamma$ of $\pi$, and descend to an element of $\mathbb C[D]$.
+
+Fourthly, for $w\in W(L,D)$ and generic $\pi\in D$ we have an isomorphism $I_P(\pi)\simeq I_P({^w\pi})$. Similarly, for $P,Q$ with Levi $L$ and generic $\pi$ we have $I_P(\pi)=I_Q(\pi)$, again by Proposition \ref{proposition-irreducible-induction}. Therefore, this element of $\mathbb C[D]$ is independent of $P$, and invariant under $W(L,D)$. 
+
+We have proven that we have an injection $\mathfrak Z(\mathcal M(G)_\Omega)\hookrightarrow \mathbb C[\Omega]$. There remains to prove that it is surjective. Since, again by Proposition \ref{proposition-cuspidal-data-equivalences}, we have a functorial embedding
+\begin{equation}
+	\label{equation-functorial-embedding-induction} 
+	V\hookrightarrow \bigoplus_P I_P (R_P V)_D,
+\end{equation}
+and any $z\in \mathbb C[\Omega] = \mathfrak Z(\mathcal M(L)_D)^{W(L,D)}$ acts by $G$-automorphisms on the right hand side (since it acts by $L$-automorphisms on the inducing data), it is enough to show that the embedding \eqref{equation-functorial-embedding-induction} is invariant under the $z$-action. The class of representations for which this happens is stable under subquotients and direct sums, and therefore it is enough to assume that $V=I_Q(\Pi_D)$, with $\Pi_D$ as before and $Q$ with Levi $L$. More precisely, we will prove that under the canonical maps 
+$$ I_Q(\Pi_D) \to I_P (R_P I_Q(\Pi_D))_D$$
+the $Q$-induced action of $z$ on the left coincides with the $P$-induced action on the right. Equivalently, considering the $L$-module 
+$$ \sigma= (R_P I_Q(\Pi_D))_D \in \mathcal M(L)_D,$$
+the $Q$-induced action of $z$ (call it $z_Q$) coincides with its action on $\sigma$ as an object of $\mathcal M(L)_D$ (call it $z_P$). 
+
+The geometric lemma (Proposition \ref{proposition-geometric-lemma}) provides a filtration of $\sigma$ indexed by $w\in W(L,D)$, with $w$-graded piece ${^w\Pi_D}$. The original $\mathbb C[D]$-action on the inducing datum $\Pi_D$ becomes $w$-twisted on the $w$-graded piece. 
+Since $z$ is a $W(L,D)$-invariant function on $D$, the actions $z_P$ and $z_Q$ coincide on all the gradings. There remains to show that there is no unipotent difference between the two actions. Any such nontrivial unipotent difference would give rise to an $L$-equivariant morphism between two of the graded pieces, ${^{w_1}\Pi_D}$ and ${^{w_2}\Pi_D}$. Moreover, it would be $\mathbb C[D]$-equivariant with respect to the $w_1$-twisted action on the former and the $w_2$-twisted action on the latter. Again, for every compact open $K\subset L$, the $K$-invariants of ${^{w_1}\Pi_D}$ and ${^{w_2}\Pi_D}$ are finitely generated projective $\mathbb C[D]$-modules, and therefore it suffices to show that for a Zariski dense set of specializations we cannot have such morphisms. But this is indeed the case -- for a Zariski dense subset of $\pi\in D$ we have  $\Hom_L({^{w_1}\pi}, {^{w_2}\pi})=0$. It follows that $z_P$ and $z_Q$ have to coincide, completing the proof of the theorem.
+
+
+\end{proof}
 
 \section{The Satake isomorphism}
 \label{section-Satake-isomorphism}
@@ -702,7 +1346,7 @@ $$ 1_{KgK}\cdot v = \sum_{\gamma \in [KgK/K]} \gamma\cdot v.$$
 
 The goal of this section is to establish the integral Satake isomorphism. For this purpose, let $\mathcal Y$ be ``the'' full pre-flag variety of $\mathcal G$ over $\mathfrak o$, $\mathcal Y \simeq \mathcal N\backslash \mathcal G$, where $\mathcal N$ is the unipotent radical of a Borel subgroup. We do not really choose a Borel subgroup, but the choice of integral model matters, as it endows $\mathcal Y$ with a distinguished $K$-orbit, equal to $\mathcal Y(\mathfrak o)$, that will serve as our base point. As for the group, will use $Y$ etc.\ to denote $F$-points. We let $T\supset T_0$ denote the universal Cartan $T=B/N$, and its maximal compact subgroup $T_0=\mathcal T(\mathfrak o)$; we reserve the letter $A$ for the maximal split torus in $T$. 
 
-We let $\mathcal S(Y/K)$ denote the space of \emph{$\mathbb Z$-valued}, compactly supported, $K$-invariant functions on $\mathcal S$. It is a module for $\mathcal H(G,K)$ (under the right action of $G$ on $Y$) and for $T$ (under the ``left'' action of $T$ on $Y$). To be clear, the action of an element $t\in T$ on functions is defined as translation by $t$, not $t^{-1}$, and it is not normalized by any modular character --- which is not defined over $\mathbb Z$: $(t\cdot f)(y) = f(ty)$; this way, the center of $G$ acts the same, whether it is considered as a subgroup of $G$ or of $T$.
+We let $\mathcal S(Y/K)$ denote the space of \emph{$\mathbb Z$-valued}, compactly supported, $K$-invariant functions on $Y$. It is a module for $\mathcal H(G,K)$ (under the right action of $G$ on $Y$) and for $T$ (under the ``left'' action of $T$ on $Y$). To be clear, the action of an element $t\in T$ on functions is defined as translation by $t$, not $t^{-1}$, and it is not normalized by any modular character --- which is not defined over $\mathbb Z$: $(t\cdot f)(y) = f(ty)$; this way, the center of $G$ acts the same, whether it is considered as a subgroup of $G$ or of $T$.
 
 
 \begin{lemma}
