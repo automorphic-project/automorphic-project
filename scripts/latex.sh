@@ -38,7 +38,7 @@ cp $STEM.toc $TMPD
 cd $TMPD
 $LATEX $STEM.tex
 
-# Move newly created files back to stacks project directoy
+# Move newly created files back to stacks project directory
 mv $STEM.pdf $STEM.dvi $STEM.aux $STEM.toc $STEM.out $STEM.log $SPD
 
 # Remove temporary directory
